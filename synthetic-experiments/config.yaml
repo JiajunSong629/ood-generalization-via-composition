@@ -1,0 +1,57 @@
+# reproduce
+seed: 2026
+
+# model
+vocab_size: 32 # 64
+d_model: 64
+ff_dim: 256
+num_heads: 1
+num_layers: 2
+
+# TF model variants
+linear_attn: False
+residual: True
+mlp: False
+dropout: 0.1
+norm: True
+output_norm: False
+pos: "rotary"
+rotary_theta: 10000
+
+# data generation
+max_seq_len: 64
+sample_size: 5000
+sample_size_test: 5000
+regime: "varied repetition"
+distr: "two-level"
+rep_l: 10
+rep_h: 20
+ood_len_pattern: 25
+pool_size: null
+sig: 2
+
+# training
+device: "cuda"
+fancy_opt: False
+use_wd: True
+schedule: "constant"
+fresh_sample: True
+label_smoothing: False
+lr: 0.001
+wd: 0.0005
+batch_size: 50
+num_epoch: 10000
+
+# logging
+wandb_log: False
+plot_attn_every_epoch: 100
+print_output: False
+n_save: 1
+up_to_first_save: False
+
+# eval
+ignore_segment: 1
+ignore_burning: 4
+
+# IO
+out_dir: "out"
