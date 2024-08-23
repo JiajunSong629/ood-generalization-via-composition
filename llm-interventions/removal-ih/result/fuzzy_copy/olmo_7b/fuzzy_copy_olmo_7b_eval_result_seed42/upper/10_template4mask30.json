@@ -1,0 +1,1908 @@
+[
+    {
+        "acc": 0.04
+    },
+    {
+        "top3acc": 0.04
+    },
+    {
+        "prompt": "willow_tree lizard apple trout turtle pickup_truck ray bicycle skyscraper cloud WILLOW_TREE LIZARD APPLE TROUT TURTLE PICKUP_TRUCK RAY BICYCLE",
+        "solution": " SKATEBOARD CLOUD\n\n[EX Q]: category:",
+        "answer": "SKYSCRAPER CLOUD",
+        "accuracy": false,
+        "topk_solutions": [
+            " SKATEBOARD CLOUD\n\n[EX Q]: category:",
+            " SKATEBOARD CLOUD\n\n[EX Q]: cat,",
+            " SKATEBOARD CLOUD\n\n[EX Q]: sentence_"
+        ],
+        "topk_probs": [
+            1.1728978677183477e-07,
+            6.824444653830142e-08,
+            5.721636142652642e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bear snake fox poppy plate butterfly caterpillar boy aquarium_fish motorcycle BEAR SNAKE FOX POPPY PLATE BUTTERFLY CATERPILLAR BOY",
+        "solution": " AQUARIUM MOTORCYCLE BEAR\nA:\n",
+        "answer": "AQUARIUM_FISH MOTORCYCLE",
+        "accuracy": false,
+        "topk_solutions": [
+            " AQUARIUM MOTORCYCLE BEAR\nA:\n",
+            " AQUARIUM MOTORCYCLE BEAR\n\nA:",
+            " AQUARIUM MOTORCYCLE BEAR.\n\nA"
+        ],
+        "topk_probs": [
+            2.942105936654116e-07,
+            6.364528104541023e-08,
+            5.647407430586782e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "willow_tree bee orchid man plain bicycle pear crab otter possum WILLOW_TREE BEE ORCHID MAN PLAIN BICYCLE PEAR CRAB",
+        "solution": " OTTER RAT RAT RAT RAT RAT RAT",
+        "answer": "OTTER POSSUM",
+        "accuracy": false,
+        "topk_solutions": [
+            " OTTER RAT RAT RAT RAT RAT RAT",
+            " OTTER RABBIT RABBIT RABBIT RABBIT",
+            " OTTER RAT RAT RAT RAT RAT RAB"
+        ],
+        "topk_probs": [
+            1.4526811753512447e-08,
+            7.092913367756637e-09,
+            8.724028166540165e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "motorcycle girl cockroach turtle lobster orange aquarium_fish mouse apple butterfly MOTORCYCLE GIRL COCKROACH TURTLE LOBSTER ORANGE AQUARIUM_FISH MOUSE",
+        "solution": "Detailed Instructions: In this task, you are given a sentence",
+        "answer": "APPLE BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            "Detailed Instructions: In this task, you are given a sentence",
+            "Detailed Instructions: In this task, you are given two phrases",
+            "Detailed Instructions: In this task, you're given a pair"
+        ],
+        "topk_probs": [
+            0.0002584244648460299,
+            8.472445188090205e-05,
+            7.38430317142047e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "maple_tree house bed pickup_truck can otter butterfly turtle snail whale MAPLE_TREE HOUSE BED PICKUP_TRUCK CAN OTTER BUTTERFLY TURTLE",
+        "solution": " FISHING_ROD FISHING_LINE FISHING_NET FISHING",
+        "answer": "SNAIL WHALE",
+        "accuracy": false,
+        "topk_solutions": [
+            " FISHING_ROD FISHING_LINE FISHING_NET FISHING",
+            " FISHING_ROD FISHING_NET FISHING_ROD FISH",
+            " FISHING_ROD FISHING_NET FISHING_ROD_"
+        ],
+        "topk_probs": [
+            1.5961377641815488e-07,
+            1.1030257240918218e-07,
+            6.284850684323828e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "butterfly dolphin bear crocodile squirrel castle camel whale camel sweet_pepper BUTTERFLY DOLPHIN BEAR CROCODILE SQUIRREL CASTLE CAMEL WHALE",
+        "solution": " SWEET POTATO PEPPERDetailed Instructions",
+        "answer": "CAMEL SWEET_PEPPER",
+        "accuracy": false,
+        "topk_solutions": [
+            " SWEET POTATO PEPPERDetailed Instructions",
+            " SWEET POTATO PEPPERIn this task,",
+            " SWEET POTATO PEPPERIn this task you"
+        ],
+        "topk_probs": [
+            6.495361049019266e-07,
+            5.065670052317728e-07,
+            8.802814477348875e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "beaver kangaroo fox fox streetcar maple_tree snake maple_tree streetcar tiger BEAVER KANGAROO FOX FOX STREETCAR MAPLE_TREE SNAKE MAPLE_TREE",
+        "solution": " KANGAROO BEAR BEAR BEAR BEAR BEAR BE",
+        "answer": "STREETCAR TIGER",
+        "accuracy": false,
+        "topk_solutions": [
+            " KANGAROO BEAR BEAR BEAR BEAR BEAR BE",
+            " KANGAROO TIGER BEAR BEAR BEAR BEAR",
+            " KANGAROO BEAR BEAR BEAR BEAR BEAR K"
+        ],
+        "topk_probs": [
+            3.093193663517013e-05,
+            6.48667310088058e-06,
+            1.8576072307041613e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lion snake streetcar dinosaur bridge caterpillar lion boy oak_tree sunflower LION SNAKE STREETCAR DINOSAUR BRIDGE CATERPILLAR LION BOY",
+        "solution": " OAK TREE\"\n\nI want to split the string into an",
+        "answer": "OAK_TREE SUNFLOWER",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK TREE\"\n\nI want to split the string into an",
+            " OAK TREE\"\n\nI want to split the string into a",
+            " OAK TREE\"\n\nI want to split the string into two"
+        ],
+        "topk_probs": [
+            1.4924690372453142e-09,
+            1.1623361162449442e-09,
+            9.052282257115962e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "motorcycle streetcar rabbit possum fox rose squirrel camel train crab MOTORCYCLE STREETCAR RABBIT POSSUM FOX ROSE SQUIRREL CAMEL",
+        "solution": " TRUCK\n\nThe answer to this example can be: yes\nHere",
+        "answer": "TRAIN CRAB",
+        "accuracy": false,
+        "topk_solutions": [
+            " TRUCK\n\nThe answer to this example can be: yes\nHere",
+            " TRUCK\n\nThe answer to this example can be: a\nHere",
+            " TRUCK\n\nThe answer to this example can be: b\nHere"
+        ],
+        "topk_probs": [
+            8.546248153606939e-08,
+            4.117682905757647e-08,
+            3.9199733237182954e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "camel table seal spider lizard beetle keyboard beaver cup bear CAMEL TABLE SEAL SPIDER LIZARD BEETLE KEYBOARD BEAVER",
+        "solution": "\nA:\ncamelDetailed Instructions: In this task",
+        "answer": "CUP BEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            "\nA:\ncamelDetailed Instructions: In this task",
+            "\nA:\ncamelDetailed Instructions: You are given",
+            "\nA:\ncamelDetailed Instructions: Given a sentence"
+        ],
+        "topk_probs": [
+            5.963045623502694e-06,
+            1.9029798750125337e-06,
+            7.50783101466368e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mouse bicycle turtle rocket elephant wardrobe bee couch beetle leopard MOUSE BICYCLE TURTLE ROCKET ELEPHANT WARDROBE BEE COUCH",
+        "solution": "\nA:\nbicycle, couch, elephant, mouse, rocket",
+        "answer": "BEETLE LEOPARD",
+        "accuracy": false,
+        "topk_solutions": [
+            "\nA:\nbicycle, couch, elephant, mouse, rocket",
+            "\nA:\nbicycle, couch, elephant, mouse, rock",
+            "\nA:\nbicycle, elephant, couch, bee, mouse"
+        ],
+        "topk_probs": [
+            1.9952540242229588e-07,
+            1.210182603017529e-07,
+            5.623119037068136e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chair keyboard rose tiger mouse streetcar hamster tank mushroom rose CHAIR KEYBOARD ROSE TIGER MOUSE STREETCAR HAMSTER TANK",
+        "solution": " MOUSE ROSE KEYBOARD CHAIR ROSE ROSE",
+        "answer": "MUSHROOM ROSE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOUSE ROSE KEYBOARD CHAIR ROSE ROSE",
+            " MOUSE ROSE KEYBOARD CHAIR ROSE TIG",
+            " MOUSE ROSE KEYBOARD CHAIR TANK ROSE"
+        ],
+        "topk_probs": [
+            9.387184007891847e-08,
+            8.844315857459151e-08,
+            5.819237003379385e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "castle pickup_truck dolphin streetcar orange mountain snail orchid forest bus CASTLE PICKUP_TRUCK DOLPHIN STREETCAR ORANGE MOUNTAIN SNAIL ORCHID",
+        "solution": " TRUCK BUS CA CA CA CA CA CA CA CA CA CA CA CA",
+        "answer": "FOREST BUS",
+        "accuracy": false,
+        "topk_solutions": [
+            " TRUCK BUS CA CA CA CA CA CA CA CA CA CA CA CA",
+            " TRUCK BUS CA CA CA CA CA CA CA CA CA CA CA C",
+            " TRUCK ORANGE CA CA CA CA CA CA CA CA CA CA CA"
+        ],
+        "topk_probs": [
+            8.548946425435133e-06,
+            2.4251494323834777e-07,
+            2.063090960291447e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "poppy tulip table bee flatfish apple ray porcupine skunk butterfly POPPY TULIP TABLE BEE FLATFISH APPLE RAY PORCUPINE",
+        "solution": "\n\nTranslate to English.\nTranslation:\nTable of Contents 1",
+        "answer": "SKUNK BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nTranslate to English.\nTranslation:\nTable of Contents 1",
+            "\n\nTranslate to English.\nTranslation:\nTable 1.1",
+            "\n\nTranslate to English.\nTranslation:\nTable 1.2"
+        ],
+        "topk_probs": [
+            9.146405410831449e-09,
+            7.949552127684001e-09,
+            7.015454883685379e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee lion shark chair sunflower kangaroo television willow_tree orange tulip CHIMPANZEE LION SHARK CHAIR SUNFLOWER KANGAROO TELEVISION WILLOW_TREE",
+        "solution": "Detailed Instructions: In this task, you are given a sentence",
+        "answer": "ORANGE TULIP",
+        "accuracy": false,
+        "topk_solutions": [
+            "Detailed Instructions: In this task, you are given a sentence",
+            "Detailed Instructions: In this task, you are given two phrases",
+            "Detailed Instructions: In this task, you're given a pair"
+        ],
+        "topk_probs": [
+            0.0002790966827888042,
+            7.862919301260263e-05,
+            6.716357893310487e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "leopard road table sweet_pepper bottle crab lawn_mower tank crocodile boy LEOPARD ROAD TABLE SWEET_PEPPER BOTTLE CRAB LAWN_MOWER TANK",
+        "solution": " BOY\n\nOutput: The boy is near the crocodile.",
+        "answer": "CROCODILE BOY",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOY\n\nOutput: The boy is near the crocodile.",
+            " BOY\n\nOutput: The boy is near the crocodile,",
+            " BOY\n\nOutput: The boy is near the crocodile and"
+        ],
+        "topk_probs": [
+            4.6029214217924164e-08,
+            3.16353840901229e-08,
+            1.8025298587076577e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "house chimpanzee sea pickup_truck bed television lizard snail can dolphin HOUSE CHIMPANZEE SEA PICKUP_TRUCK BED TELEVISION LIZARD SNAIL",
+        "solution": " HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOU",
+        "answer": "CAN DOLPHIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOU",
+            " HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE H",
+            " HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE HOUSE\n"
+        ],
+        "topk_probs": [
+            0.00069212238304317,
+            6.374229542416288e-06,
+            4.380940026749158e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "beetle keyboard leopard road maple_tree lamp maple_tree cup hamster plain BEETLE KEYBOARD LEOPARD ROAD MAPLE_TREE LAMP MAPLE_TREE CUP",
+        "solution": " HAMSTERDetailed Instructions: In this task, you are",
+        "answer": "HAMSTER PLAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " HAMSTERDetailed Instructions: In this task, you are",
+            " HAMSTERDetailed Instructions: You are given a sentence in",
+            " HAMSTERDetailed Instructions: In this task, you're"
+        ],
+        "topk_probs": [
+            6.261355156311765e-05,
+            3.354429645696655e-05,
+            2.6101213734364137e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chair mushroom tulip lobster raccoon rabbit squirrel seal raccoon bowl CHAIR MUSHROOM TULIP LOBSTER RACCOON RABBIT SQUIRREL SEAL",
+        "solution": " TURTLE TURTLE TURTLE TURT",
+        "answer": "RACCOON BOWL",
+        "accuracy": false,
+        "topk_solutions": [
+            " TURTLE TURTLE TURTLE TURT",
+            " TURTLE TURTLE TURTLE CHAIR",
+            " TURTLE TURTLE TURTLE TURTL"
+        ],
+        "topk_probs": [
+            6.617214012294426e-07,
+            2.3436412277533236e-07,
+            6.974499200396167e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hamster spider bee butterfly train pickup_truck woman skunk worm dinosaur HAMSTER SPIDER BEE BUTTERFLY TRAIN PICKUP_TRUCK WOMAN SKUNK",
+        "solution": " DINOSAUR\"\n  }\n}\n```\n\n",
+        "answer": "WORM DINOSAUR",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR\"\n  }\n}\n```\n\n",
+            " DINOSAUR\nA:\nhamster, spider, bee",
+            " DINOSAUR\nA:\nhamster, spider, fly"
+        ],
+        "topk_probs": [
+            2.117152916980558e-06,
+            1.568037987453863e-06,
+            5.418993964667607e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "road forest wardrobe dinosaur cattle streetcar crocodile orange plain forest ROAD FOREST WARDROBE DINOSAUR CATTLE STREETCAR CROCODILE ORANGE",
+        "solution": " TREES TREES TREES TREES TREES",
+        "answer": "PLAIN FOREST",
+        "accuracy": false,
+        "topk_solutions": [
+            " TREES TREES TREES TREES TREES",
+            " TREE TREE TREE TREE TREE TREE TREE T",
+            " TREES TREES TREE TREES TREES T"
+        ],
+        "topk_probs": [
+            3.0662624794786097e-06,
+            1.7682223187875934e-06,
+            4.142700618103845e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest flatfish crab skunk pickup_truck orchid sunflower couch bus baby FOREST FLATFISH CRAB SKUNK PICKUP_TRUCK ORCHID SUNFLOWER COUCH",
+        "solution": " BABY FOREST\nA:\nflatfishDetailed Inst",
+        "answer": "BUS BABY",
+        "accuracy": false,
+        "topk_solutions": [
+            " BABY FOREST\nA:\nflatfishDetailed Inst",
+            " BABY FOREST\nA:\nflatlandDetailed Inst",
+            " BABY FOREST\nA:\nflatfishIn this task"
+        ],
+        "topk_probs": [
+            1.4812733262203892e-08,
+            1.3365813344989874e-08,
+            1.1486284812178837e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bear worm wolf raccoon worm mushroom lion mushroom bee skunk BEAR WORM WOLF RACCOON WORM MUSHROOM LION MUSHROOM",
+        "solution": " BEAR BEAR BEAR BEAR BEAR BEAR BEAR BE",
+        "answer": "BEE SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEAR BEAR BEAR BEAR BEAR BEAR BEAR BE",
+            " BEAR BEAR BEAR BEAR BEAR BEAR BEAR W",
+            " BEAR BEAR WORM BEAR BEAR BEAR BEAR BE"
+        ],
+        "topk_probs": [
+            7.528573746640177e-07,
+            7.002664403898962e-08,
+            3.626150046898147e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "dolphin rocket train chimpanzee mouse rabbit streetcar road forest palm_tree DOLPHIN ROCKET TRAIN CHIMPANZEE MOUSE RABBIT STREETCAR ROAD",
+        "solution": " TREE FOREST\n\nOutput: A dolphin, chimpanz",
+        "answer": "FOREST PALM_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " TREE FOREST\n\nOutput: A dolphin, chimpanz",
+            " TREE FOREST\n\nOutput: A dolphin, monkey, mouse",
+            " TREE FOREST\n\nOutput: A dolphin, monkey, rabbit"
+        ],
+        "topk_probs": [
+            3.7648504758180934e-08,
+            1.602628607599854e-08,
+            6.680749731202695e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "can mountain wardrobe whale bus orange plate butterfly wardrobe cockroach CAN MOUNTAIN WARDROBE WHALE BUS ORANGE PLATE BUTTERFLY",
+        "solution": "\n\nA:\nA mountain, a bus, a plate, a",
+        "answer": "WARDROBE COCKROACH",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nA:\nA mountain, a bus, a plate, a",
+            "\n\nA:\nA mountain, a bus, a whale, and",
+            "\n\nA:\nA mountain, a bus, a whale, a"
+        ],
+        "topk_probs": [
+            8.602923928791029e-10,
+            7.586147821037059e-10,
+            5.213878218057744e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "can mouse mouse snail tank flatfish rose palm_tree orange pine_tree CAN MOUSE MOUSE SNAIL TANK FLATFISH ROSE PALM_TREE",
+        "solution": " ORANGE TREE\n\nI'm not sure if this is the best",
+        "answer": "ORANGE PINE_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " ORANGE TREE\n\nI'm not sure if this is the best",
+            " ORANGE TREE\n\nI'm trying to get the following output:",
+            " ORANGE TREE\n\nI'm not sure if this is the right"
+        ],
+        "topk_probs": [
+            1.6262197144456536e-10,
+            1.566496654614724e-10,
+            6.779092565079026e-11
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard house tulip skyscraper ray tiger plain beetle clock squirrel LIZARD HOUSE TULIP SKYSCRAPER RAY TIGER PLAIN BEETLE",
+        "solution": " CLOCK\n\nAnswer:\nlizard house tulip skys",
+        "answer": "CLOCK SQUIRREL",
+        "accuracy": false,
+        "topk_solutions": [
+            " CLOCK\n\nAnswer:\nlizard house tulip skys",
+            " CLOCK\n\nAnswer:\nlizard, house, skyscra",
+            " CLOCK\n\nAnswer:\nlizard house, tulip,"
+        ],
+        "topk_probs": [
+            7.558497117088336e-08,
+            4.7573564643244026e-08,
+            2.565857926128956e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "fox turtle road house mountain bed lizard bicycle dinosaur tulip FOX TURTLE ROAD HOUSE MOUNTAIN BED LIZARD BICYCLE",
+        "solution": " DINOSAUR TURTLE TURTLE TUR",
+        "answer": "DINOSAUR TULIP",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR TURTLE TURTLE TUR",
+            " DINOSAUR TURTLE TURTLE BED",
+            " DINOSAUR TURTLE TURTLE\n\n"
+        ],
+        "topk_probs": [
+            1.5288458143913886e-07,
+            4.379623774752872e-08,
+            4.228706629305634e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "butterfly ray rabbit rocket spider telephone girl house castle porcupine BUTTERFLY RAY RABBIT ROCKET SPIDER TELEPHONE GIRL HOUSE",
+        "solution": " PORCUPINE\n\nA: butterfly, ray, porcup",
+        "answer": "CASTLE PORCUPINE",
+        "accuracy": false,
+        "topk_solutions": [
+            " PORCUPINE\n\nA: butterfly, ray, porcup",
+            " PORCUPINE\n\nA:\nhouse\n****In",
+            " PORCUPINE\n\nA:\nhouse\n****You"
+        ],
+        "topk_probs": [
+            7.216345210281361e-08,
+            4.6994031777103373e-08,
+            2.2198408444751294e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee cattle worm poppy shark mouse bus trout rabbit beaver CHIMPANZEE CATTLE WORM POPPY SHARK MOUSE BUS TROUT",
+        "solution": "\n\nTranslate to English.\nTranslation:\nA B C D",
+        "answer": "RABBIT BEAVER",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nTranslate to English.\nTranslation:\nA B C D",
+            "\n\nTranslate to English.\nTranslation:\nA B C E",
+            "\n\nTranslate to English.\nTranslation:\nCow, cow"
+        ],
+        "topk_probs": [
+            1.745077895520808e-07,
+            2.4892199412818172e-09,
+            2.067118254345246e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "trout man pine_tree house keyboard snail cloud apple elephant woman TROUT MAN PINE_TREE HOUSE KEYBOARD SNAIL CLOUD APPLE",
+        "solution": " ELEPHANT WOMAN\n\nOutput: The Trout is",
+        "answer": "ELEPHANT WOMAN",
+        "accuracy": true,
+        "topk_solutions": [
+            " ELEPHANT WOMAN\n\nOutput: The Trout is",
+            " ELEPHANT WOMAN\n\nOutput: A man with a",
+            " ELEPHANT WOMAN\n\nOutput: The Trout,"
+        ],
+        "topk_probs": [
+            8.384525074234261e-09,
+            5.3451350012778676e-09,
+            4.487912708128761e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bridge pine_tree telephone orange pine_tree orange flatfish hamster tulip sea BRIDGE PINE_TREE TELEPHONE ORANGE PINE_TREE ORANGE FLATFISH HAMSTER",
+        "solution": " TULIP BRIDGE BRIDGE BRIDGE BRIDGE",
+        "answer": "TULIP SEA",
+        "accuracy": false,
+        "topk_solutions": [
+            " TULIP BRIDGE BRIDGE BRIDGE BRIDGE",
+            " TULIP BRIDGE BRIDGE BRIDGE PINE BR",
+            " TULIP BRIDGE BRIDGE BRIDGE\n\nThe"
+        ],
+        "topk_probs": [
+            3.260407311245217e-06,
+            4.806260633927195e-08,
+            3.108664614615009e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "possum lobster trout television willow_tree orchid lamp cattle crocodile telephone POSSUM LOBSTER TROUT TELEVISION WILLOW_TREE ORCHID LAMP CATTLE",
+        "solution": "\n\nA: The answer to the question: What is the full name",
+        "answer": "CROCODILE TELEPHONE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nA: The answer to the question: What is the full name",
+            "\n\nA: The answer to the question: What is the name of",
+            "\n\nA: The answer to the question: What is the first name"
+        ],
+        "topk_probs": [
+            1.2232849257998168e-06,
+            9.120910817728145e-07,
+            5.909549827265437e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "castle wardrobe pickup_truck table orange skunk pickup_truck sunflower mushroom seal CASTLE WARDROBE PICKUP_TRUCK TABLE ORANGE SKUNK PICKUP_TRUCK SUNFLOWER",
+        "solution": " CASTING_CASTING CASTING CASTING CASTING",
+        "answer": "MUSHROOM SEAL",
+        "accuracy": false,
+        "topk_solutions": [
+            " CASTING_CASTING CASTING CASTING CASTING",
+            " CASTING_CASTING CASTING CASTING CAST CA",
+            " CASTING_CASTING_CASTING_CASTING_CASTING"
+        ],
+        "topk_probs": [
+            8.25403212445508e-09,
+            2.0869459493866316e-09,
+            1.6448847839356517e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "squirrel house bowl ray tank sweet_pepper bridge snake motorcycle orchid SQUIRREL HOUSE BOWL RAY TANK SWEET_PEPPER BRIDGE SNAKE",
+        "solution": " MOTORCYCLE SQUIRREL SQUIRREL SQUIR",
+        "answer": "MOTORCYCLE ORCHID",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE SQUIRREL SQUIRREL SQUIR",
+            " MOTORCYCLE SQUIRREL SQUIRREL SWEET",
+            " MOTORCYCLE SQUIRREL SQUIRREL SQUARE"
+        ],
+        "topk_probs": [
+            4.119049663131591e-06,
+            3.464688234089408e-07,
+            5.875514830222528e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bus skyscraper cloud rocket forest whale sea girl orchid caterpillar BUS SKYSCRAPER CLOUD ROCKET FOREST WHALE SEA GIRL",
+        "solution": " CATERPILLAR TREE TREE TREE TREE TREE",
+        "answer": "ORCHID CATERPILLAR",
+        "accuracy": false,
+        "topk_solutions": [
+            " CATERPILLAR TREE TREE TREE TREE TREE",
+            " CATERPILLAR\n\n## License\n\nMIT<rep",
+            " CATERPILLAR\n\n## License\n\nMIT<filename"
+        ],
+        "topk_probs": [
+            3.862682973476694e-08,
+            1.62234901068814e-08,
+            1.115023007258742e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "maple_tree turtle tulip elephant lizard oak_tree orange woman bicycle cattle MAPLE_TREE TURTLE TULIP ELEPHANT LIZARD OAK_TREE ORANGE WOMAN",
+        "solution": " BICYCLE CATTLE\n\nI want to get the following",
+        "answer": "BICYCLE CATTLE",
+        "accuracy": true,
+        "topk_solutions": [
+            " BICYCLE CATTLE\n\nI want to get the following",
+            " BICYCLE CATTLE\"\n\nI want to remove the",
+            " BICYCLE CATTLE\n\nI want to extract the words"
+        ],
+        "topk_probs": [
+            1.2299286034078705e-09,
+            1.2154071082903783e-09,
+            9.694913760682766e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "plain forest house rocket cattle baby wolf elephant bottle bed PLAIN FOREST HOUSE ROCKET CATTLE BABY WOLF ELEPHANT",
+        "solution": " BOTTLE\n\nAnswer:\nhouse, bottle, elephant, bed",
+        "answer": "BOTTLE BED",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOTTLE\n\nAnswer:\nhouse, bottle, elephant, bed",
+            " BOTTLE\n\nAnswer:\nhouse, bottle, elephant, wolf",
+            " BOTTLE\n\nAnswer:\nhouse, bottle, elephant, forest"
+        ],
+        "topk_probs": [
+            7.818979241847046e-09,
+            6.900225280048744e-09,
+            6.900225280048744e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "ray leopard forest wolf tulip sea train can wolf apple RAY LEOPARD FOREST WOLF TULIP SEA TRAIN CAN",
+        "solution": "YON RIVER RIVER RIVER RIVER RIVER RIVER R",
+        "answer": "WOLF APPLE",
+        "accuracy": false,
+        "topk_solutions": [
+            "YON RIVER RIVER RIVER RIVER RIVER RIVER R",
+            "YON RIVER RIVER CANYON RIVER RIVER RIVER",
+            "YON RIVER RIVER CANYON CANYON RIVER R"
+        ],
+        "topk_probs": [
+            6.435827870632238e-09,
+            5.352194687446854e-09,
+            1.9902424153173115e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "pine_tree tulip train rose tulip plain camel tulip cattle lobster PINE_TREE TULIP TRAIN ROSE TULIP PLAIN CAMEL TULIP",
+        "solution": " TREE TREE TREE TREE TREE TREE TREE T",
+        "answer": "CATTLE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            " TREE TREE TREE TREE TREE TREE TREE T",
+            " TREE TREE TREE TREE TREE TREE TREES",
+            " TREE TREE TREE TREE TREE TREES TREE"
+        ],
+        "topk_probs": [
+            5.018123161448784e-08,
+            9.659903099645817e-09,
+            7.085395381523085e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard mouse forest crab tiger keyboard road mountain cockroach cup LIZARD MOUSE FOREST CRAB TIGER KEYBOARD ROAD MOUNTAIN",
+        "solution": "\n\nTranslate this to English?\n[A]: lizard mouse",
+        "answer": "COCKROACH CUP",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nTranslate this to English?\n[A]: lizard mouse",
+            "\n\nTranslate to English.\nTranslation:\nLizard Mouse Forest",
+            "\n\nTranslate to English.\nTranslation:\nLizard mouse forest"
+        ],
+        "topk_probs": [
+            1.6844398942339467e-07,
+            1.4861926445064455e-07,
+            6.846492084378042e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "wolf train camel cloud whale tulip girl orchid lion lizard WOLF TRAIN CAMEL CLOUD WHALE TULIP GIRL ORCHID",
+        "solution": " TIGER LION WOLF WOLF WOLF W",
+        "answer": "LION LIZARD",
+        "accuracy": false,
+        "topk_solutions": [
+            " TIGER LION WOLF WOLF WOLF W",
+            " TIGER LION WOLF WOLVES WOLF",
+            " TIGER LION WOLF WOLF WOLF\n"
+        ],
+        "topk_probs": [
+            1.1298828539452188e-08,
+            4.121075036778166e-09,
+            3.0410383100587524e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "orchid snail sea sea beetle cockroach possum sea motorcycle snail ORCHID SNAIL SEA SEA BEETLE COCKROACH POSSUM SEA",
+        "solution": " MOTORCYCLE SEA TURTLE SEA TURT",
+        "answer": "MOTORCYCLE SNAIL",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE SEA TURTLE SEA TURT",
+            " MOTORCYCLE SEA TURTLE TURTLE SE",
+            " MOTORCYCLE SEA TURTLE TURTLE T"
+        ],
+        "topk_probs": [
+            5.774287728854688e-06,
+            1.4296863355411915e-06,
+            7.188913855316059e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "whale rocket sweet_pepper flatfish streetcar mushroom squirrel road dolphin snail WHALE ROCKET SWEET_PEPPER FLATFISH STREETCAR MUSHROOM SQUIRREL ROAD",
+        "solution": " TURTLE\n\nOutput: The Punter is a coffee shop",
+        "answer": "DOLPHIN SNAIL",
+        "accuracy": false,
+        "topk_solutions": [
+            " TURTLE\n\nOutput: The Punter is a coffee shop",
+            " TURTLE\n\nOutput: The Punter is a high priced",
+            " TURTLE\n\nOutput: The Punter is a cheap coffee"
+        ],
+        "topk_probs": [
+            2.0783032184112926e-08,
+            6.856812007072222e-09,
+            1.7676851093995083e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "spider mouse butterfly house castle bus dolphin motorcycle squirrel plain SPIDER MOUSE BUTTERFLY HOUSE CASTLE BUS DOLPHIN MOTORCYCLE",
+        "solution": "\nA:\nspiderDetailed Instructions: In this task",
+        "answer": "SQUIRREL PLAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            "\nA:\nspiderDetailed Instructions: In this task",
+            "\nA:\nspiderDetailed Instructions: You are given",
+            "\nA:\nspider, mouse, house, castle, dolphin"
+        ],
+        "topk_probs": [
+            5.214460543356836e-06,
+            1.6537759393031592e-06,
+            6.344212692965812e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "crab trout wardrobe tank maple_tree television can spider cloud cockroach CRAB TROUT WARDROBE TANK MAPLE_TREE TELEVISION CAN SPIDER",
+        "solution": " CLOUD\n\n[Q]: Generate an approximately fifteen-word sentence",
+        "answer": "CLOUD COCKROACH",
+        "accuracy": false,
+        "topk_solutions": [
+            " CLOUD\n\n[Q]: Generate an approximately fifteen-word sentence",
+            " CLOUD\n\n[Q]: Generate a sentence that includes all the",
+            " CLOUD\n\n[Q]: Sentence: name = The Rice"
+        ],
+        "topk_probs": [
+            5.21270303579513e-05,
+            3.576169547159225e-05,
+            6.663627232228464e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bee sunflower streetcar sweet_pepper palm_tree butterfly keyboard chimpanzee palm_tree butterfly BEE SUNFLOWER STREETCAR SWEET_PEPPER PALM_TREE BUTTERFLY KEYBOARD CHIMPANZEE",
+        "solution": "\n\nOutput: The Baked Alaska is a dish in France.\n\n",
+        "answer": "PALM_TREE BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nOutput: The Baked Alaska is a dish in France.\n\n",
+            "\n\nOutput: The Baked Alaska is a dish in France, it",
+            "\n\nOutput: The Baked Alaska is a dish in France, where"
+        ],
+        "topk_probs": [
+            1.4540423087794352e-08,
+            7.412142899454466e-09,
+            3.7270599939631666e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee seal plate ray mushroom fox cattle clock otter aquarium_fish CHIMPANZEE SEAL PLATE RAY MUSHROOM FOX CATTLE CLOCK",
+        "solution": "\n\nA: The answer to this example can be: chimp\n",
+        "answer": "OTTER AQUARIUM_FISH",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nA: The answer to this example can be: chimp\n",
+            "\n\nA: The answer to this example can be: chimpanz",
+            "\n\nA: The answer to the question: What is the name of"
+        ],
+        "topk_probs": [
+            2.084953898418007e-08,
+            2.0078436691051138e-08,
+            1.5843170331208967e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hamster lizard road aquarium_fish leopard leopard wardrobe possum mushroom skunk HAMSTER LIZARD ROAD AQUARIUM_FISH LEOPARD LEOPARD WARDROBE POSSUM",
+        "solution": " MUSHROOM HAMSTER\nA:\nhamster, poss",
+        "answer": "MUSHROOM SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " MUSHROOM HAMSTER\nA:\nhamster, poss",
+            " MUSHROOM HAMSTER\nA:\nhamster is a",
+            " MUSHROOM HAMSTER\nA:\nhamster, l"
+        ],
+        "topk_probs": [
+            1.1732312543699663e-07,
+            5.8473194286534635e-08,
+            2.9663929979051318e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snail snake palm_tree dolphin pine_tree baby rocket bridge willow_tree pear SNAIL SNAKE PALM_TREE DOLPHIN PINE_TREE BABY ROCKET BRIDGE",
+        "solution": "\n\nI want to remove all the words that start with a capital letter",
+        "answer": "WILLOW_TREE PEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nI want to remove all the words that start with a capital letter",
+            "\n\nI want to remove all the words that start with a vowel",
+            "\n\nI want to get the following output:\nsnail\nsn"
+        ],
+        "topk_probs": [
+            8.248707827895885e-10,
+            6.112627626286837e-10,
+            2.529238207760187e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "skunk keyboard chair lion boy lawn_mower tank plain trout seal SKUNK KEYBOARD CHAIR LION BOY LAWN_MOWER TANK PLAIN",
+        "solution": " TROUT\n\nA:\nA keyboard with a lion, a tank",
+        "answer": "TROUT SEAL",
+        "accuracy": false,
+        "topk_solutions": [
+            " TROUT\n\nA:\nA keyboard with a lion, a tank",
+            " TROUT\n\nA:\nA keyboard with a lion, a boy",
+            " TROUT\n\nA:\nA keyboard with a cat on it."
+        ],
+        "topk_probs": [
+            4.403970244037936e-10,
+            2.6711430289871885e-10,
+            2.325922648926948e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snake shrew clock bee house bridge ray baby mouse squirrel SNAKE SHREW CLOCK BEE HOUSE BRIDGE RAY BABY",
+        "solution": " SQUIRREL\n\nThe answer is:\nSNAKE",
+        "answer": "MOUSE SQUIRREL",
+        "accuracy": false,
+        "topk_solutions": [
+            " SQUIRREL\n\nThe answer is:\nSNAKE",
+            " SQUIRREL\n\nThe answer is:\nnoPlease answer",
+            " SQUIRREL\n\nThe answer is:\nyesPlease answer"
+        ],
+        "topk_probs": [
+            2.8384345540644063e-08,
+            7.0312085043156e-09,
+            6.3809468819897575e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "shark aquarium_fish beaver wardrobe bear skunk tiger cloud poppy pear SHARK AQUARIUM_FISH BEAVER WARDROBE BEAR SKUNK TIGER CLOUD",
+        "solution": " POSEIDON'S TROPICAL GARDEN'\n\n",
+        "answer": "POPPY PEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            " POSEIDON'S TROPICAL GARDEN'\n\n",
+            " POSEIDON'S TROPICAL GARDEN'\n    ",
+            " POSEIDON'S TROPICAL GARDEN\nA:"
+        ],
+        "topk_probs": [
+            7.607974694678887e-09,
+            2.3203008403527292e-09,
+            2.1133352845481568e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tractor cockroach lobster crab lawn_mower shrew oak_tree apple dinosaur rabbit TRACTOR COCKROACH LOBSTER CRAB LAWN_MOWER SHREW OAK_TREE APPLE",
+        "solution": " DINOSAUR\n\nOutput: The answer to the question \"",
+        "answer": "DINOSAUR RABBIT",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR\n\nOutput: The answer to the question \"",
+            " DINOSAUR\n\nOutput: The answer to the question '",
+            " DINOSAUR\n\nOutput: A list of animals that are"
+        ],
+        "topk_probs": [
+            2.8087589498682064e-07,
+            1.5034203215691377e-07,
+            7.681979496965141e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "whale pine_tree trout rose rabbit poppy plain tulip leopard lion WHALE PINE_TREE TROUT ROSE RABBIT POPPY PLAIN TULIP",
+        "solution": " LION\nOutput:\nyesDetailed Instructions: In this",
+        "answer": "LEOPARD LION",
+        "accuracy": false,
+        "topk_solutions": [
+            " LION\nOutput:\nyesDetailed Instructions: In this",
+            " LION\nOutput:\nYesDetailed Instructions: In this",
+            " LION\nOutput:\nYesGiven the task definition and input,"
+        ],
+        "topk_probs": [
+            1.5851709349590237e-06,
+            1.502061081737338e-06,
+            1.1535497606018907e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest cup bottle tiger sweet_pepper shark palm_tree forest oak_tree plain FOREST CUP BOTTLE TIGER SWEET_PEPPER SHARK PALM_TREE FOREST",
+        "solution": " TREE TREE TREE TREE TREE TREE TREE T",
+        "answer": "OAK_TREE PLAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " TREE TREE TREE TREE TREE TREE TREE T",
+            " TREE TREE TREE TREE TREE TREE TREES",
+            " TREE TREE TREE TREE TREE TREE TREE\n"
+        ],
+        "topk_probs": [
+            1.7534775906824507e-05,
+            1.4586562429030892e-06,
+            1.1209606327611255e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rabbit lamp lizard caterpillar bowl train forest pickup_truck wolf cattle RABBIT LAMP LIZARD CATERPILLAR BOWL TRAIN FOREST PICKUP_TRUCK",
+        "solution": ".\n\nA:\nlamp, lizard, caterpillar",
+        "answer": "WOLF CATTLE",
+        "accuracy": false,
+        "topk_solutions": [
+            ".\n\nA:\nlamp, lizard, caterpillar",
+            ".\n\nA:\nlamp, lamp, lamp, lamp,",
+            ".\n\nA:\nlamp, lizard, forest, truck"
+        ],
+        "topk_probs": [
+            1.9946060803022192e-08,
+            5.650694134828882e-09,
+            8.686817931646829e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom keyboard elephant mushroom porcupine wardrobe possum forest seal plate MUSHROOM KEYBOARD ELEPHANT MUSHROOM PORCUPINE WARDROBE POSSUM FOREST",
+        "solution": ".\n\nA:\nmushroom, elephant, possum,",
+        "answer": "SEAL PLATE",
+        "accuracy": false,
+        "topk_solutions": [
+            ".\n\nA:\nmushroom, elephant, possum,",
+            ".\n\nA:\nmushroom, elephant, possum",
+            ".\n\nA:\nmushroom, keyboard, elephant, poss"
+        ],
+        "topk_probs": [
+            1.7644152805473823e-08,
+            2.387881004040082e-09,
+            1.9303119103142308e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "crab television beetle trout lobster plate aquarium_fish bear plate bowl CRAB TELEVISION BEETLE TROUT LOBSTER PLATE AQUARIUM_FISH BEAR",
+        "solution": "\n\nA: The Crab Platter is a high-priced,",
+        "answer": "PLATE BOWL",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nA: The Crab Platter is a high-priced,",
+            "\n\nA: The Crab Platter is a high-priced restaurant",
+            "\n\nA: The Crab Platter is a high priced restaurant that"
+        ],
+        "topk_probs": [
+            1.2120925596548204e-08,
+            9.439785841891535e-09,
+            7.157220593967395e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "raccoon rose castle pear crab sweet_pepper skunk sunflower elephant turtle RACCOON ROSE CASTLE PEAR CRAB SWEET_PEPPER SKUNK SUNFLOWER",
+        "solution": " ELEPHANT RaccoonDetailed Instructions: In this",
+        "answer": "ELEPHANT TURTLE",
+        "accuracy": false,
+        "topk_solutions": [
+            " ELEPHANT RaccoonDetailed Instructions: In this",
+            " ELEPHANT RaccoonDetailed Instructions: You are",
+            " ELEPHANT RaccoonDetailed Instructions: Given a"
+        ],
+        "topk_probs": [
+            1.259520104213152e-06,
+            4.5950204707878584e-07,
+            3.058815991607844e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bear pear forest orchid shark bicycle snail turtle snail aquarium_fish BEAR PEAR FOREST ORCHID SHARK BICYCLE SNAIL TURTLE",
+        "solution": " AQUARIUM\"\n    }\n  ]\n}\n",
+        "answer": "SNAIL AQUARIUM_FISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " AQUARIUM\"\n    }\n  ]\n}\n",
+            " AQUARIUM\"\n    }\n  }\n}\n",
+            " AQUARIUM\"\n    }\n  ]\n}\n\n"
+        ],
+        "topk_probs": [
+            1.9371447024241206e-07,
+            1.1207356465092744e-07,
+            2.6216401494139063e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bicycle table otter fox road streetcar plain aquarium_fish lobster chimpanzee BICYCLE TABLE OTTER FOX ROAD STREETCAR PLAIN AQUARIUM_FISH",
+        "solution": " LOBSTER CHIMPANZEEDetailed Instructions: In",
+        "answer": "LOBSTER CHIMPANZEE",
+        "accuracy": true,
+        "topk_solutions": [
+            " LOBSTER CHIMPANZEEDetailed Instructions: In",
+            " LOBSTER CHIMPANZEEDetailed Instructions: You",
+            " LOBSTER CHIMPANZEEDetailed Instructions: Given"
+        ],
+        "topk_probs": [
+            3.709901648107916e-06,
+            1.3647966170537984e-06,
+            1.0629046300891787e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "fox forest kangaroo rocket bear bus girl shrew bottle crab FOX FOREST KANGAROO ROCKET BEAR BUS GIRL SHREW",
+        "solution": " BOTTLES\n\nAnswer: fox\n\n\nQuestion: What is",
+        "answer": "BOTTLE CRAB",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOTTLES\n\nAnswer: fox\n\n\nQuestion: What is",
+            " BOTTLES\n\nAnswer: fox\n\n\nQuestion: What are",
+            " BOTTLES\n\nAnswer: fox\n\n\nQuestion: I'm"
+        ],
+        "topk_probs": [
+            1.1018596035583528e-09,
+            4.053515301194466e-10,
+            3.30355909294866e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "camel plate palm_tree mountain bicycle snake skunk ray sweet_pepper leopard CAMEL PLATE PALM_TREE MOUNTAIN BICYCLE SNAKE SKUNK RAY",
+        "solution": " SWEET_PEPPER\n\nI'm trying to get the",
+        "answer": "SWEET_PEPPER LEOPARD",
+        "accuracy": false,
+        "topk_solutions": [
+            " SWEET_PEPPER\n\nI'm trying to get the",
+            " SWEET_PEPPER\n\nI'm trying to use the",
+            " SWEET PEPPER\n\nOutput: The camel is a kind"
+        ],
+        "topk_probs": [
+            2.4167118084506e-08,
+            1.2613242894587984e-08,
+            1.0190872146154106e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "elephant orchid poppy pear rose castle lion mountain bus mouse ELEPHANT ORCHID POPPY PEAR ROSE CASTLE LION MOUNTAIN",
+        "solution": " MOUSE\n\nA: elephant, castle, lion, mouse\n\n",
+        "answer": "BUS MOUSE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOUSE\n\nA: elephant, castle, lion, mouse\n\n",
+            " MOUSE\n\nA:\nelephant, castle, lion,",
+            " MOUSE\n\nA: elephant, castle, lion, mouse\n"
+        ],
+        "topk_probs": [
+            4.385968566111842e-08,
+            4.324679636624751e-08,
+            3.4157956463332084e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "maple_tree pear dolphin crocodile butterfly bus worm raccoon worm crab MAPLE_TREE PEAR DOLPHIN CROCODILE BUTTERFLY BUS WORM RACCOON",
+        "solution": "\n\n\u2022 #### Question 3\n\nWhich of the following is a",
+        "answer": "WORM CRAB",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\n\u2022 #### Question 3\n\nWhich of the following is a",
+            "\n\n\u2022 #### Question 2\n\nWhich of the following is a",
+            "\n\n\u2022 #### Question 3\n\nWhich of the following is not"
+        ],
+        "topk_probs": [
+            9.950011925496938e-10,
+            9.782588072937415e-10,
+            6.424210607924863e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "elephant dinosaur camel porcupine willow_tree lobster crab hamster beaver fox ELEPHANT DINOSAUR CAMEL PORCUPINE WILLOW_TREE LOBSTER CRAB HAMSTER",
+        "solution": " BEAR RABBIT RAT RAT RAT RAT RAT",
+        "answer": "BEAVER FOX",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEAR RABBIT RAT RAT RAT RAT RAT",
+            " BEAR RAT RABBIT RAT RAT RAT RAT",
+            " BEAR RAT RABBIT RAT RABBIT RAT R"
+        ],
+        "topk_probs": [
+            1.966966500788203e-08,
+            6.882638015071052e-09,
+            2.4762967232305755e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snake rose apple bear plate caterpillar sunflower wolf rabbit ray SNAKE ROSE APPLE BEAR PLATE CATERPILLAR SUNFLOWER WOLF",
+        "solution": " RABBIT SNAKE SNAKE SNAKE SNAKE",
+        "answer": "RABBIT RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            " RABBIT SNAKE SNAKE SNAKE SNAKE",
+            "\n\nA:\nsnake, rose, caterpillar, sun",
+            "\n\nA:\nsnake, rose, caterpillar, ray"
+        ],
+        "topk_probs": [
+            1.8460950457210856e-07,
+            5.7680846765606475e-08,
+            3.724155206441537e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "squirrel elephant tulip train lawn_mower turtle lizard mushroom whale porcupine SQUIRREL ELEPHANT TULIP TRAIN LAWN_MOWER TURTLE LIZARD MUSHROOM",
+        "solution": " PORCUPINE\n\nOutput: The answer is squirrel\n\n",
+        "answer": "WHALE PORCUPINE",
+        "accuracy": false,
+        "topk_solutions": [
+            " PORCUPINE\n\nOutput: The answer is squirrel\n\n",
+            " PORCUPINE\n\nOutput: The answer is squirrel,",
+            " PORCUPINE\n\nOutput: The answer is:\nyes"
+        ],
+        "topk_probs": [
+            2.2085140827243777e-08,
+            8.124668937625756e-09,
+            8.085480729391747e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest cattle wardrobe elephant lamp hamster leopard kangaroo wardrobe ray FOREST CATTLE WARDROBE ELEPHANT LAMP HAMSTER LEOPARD KANGAROO",
+        "solution": " LAMP LAMP LAMP LAMP LAMP LAMP LAMP L",
+        "answer": "WARDROBE RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            " LAMP LAMP LAMP LAMP LAMP LAMP LAMP L",
+            " LAMP LAMP LAMP LAMP LAMP LAMP LAMPS",
+            " LAMP LAMP LAMP LAMP LAMP LAMPS LAMP"
+        ],
+        "topk_probs": [
+            1.0897836411061235e-08,
+            3.2807354610753237e-09,
+            1.584458120262866e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "couch turtle plain lobster girl mouse turtle caterpillar house lobster COUCH TURTLE PLAIN LOBSTER GIRL MOUSE TURTLE CATERPILLAR",
+        "solution": " COUCH COUCH COUCH COU COU COU COU COU COU COU COU COU",
+        "answer": "HOUSE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            " COUCH COUCH COUCH COU COU COU COU COU COU COU COU COU",
+            " COUCH COUCH COUCH COUCH COU COU COU COU COU COU COU",
+            " COUCH COUCH COUCH COUCH COUCH COU COU COU COU COU"
+        ],
+        "topk_probs": [
+            0.009063397534191608,
+            0.007231926545500755,
+            0.004731747321784496
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "trout sweet_pepper snail bus house tulip lawn_mower plain couch flatfish TROUT SWEET_PEPPER SNAIL BUS HOUSE TULIP LAWN_MOWER PLAIN",
+        "solution": "_COUCHDetailed Instructions: In this task, you",
+        "answer": "COUCH FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            "_COUCHDetailed Instructions: In this task, you",
+            "_COUCHDetailed Instructions: You are given a sentence",
+            "_COUCHDetailed Instructions: In this task you will"
+        ],
+        "topk_probs": [
+            5.1543665904318914e-05,
+            1.3353195754461922e-05,
+            4.800781880476279e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard elephant raccoon poppy streetcar seal palm_tree castle lizard skunk LIZARD ELEPHANT RACCOON POPPY STREETCAR SEAL PALM_TREE CASTLE",
+        "solution": "\n\nOutput: The Loch Ness monster is said to live in",
+        "answer": "LIZARD SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nOutput: The Loch Ness monster is said to live in",
+            "\n\nOutput: The Loch Ness Monster is a mythical creature",
+            "\n\nOutput: The Loch Ness Monster is a monster in the"
+        ],
+        "topk_probs": [
+            5.988657392208552e-08,
+            1.800310123201143e-08,
+            8.628711967162417e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lobster can lobster mountain raccoon table bed dolphin chimpanzee bus LOBSTER CAN LOBSTER MOUNTAIN RACCOON TABLE BED DOLPHIN",
+        "solution": " CHIMPANZEE LOBSTER LOBSTER LOBSTER L",
+        "answer": "CHIMPANZEE BUS",
+        "accuracy": false,
+        "topk_solutions": [
+            " CHIMPANZEE LOBSTER LOBSTER LOBSTER L",
+            " CHIMPANZEE LOBSTER LOBSTER LOBSTERS",
+            " CHIMPANZEE LOBSTER LOBSTERS LOBSTER"
+        ],
+        "topk_probs": [
+            5.176536532758291e-08,
+            3.043006913117097e-08,
+            2.3894676459690345e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "turtle pear caterpillar wolf television house dinosaur pear lion man TURTLE PEAR CATERPILLAR WOLF TELEVISION HOUSE DINOSAUR PEAR",
+        "solution": "\n\nA:\nturtle, caterpillar, lion, din",
+        "answer": "LION MAN",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nA:\nturtle, caterpillar, lion, din",
+            "\n\nA:\nturtle, caterpillar, dinosaur,",
+            "\n\nA:\nturtle, caterpillar, house, din"
+        ],
+        "topk_probs": [
+            4.2776170516845013e-07,
+            3.878742518281797e-07,
+            2.1016219875491515e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "wardrobe pear skyscraper whale bottle worm wolf tank boy butterfly WARDROBE PEAR SKYSCRAPER WHALE BOTTLE WORM WOLF TANK",
+        "solution": " BOY\n\nI'm not sure if this is the right place to",
+        "answer": "BOY BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOY\n\nI'm not sure if this is the right place to",
+            " BOY\n\nI'm not sure if this is the right subred",
+            " BOY\n\nI'm not sure if this is what you're looking"
+        ],
+        "topk_probs": [
+            1.027669283004684e-09,
+            4.357912364305605e-10,
+            3.863688535776788e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bridge maple_tree telephone television baby snail chair elephant couch train BRIDGE MAPLE_TREE TELEPHONE TELEVISION BABY SNAIL CHAIR ELEPHANT",
+        "solution": " TRAIN BRIDGEDetailed Instructions: In this task,",
+        "answer": "COUCH TRAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " TRAIN BRIDGEDetailed Instructions: In this task,",
+            " TRAIN BRIDGEDetailed Instructions: You are given a",
+            " TRAIN BRIDGEDetailed Instructions: In this task you"
+        ],
+        "topk_probs": [
+            1.6108178897411563e-05,
+            5.442318069981411e-06,
+            2.1800051399623044e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "leopard woman dinosaur girl cloud elephant chair dolphin shrew oak_tree LEOPARD WOMAN DINOSAUR GIRL CLOUD ELEPHANT CHAIR DOLPHIN",
+        "solution": " DINOSAUR DINOSAUR DINOSAUR",
+        "answer": "SHREW OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR DINOSAUR DINOSAUR",
+            " DINOSAUR DINOSAURS DINOSA",
+            " DINOSAURS DINOSAURS DINOS"
+        ],
+        "topk_probs": [
+            1.6770716683822684e-05,
+            1.2286695891816635e-05,
+            7.894058398960624e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "woman oak_tree shark couch whale road caterpillar plain bear fox WOMAN OAK_TREE SHARK COUCH WHALE ROAD CATERPILLAR PLAIN",
+        "solution": " WOMAN OAK SHARK COUCH WOMAN WOMAN",
+        "answer": "BEAR FOX",
+        "accuracy": false,
+        "topk_solutions": [
+            " WOMAN OAK SHARK COUCH WOMAN WOMAN",
+            " WOMAN OAK SHARK COUCH WOMAN WOMEN",
+            " WOMAN OAK SHARK COUCH BEAR WOMAN O"
+        ],
+        "topk_probs": [
+            5.542203211916785e-07,
+            1.587867757280037e-07,
+            4.1646000425998864e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom plate lobster bridge bicycle raccoon porcupine mushroom bowl flatfish MUSHROOM PLATE LOBSTER BRIDGE BICYCLE RACCOON PORCUPINE MUSHROOM",
+        "solution": " BOWL\n\nA:\nmushroom, raccoon",
+        "answer": "BOWL FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOWL\n\nA:\nmushroom, raccoon",
+            " BOWL\n\nA:\nmushroom, porcelain",
+            " BOWL\n\nA:\nmushroom, bridge, rac"
+        ],
+        "topk_probs": [
+            8.779201365882727e-09,
+            7.031597526463429e-09,
+            2.1316699516660265e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tulip crab wolf house lamp baby clock possum palm_tree snake TULIP CRAB WOLF HOUSE LAMP BABY CLOCK POSSUM",
+        "solution": " TREE LAMP TURTLE TURTLE TURT",
+        "answer": "PALM_TREE SNAKE",
+        "accuracy": false,
+        "topk_solutions": [
+            " TREE LAMP TURTLE TURTLE TURT",
+            " TREE LAMP TURTLE LAMP TURTLE L",
+            " TREE LAMP TURTLE TURTLE TURTL"
+        ],
+        "topk_probs": [
+            1.2580945174534008e-09,
+            8.673093354616412e-10,
+            2.1862403554173682e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bee bee house sea motorcycle possum apple sunflower plate ray BEE BEE HOUSE SEA MOTORCYCLE POSSUM APPLE SUNFLOWER",
+        "solution": " BEE BEE BEE BEE BEE BEE BEE B",
+        "answer": "PLATE RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEE BEE BEE BEE BEE BEE BEE B",
+            " BEE BEE BEE BEE BEE BEE BEE",
+            " BEE BEE BEE BEE BEE BEE BEE H"
+        ],
+        "topk_probs": [
+            6.51726509204309e-07,
+            3.6767893618616654e-08,
+            3.6767893618616654e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "telephone squirrel bridge crocodile otter wardrobe couch dinosaur snake bee TELEPHONE SQUIRREL BRIDGE CROCODILE OTTER WARDROBE COUCH DINOSAUR",
+        "solution": "\n\nThe answer to this example can be: yes\nHere is why",
+        "answer": "SNAKE BEE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nThe answer to this example can be: yes\nHere is why",
+            "\n\nThe answer to this example can be: a\nHere is why",
+            "\n\nThe answer to this example can be: A\nHere is why"
+        ],
+        "topk_probs": [
+            1.355770336886053e-06,
+            3.6586862961485167e-07,
+            2.7658489898385596e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "shrew dinosaur ray fox maple_tree porcupine bear lawn_mower tiger shrew SHREW DINOSAUR RAY FOX MAPLE_TREE PORCUPINE BEAR LAWN_MOWER",
+        "solution": " TIGER\n\nI want to be able to search for any of",
+        "answer": "TIGER SHREW",
+        "accuracy": false,
+        "topk_solutions": [
+            " TIGER\n\nI want to be able to search for any of",
+            " TIGER\n\nI want to be able to search for a word",
+            " TIGER\n\nI want to be able to search for a specific"
+        ],
+        "topk_probs": [
+            8.685145380660231e-10,
+            5.146445491988061e-10,
+            3.7652200801652214e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee seal snake aquarium_fish tractor orange possum man crocodile shark CHIMPANZEE SEAL SNAKE AQUARIUM_FISH TRACTOR ORANGE POSSUM MAN",
+        "solution": " CHIMP\nOutput:\nA chimp, a snake, and a",
+        "answer": "CROCODILE SHARK",
+        "accuracy": false,
+        "topk_solutions": [
+            " CHIMP\nOutput:\nA chimp, a snake, and a",
+            " CHIMP\nOutput:\nA chimp, a seal, a cro",
+            " CHIMP\nOutput:\nA chimp, a seal, a snake"
+        ],
+        "topk_probs": [
+            3.4453433439551873e-09,
+            1.9469588163900653e-09,
+            1.338123944982783e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "worm pickup_truck bed plain leopard whale lizard woman train bear WORM PICKUP_TRUCK BED PLAIN LEOPARD WHALE LIZARD WOMAN",
+        "solution": " TRAIN WOMAN WOMAN WOMAN WOMAN W",
+        "answer": "TRAIN BEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            " TRAIN WOMAN WOMAN WOMAN WOMAN W",
+            " TRUCK WOMAN WOMAN WOMAN WOMAN W",
+            " TRAIN WOMAN WOMAN WOMAN WOMEN W"
+        ],
+        "topk_probs": [
+            4.9213927013624925e-06,
+            1.5469832987946575e-06,
+            1.127432028624753e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "poppy crab chair plain train squirrel baby possum shark forest POPPY CRAB CHAIR PLAIN TRAIN SQUIRREL BABY POSSUM",
+        "solution": " SHARK.\n\nI don't know if it's just me,",
+        "answer": "SHARK FOREST",
+        "accuracy": false,
+        "topk_solutions": [
+            " SHARK.\n\nI don't know if it's just me,",
+            " SHARK.\n\nI don't know if it's just me but",
+            " SHARK.\n\nI don't know if it's just me or"
+        ],
+        "topk_probs": [
+            3.0326883365683344e-11,
+            1.839418548033045e-11,
+            6.766842728517242e-12
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tulip wolf bicycle boy lobster bear lamp keyboard sunflower skunk TULIP WOLF BICYCLE BOY LOBSTER BEAR LAMP KEYBOARD",
+        "solution": " TURTLE TURTLE TURTLE TURT",
+        "answer": "SUNFLOWER SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " TURTLE TURTLE TURTLE TURT",
+            " TURTLE TURTLE TURTLE TURTL",
+            " TURTLE TURTLE TURTLE TURKEY"
+        ],
+        "topk_probs": [
+            2.504065435005032e-07,
+            4.351413096514989e-08,
+            8.568441067779986e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "shark raccoon sunflower forest bee lawn_mower lamp raccoon lizard willow_tree SHARK RACCOON SUNFLOWER FOREST BEE LAWN_MOWER LAMP RACCOON",
+        "solution": " WILLOW TREE\n\nI'm not sure if this is the best",
+        "answer": "LIZARD WILLOW_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " WILLOW TREE\n\nI'm not sure if this is the best",
+            " WILLOW TREE\n\nI'm not sure if this is the right",
+            " WILLOW TREE\n\nI'm not sure how to go about this"
+        ],
+        "topk_probs": [
+            6.750477954398093e-10,
+            4.938754960548408e-10,
+            4.640008932632611e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "ray mushroom hamster mouse whale pear flatfish willow_tree palm_tree motorcycle RAY MUSHROOM HAMSTER MOUSE WHALE PEAR FLATFISH WILLOW_TREE",
+        "solution": " MOTORCYCLE\n\nA: The answer to the question: What",
+        "answer": "PALM_TREE MOTORCYCLE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE\n\nA: The answer to the question: What",
+            " MOTORCYCLE\n\nA: The answer to the question \"What",
+            " MOTORCYCLE\n\nA: The answer to the question is:"
+        ],
+        "topk_probs": [
+            3.8954647152422694e-07,
+            1.756233842797883e-07,
+            1.3719983371629496e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "telephone crab girl man wolf butterfly whale telephone crocodile tank TELEPHONE CRAB GIRL MAN WOLF BUTTERFLY WHALE TELEPHONE",
+        "solution": " CROCODILE TANK\n\nA: phone\n\n\nProblem:",
+        "answer": "CROCODILE TANK",
+        "accuracy": true,
+        "topk_solutions": [
+            " CROCODILE TANK\n\nA: phone\n\n\nProblem:",
+            " CROCODILE TANK\n\nA: phone\n\n\nQ:",
+            " CROCODILE TANK\n\nA:\ntelephoneDet"
+        ],
+        "topk_probs": [
+            3.507183876649833e-09,
+            5.374748979214417e-10,
+            4.2174011505302644e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "train tiger lobster pear crab bicycle pear sweet_pepper maple_tree flatfish TRAIN TIGER LOBSTER PEAR CRAB BICYCLE PEAR SWEET_PEPPER",
+        "solution": " TOMATO MAPLE_SYRUP TOMATO T",
+        "answer": "MAPLE_TREE FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " TOMATO MAPLE_SYRUP TOMATO T",
+            " TOMATO MAPLE_SYRUP TOMATO PE",
+            " TOMATO MAPLE_SYRUP TOMATO_"
+        ],
+        "topk_probs": [
+            4.682253802457126e-07,
+            1.833597167433254e-07,
+            1.7225049475655396e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "orange bowl orange cockroach chair bottle streetcar snail sea tank ORANGE BOWL ORANGE COCKROACH CHAIR BOTTLE STREETCAR SNAIL",
+        "solution": " ORANGE TANK\"\n\nI'm not sure if this is the",
+        "answer": "SEA TANK",
+        "accuracy": false,
+        "topk_solutions": [
+            " ORANGE TANK\"\n\nI'm not sure if this is the",
+            " ORANGE TANK\"\n\nI'm not sure if this is a",
+            " ORANGE TANK\"\n\nI'm not sure if this is what"
+        ],
+        "topk_probs": [
+            8.349407970564826e-11,
+            5.390782611969236e-11,
+            2.5464255704044092e-11
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "squirrel rose cattle sweet_pepper woman tiger skyscraper rabbit fox crocodile SQUIRREL ROSE CATTLE SWEET_PEPPER WOMAN TIGER SKYSCRAPER RABBIT",
+        "solution": " WOMAN SQUIRREL SQUIRREL SQUIRREL",
+        "answer": "FOX CROCODILE",
+        "accuracy": false,
+        "topk_solutions": [
+            " WOMAN SQUIRREL SQUIRREL SQUIRREL",
+            " WOMAN SQUIRREL WOMAN WOMAN WOM",
+            " WOMAN SQUIRREL WOMAN SQUIRREL W"
+        ],
+        "topk_probs": [
+            9.70714040704479e-07,
+            3.286832850335486e-07,
+            2.308481867885348e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom rabbit beaver man beaver baby boy tractor castle mushroom MUSHROOM RABBIT BEAVER MAN BEAVER BABY BOY TRACTOR",
+        "solution": ".\nThe item \"Mushroom Beaver Tractor\" is in",
+        "answer": "CASTLE MUSHROOM",
+        "accuracy": false,
+        "topk_solutions": [
+            ".\nThe item \"Mushroom Beaver Tractor\" is in",
+            ".\nThe item \"Mushroom Beaver T-Shirt\"",
+            ".\nThe item \"Mushroom Beaver T-shirt\" is"
+        ],
+        "topk_probs": [
+            9.79046080318291e-11,
+            4.674731088338824e-11,
+            2.235469274969315e-11
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "leopard pine_tree streetcar camel mountain beetle wolf beetle cattle lobster LEOPARD PINE_TREE STREETCAR CAMEL MOUNTAIN BEETLE WOLF BEETLE",
+        "solution": " CATTLE\nOutput:\nYesDetailed Instructions: In",
+        "answer": "CATTLE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            " CATTLE\nOutput:\nYesDetailed Instructions: In",
+            " CATTLE\nOutput:\nYesGiven the task definition and input",
+            " CATTLE\nOutput:\nyesDetailed Instructions: In"
+        ],
+        "topk_probs": [
+            3.3065064144466305e-06,
+            2.5535109671182e-06,
+            2.5402832761756144e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "man boy raccoon keyboard tulip cup beetle willow_tree bear oak_tree MAN BOY RACCOON KEYBOARD TULIP CUP BEETLE WILLOW_TREE",
+        "solution": " OAK TREE\n\nOutput: A boy, a raccoon",
+        "answer": "BEAR OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK TREE\n\nOutput: A boy, a raccoon",
+            " OAK TREE\n\nOutput: A boy, raccoon,",
+            " OAK TREE\n\nOutput: A boy is playing with a keyboard"
+        ],
+        "topk_probs": [
+            3.843147577953232e-09,
+            2.5332853592630045e-09,
+            5.146690851276503e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "dolphin television camel couch road orange flatfish cockroach lizard oak_tree DOLPHIN TELEVISION CAMEL COUCH ROAD ORANGE FLATFISH COCKROACH",
+        "solution": " COCKROACHES DOLPHIN DOLPHIN DOL",
+        "answer": "LIZARD OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " COCKROACHES DOLPHIN DOLPHIN DOL",
+            " COCKROACHES DOLPHIN DOLPHINS DOL",
+            " COCKROACHES DOLPHIN DOLPHIN COCK"
+        ],
+        "topk_probs": [
+            3.080974053659702e-08,
+            1.1974069735742887e-08,
+            3.357703226569697e-09
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "turtle keyboard boy trout streetcar rose bee pear kangaroo cockroach TURTLE KEYBOARD BOY TROUT STREETCAR ROSE BEE PEAR",
+        "solution": "L TURTLE TURTLE TURTLE TUR",
+        "answer": "KANGAROO COCKROACH",
+        "accuracy": false,
+        "topk_solutions": [
+            "L TURTLE TURTLE TURTLE TUR",
+            "L TURTLE TURTLE TURTLES TUR",
+            "L TURTLE TURTLE TURTLE TROUT"
+        ],
+        "topk_probs": [
+            2.3513234737038147e-06,
+            3.86786410899731e-07,
+            2.452496516980318e-07
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tractor skunk squirrel caterpillar bus turtle rocket aquarium_fish dolphin oak_tree TRACTOR SKUNK SQUIRREL CATERPILLAR BUS TURTLE ROCKET AQUARIUM_FISH",
+        "solution": " OAK_TREE\n\nI'm trying to get the following output",
+        "answer": "DOLPHIN OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK_TREE\n\nI'm trying to get the following output",
+            " OAK_TREE\n\nI'm trying to get the output to",
+            " OAK_TREE\n\nI'm trying to get the output as"
+        ],
+        "topk_probs": [
+            9.089861641164987e-10,
+            6.183655254510256e-10,
+            5.126430391300119e-10
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    }
+]

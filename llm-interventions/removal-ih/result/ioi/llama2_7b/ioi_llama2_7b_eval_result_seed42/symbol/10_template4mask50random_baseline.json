@@ -1,0 +1,1908 @@
+[
+    {
+        "acc": 0.41
+    },
+    {
+        "top3acc": 0.5
+    },
+    {
+        "prompt": "Then, &^ and #$ went to the station. &^ gave a basketball to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " #$ and said,",
+            " #$ &^ said"
+        ],
+        "topk_probs": [
+            0.011623013764619827,
+            0.005661652889102697,
+            0.0031664292328059673
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, #$ and =/ went to the garden. #$ gave a ring to",
+        "solution": " #/ and asked her",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " #/ and asked her",
+            " #/ and said,",
+            " #/ and said that"
+        ],
+        "topk_probs": [
+            0.0006119681056588888,
+            0.00044824471115134656,
+            0.00034368131309747696
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and #$ had a long argument. Afterwards &^ said to",
+        "solution": " #$ \"I'",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ \"I'",
+            " #$: \"I",
+            " #$ \"You are"
+        ],
+        "topk_probs": [
+            0.00955331139266491,
+            0.0075758653692901134,
+            0.005884619429707527
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, !@ and #$ went to the office. !@ gave a drink to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " #$ and said,",
+            " #$ and !@"
+        ],
+        "topk_probs": [
+            0.03296268731355667,
+            0.017919320613145828,
+            0.014809141866862774
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After !@ and =/ went to the store, !@ gave a ring to",
+        "solution": " =/ and said,",
+        "answer": "=/",
+        "accuracy": true,
+        "topk_solutions": [
+            " =/ and said,",
+            " !@'s friend",
+            " =/ and said \""
+        ],
+        "topk_probs": [
+            0.014086546376347542,
+            0.0033473242074251175,
+            0.0023725617211312056
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, =/ and &^ were working at the station. =/ decided to give a bottle to",
+        "solution": " =/ and =/",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " =/ and =/",
+            " &^, who was",
+            " &^, who had"
+        ],
+        "topk_probs": [
+            0.00560004124417901,
+            0.0014320847112685442,
+            0.000615931989159435
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Afterwards, =/ and #$ went to the garden. =/ gave a necklace to",
+        "solution": " #$ and said,",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and said,",
+            " #$ =/ said",
+            " #$ and told her"
+        ],
+        "topk_probs": [
+            0.0051745036616921425,
+            0.0025009941309690475,
+            0.002199318027123809
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While &^ and #$ were working at the garden, &^ gave a ring to",
+        "solution": " &^'s mother",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^'s mother",
+            " &^'s wife",
+            " &^'s sister"
+        ],
+        "topk_probs": [
+            0.004407510627061129,
+            0.002736685797572136,
+            0.002434058580547571
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, [& and &^ had a lot of fun at the station. [& gave a drink to",
+        "solution": " [& and [&",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " [& and [&",
+            " [&^.\n",
+            " [&^ and ["
+        ],
+        "topk_probs": [
+            0.005982247181236744,
+            0.001994835678488016,
+            0.0011825041146948934
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While !@ and -+ were commuting to the station, !@ gave a basketball to",
+        "solution": " a homeless man.",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " a homeless man.",
+            " -+, who was",
+            " -+.\nWh"
+        ],
+        "topk_probs": [
+            0.006697834935039282,
+            0.0050528463907539845,
+            0.0029897489584982395
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While !@ and )% were commuting to the garden, !@ gave a book to",
+        "solution": " !% and !%",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " !% and !%",
+            " !% and !@",
+            " !@'s friend"
+        ],
+        "topk_probs": [
+            0.0018717384664341807,
+            0.0014018674846738577,
+            0.0009390045306645334
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "The store -+ and &^ went to had a snack. -+ gave it to",
+        "solution": " the dog -+ and",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " the dog -+ and",
+            " the dog.\nThe",
+            " me.\nThe store"
+        ],
+        "topk_probs": [
+            0.0018910488579422235,
+            0.0011308095417916775,
+            0.0010658942628651857
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When !@ and [& got a snack at the garden, !@ decided to give the snack to",
+        "solution": " [&.\nWhen",
+        "answer": "[&",
+        "accuracy": true,
+        "topk_solutions": [
+            " [&.\nWhen",
+            " [&. When [",
+            " [&.\n["
+        ],
+        "topk_probs": [
+            0.0023546975571662188,
+            0.0023497994989156723,
+            0.002282251138240099
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, #$ and !@ were thinking about going to the office. #$ wanted to give a snack to",
+        "solution": " #@. #$",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " #@. #$",
+            " #@, but #",
+            " #@, so he"
+        ],
+        "topk_probs": [
+            0.0028053876012563705,
+            0.002463861834257841,
+            0.0012941830791532993
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Friends !@ and #$ found a bottle at the school. !@ gave it to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " #$ who gave it",
+            " #$ and they d"
+        ],
+        "topk_probs": [
+            0.022327283397316933,
+            0.005096204578876495,
+            0.00229033175855875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, !@ and -+ had a lot of fun at the store. !@ gave a book to",
+        "solution": " -+ and -+",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+ and -+",
+            " -+, and -",
+            " -+, and !"
+        ],
+        "topk_probs": [
+            0.021588213741779327,
+            0.00769798643887043,
+            0.002499170368537307
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, =/ and )% were working at the store. =/ decided to give a money to",
+        "solution": " =/ and =/",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " =/ and =/",
+            " the homeless man.",
+            " the homeless people."
+        ],
+        "topk_probs": [
+            0.0026442823000252247,
+            0.0013709755148738623,
+            0.0013550212606787682
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, !@ and [& were working at the station. !@ decided to give a backpack to",
+        "solution": " [&] as a",
+        "answer": "[&",
+        "accuracy": true,
+        "topk_solutions": [
+            " [&] as a",
+            " [&] for his",
+            " [&] for the"
+        ],
+        "topk_probs": [
+            0.008889969438314438,
+            0.0014940465334802866,
+            0.0008851932361721992
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While )% and &^ were commuting to the store, )% gave a basketball to",
+        "solution": " &^. He said",
+        "answer": "&^",
+        "accuracy": true,
+        "topk_solutions": [
+            " &^. He said",
+            " &^. The basketball",
+            " &^.\nWh"
+        ],
+        "topk_probs": [
+            0.0020567134488373995,
+            0.001958198845386505,
+            0.0013416822766885161
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and =/ had a lot of fun at the station. &^ gave a necklace to",
+        "solution": " &^ and &^",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^ and &^",
+            " &^, &^",
+            " &^, and &"
+        ],
+        "topk_probs": [
+            0.004714679904282093,
+            0.0038160874973982573,
+            0.001695362851023674
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and )% went to the school. &^ gave a necklace to",
+        "solution": " &^. &^",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^. &^",
+            " &% and &%",
+            " &^'s mother"
+        ],
+        "topk_probs": [
+            0.007083619479089975,
+            0.0037227459251880646,
+            0.002895752899348736
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While -+ and =/ were working at the office, -+ gave a basketball to",
+        "solution": " -+ as a gift",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " -+ as a gift",
+            " -+ as a present",
+            " -+ as a birth"
+        ],
+        "topk_probs": [
+            0.013318882323801517,
+            0.006390469614416361,
+            0.004125995095819235
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When -+ and =/ got a snack at the restaurant, -+ decided to give the snack to",
+        "solution": " the dog.\nWhen",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " the dog.\nWhen",
+            " the dog. -+",
+            " -+.\nWhen"
+        ],
+        "topk_probs": [
+            0.002134764799848199,
+            0.0018004238372668624,
+            0.0011449020821601152
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, #$ and [& had a long argument, and afterwards #$ said to",
+        "solution": " [&, \"I",
+        "answer": "[&",
+        "accuracy": true,
+        "topk_solutions": [
+            " [&, \"I",
+            " [&, \"You",
+            " [&, \u201cI"
+        ],
+        "topk_probs": [
+            0.014618530869483948,
+            0.009148038923740387,
+            0.008706529624760151
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and )% had a long argument, and afterwards &^ said to",
+        "solution": " )%: \"I",
+        "answer": ")%",
+        "accuracy": true,
+        "topk_solutions": [
+            " )%: \"I",
+            " &%: \"I",
+            " )%: \"You"
+        ],
+        "topk_probs": [
+            0.003507462330162525,
+            0.002587740309536457,
+            0.0020619304850697517
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "The restaurant =/ and )% went to had a snack. =/ gave it to",
+        "solution": " the dog.\nThe",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " the dog.\nThe",
+            " the cat.\nThe",
+            " the dog.\nI"
+        ],
+        "topk_probs": [
+            0.006356813479214907,
+            0.0023740134201943874,
+            0.0011851155431941152
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and -+ went to the restaurant. &^ gave a bottle to",
+        "solution": " the waiter &+",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " the waiter &+",
+            " the waiter, and",
+            " the waiter, &"
+        ],
+        "topk_probs": [
+            0.009206432849168777,
+            0.0068671563640236855,
+            0.00655268644914031
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When [& and #$ got a money at the house, [& decided to give the money to",
+        "solution": " the poor.\nWhen",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " the poor.\nWhen",
+            " [&.\nWhen",
+            " the poor.\n["
+        ],
+        "topk_probs": [
+            0.0005222461186349392,
+            0.0003463671018835157,
+            0.00026882937527261674
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When -+ and !@ got a bottle at the office, -+ decided to give the bottle to",
+        "solution": " @.\nWhen -",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " @.\nWhen -",
+            " !@.\nWhen",
+            " !@.\n-"
+        ],
+        "topk_probs": [
+            0.0010718661360442638,
+            0.0006949416128918529,
+            0.0006683187675662339
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "The store &^ and =/ went to had a bottle. &^ gave it to",
+        "solution": " him. He drank",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " him. He drank",
+            " me. I drank",
+            " him, and he d"
+        ],
+        "topk_probs": [
+            0.0008644865592941642,
+            0.0006443610182031989,
+            0.00042024426511488855
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Afterwards, -+ and #$ went to the restaurant. -+ gave a bottle to",
+        "solution": " the waiter -+",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " the waiter -+",
+            " the waiter. -",
+            " the waiter.\n"
+        ],
+        "topk_probs": [
+            0.03481898084282875,
+            0.008929011411964893,
+            0.007697288878262043
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, !@ and )% had a long argument, and afterwards !@ said to",
+        "solution": " %: \"I'",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " %: \"I'",
+            " %: \"You are",
+            " %: \"You'"
+        ],
+        "topk_probs": [
+            0.0020817522890865803,
+            0.002071992726996541,
+            0.0011713983258232474
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When !@ and #$ got a necklace at the garden, !@ decided to give it to",
+        "solution": " #$ as a gift",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ as a gift",
+            " #$ as a present",
+            " #$ for her birth"
+        ],
+        "topk_probs": [
+            0.021626366302371025,
+            0.015822183340787888,
+            0.0033097814302891493
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While =/ and -+ were working at the house, =/ gave a basketball to",
+        "solution": " =.\nWhile",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " =.\nWhile",
+            " =/ and =/",
+            " the boy.\nWh"
+        ],
+        "topk_probs": [
+            0.0021556310821324587,
+            0.001668950542807579,
+            0.000653731869533658
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When -+ and )% got a bottle at the garden, -+ decided to give it to",
+        "solution": " -+.\n-",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " -+.\n-",
+            " -+, who was",
+            " -+.\nWhen"
+        ],
+        "topk_probs": [
+            0.0009831027127802372,
+            0.00035772527917288244,
+            0.00034780814894475043
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "After &^ and =/ went to the hospital, &^ gave a drink to",
+        "solution": " the nurse.\n",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " the nurse.\n",
+            " the nurse, &",
+            " the nurse, and"
+        ],
+        "topk_probs": [
+            0.0018003019504249096,
+            0.0015414984663948417,
+            0.0008251046529039741
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While &^ and )% were commuting to the garden, &^ gave a necklace to",
+        "solution": " &% as a gift",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &% as a gift",
+            " &^'s wife",
+            " &% as a present"
+        ],
+        "topk_probs": [
+            0.004717976786196232,
+            0.0024403156712651253,
+            0.0023723477497696877
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "The hospital &^ and =/ went to had a necklace. &^ gave it to",
+        "solution": " her.\nThe hospital",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " her.\nThe hospital",
+            " her. She was very",
+            " me.\nThe hospital"
+        ],
+        "topk_probs": [
+            0.000926729291677475,
+            0.0004278413252905011,
+            0.0003699295921251178
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Afterwards, [& and !@ went to the office. [& gave a bottle to",
+        "solution": " the clerk [&",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " the clerk [&",
+            " the clerk, and",
+            " the clerk, who"
+        ],
+        "topk_probs": [
+            0.0013934633461758494,
+            0.0010516387410461903,
+            0.0006684621912427247
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When [& and =/ got a basketball at the garden, [& decided to give it to",
+        "solution": " [&.\nWhen",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " [&.\nWhen",
+            " [& and [&",
+            " a friend.\nWhen"
+        ],
+        "topk_probs": [
+            0.00036168287624605,
+            0.0002081961720250547,
+            0.00012193691509310156
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Friends =/ and -+ found a ring at the school. =/ gave it to",
+        "solution": " the teacher =/ and",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " the teacher =/ and",
+            " her =/ and she",
+            " her =/ she said"
+        ],
+        "topk_probs": [
+            0.0012258327333256602,
+            0.0011293863644823432,
+            0.0006006182520650327
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and )% were thinking about going to the hospital. &^ wanted to give a ring to",
+        "solution": " &^'s mother",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^'s mother",
+            " &^'s m",
+            " &^'s sister"
+        ],
+        "topk_probs": [
+            0.0038892400916665792,
+            0.0018660778878256679,
+            0.001822850201278925
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, !@ and #$ had a long argument, and afterwards !@ said to",
+        "solution": " #$ \"You are",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ \"You are",
+            " #$ \"You'",
+            " #$, \"You are"
+        ],
+        "topk_probs": [
+            0.015498852357268333,
+            0.006824052426964045,
+            0.006469434592872858
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While #$ and &^ were commuting to the station, #$ gave a basketball to",
+        "solution": " #^. He said",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " #^. He said",
+            " #^.\n#",
+            " #^.\nWh"
+        ],
+        "topk_probs": [
+            0.0017190671060234308,
+            0.0013544593239203095,
+            0.001114147831685841
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Afterwards, !@ and #$ went to the hospital. !@ gave a basketball to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " #$ and said,",
+            " the nurse and #"
+        ],
+        "topk_probs": [
+            0.02016054280102253,
+            0.006905465852469206,
+            0.003175816498696804
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and )% had a lot of fun at the house. &^ gave a drink to",
+        "solution": " )% and &^",
+        "answer": ")%",
+        "accuracy": true,
+        "topk_solutions": [
+            " )% and &^",
+            " &% and &%",
+            " &% and &^"
+        ],
+        "topk_probs": [
+            0.003312764223664999,
+            0.003248196793720126,
+            0.0030040910933166742
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Afterwards, &^ and #$ went to the house. &^ gave a drink to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " #$ and then they",
+            " #$ and they went"
+        ],
+        "topk_probs": [
+            0.0013752216473221779,
+            0.00026136671658605337,
+            0.00023074948694556952
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, =/ and #$ were thinking about going to the station. =/ wanted to give a book to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " a friend, and #",
+            " a friend, but he"
+        ],
+        "topk_probs": [
+            0.001403956557624042,
+            0.0007719427230767906,
+            0.00031175953336060047
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While &^ and =/ were working at the office, &^ gave a drink to",
+        "solution": " &^'s dog",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^'s dog",
+            " &^'s friend",
+            " &^'s b"
+        ],
+        "topk_probs": [
+            0.0008897173684090376,
+            0.00036229772376827896,
+            0.00035947831929661334
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While &^ and =/ were commuting to the house, &^ gave a necklace to",
+        "solution": " &^.\n&",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^.\n&",
+            " &^, which was",
+            " &^, which &"
+        ],
+        "topk_probs": [
+            0.00033761136000975966,
+            0.0003070045786444098,
+            0.0002861597458831966
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, -+ and #$ went to the school. -+ gave a snack to",
+        "solution": " -+. -+",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " -+. -+",
+            " #$ -+ said",
+            " -+.\nThen"
+        ],
+        "topk_probs": [
+            0.014714881777763367,
+            0.010576719418168068,
+            0.003973004873842001
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, [& and !@ were working at the office. [& decided to give a book to",
+        "solution": " [@. [@",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " [@. [@",
+            " [@. [&",
+            " [@. The book"
+        ],
+        "topk_probs": [
+            0.0020386723335832357,
+            0.0018854637164622545,
+            0.0012483636382967234
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When &^ and !@ got a book at the station, &^ decided to give the book to",
+        "solution": " !@. The book",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " !@. The book",
+            " !@.\nWhen",
+            " !@. When &"
+        ],
+        "topk_probs": [
+            0.0013582648243755102,
+            0.0010315579129382968,
+            0.000998872797936201
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and -+ were working at the office. &^ decided to give a necklace to",
+        "solution": " -+ as a gift",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+ as a gift",
+            " -+. So,",
+            " -+ as a present"
+        ],
+        "topk_probs": [
+            0.012383701279759407,
+            0.005415520165115595,
+            0.0028508896939456463
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Friends -+ and &^ found a necklace at the store. -+ gave it to",
+        "solution": " me -+ and I",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " me -+ and I",
+            " her -+ she was",
+            " me -+ and said"
+        ],
+        "topk_probs": [
+            0.0015941131860017776,
+            0.0010182970436289907,
+            0.0006964164786040783
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, -+ and #$ had a lot of fun at the restaurant. -+ gave a book to",
+        "solution": " -+ and -+",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " -+ and -+",
+            " #$ and #$",
+            " -+.\nThen"
+        ],
+        "topk_probs": [
+            0.013568984344601631,
+            0.008451452478766441,
+            0.0009289184235967696
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and -+ went to the office. &^ gave a necklace to",
+        "solution": " -+. -+",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+. -+",
+            " -+. &^",
+            " -+.\nThen"
+        ],
+        "topk_probs": [
+            0.018139755353331566,
+            0.0050622825510799885,
+            0.002279221313074231
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, )% and #$ had a long argument. Afterwards )% said to",
+        "solution": " #$ \"I'",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ \"I'",
+            " #$: \"I",
+            " #$, \"I'"
+        ],
+        "topk_probs": [
+            0.007509339600801468,
+            0.006300530396401882,
+            0.00511560682207346
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and !@ went to the restaurant. &^ gave a drink to",
+        "solution": " !@. Then,",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " !@. Then,",
+            " !@, and !",
+            " !@.\nThen"
+        ],
+        "topk_probs": [
+            0.011231513693928719,
+            0.007716825231909752,
+            0.007278548087924719
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Afterwards, &^ and [& went to the house. &^ gave a backpack to",
+        "solution": " &^, who was",
+        "answer": "[&",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^, who was",
+            " &^, and &",
+            " &^.\nAfter"
+        ],
+        "topk_probs": [
+            0.0002426393039058894,
+            0.00018601884949021041,
+            0.00013022807252127677
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "The office [& and #$ went to had a drink. [& gave it to",
+        "solution": " him.\nThe office",
+        "answer": "#$",
+        "accuracy": false,
+        "topk_solutions": [
+            " him.\nThe office",
+            " the boss [&",
+            " the boss.\n"
+        ],
+        "topk_probs": [
+            0.0008438509539701045,
+            0.0008108335314318538,
+            0.00048388735740445554
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While )% and #$ were working at the house, )% gave a snack to",
+        "solution": " the dog. #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " the dog. #$",
+            " #$ and #$",
+            " the dog.\nWh"
+        ],
+        "topk_probs": [
+            0.004147834610193968,
+            0.0035089075099676847,
+            0.001257044030353427
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After )% and =/ went to the hospital, )% gave a backpack to",
+        "solution": " a homeless person.",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " a homeless person.",
+            " a homeless man.",
+            " the nurse.\n"
+        ],
+        "topk_probs": [
+            0.0016820899909362197,
+            0.0016701876884326339,
+            0.0009365848964080215
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and !@ had a lot of fun at the restaurant. &^ gave a book to",
+        "solution": " the waiter &@",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " the waiter &@",
+            " the waiter, &",
+            " the waiter &^"
+        ],
+        "topk_probs": [
+            0.004604654386639595,
+            0.0042282938957214355,
+            0.0033166080247610807
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When &^ and -+ got a snack at the hospital, &^ decided to give it to",
+        "solution": " &+.\n&",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " &+.\n&",
+            " &+. It was",
+            " &+, &+"
+        ],
+        "topk_probs": [
+            0.00037326253368519247,
+            0.00028624461265280843,
+            0.0002551916695665568
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While -+ and !@ were working at the house, -+ gave a snack to",
+        "solution": " -+ and -+",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " -+ and -+",
+            " -+.\n-",
+            " the dog.\nWh"
+        ],
+        "topk_probs": [
+            0.0033904281444847584,
+            0.0011329981498420238,
+            0.0009925637859851122
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, [& and &^ had a long argument, and afterwards [& said to",
+        "solution": " [&, \"I",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " [&, \"I",
+            " [&^, \"",
+            " [&, \u201cI"
+        ],
+        "topk_probs": [
+            0.02043202519416809,
+            0.02037285640835762,
+            0.014929576776921749
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Afterwards, &^ and =/ went to the school. &^ gave a snack to",
+        "solution": " &^ and &^",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^ and &^",
+            " the children &^ had",
+            " the children &^ was"
+        ],
+        "topk_probs": [
+            0.003914043307304382,
+            0.0006400953861884773,
+            0.0004965633270330727
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "After =/ and &^ went to the house, =/ gave a ring to",
+        "solution": " the house, =/",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " the house, =/",
+            " the bell, =/",
+            " the door, =/"
+        ],
+        "topk_probs": [
+            0.014129756018519402,
+            0.010825557634234428,
+            0.008721684105694294
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, )% and -+ had a long argument. Afterwards )% said to",
+        "solution": " -+, \"I",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+, \"I",
+            " -+: \"I",
+            " -+, 'I"
+        ],
+        "topk_probs": [
+            0.010305170901119709,
+            0.00686753261834383,
+            0.004432021174579859
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "When -+ and #$ got a necklace at the station, -+ decided to give it to",
+        "solution": " #$ as a present",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ as a present",
+            " #$ as a gift",
+            " -+.\n-"
+        ],
+        "topk_probs": [
+            0.004330127965658903,
+            0.0031188740395009518,
+            0.0019387324573472142
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, -+ and #$ had a lot of fun at the hospital. -+ gave a ring to",
+        "solution": " #$ and #$",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ and #$",
+            " -#$ and they",
+            " -#$ and -"
+        ],
+        "topk_probs": [
+            0.007640528026968241,
+            0.0024978157598525286,
+            0.00215325178578496
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, )% and -+ had a long argument, and afterwards )% said to",
+        "solution": " -+, \"I",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+, \"I",
+            " -+, \"You",
+            " -+: \"I"
+        ],
+        "topk_probs": [
+            0.008412327617406845,
+            0.003646473865956068,
+            0.0033158743754029274
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, #$ and )% were working at the house. #$ decided to give a bottle to",
+        "solution": " #$% and #",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " #$% and #",
+            " #% and #%",
+            " #% and #$"
+        ],
+        "topk_probs": [
+            0.002123909769579768,
+            0.0016408272786065936,
+            0.0010429732501506805
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, =/ and !@ were working at the house. =/ decided to give a bottle to",
+        "solution": " =/ and =/",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " =/ and =/",
+            " the dog. The dog",
+            " =/ and =/."
+        ],
+        "topk_probs": [
+            0.0014838299248367548,
+            0.0008482823031954467,
+            0.00031102748471312225
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "After the lunch, &^ and !@ went to the hospital. &^ gave a money to",
+        "solution": " the nurse &^",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " the nurse &^",
+            " the nurse, &",
+            " the nurse, and"
+        ],
+        "topk_probs": [
+            0.01693171262741089,
+            0.004271855112165213,
+            0.004013038240373135
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, #$ and &^ were working at the office. #$ decided to give a drink to",
+        "solution": " &^. #$",
+        "answer": "&^",
+        "accuracy": true,
+        "topk_solutions": [
+            " &^. #$",
+            " &^ to celebrate",
+            " &^. He was"
+        ],
+        "topk_probs": [
+            0.009557106532156467,
+            0.009322655387222767,
+            0.001070906175300479
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, #$ and -+ went to the station. #$ gave a bottle to",
+        "solution": " each of us. We",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " each of us. We",
+            " #-+ and said",
+            " each of them. They"
+        ],
+        "topk_probs": [
+            0.0009845109889283776,
+            0.0009568574605509639,
+            0.0008245661738328636
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, )% and -+ went to the store. )% gave a bottle to",
+        "solution": " -+. -+",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+. -+",
+            " -+.\nAfter",
+            " -+ and said,"
+        ],
+        "topk_probs": [
+            0.0043670120649039745,
+            0.0011544486042112112,
+            0.0006523698102682829
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After #$ and !@ went to the garden, #$ gave a ring to",
+        "solution": " #!@.\n",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " #!@.\n",
+            " #@.\n#",
+            " #@. #@"
+        ],
+        "topk_probs": [
+            0.010447707027196884,
+            0.005683505907654762,
+            0.0047646332532167435
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Friends -+ and =/ found a basketball at the station. -+ gave it to",
+        "solution": " me -+ and I",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " me -+ and I",
+            " me -+ and =",
+            " a friend -+ and"
+        ],
+        "topk_probs": [
+            0.0006753064226359129,
+            0.0006700511439703405,
+            0.0006213266169652343
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "After !@ and &^ went to the restaurant, !@ gave a money to",
+        "solution": " the waiter.\n",
+        "answer": "&^",
+        "accuracy": false,
+        "topk_solutions": [
+            " the waiter.\n",
+            " the waiter and said",
+            " &^.\nAfter"
+        ],
+        "topk_probs": [
+            0.009324113838374615,
+            0.0059107341803610325,
+            0.0055122217163443565
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, #$ and !@ went to the hospital. #$ gave a snack to",
+        "solution": " the nurse, and",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " the nurse, and",
+            " the nurse. The",
+            " the nurse. #"
+        ],
+        "topk_probs": [
+            0.0022769509814679623,
+            0.001440992346033454,
+            0.001407611882314086
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While [& and #$ were commuting to the office, [& gave a snack to",
+        "solution": " [#$ who was",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " [#$ who was",
+            " [#$ and [",
+            " [&.\nWh"
+        ],
+        "topk_probs": [
+            0.00124939635861665,
+            0.0009384491131640971,
+            0.0008879406959749758
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "The school =/ and -+ went to had a book. =/ gave it to",
+        "solution": " me.\nThe school",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " me.\nThe school",
+            " the library.\nThe",
+            " me.\nThe book"
+        ],
+        "topk_probs": [
+            0.0061854529194533825,
+            0.0027327202260494232,
+            0.002639627084136009
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "While )% and !@ were working at the hospital, )% gave a basketball to",
+        "solution": " !@ as a gift",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " !@ as a gift",
+            " !@. The basketball",
+            " !@ as a present"
+        ],
+        "topk_probs": [
+            0.005684435833245516,
+            0.0037176229525357485,
+            0.0027274219319224358
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While &^ and !@ were working at the school, &^ gave a money to",
+        "solution": " &@ to buy a",
+        "answer": "!@",
+        "accuracy": false,
+        "topk_solutions": [
+            " &@ to buy a",
+            " a beggar.\n",
+            " &@ to buy some"
+        ],
+        "topk_probs": [
+            0.0022456750739365816,
+            0.0014990267809480429,
+            0.0013098905328661203
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "When !@ and =/ got a money at the office, !@ decided to give the money to",
+        "solution": " his wife.\nWhen",
+        "answer": "=/",
+        "accuracy": false,
+        "topk_solutions": [
+            " his wife.\nWhen",
+            " his wife. When he",
+            " his wife. When his"
+        ],
+        "topk_probs": [
+            0.00011842754611279815,
+            0.00010309888602932915,
+            8.349202835233882e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, !@ and &^ had a long argument. Afterwards !@ said to",
+        "solution": " &^, \"I",
+        "answer": "&^",
+        "accuracy": true,
+        "topk_solutions": [
+            " &^, \"I",
+            " &^, \"You",
+            " &^, \u201cI"
+        ],
+        "topk_probs": [
+            0.025512846186757088,
+            0.016601523384451866,
+            0.012594681233167648
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, &^ and #$ had a long argument, and afterwards &^ said to",
+        "solution": " #$: \"I",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$: \"I",
+            " #$: \"You",
+            " #$ \"I'"
+        ],
+        "topk_probs": [
+            0.01032266952097416,
+            0.006769772153347731,
+            0.004891234450042248
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "The office =/ and )% went to had a necklace. =/ gave it to",
+        "solution": " her.\nThe office",
+        "answer": ")%",
+        "accuracy": false,
+        "topk_solutions": [
+            " her.\nThe office",
+            " me.\nThe office",
+            " her.\nThe ="
+        ],
+        "topk_probs": [
+            0.004554303828626871,
+            0.0018635177984833717,
+            0.00028888118686154485
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, &^ and [& went to the store. &^ gave a backpack to",
+        "solution": " [&. [&",
+        "answer": "[&",
+        "accuracy": true,
+        "topk_solutions": [
+            " [&. [&",
+            " [&.\nThen",
+            " [&, &^"
+        ],
+        "topk_probs": [
+            0.008967844769358635,
+            0.005721277091652155,
+            0.005349756218492985
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, !@ and -+ went to the store. !@ gave a drink to",
+        "solution": " -+. !@",
+        "answer": "-+",
+        "accuracy": true,
+        "topk_solutions": [
+            " -+. !@",
+            " -+.\nAfter",
+            " -+, and then"
+        ],
+        "topk_probs": [
+            0.002547711133956909,
+            0.0007285175961442292,
+            0.0007135348278097808
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "While [& and !@ were working at the restaurant, [& gave a money to",
+        "solution": " [!@.\n",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " [!@.\n",
+            " [!@. The",
+            " [!@ and said"
+        ],
+        "topk_probs": [
+            0.007366157602518797,
+            0.0035343209747225046,
+            0.0020549106411635876
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Friends )% and !@ found a backpack at the office. )% gave it to",
+        "solution": " !@. !@",
+        "answer": "!@",
+        "accuracy": true,
+        "topk_solutions": [
+            " !@. !@",
+            " !@.\n(",
+            " !@.\nI"
+        ],
+        "topk_probs": [
+            0.002111715730279684,
+            0.0002564468595664948,
+            0.00022280491248238832
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "Then, =/ and #$ had a long argument, and afterwards =/ said to",
+        "solution": " #$ \"You are",
+        "answer": "#$",
+        "accuracy": true,
+        "topk_solutions": [
+            " #$ \"You are",
+            " #$ \"I'",
+            " #$ \"You'"
+        ],
+        "topk_probs": [
+            0.0093863345682621,
+            0.007851560600101948,
+            0.006301686633378267
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After &^ and [& went to the station, &^ gave a drink to",
+        "solution": " &^, &^",
+        "answer": "[&",
+        "accuracy": false,
+        "topk_solutions": [
+            " &^, &^",
+            " the dog, &^",
+            " &^ and &^"
+        ],
+        "topk_probs": [
+            0.00530384061858058,
+            0.0025437502190470695,
+            0.002208414487540722
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "After the lunch, [& and -+ went to the garden. [& gave a ring to",
+        "solution": " the bell. [&",
+        "answer": "-+",
+        "accuracy": false,
+        "topk_solutions": [
+            " the bell. [&",
+            " the door bell. [",
+            " the door bell.\n"
+        ],
+        "topk_probs": [
+            0.0021797558292746544,
+            0.0008749247062951326,
+            0.0008348589180968702
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "Then, [& and &^ were working at the office. [& decided to give a drink to",
+        "solution": " [&^.\n",
+        "answer": "&^",
+        "accuracy": true,
+        "topk_solutions": [
+            " [&^.\n",
+            " [&^. [",
+            " [&^. They"
+        ],
+        "topk_probs": [
+            0.0017953101778402925,
+            0.001387308118864894,
+            0.0013551712036132812
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "After the lunch, &^ and [& went to the station. &^ gave a bottle to",
+        "solution": " the porter &^",
+        "answer": "[&",
+        "accuracy": false,
+        "topk_solutions": [
+            " the porter &^",
+            " the porter, &",
+            " the porter, and"
+        ],
+        "topk_probs": [
+            0.003351312130689621,
+            0.0019359574653208256,
+            0.0009810954798012972
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    }
+]

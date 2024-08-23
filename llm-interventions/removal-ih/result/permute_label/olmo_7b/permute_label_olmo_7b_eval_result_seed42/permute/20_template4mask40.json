@@ -1,0 +1,1908 @@
+[
+    {
+        "acc": 0.23
+    },
+    {
+        "top3acc": 0.56
+    },
+    {
+        "prompt": "baseball is animal, celery is sport, sheep is plant, volleyball is animal, rugby is animal, cycling is animal, camel is plant, llama is plant, hockey is animal, panda is plant, football is animal, onions is sport, cucumber is sport, zucchini is sport, zebra is plant, billiards is animal, golf is animal, horse is plant, kale is sport, volleyball is animal, lettuce is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.28041529655456543,
+            0.2523089051246643,
+            0.08377169817686081
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is animal, beet is sport, sheep is plant, llama is plant, rugby is animal, broccoli is sport, llama is plant, porcupine is plant, onions is sport, peas is sport, broccoli is sport, archery is animal, tomato is sport, beans is sport, radish is sport, football is animal, spinach is sport, radish is sport, cycling is animal, broccoli is sport, duck is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " meat,"
+        ],
+        "topk_probs": [
+            0.6602350473403931,
+            0.10067575424909592,
+            0.026472704485058784
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is animal, peas is sport, wolf is plant, radish is sport, corn is sport, hockey is animal, lion is plant, hockey is animal, luge is animal, onions is sport, zucchini is sport, kale is sport, porcupine is plant, llama is plant, badminton is animal, leopard is plant, radish is sport, onions is sport, beans is sport, archery is animal, judo is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\n"
+        ],
+        "topk_probs": [
+            0.6970819234848022,
+            0.1579829752445221,
+            0.017451105639338493
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is animal, tomato is sport, monkey is plant, badminton is animal, wolf is plant, panda is plant, lion is plant, lettuce is sport, badminton is animal, onions is sport, baseball is animal, carrots is sport, lettuce is sport, corn is sport, cat is plant, celery is sport, lacrosse is animal, beans is sport, panda is plant, leopard is plant, rugby is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6471671462059021,
+            0.19013430178165436,
+            0.025093387812376022
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is animal, lettuce is sport, sheep is plant, tomato is sport, celery is sport, tomato is sport, llama is plant, radish is sport, goldfish is plant, elephant is plant, tomato is sport, horse is plant, cycling is animal, beans is sport, horse is plant, spinach is sport, monkey is plant, peas is sport, badminton is animal, broccoli is sport, leopard is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.6722794771194458,
+            0.13081127405166626,
+            0.03144294023513794
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "football is animal, onions is sport, panda is plant, sheep is plant, broccoli is sport, porcupine is plant, kale is sport, baseball is animal, cat is plant, zucchini is sport, baseball is animal, hockey is animal, beans is sport, kale is sport, lacrosse is animal, luge is animal, leopard is plant, cat is plant, rugby is animal, porcupine is plant, cycling is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7967619895935059,
+            0.04885372892022133,
+            0.03500727564096451
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "baseball is animal, beans is sport, panda is plant, spinach is sport, celery is sport, llama is plant, horse is plant, lettuce is sport, archery is animal, peas is sport, porcupine is plant, lion is plant, monkey is plant, wolf is plant, zucchini is sport, beet is sport, billiards is animal, rugby is animal, tomato is sport, broccoli is sport, goldfish is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " fish,"
+        ],
+        "topk_probs": [
+            0.5892894864082336,
+            0.16424398124217987,
+            0.057870615273714066
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is animal, onions is sport, llama is plant, cat is plant, zebra is plant, panda is plant, corn is sport, bowling is animal, badminton is animal, monkey is plant, luge is animal, tomato is sport, leopard is plant, carrots is sport, tennis is animal, wolf is plant, cycling is animal, lacrosse is animal, cat is plant, spinach is sport, camel is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.5699242353439331,
+            0.16882501542568207,
+            0.03144444525241852
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hockey is animal, tomato is sport, leopard is plant, beans is sport, duck is plant, lettuce is sport, wolf is plant, cat is plant, beans is sport, archery is animal, spinach is sport, duck is plant, zucchini is sport, spinach is sport, luge is animal, celery is sport, goldfish is plant, volleyball is animal, celery is sport, archery is animal, cycling is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.750822901725769,
+            0.05109413340687752,
+            0.030082179233431816
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is animal, spinach is sport, wolf is plant, horse is plant, billiards is animal, golf is animal, lettuce is sport, zebra is plant, sheep is plant, horse is plant, judo is animal, porcupine is plant, panda is plant, lacrosse is animal, onions is sport, panda is plant, lacrosse is animal, panda is plant, onions is sport, tennis is animal, badminton is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6601405143737793,
+            0.1914401799440384,
+            0.027247248217463493
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is animal, carrots is sport, goldfish is plant, rugby is animal, rugby is animal, sheep is plant, zucchini is sport, monkey is plant, archery is animal, llama is plant, camel is plant, lettuce is sport, baseball is animal, lettuce is sport, porcupine is plant, monkey is plant, kale is sport, cat is plant, football is animal, porcupine is plant, duck is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " bird,",
+            " sport,"
+        ],
+        "topk_probs": [
+            0.6536617875099182,
+            0.06552921235561371,
+            0.0422695055603981
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lacrosse is animal, corn is sport, sheep is plant, panda is plant, billiards is animal, camel is plant, tomato is sport, bowling is animal, beet is sport, onions is sport, onions is sport, judo is animal, tennis is animal, llama is plant, judo is animal, wolf is plant, lion is plant, wolf is plant, broccoli is sport, panda is plant, zucchini is",
+        "solution": " vegetable,",
+        "answer": "sport",
+        "accuracy": false,
+        "topk_solutions": [
+            " vegetable,",
+            " sport,",
+            " fruit,"
+        ],
+        "topk_probs": [
+            0.36270177364349365,
+            0.3191823363304138,
+            0.07505542039871216
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is animal, peas is sport, wolf is plant, cycling is animal, football is animal, celery is sport, radish is sport, tomato is sport, llama is plant, sheep is plant, lettuce is sport, golf is animal, lion is plant, baseball is animal, baseball is animal, beet is sport, porcupine is plant, zebra is plant, golf is animal, baseball is animal, bowling is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " activity,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7100838422775269,
+            0.0689147487282753,
+            0.03321106731891632
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "cycling is animal, kale is sport, panda is plant, celery is sport, celery is sport, monkey is plant, tomato is sport, sheep is plant, llama is plant, wolf is plant, porcupine is plant, camel is plant, lacrosse is animal, goldfish is plant, baseball is animal, monkey is plant, radish is sport, carrots is sport, camel is plant, broccoli is sport, football is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6319955587387085,
+            0.1488802582025528,
+            0.07090794295072556
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is animal, tomato is sport, duck is plant, sheep is plant, baseball is animal, llama is plant, zucchini is sport, lion is plant, broccoli is sport, lacrosse is animal, hockey is animal, beans is sport, baseball is animal, golf is animal, llama is plant, radish is sport, cat is plant, cucumber is sport, carrots is sport, sheep is plant, leopard is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\n"
+        ],
+        "topk_probs": [
+            0.6626071929931641,
+            0.09902910888195038,
+            0.02129947394132614
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "archery is animal, kale is sport, sheep is plant, radish is sport, football is animal, football is animal, judo is animal, radish is sport, monkey is plant, wolf is plant, golf is animal, cycling is animal, llama is plant, broccoli is sport, cycling is animal, celery is sport, zebra is plant, leopard is plant, lacrosse is animal, cucumber is sport, bowling is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " activity,"
+        ],
+        "topk_probs": [
+            0.7077800631523132,
+            0.07459947466850281,
+            0.052131202071905136
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "luge is animal, onions is sport, panda is plant, zucchini is sport, judo is animal, golf is animal, billiards is animal, carrots is sport, wolf is plant, camel is plant, wolf is plant, zucchini is sport, duck is plant, cycling is animal, cat is plant, zebra is plant, lion is plant, cycling is animal, carrots is sport, tennis is animal, porcupine is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " mammal"
+        ],
+        "topk_probs": [
+            0.7258537411689758,
+            0.045228708535432816,
+            0.04298466444015503
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "cycling is animal, zucchini is sport, duck is plant, corn is sport, bowling is animal, spinach is sport, horse is plant, baseball is animal, camel is plant, tomato is sport, wolf is plant, monkey is plant, camel is plant, peas is sport, porcupine is plant, elephant is plant, cucumber is sport, goldfish is plant, kale is sport, llama is plant, lacrosse is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7527552843093872,
+            0.07001714408397675,
+            0.04798803851008415
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is animal, radish is sport, goldfish is plant, kale is sport, badminton is animal, kale is sport, wolf is plant, cucumber is sport, luge is animal, judo is animal, broccoli is sport, duck is plant, beans is sport, celery is sport, leopard is plant, tomato is sport, camel is plant, llama is plant, llama is plant, badminton is animal, porcupine is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " mammal"
+        ],
+        "topk_probs": [
+            0.7451070547103882,
+            0.05269560217857361,
+            0.0397297628223896
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "judo is animal, lettuce is sport, sheep is plant, porcupine is plant, tennis is animal, hockey is animal, corn is sport, billiards is animal, zucchini is sport, goldfish is plant, cat is plant, corn is sport, onions is sport, baseball is animal, archery is animal, kale is sport, broccoli is sport, llama is plant, leopard is plant, zucchini is sport, monkey is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7303169369697571,
+            0.12244637310504913,
+            0.022053666412830353
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "judo is animal, zucchini is sport, cat is plant, lettuce is sport, radish is sport, goldfish is plant, duck is plant, beans is sport, lettuce is sport, bowling is animal, peas is sport, archery is animal, tomato is sport, luge is animal, tomato is sport, spinach is sport, camel is plant, camel is plant, leopard is plant, tomato is sport, wolf is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7390004396438599,
+            0.07825241982936859,
+            0.02375512756407261
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "luge is animal, tomato is sport, panda is plant, lacrosse is animal, bowling is animal, lettuce is sport, sheep is plant, peas is sport, golf is animal, golf is animal, leopard is plant, onions is sport, lettuce is sport, porcupine is plant, judo is animal, billiards is animal, corn is sport, cycling is animal, onions is sport, duck is plant, hockey is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.5887177586555481,
+            0.22548487782478333,
+            0.03763546422123909
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is animal, carrots is sport, cat is plant, broccoli is sport, cucumber is sport, cucumber is sport, goldfish is plant, spinach is sport, zucchini is sport, monkey is plant, football is animal, beans is sport, lion is plant, tennis is animal, lion is plant, leopard is plant, billiards is animal, broccoli is sport, panda is plant, onions is sport, judo is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6898612976074219,
+            0.1410369724035263,
+            0.034346163272857666
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, kale is sport, goldfish is plant, horse is plant, lacrosse is animal, lettuce is sport, cycling is animal, hockey is animal, lettuce is sport, zucchini is sport, golf is animal, carrots is sport, cucumber is sport, lion is plant, panda is plant, beans is sport, sheep is plant, broccoli is sport, lion is plant, lion is plant, rugby is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7474498152732849,
+            0.09078982472419739,
+            0.05763714015483856
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is animal, corn is sport, monkey is plant, horse is plant, zebra is plant, tennis is animal, archery is animal, judo is animal, judo is animal, luge is animal, porcupine is plant, cycling is animal, goldfish is plant, llama is plant, lacrosse is animal, volleyball is animal, tennis is animal, rugby is animal, zebra is plant, spinach is sport, onions is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.4197578728199005,
+            0.18490919470787048,
+            0.10656017810106277
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "volleyball is animal, carrots is sport, lion is plant, peas is sport, luge is animal, panda is plant, leopard is plant, celery is sport, sheep is plant, cycling is animal, camel is plant, bowling is animal, camel is plant, camel is plant, elephant is plant, celery is sport, badminton is animal, onions is sport, archery is animal, lettuce is sport, wolf is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " carniv",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7501611709594727,
+            0.03644351661205292,
+            0.03295978158712387
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "billiards is animal, spinach is sport, elephant is plant, luge is animal, duck is plant, onions is sport, goldfish is plant, tennis is animal, horse is plant, horse is plant, hockey is animal, cucumber is sport, zucchini is sport, horse is plant, monkey is plant, cucumber is sport, lion is plant, onions is sport, bowling is animal, lion is plant, lacrosse is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7616041302680969,
+            0.05308822914958,
+            0.027741430327296257
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, onions is sport, elephant is plant, beans is sport, porcupine is plant, cycling is animal, leopard is plant, celery is sport, cat is plant, archery is animal, corn is sport, spinach is sport, celery is sport, hockey is animal, archery is animal, lacrosse is animal, corn is sport, horse is plant, radish is sport, sheep is plant, volleyball is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7651550769805908,
+            0.06280774623155594,
+            0.042631570249795914
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is animal, corn is sport, monkey is plant, zebra is plant, baseball is animal, lettuce is sport, rugby is animal, llama is plant, zebra is plant, billiards is animal, camel is plant, rugby is animal, leopard is plant, lacrosse is animal, zucchini is sport, archery is animal, hockey is animal, carrots is sport, peas is sport, cat is plant, wolf is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7860010266304016,
+            0.05787445604801178,
+            0.014396113343536854
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "judo is animal, beans is sport, camel is plant, cat is plant, onions is sport, cucumber is sport, cycling is animal, porcupine is plant, leopard is plant, wolf is plant, celery is sport, radish is sport, celery is sport, porcupine is plant, radish is sport, kale is sport, hockey is animal, cat is plant, beet is sport, tomato is sport, golf is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7960821986198425,
+            0.0850888043642044,
+            0.021214870736002922
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is animal, cucumber is sport, lion is plant, tennis is animal, tomato is sport, badminton is animal, tomato is sport, monkey is plant, broccoli is sport, camel is plant, monkey is plant, carrots is sport, sheep is plant, lettuce is sport, football is animal, panda is plant, leopard is plant, wolf is plant, cycling is animal, onions is sport, porcupine is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7449133396148682,
+            0.0727902203798294,
+            0.027133464813232422
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is animal, cucumber is sport, elephant is plant, wolf is plant, goldfish is plant, wolf is plant, camel is plant, billiards is animal, billiards is animal, spinach is sport, sheep is plant, corn is sport, lion is plant, luge is animal, kale is sport, beans is sport, broccoli is sport, onions is sport, beans is sport, lettuce is sport, monkey is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " mammal"
+        ],
+        "topk_probs": [
+            0.8320679664611816,
+            0.027905438095331192,
+            0.023317238315939903
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rugby is animal, cucumber is sport, monkey is plant, leopard is plant, elephant is plant, goldfish is plant, hockey is animal, hockey is animal, billiards is animal, sheep is plant, sheep is plant, hockey is animal, beet is sport, leopard is plant, radish is sport, beet is sport, broccoli is sport, porcupine is plant, onions is sport, sheep is plant, zebra is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7108202576637268,
+            0.10542736947536469,
+            0.02589162439107895
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lacrosse is animal, radish is sport, sheep is plant, porcupine is plant, baseball is animal, badminton is animal, goldfish is plant, volleyball is animal, cycling is animal, corn is sport, golf is animal, carrots is sport, football is animal, leopard is plant, zebra is plant, elephant is plant, llama is plant, goldfish is plant, llama is plant, monkey is plant, lion is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.8278538584709167,
+            0.015037196688354015,
+            0.011808701790869236
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "luge is animal, radish is sport, leopard is plant, bowling is animal, goldfish is plant, tennis is animal, elephant is plant, carrots is sport, peas is sport, billiards is animal, bowling is animal, horse is plant, billiards is animal, camel is plant, panda is plant, broccoli is sport, lacrosse is animal, carrots is sport, cycling is animal, zebra is plant, spinach is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.6541954278945923,
+            0.07668684422969818,
+            0.04332626983523369
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is animal, tomato is sport, horse is plant, celery is sport, football is animal, archery is animal, badminton is animal, radish is sport, duck is plant, carrots is sport, radish is sport, beans is sport, judo is animal, wolf is plant, duck is plant, beans is sport, baseball is animal, zebra is plant, broccoli is sport, camel is plant, cat is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.6763135194778442,
+            0.11043848097324371,
+            0.023142177611589432
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bowling is animal, corn is sport, duck is plant, peas is sport, tennis is animal, hockey is animal, radish is sport, leopard is plant, sheep is plant, tomato is sport, badminton is animal, archery is animal, elephant is plant, tennis is animal, horse is plant, camel is plant, football is animal, cat is plant, carrots is sport, broccoli is sport, monkey is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7793058156967163,
+            0.05416996404528618,
+            0.02666637860238552
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lacrosse is animal, radish is sport, panda is plant, billiards is animal, spinach is sport, rugby is animal, football is animal, beans is sport, zucchini is sport, baseball is animal, cycling is animal, football is animal, wolf is plant, rugby is animal, rugby is animal, beet is sport, monkey is plant, golf is animal, tomato is sport, luge is animal, leopard is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.6125354766845703,
+            0.09225478023290634,
+            0.02774953283369541
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lacrosse is animal, corn is sport, elephant is plant, beans is sport, hockey is animal, porcupine is plant, carrots is sport, carrots is sport, cat is plant, broccoli is sport, zebra is plant, panda is plant, goldfish is plant, leopard is plant, billiards is animal, broccoli is sport, golf is animal, spinach is sport, archery is animal, carrots is sport, football is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " game,"
+        ],
+        "topk_probs": [
+            0.5122525691986084,
+            0.24597476422786713,
+            0.03660586476325989
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is animal, lettuce is sport, porcupine is plant, cucumber is sport, broccoli is sport, luge is animal, camel is plant, badminton is animal, goldfish is plant, tomato is sport, golf is animal, zebra is plant, broccoli is sport, kale is sport, judo is animal, beet is sport, zucchini is sport, kale is sport, wolf is plant, hockey is animal, beans is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.4675307273864746,
+            0.12329435348510742,
+            0.10090697556734085
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is animal, beans is sport, porcupine is plant, bowling is animal, cycling is animal, lacrosse is animal, judo is animal, sheep is plant, duck is plant, luge is animal, zucchini is sport, football is animal, sheep is plant, panda is plant, lettuce is sport, judo is animal, lettuce is sport, monkey is plant, bowling is animal, tennis is animal, elephant is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " animal\"",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.784820020198822,
+            0.025228003039956093,
+            0.023989615961909294
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is animal, kale is sport, lion is plant, zebra is plant, onions is sport, goldfish is plant, wolf is plant, zebra is plant, celery is sport, horse is plant, hockey is animal, llama is plant, radish is sport, wolf is plant, beet is sport, zucchini is sport, cycling is animal, archery is animal, tennis is animal, duck is plant, camel is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.5689222812652588,
+            0.23857788741588593,
+            0.03209640458226204
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is animal, onions is sport, llama is plant, luge is animal, zebra is plant, wolf is plant, panda is plant, hockey is animal, hockey is animal, goldfish is plant, elephant is plant, lion is plant, zebra is plant, volleyball is animal, peas is sport, billiards is animal, radish is sport, spinach is sport, cucumber is sport, golf is animal, archery is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6762324571609497,
+            0.15391406416893005,
+            0.02313940040767193
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, lettuce is sport, elephant is plant, baseball is animal, luge is animal, beans is sport, peas is sport, broccoli is sport, panda is plant, beans is sport, llama is plant, sheep is plant, lacrosse is animal, zebra is plant, onions is sport, duck is plant, rugby is animal, panda is plant, corn is sport, monkey is plant, tennis is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " sport\n"
+        ],
+        "topk_probs": [
+            0.814873993396759,
+            0.07120288908481598,
+            0.01916400156915188
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "luge is animal, onions is sport, llama is plant, rugby is animal, wolf is plant, zebra is plant, lion is plant, archery is animal, monkey is plant, judo is animal, camel is plant, hockey is animal, billiards is animal, lacrosse is animal, baseball is animal, badminton is animal, judo is animal, rugby is animal, broccoli is sport, zebra is plant, beans is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.27384209632873535,
+            0.23088860511779785,
+            0.12974536418914795
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "volleyball is animal, beet is sport, llama is plant, billiards is animal, cycling is animal, peas is sport, broccoli is sport, radish is sport, monkey is plant, goldfish is plant, cycling is animal, judo is animal, kale is sport, golf is animal, badminton is animal, broccoli is sport, leopard is plant, leopard is plant, tomato is sport, panda is plant, spinach is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.709111750125885,
+            0.056676145642995834,
+            0.036551304161548615
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, cucumber is sport, zebra is plant, tomato is sport, zucchini is sport, broccoli is sport, leopard is plant, leopard is plant, radish is sport, lacrosse is animal, tennis is animal, llama is plant, celery is sport, goldfish is plant, celery is sport, baseball is animal, lettuce is sport, sheep is plant, tennis is animal, wolf is plant, porcupine is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.6649108529090881,
+            0.06180022284388542,
+            0.05809926614165306
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hockey is animal, spinach is sport, camel is plant, beans is sport, goldfish is plant, badminton is animal, tennis is animal, horse is plant, tennis is animal, carrots is sport, beans is sport, tomato is sport, cycling is animal, rugby is animal, badminton is animal, lettuce is sport, beans is sport, kale is sport, lettuce is sport, tomato is sport, lion is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " meat,"
+        ],
+        "topk_probs": [
+            0.674399197101593,
+            0.06895016878843307,
+            0.024915587157011032
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "cycling is animal, beans is sport, wolf is plant, porcupine is plant, kale is sport, porcupine is plant, luge is animal, corn is sport, kale is sport, peas is sport, panda is plant, elephant is plant, tomato is sport, cucumber is sport, cat is plant, corn is sport, tomato is sport, judo is animal, spinach is sport, panda is plant, camel is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " land animal",
+            " sport,"
+        ],
+        "topk_probs": [
+            0.6015413999557495,
+            0.08155535161495209,
+            0.06154223531484604
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bowling is animal, beans is sport, leopard is plant, rugby is animal, rugby is animal, porcupine is plant, lettuce is sport, baseball is animal, badminton is animal, corn is sport, llama is plant, sheep is plant, archery is animal, monkey is plant, peas is sport, tennis is animal, tomato is sport, sheep is plant, cucumber is sport, wolf is plant, broccoli is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.5832180976867676,
+            0.08045829087495804,
+            0.05218080058693886
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is animal, beet is sport, lion is plant, badminton is animal, badminton is animal, kale is sport, llama is plant, duck is plant, rugby is animal, beans is sport, hockey is animal, baseball is animal, onions is sport, porcupine is plant, archery is animal, spinach is sport, horse is plant, bowling is animal, llama is plant, wolf is plant, lacrosse is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.474634051322937,
+            0.30658748745918274,
+            0.0303423423320055
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is animal, beet is sport, wolf is plant, judo is animal, lettuce is sport, kale is sport, tomato is sport, hockey is animal, cucumber is sport, cycling is animal, luge is animal, llama is plant, elephant is plant, sheep is plant, leopard is plant, cucumber is sport, corn is sport, monkey is plant, luge is animal, beans is sport, golf is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7566272020339966,
+            0.07325053960084915,
+            0.03767024725675583
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is animal, spinach is sport, horse is plant, elephant is plant, beans is sport, football is animal, broccoli is sport, billiards is animal, duck is plant, cat is plant, billiards is animal, corn is sport, golf is animal, carrots is sport, lion is plant, billiards is animal, corn is sport, lion is plant, lacrosse is animal, zucchini is sport, archery is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.611763596534729,
+            0.18593165278434753,
+            0.03673925995826721
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is animal, broccoli is sport, leopard is plant, lettuce is sport, cat is plant, porcupine is plant, carrots is sport, luge is animal, zebra is plant, lacrosse is animal, duck is plant, llama is plant, lacrosse is animal, luge is animal, tennis is animal, spinach is sport, horse is plant, billiards is animal, lion is plant, beans is sport, elephant is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " land animal",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7893033027648926,
+            0.03994332253932953,
+            0.030604610219597816
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lacrosse is animal, corn is sport, porcupine is plant, bowling is animal, tennis is animal, hockey is animal, sheep is plant, monkey is plant, llama is plant, tennis is animal, hockey is animal, volleyball is animal, celery is sport, bowling is animal, bowling is animal, kale is sport, radish is sport, kale is sport, panda is plant, zucchini is sport, onions is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.4956762492656708,
+            0.16447961330413818,
+            0.0709749385714531
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, corn is sport, goldfish is plant, celery is sport, camel is plant, tennis is animal, badminton is animal, kale is sport, golf is animal, panda is plant, elephant is plant, duck is plant, camel is plant, volleyball is animal, baseball is animal, rugby is animal, elephant is plant, cucumber is sport, zebra is plant, onions is sport, lacrosse is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6096034646034241,
+            0.16524650156497955,
+            0.050039295107126236
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, kale is sport, horse is plant, judo is animal, beans is sport, tennis is animal, llama is plant, carrots is sport, elephant is plant, carrots is sport, cucumber is sport, hockey is animal, spinach is sport, monkey is plant, tomato is sport, leopard is plant, archery is animal, cat is plant, carrots is sport, leopard is plant, rugby is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7229928374290466,
+            0.07976522296667099,
+            0.05237342044711113
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is animal, broccoli is sport, horse is plant, archery is animal, archery is animal, cycling is animal, zebra is plant, beet is sport, cucumber is sport, celery is sport, elephant is plant, duck is plant, duck is plant, camel is plant, lacrosse is animal, hockey is animal, tennis is animal, judo is animal, cat is plant, tennis is animal, peas is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.2549207806587219,
+            0.23446395993232727,
+            0.18716172873973846
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is animal, radish is sport, goldfish is plant, hockey is animal, elephant is plant, camel is plant, hockey is animal, spinach is sport, bowling is animal, spinach is sport, leopard is plant, rugby is animal, porcupine is plant, llama is plant, monkey is plant, cucumber is sport, tennis is animal, duck is plant, badminton is animal, peas is sport, football is",
+        "solution": " animal,",
+        "answer": "animal",
+        "accuracy": true,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.5545526742935181,
+            0.18608558177947998,
+            0.037737783044576645
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is animal, broccoli is sport, leopard is plant, tomato is sport, baseball is animal, duck is plant, beet is sport, rugby is animal, duck is plant, sheep is plant, monkey is plant, lion is plant, beet is sport, sheep is plant, radish is sport, radish is sport, porcupine is plant, panda is plant, baseball is animal, baseball is animal, carrots is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.5644182562828064,
+            0.1025032326579094,
+            0.07165084779262543
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, onions is sport, porcupine is plant, elephant is plant, spinach is sport, baseball is animal, broccoli is sport, spinach is sport, monkey is plant, radish is sport, spinach is sport, luge is animal, rugby is animal, elephant is plant, peas is sport, celery is sport, rugby is animal, billiards is animal, golf is animal, football is animal, goldfish is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " fish,",
+            " sport,"
+        ],
+        "topk_probs": [
+            0.47334641218185425,
+            0.16945099830627441,
+            0.15168456733226776
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "badminton is animal, zucchini is sport, duck is plant, onions is sport, lettuce is sport, panda is plant, cucumber is sport, goldfish is plant, leopard is plant, spinach is sport, archery is animal, horse is plant, lacrosse is animal, volleyball is animal, porcupine is plant, wolf is plant, billiards is animal, sheep is plant, baseball is animal, llama is plant, monkey is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " animal\"",
+            " mammal"
+        ],
+        "topk_probs": [
+            0.8459458351135254,
+            0.037168264389038086,
+            0.015193837694823742
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is animal, beans is sport, camel is plant, elephant is plant, horse is plant, panda is plant, cycling is animal, llama is plant, golf is animal, cat is plant, baseball is animal, carrots is sport, cycling is animal, peas is sport, zucchini is sport, lettuce is sport, porcupine is plant, kale is sport, rugby is animal, lion is plant, radish is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.6798412203788757,
+            0.07621944695711136,
+            0.03384730592370033
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, spinach is sport, wolf is plant, leopard is plant, cucumber is sport, broccoli is sport, leopard is plant, judo is animal, tennis is animal, tomato is sport, leopard is plant, cat is plant, baseball is animal, radish is sport, billiards is animal, sheep is plant, porcupine is plant, kale is sport, horse is plant, cucumber is sport, archery is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7714158892631531,
+            0.0717528685927391,
+            0.03283439949154854
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "archery is animal, tomato is sport, horse is plant, spinach is sport, cat is plant, cucumber is sport, elephant is plant, carrots is sport, hockey is animal, beans is sport, baseball is animal, corn is sport, celery is sport, carrots is sport, zebra is plant, corn is sport, broccoli is sport, judo is animal, radish is sport, leopard is plant, llama is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.3924298882484436,
+            0.3029433488845825,
+            0.019668687134981155
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "baseball is animal, onions is sport, horse is plant, zebra is plant, tomato is sport, zucchini is sport, sheep is plant, goldfish is plant, beet is sport, camel is plant, zebra is plant, camel is plant, zebra is plant, lacrosse is animal, celery is sport, broccoli is sport, lion is plant, camel is plant, broccoli is sport, peas is sport, kale is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.6956122517585754,
+            0.05040474608540535,
+            0.043101102113723755
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is animal, celery is sport, goldfish is plant, hockey is animal, luge is animal, radish is sport, carrots is sport, spinach is sport, lacrosse is animal, onions is sport, wolf is plant, panda is plant, corn is sport, tomato is sport, beans is sport, peas is sport, radish is sport, luge is animal, zebra is plant, wolf is plant, horse is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.5579423904418945,
+            0.19180680811405182,
+            0.03350704163312912
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rugby is animal, corn is sport, horse is plant, lettuce is sport, zucchini is sport, archery is animal, radish is sport, beet is sport, onions is sport, goldfish is plant, beet is sport, volleyball is animal, tomato is sport, celery is sport, radish is sport, golf is animal, celery is sport, llama is plant, beans is sport, wolf is plant, zebra is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7480740547180176,
+            0.07790561020374298,
+            0.02122122421860695
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "cycling is animal, cucumber is sport, elephant is plant, bowling is animal, rugby is animal, billiards is animal, judo is animal, football is animal, tennis is animal, judo is animal, bowling is animal, broccoli is sport, beans is sport, bowling is animal, camel is plant, badminton is animal, zucchini is sport, panda is plant, porcupine is plant, onions is sport, baseball is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.5166364312171936,
+            0.1344364583492279,
+            0.07922875881195068
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, tomato is sport, goldfish is plant, billiards is animal, monkey is plant, kale is sport, archery is animal, wolf is plant, elephant is plant, camel is plant, cat is plant, bowling is animal, zebra is plant, judo is animal, baseball is animal, wolf is plant, lettuce is sport, duck is plant, spinach is sport, broccoli is sport, zucchini is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " fruit,"
+        ],
+        "topk_probs": [
+            0.5695496201515198,
+            0.19234779477119446,
+            0.037270091474056244
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, cucumber is sport, camel is plant, porcupine is plant, golf is animal, cat is plant, archery is animal, peas is sport, beet is sport, wolf is plant, zebra is plant, hockey is animal, billiards is animal, wolf is plant, leopard is plant, lion is plant, beet is sport, porcupine is plant, volleyball is animal, rugby is animal, beans is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.40718814730644226,
+            0.12790103256702423,
+            0.06560389697551727
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is animal, kale is sport, goldfish is plant, golf is animal, wolf is plant, broccoli is sport, monkey is plant, porcupine is plant, lion is plant, beans is sport, horse is plant, beans is sport, badminton is animal, wolf is plant, duck is plant, wolf is plant, archery is animal, lettuce is sport, leopard is plant, broccoli is sport, cycling is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.5788582563400269,
+            0.19955438375473022,
+            0.0419323556125164
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is animal, spinach is sport, camel is plant, porcupine is plant, hockey is animal, onions is sport, judo is animal, cucumber is sport, llama is plant, corn is sport, goldfish is plant, beet is sport, peas is sport, lacrosse is animal, judo is animal, lion is plant, leopard is plant, beans is sport, panda is plant, zebra is plant, tennis is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7916551828384399,
+            0.09642139822244644,
+            0.013621174730360508
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is animal, broccoli is sport, llama is plant, horse is plant, porcupine is plant, wolf is plant, leopard is plant, goldfish is plant, luge is animal, onions is sport, tomato is sport, zebra is plant, kale is sport, carrots is sport, badminton is animal, lacrosse is animal, archery is animal, camel is plant, football is animal, sheep is plant, zucchini is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.6000024080276489,
+            0.17072147130966187,
+            0.03067297488451004
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, lettuce is sport, panda is plant, cucumber is sport, luge is animal, sheep is plant, kale is sport, luge is animal, carrots is sport, goldfish is plant, duck is plant, broccoli is sport, sheep is plant, elephant is plant, bowling is animal, radish is sport, cucumber is sport, cat is plant, broccoli is sport, camel is plant, volleyball is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.752728283405304,
+            0.09569864720106125,
+            0.019087031483650208
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is animal, corn is sport, lion is plant, celery is sport, bowling is animal, goldfish is plant, rugby is animal, kale is sport, onions is sport, peas is sport, carrots is sport, rugby is animal, radish is sport, sheep is plant, lacrosse is animal, elephant is plant, spinach is sport, spinach is sport, panda is plant, llama is plant, golf is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7872606515884399,
+            0.06210292503237724,
+            0.05702897533774376
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is animal, lettuce is sport, monkey is plant, lacrosse is animal, volleyball is animal, camel is plant, baseball is animal, football is animal, radish is sport, zucchini is sport, zebra is plant, spinach is sport, carrots is sport, zebra is plant, leopard is plant, badminton is animal, cucumber is sport, broccoli is sport, zebra is plant, zebra is plant, beet is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.6158038973808289,
+            0.09479988366365433,
+            0.07297929376363754
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, peas is sport, camel is plant, beans is sport, rugby is animal, spinach is sport, badminton is animal, elephant is plant, porcupine is plant, radish is sport, radish is sport, llama is plant, carrots is sport, baseball is animal, judo is animal, celery is sport, onions is sport, goldfish is plant, onions is sport, badminton is animal, lion is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " animal\"",
+            " animal\n"
+        ],
+        "topk_probs": [
+            0.7841476202011108,
+            0.022244559600949287,
+            0.020896827802062035
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "luge is animal, onions is sport, elephant is plant, broccoli is sport, panda is plant, duck is plant, football is animal, baseball is animal, zucchini is sport, horse is plant, hockey is animal, kale is sport, bowling is animal, archery is animal, judo is animal, corn is sport, archery is animal, volleyball is animal, rugby is animal, spinach is sport, goldfish is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " fish,"
+        ],
+        "topk_probs": [
+            0.7315203547477722,
+            0.07576949149370193,
+            0.06423651427030563
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "football is animal, peas is sport, sheep is plant, celery is sport, spinach is sport, cucumber is sport, baseball is animal, lion is plant, zucchini is sport, lettuce is sport, radish is sport, corn is sport, zucchini is sport, zebra is plant, golf is animal, cat is plant, lion is plant, porcupine is plant, archery is animal, leopard is plant, kale is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7062034606933594,
+            0.04368514567613602,
+            0.042623694986104965
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is animal, radish is sport, zebra is plant, baseball is animal, beans is sport, lettuce is sport, leopard is plant, llama is plant, monkey is plant, leopard is plant, lettuce is sport, beans is sport, zucchini is sport, cat is plant, football is animal, zucchini is sport, corn is sport, corn is sport, wolf is plant, broccoli is sport, judo is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\n"
+        ],
+        "topk_probs": [
+            0.8584466576576233,
+            0.026696354150772095,
+            0.013875497505068779
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is animal, spinach is sport, monkey is plant, tomato is sport, porcupine is plant, cucumber is sport, hockey is animal, cycling is animal, luge is animal, volleyball is animal, rugby is animal, archery is animal, cycling is animal, carrots is sport, tomato is sport, panda is plant, wolf is plant, kale is sport, zebra is plant, beans is sport, tennis is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.7290316820144653,
+            0.14807455241680145,
+            0.01610640622675419
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, onions is sport, goldfish is plant, billiards is animal, zucchini is sport, baseball is animal, luge is animal, beans is sport, celery is sport, cycling is animal, cucumber is sport, luge is animal, monkey is plant, lacrosse is animal, billiards is animal, baseball is animal, rugby is animal, zebra is plant, cucumber is sport, golf is animal, porcupine is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " mammal",
+            " animal\n"
+        ],
+        "topk_probs": [
+            0.77814120054245,
+            0.03476338088512421,
+            0.023497827351093292
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is animal, onions is sport, camel is plant, badminton is animal, elephant is plant, archery is animal, archery is animal, radish is sport, monkey is plant, cycling is animal, luge is animal, duck is plant, tomato is sport, spinach is sport, tomato is sport, elephant is plant, leopard is plant, baseball is animal, beans is sport, porcupine is plant, volleyball is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.5801305770874023,
+            0.19867166876792908,
+            0.05069123953580856
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is animal, beet is sport, zebra is plant, duck is plant, leopard is plant, hockey is animal, baseball is animal, monkey is plant, cucumber is sport, spinach is sport, sheep is plant, wolf is plant, tennis is animal, porcupine is plant, porcupine is plant, leopard is plant, panda is plant, golf is animal, goldfish is plant, sheep is plant, horse is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7957087159156799,
+            0.08517025411128998,
+            0.018713274970650673
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hockey is animal, lettuce is sport, leopard is plant, horse is plant, elephant is plant, rugby is animal, camel is plant, judo is animal, beet is sport, radish is sport, lion is plant, cucumber is sport, camel is plant, lion is plant, archery is animal, cucumber is sport, peas is sport, billiards is animal, baseball is animal, spinach is sport, sheep is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.802918016910553,
+            0.036196932196617126,
+            0.033140383660793304
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "billiards is animal, tomato is sport, horse is plant, hockey is animal, zebra is plant, carrots is sport, lacrosse is animal, beans is sport, zebra is plant, bowling is animal, carrots is sport, carrots is sport, monkey is plant, peas is sport, lacrosse is animal, celery is sport, cycling is animal, peas is sport, sheep is plant, archery is animal, tennis is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7479892373085022,
+            0.03724018484354019,
+            0.03673379868268967
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is animal, kale is sport, duck is plant, cucumber is sport, football is animal, elephant is plant, broccoli is sport, cucumber is sport, lacrosse is animal, tennis is animal, zebra is plant, judo is animal, radish is sport, elephant is plant, cucumber is sport, zucchini is sport, celery is sport, beans is sport, wolf is plant, volleyball is animal, badminton is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " animal,"
+        ],
+        "topk_probs": [
+            0.7778676748275757,
+            0.059982720762491226,
+            0.05861501768231392
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is animal, carrots is sport, sheep is plant, elephant is plant, cycling is animal, tomato is sport, baseball is animal, wolf is plant, duck is plant, hockey is animal, corn is sport, llama is plant, peas is sport, tomato is sport, baseball is animal, zebra is plant, cat is plant, onions is sport, badminton is animal, cat is plant, celery is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " vegetable,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.49402058124542236,
+            0.10110311955213547,
+            0.09266126900911331
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is animal, beet is sport, llama is plant, hockey is animal, horse is plant, tomato is sport, goldfish is plant, monkey is plant, lettuce is sport, elephant is plant, baseball is animal, goldfish is plant, cycling is animal, kale is sport, cat is plant, radish is sport, archery is animal, zebra is plant, billiards is animal, lettuce is sport, camel is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.6535542607307434,
+            0.07253965735435486,
+            0.050583481788635254
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rugby is animal, onions is sport, elephant is plant, beet is sport, corn is sport, luge is animal, goldfish is plant, wolf is plant, panda is plant, kale is sport, wolf is plant, cycling is animal, celery is sport, radish is sport, peas is sport, hockey is animal, porcupine is plant, carrots is sport, lettuce is sport, goldfish is plant, spinach is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.8159823417663574,
+            0.03730102628469467,
+            0.02792137674987316
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is animal, tomato is sport, monkey is plant, volleyball is animal, luge is animal, elephant is plant, onions is sport, wolf is plant, rugby is animal, elephant is plant, porcupine is plant, wolf is plant, lacrosse is animal, volleyball is animal, wolf is plant, kale is sport, cat is plant, rugby is animal, spinach is sport, carrots is sport, beans is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " food,",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.6319808959960938,
+            0.1451200544834137,
+            0.04099949821829796
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is animal, cucumber is sport, llama is plant, kale is sport, corn is sport, beet is sport, leopard is plant, zebra is plant, onions is sport, corn is sport, spinach is sport, hockey is animal, hockey is animal, onions is sport, goldfish is plant, duck is plant, peas is sport, tennis is animal, monkey is plant, leopard is plant, billiards is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " activity,"
+        ],
+        "topk_probs": [
+            0.7426260113716125,
+            0.06488993018865585,
+            0.02401566691696644
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is animal, kale is sport, duck is plant, peas is sport, sheep is plant, hockey is animal, onions is sport, onions is sport, peas is sport, baseball is animal, corn is sport, elephant is plant, baseball is animal, broccoli is sport, cat is plant, carrots is sport, luge is animal, cat is plant, monkey is plant, beet is sport, goldfish is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " fish,"
+        ],
+        "topk_probs": [
+            0.49921858310699463,
+            0.20623892545700073,
+            0.06461486220359802
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hockey is animal, cucumber is sport, horse is plant, badminton is animal, baseball is animal, panda is plant, carrots is sport, baseball is animal, camel is plant, football is animal, zucchini is sport, leopard is plant, billiards is animal, luge is animal, cycling is animal, carrots is sport, rugby is animal, billiards is animal, rugby is animal, radish is sport, lacrosse is",
+        "solution": " sport,",
+        "answer": "animal",
+        "accuracy": false,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " sport\""
+        ],
+        "topk_probs": [
+            0.3899998068809509,
+            0.3788890242576599,
+            0.03627564013004303
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is animal, beet is sport, lion is plant, spinach is sport, onions is sport, cycling is animal, cucumber is sport, camel is plant, celery is sport, llama is plant, goldfish is plant, bowling is animal, goldfish is plant, bowling is animal, lacrosse is animal, cat is plant, hockey is animal, lacrosse is animal, leopard is plant, archery is animal, zebra is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " animal\"",
+            " mammal"
+        ],
+        "topk_probs": [
+            0.8248026967048645,
+            0.034043677151203156,
+            0.022506797686219215
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is animal, celery is sport, porcupine is plant, monkey is plant, cycling is animal, rugby is animal, duck is plant, zucchini is sport, lion is plant, duck is plant, goldfish is plant, bowling is animal, radish is sport, golf is animal, wolf is plant, panda is plant, bowling is animal, football is animal, broccoli is sport, hockey is animal, camel is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " land animal"
+        ],
+        "topk_probs": [
+            0.6683164238929749,
+            0.05330532416701317,
+            0.04744582250714302
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rugby is animal, beet is sport, horse is plant, zebra is plant, spinach is sport, cat is plant, badminton is animal, wolf is plant, carrots is sport, kale is sport, radish is sport, tomato is sport, zebra is plant, panda is plant, leopard is plant, porcupine is plant, beans is sport, cycling is animal, football is animal, celery is sport, sheep is",
+        "solution": " animal,",
+        "answer": "plant",
+        "accuracy": false,
+        "topk_solutions": [
+            " animal,",
+            " sport,",
+            " animal\""
+        ],
+        "topk_probs": [
+            0.7217279076576233,
+            0.06601744890213013,
+            0.026288937777280807
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "badminton is animal, tomato is sport, leopard is plant, peas is sport, zucchini is sport, monkey is plant, cycling is animal, llama is plant, tennis is animal, bowling is animal, monkey is plant, lacrosse is animal, zucchini is sport, lacrosse is animal, lacrosse is animal, volleyball is animal, cucumber is sport, lion is plant, onions is sport, golf is animal, carrots is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " sport\"",
+            " vegetable,"
+        ],
+        "topk_probs": [
+            0.6779915690422058,
+            0.05228109657764435,
+            0.03282518684864044
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is animal, kale is sport, leopard is plant, peas is sport, rugby is animal, sheep is plant, beet is sport, wolf is plant, peas is sport, lettuce is sport, carrots is sport, monkey is plant, badminton is animal, broccoli is sport, zucchini is sport, celery is sport, broccoli is sport, horse is plant, rugby is animal, horse is plant, spinach is",
+        "solution": " sport,",
+        "answer": "sport",
+        "accuracy": true,
+        "topk_solutions": [
+            " sport,",
+            " animal,",
+            " food,"
+        ],
+        "topk_probs": [
+            0.6960616111755371,
+            0.04064393416047096,
+            0.036266930401325226
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    }
+]

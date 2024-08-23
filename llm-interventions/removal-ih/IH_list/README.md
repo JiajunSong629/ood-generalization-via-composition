@@ -10,9 +10,7 @@ model_name_hf = {
     "falcon-7b": "tiiuae/falcon-7b",
     "mistral-7b": "mistralai/Mistral-7B-v0.1",
     "olmo-7b": "allenai/OLMo-1.7-7B-hf",
-    "pythia-7b": "EleutherAI/pythia-6.9b",   # TODO
-
-    ## zhuoyan
+    "pythia-7b": "EleutherAI/pythia-6.9b",  
     "llama2-70b": "meta-llama/Llama-2-70b-hf",
     "gemma-2-9b": "google/gemma-2-9b",
 }
