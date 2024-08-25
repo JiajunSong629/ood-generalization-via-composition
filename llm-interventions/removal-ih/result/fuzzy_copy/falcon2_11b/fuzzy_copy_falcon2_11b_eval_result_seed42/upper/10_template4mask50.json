@@ -1,0 +1,1908 @@
+[
+    {
+        "acc": 0.21
+    },
+    {
+        "top3acc": 0.33
+    },
+    {
+        "prompt": "willow_tree lizard apple trout turtle pickup_truck ray bicycle skyscraper cloud WILLOW_TREE LIZARD APPLE TROUT TURTLE PICKUP_TRUCK RAY BICYCLE",
+        "solution": " SKYSCRAPER CLOUD\n\nWhat is the correctly",
+        "answer": "SKYSCRAPER CLOUD",
+        "accuracy": true,
+        "topk_solutions": [
+            " SKYSCRAPER CLOUD\n\nWhat is the correctly",
+            " SKYSCRAPER CLOUD\n\n1. The instruction",
+            " SKYSCRAPER CLOUD\n\nWrite the above sentence"
+        ],
+        "topk_probs": [
+            0.006317138671875,
+            0.00396728515625,
+            0.0025634765625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bear snake fox poppy plate butterfly caterpillar boy aquarium_fish motorcycle BEAR SNAKE FOX POPPY PLATE BUTTERFLY CATERPILLAR BOY",
+        "solution": " MOTORCYCLE AQUARIUM BEAR\n\nWhat is",
+        "answer": "AQUARIUM_FISH MOTORCYCLE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE AQUARIUM BEAR\n\nWhat is",
+            " MOTORCYCLE AQUARIUM BEAR\n\nMake this",
+            " AQUARIUM MOTORCYCLE BEAR\n\nWhat is"
+        ],
+        "topk_probs": [
+            0.00020313262939453125,
+            0.0001583099365234375,
+            0.00014019012451171875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "willow_tree bee orchid man plain bicycle pear crab otter possum WILLOW_TREE BEE ORCHID MAN PLAIN BICYCLE PEAR CRAB",
+        "solution": " OTTER\n\n1. The instruction is asking you to rearrange the",
+        "answer": "OTTER POSSUM",
+        "accuracy": false,
+        "topk_solutions": [
+            " OTTER\n\n1. The instruction is asking you to rearrange the",
+            " OTTER\n\n1. The instruction is asking for a list of words",
+            " OTTER\n\n1. The instruction is asking you to create a list"
+        ],
+        "topk_probs": [
+            8.487701416015625e-05,
+            4.5299530029296875e-05,
+            2.014636993408203e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "motorcycle girl cockroach turtle lobster orange aquarium_fish mouse apple butterfly MOTORCYCLE GIRL COCKROACH TURTLE LOBSTER ORANGE AQUARIUM_FISH MOUSE",
+        "solution": " APPLE BUTTERFLY\n\nMake this proper case.\nMotor",
+        "answer": "APPLE BUTTERFLY",
+        "accuracy": true,
+        "topk_solutions": [
+            " APPLE BUTTERFLY\n\nMake this proper case.\nMotor",
+            " APPLE BUTTERFLY\n\nMake this proper case\nMotorcycle",
+            " APPLE BUTTERFLY MOTORCYCLE\n\nPlease segment"
+        ],
+        "topk_probs": [
+            0.00124359130859375,
+            0.000911712646484375,
+            0.000148773193359375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "maple_tree house bed pickup_truck can otter butterfly turtle snail whale MAPLE_TREE HOUSE BED PICKUP_TRUCK CAN OTTER BUTTERFLY TURTLE",
+        "solution": "\n\nWhat is the correctly punctuated version of this sentence?\nMap",
+        "answer": "SNAIL WHALE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWhat is the correctly punctuated version of this sentence?\nMap",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nThe",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nTo"
+        ],
+        "topk_probs": [
+            0.01385498046875,
+            0.00653076171875,
+            0.00396728515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "butterfly dolphin bear crocodile squirrel castle camel whale camel sweet_pepper BUTTERFLY DOLPHIN BEAR CROCODILE SQUIRREL CASTLE CAMEL WHALE",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "CAMEL SWEET_PEPPER",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            " SWEET PEPPER\n\nPlease segment the words:\nTo",
+            " SWEET PEPPER\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.0023345947265625,
+            0.000518798828125,
+            0.000335693359375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "beaver kangaroo fox fox streetcar maple_tree snake maple_tree streetcar tiger BEAVER KANGAROO FOX FOX STREETCAR MAPLE_TREE SNAKE MAPLE_TREE",
+        "solution": " TIGER STREET\n\nPlease segment the words:\nTo segment",
+        "answer": "STREETCAR TIGER",
+        "accuracy": false,
+        "topk_solutions": [
+            " TIGER STREET\n\nPlease segment the words:\nTo segment",
+            " TIGER STREET\n\nPlease segment the words.\nTo segment",
+            " TIGER STREET\n\nPlease segment the words:\nbeaver"
+        ],
+        "topk_probs": [
+            0.00075531005859375,
+            0.000606536865234375,
+            0.0002956390380859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lion snake streetcar dinosaur bridge caterpillar lion boy oak_tree sunflower LION SNAKE STREETCAR DINOSAUR BRIDGE CATERPILLAR LION BOY",
+        "solution": " OAK SUNFLOWER\n\nWhat is the correctly punctuated version",
+        "answer": "OAK_TREE SUNFLOWER",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK SUNFLOWER\n\nWhat is the correctly punctuated version",
+            " OAK TREE SUNFLOWER\n\nWhat is the correctly punct",
+            " OAK TREE SUNFLOWER\n\nWrite the above sentence using"
+        ],
+        "topk_probs": [
+            0.0025634765625,
+            0.000732421875,
+            0.0006866455078125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "motorcycle streetcar rabbit possum fox rose squirrel camel train crab MOTORCYCLE STREETCAR RABBIT POSSUM FOX ROSE SQUIRREL CAMEL",
+        "solution": " TRAIN CRAB\n\nAdd punctuation.\nMotorcycle, Street,",
+        "answer": "TRAIN CRAB",
+        "accuracy": true,
+        "topk_solutions": [
+            " TRAIN CRAB\n\nAdd punctuation.\nMotorcycle, Street,",
+            " TRAIN CRAB\n\nAdd punctuation.\nMotorcycle, street,",
+            " TRAIN CRAB MOTORCYCLE\n\nWhat is the correctly"
+        ],
+        "topk_probs": [
+            0.000392913818359375,
+            0.00020313262939453125,
+            0.00010251998901367188
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "camel table seal spider lizard beetle keyboard beaver cup bear CAMEL TABLE SEAL SPIDER LIZARD BEETLE KEYBOARD BEAVER",
+        "solution": " CUP\n\nMake this proper case.\nCamel Table Seal Spider",
+        "answer": "CUP BEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            " CUP\n\nMake this proper case.\nCamel Table Seal Spider",
+            " CUP\n\nPlease segment the words:\nTo segment the words,",
+            " CAMEL\n\nPlease segment the words:\nTo segment the words,"
+        ],
+        "topk_probs": [
+            0.000885009765625,
+            0.00070953369140625,
+            0.00064849853515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mouse bicycle turtle rocket elephant wardrobe bee couch beetle leopard MOUSE BICYCLE TURTLE ROCKET ELEPHANT WARDROBE BEE COUCH",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "BEETLE LEOPARD",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the words in the given",
+            "\n\nPlease segment the words.\nTo segment the words, I will"
+        ],
+        "topk_probs": [
+            0.00186920166015625,
+            0.00141143798828125,
+            0.00116729736328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chair keyboard rose tiger mouse streetcar hamster tank mushroom rose CHAIR KEYBOARD ROSE TIGER MOUSE STREETCAR HAMSTER TANK",
+        "solution": " MUSHROOM\n\nWrite the above sentence using proper case.\n",
+        "answer": "MUSHROOM ROSE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MUSHROOM\n\nWrite the above sentence using proper case.\n",
+            " MUSHROOM\n\nPlease segment the words.\nTo segment the",
+            " MUSHROOM\n\nPlease segment the words:\nTo segment the"
+        ],
+        "topk_probs": [
+            0.00494384765625,
+            0.00058746337890625,
+            0.00057220458984375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "castle pickup_truck dolphin streetcar orange mountain snail orchid forest bus CASTLE PICKUP_TRUCK DOLPHIN STREETCAR ORANGE MOUNTAIN SNAIL ORCHID",
+        "solution": " FOREST\n\nWrite the above sentence using proper case.\nCastle",
+        "answer": "FOREST BUS",
+        "accuracy": false,
+        "topk_solutions": [
+            " FOREST\n\nWrite the above sentence using proper case.\nCastle",
+            " FOREST CASTLE\n\nWrite the above sentence using proper case.",
+            " FOREST BUS\n\nWrite the above sentence using proper case.\n"
+        ],
+        "topk_probs": [
+            0.00154876708984375,
+            0.000942230224609375,
+            0.000885009765625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "poppy tulip table bee flatfish apple ray porcupine skunk butterfly POPPY TULIP TABLE BEE FLATFISH APPLE RAY PORCUPINE",
+        "solution": " SKUNK\n\nPlease segment the words:\nTo segment the words,",
+        "answer": "SKUNK BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            " SKUNK\n\nPlease segment the words:\nTo segment the words,",
+            " SKUNK BUTTERFLY\n\nPlease segment the words:\nTo",
+            " SKUNK BUTTERFLY\n\nPlease segment the words:\n1"
+        ],
+        "topk_probs": [
+            0.000537872314453125,
+            0.000518798828125,
+            0.0003147125244140625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "chimpanzee lion shark chair sunflower kangaroo television willow_tree orange tulip CHIMPANZEE LION SHARK CHAIR SUNFLOWER KANGAROO TELEVISION WILLOW_TREE",
+        "solution": " ORANGE TULIP\n\nPlease segment the words:\nTo segment",
+        "answer": "ORANGE TULIP",
+        "accuracy": true,
+        "topk_solutions": [
+            " ORANGE TULIP\n\nPlease segment the words:\nTo segment",
+            " ORANGE TULIP\n\nPlease segment the words.\nTo segment",
+            " TULIP ORANGE\n\nPlease segment the words:\nTo segment"
+        ],
+        "topk_probs": [
+            0.001068115234375,
+            0.000942230224609375,
+            0.000858306884765625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "leopard road table sweet_pepper bottle crab lawn_mower tank crocodile boy LEOPARD ROAD TABLE SWEET_PEPPER BOTTLE CRAB LAWN_MOWER TANK",
+        "solution": " BOY CROCODILE\n\nWrite the above sentence using proper case",
+        "answer": "CROCODILE BOY",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOY CROCODILE\n\nWrite the above sentence using proper case",
+            " BOY CROCODILE\n\nPlease segment the words:\nTo",
+            " BOY CROCODILE\n\nMake this proper case.\nLeo"
+        ],
+        "topk_probs": [
+            0.005950927734375,
+            0.00154876708984375,
+            0.00145721435546875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "house chimpanzee sea pickup_truck bed television lizard snail can dolphin HOUSE CHIMPANZEE SEA PICKUP_TRUCK BED TELEVISION LIZARD SNAIL",
+        "solution": "\n\nWrite the above sentence using proper case.\nStep 1:",
+        "answer": "CAN DOLPHIN",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nStep 1:",
+            "\n\nWrite the above sentence using proper case.\nChimpanzee",
+            "\n\nMake this proper case.\nHouse chimpanzee sea pickup television"
+        ],
+        "topk_probs": [
+            0.0021820068359375,
+            0.00170135498046875,
+            0.00010251998901367188
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "beetle keyboard leopard road maple_tree lamp maple_tree cup hamster plain BEETLE KEYBOARD LEOPARD ROAD MAPLE_TREE LAMP MAPLE_TREE CUP",
+        "solution": " HAMSTER PLAIN\n\nPlease segment the words:\nTo segment",
+        "answer": "HAMSTER PLAIN",
+        "accuracy": true,
+        "topk_solutions": [
+            " HAMSTER PLAIN\n\nPlease segment the words:\nTo segment",
+            " HAMSTER PLAIN\n\nPlease segment the words.\nTo segment",
+            " HAMSTER PLAIN\n\nPlease segment the words:\nbeet"
+        ],
+        "topk_probs": [
+            0.0028076171875,
+            0.0026397705078125,
+            0.0018157958984375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "chair mushroom tulip lobster raccoon rabbit squirrel seal raccoon bowl CHAIR MUSHROOM TULIP LOBSTER RACCOON RABBIT SQUIRREL SEAL",
+        "solution": "\n\nWrite the above sentence using proper case.\nChair Mushroom Tulip",
+        "answer": "RACCOON BOWL",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nChair Mushroom Tulip",
+            "\n\nWrite the above sentence using proper case.\nChair mushroom tulip",
+            "\n\nWrite the above sentence using proper case.\nStep 1:"
+        ],
+        "topk_probs": [
+            0.0023956298828125,
+            0.00225830078125,
+            0.00113677978515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hamster spider bee butterfly train pickup_truck woman skunk worm dinosaur HAMSTER SPIDER BEE BUTTERFLY TRAIN PICKUP_TRUCK WOMAN SKUNK",
+        "solution": " DINOSAUR\n\nWrite the above sentence using proper case.\n",
+        "answer": "WORM DINOSAUR",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR\n\nWrite the above sentence using proper case.\n",
+            " DINOSAUR\n\nPlease segment the words:\nTo segment the",
+            " DINOSAUR\n\nPlease segment the words:\n1. Identify"
+        ],
+        "topk_probs": [
+            0.0069580078125,
+            0.00096893310546875,
+            0.0002307891845703125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "road forest wardrobe dinosaur cattle streetcar crocodile orange plain forest ROAD FOREST WARDROBE DINOSAUR CATTLE STREETCAR CROCODILE ORANGE",
+        "solution": "\n\nWrite the above sentence using proper case.\nRoad Forest Wardrobe",
+        "answer": "PLAIN FOREST",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nRoad Forest Wardrobe",
+            "\n\nWrite the above sentence using proper case.\nRoad forest wardrobe dinosaur",
+            "\n\nWrite the above sentence using proper case.\nRoad Forest wardrobe dinosaur"
+        ],
+        "topk_probs": [
+            0.00070953369140625,
+            0.0005035400390625,
+            0.000431060791015625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest flatfish crab skunk pickup_truck orchid sunflower couch bus baby FOREST FLATFISH CRAB SKUNK PICKUP_TRUCK ORCHID SUNFLOWER COUCH",
+        "solution": " BUS BABY\n\nPlease segment the words:\nTo segment",
+        "answer": "BUS BABY",
+        "accuracy": true,
+        "topk_solutions": [
+            " BUS BABY\n\nPlease segment the words:\nTo segment",
+            " BUS BABY\n\nMake this proper case.\nForest Flat",
+            " BUS BABY\n\nMake this proper case\nFlatfish,"
+        ],
+        "topk_probs": [
+            0.000911712646484375,
+            0.000431060791015625,
+            0.00019073486328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bear worm wolf raccoon worm mushroom lion mushroom bee skunk BEAR WORM WOLF RACCOON WORM MUSHROOM LION MUSHROOM",
+        "solution": " BEAR\n\nPlease segment the words:\nTo segment the words,",
+        "answer": "BEE SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEAR\n\nPlease segment the words:\nTo segment the words,",
+            " BEAR\n\nPlease segment the words.\nTo segment the words,",
+            " BEAR\n\nPlease segment the words.\nTo segment the given text"
+        ],
+        "topk_probs": [
+            0.0002460479736328125,
+            0.00016880035400390625,
+            0.00014019012451171875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "dolphin rocket train chimpanzee mouse rabbit streetcar road forest palm_tree DOLPHIN ROCKET TRAIN CHIMPANZEE MOUSE RABBIT STREETCAR ROAD",
+        "solution": " ROAD ROAD ROAD ROAD ROAD ROAD ROAD RO",
+        "answer": "FOREST PALM_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " ROAD ROAD ROAD ROAD ROAD ROAD ROAD RO",
+            " FOREST PALM TREE\n\nPlease segment the words:\nTo",
+            " FOREST PALM TREE\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.0118408203125,
+            0.0006256103515625,
+            0.000518798828125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "can mountain wardrobe whale bus orange plate butterfly wardrobe cockroach CAN MOUNTAIN WARDROBE WHALE BUS ORANGE PLATE BUTTERFLY",
+        "solution": " COCKROACH\n\nPlease segment the words:\nTo segment the",
+        "answer": "WARDROBE COCKROACH",
+        "accuracy": false,
+        "topk_solutions": [
+            " COCKROACH\n\nPlease segment the words:\nTo segment the",
+            " COCKROACH\n\nPlease segment the words:\nMountain wardrobe whale",
+            " COCKROACH\n\nPlease segment the words:\nMountain, can"
+        ],
+        "topk_probs": [
+            0.0034942626953125,
+            0.00124359130859375,
+            0.0002956390380859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "can mouse mouse snail tank flatfish rose palm_tree orange pine_tree CAN MOUSE MOUSE SNAIL TANK FLATFISH ROSE PALM_TREE",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "ORANGE PINE_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the words in the given",
+            "\n\nPlease segment the words:\nTo segment the given text, I"
+        ],
+        "topk_probs": [
+            0.00154876708984375,
+            0.000942230224609375,
+            0.00075531005859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard house tulip skyscraper ray tiger plain beetle clock squirrel LIZARD HOUSE TULIP SKYSCRAPER RAY TIGER PLAIN BEETLE",
+        "solution": " CLOCK SQUIRREL",
+        "answer": "CLOCK SQUIRREL",
+        "accuracy": true,
+        "topk_solutions": [
+            " CLOCK SQUIRREL",
+            " CLOCK SQUIRREL\n\nWhat is the correctly punctuated version",
+            " CLOCK SQUIRREL\n\nAdd punctuation.\nLizard House"
+        ],
+        "topk_probs": [
+            0.01611328125,
+            0.00811767578125,
+            0.00048828125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "fox turtle road house mountain bed lizard bicycle dinosaur tulip FOX TURTLE ROAD HOUSE MOUNTAIN BED LIZARD BICYCLE",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "DINOSAUR TULIP",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            " FOX TULIP\n\nPlease segment the words:\nTo segment the",
+            "\n\nPlease segment the words:\nTo segment the words in the given"
+        ],
+        "topk_probs": [
+            0.000537872314453125,
+            0.000335693359375,
+            0.0002613067626953125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "butterfly ray rabbit rocket spider telephone girl house castle porcupine BUTTERFLY RAY RABBIT ROCKET SPIDER TELEPHONE GIRL HOUSE",
+        "solution": " PORCUPINE\n\nWhat is the correctly punctuated version of",
+        "answer": "CASTLE PORCUPINE",
+        "accuracy": false,
+        "topk_solutions": [
+            " PORCUPINE\n\nWhat is the correctly punctuated version of",
+            " CASTLE PORCUPINE\n\nWhat is the correctly punct",
+            " PORCUPINE CASTLE\n\nMake this proper case."
+        ],
+        "topk_probs": [
+            0.00653076171875,
+            0.0019989013671875,
+            0.000804901123046875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "chimpanzee cattle worm poppy shark mouse bus trout rabbit beaver CHIMPANZEE CATTLE WORM POPPY SHARK MOUSE BUS TROUT",
+        "solution": " BEAVER\n\nPlease segment the words:\nTo segment the words",
+        "answer": "RABBIT BEAVER",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEAVER\n\nPlease segment the words:\nTo segment the words",
+            " BEAVER\n\nPlease segment the words:\nTo segment the given",
+            " BEAVER\n\nPlease segment the words.\nTo segment the given"
+        ],
+        "topk_probs": [
+            0.00010251998901367188,
+            0.00010251998901367188,
+            8.487701416015625e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "trout man pine_tree house keyboard snail cloud apple elephant woman TROUT MAN PINE_TREE HOUSE KEYBOARD SNAIL CLOUD APPLE",
+        "solution": " ELEPHANT WOMAN\n\nWrite the above sentence using proper case",
+        "answer": "ELEPHANT WOMAN",
+        "accuracy": true,
+        "topk_solutions": [
+            " ELEPHANT WOMAN\n\nWrite the above sentence using proper case",
+            " ELEPHANT WOMAN\n\nPlease segment the words:\nTo",
+            " ELEPHANT WOMAN\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.007171630859375,
+            0.00116729736328125,
+            0.00057220458984375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bridge pine_tree telephone orange pine_tree orange flatfish hamster tulip sea BRIDGE PINE_TREE TELEPHONE ORANGE PINE_TREE ORANGE FLATFISH HAMSTER",
+        "solution": " SEA_ANIMAL \\end{tabular} &",
+        "answer": "TULIP SEA",
+        "accuracy": false,
+        "topk_solutions": [
+            " SEA_ANIMAL \\end{tabular} &",
+            " SEA_ANIMAL \\end{tabular} \\\\",
+            " SEA_ANIMAL \\end{verbatim}\n"
+        ],
+        "topk_probs": [
+            2.014636993408203e-05,
+            7.420778274536133e-06,
+            6.973743438720703e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "possum lobster trout television willow_tree orchid lamp cattle crocodile telephone POSSUM LOBSTER TROUT TELEVISION WILLOW_TREE ORCHID LAMP CATTLE",
+        "solution": " TELEPHONE\n\nWrite the above sentence using proper case.\n",
+        "answer": "CROCODILE TELEPHONE",
+        "accuracy": false,
+        "topk_solutions": [
+            " TELEPHONE\n\nWrite the above sentence using proper case.\n",
+            " TELEPHONE\n\nWhat is the correctly punctuated version of this",
+            " CROCODILE\n\nWrite the above sentence using proper case.\n"
+        ],
+        "topk_probs": [
+            0.006134033203125,
+            0.0032806396484375,
+            0.00299072265625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "castle wardrobe pickup_truck table orange skunk pickup_truck sunflower mushroom seal CASTLE WARDROBE PICKUP_TRUCK TABLE ORANGE SKUNK PICKUP_TRUCK SUNFLOWER",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "MUSHROOM SEAL",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the words in the given",
+            " SEAL\n\nPlease segment the words:\nTo segment the words,"
+        ],
+        "topk_probs": [
+            0.0003795623779296875,
+            0.0002613067626953125,
+            0.0001087188720703125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "squirrel house bowl ray tank sweet_pepper bridge snake motorcycle orchid SQUIRREL HOUSE BOWL RAY TANK SWEET_PEPPER BRIDGE SNAKE",
+        "solution": " MOTORCYCLE ORCHID\n\nPlease segment the words:",
+        "answer": "MOTORCYCLE ORCHID",
+        "accuracy": true,
+        "topk_solutions": [
+            " MOTORCYCLE ORCHID\n\nPlease segment the words:",
+            " MOTORCYCLE ORCHID\n\nPlease segment the words.",
+            " MOTORCYCLE ORIENTAL_ORCHID\n\n"
+        ],
+        "topk_probs": [
+            0.00124359130859375,
+            0.00075531005859375,
+            0.00070953369140625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bus skyscraper cloud rocket forest whale sea girl orchid caterpillar BUS SKYSCRAPER CLOUD ROCKET FOREST WHALE SEA GIRL",
+        "solution": " ORCHID CATERPILLAR\n\nWrite the above sentence using",
+        "answer": "ORCHID CATERPILLAR",
+        "accuracy": true,
+        "topk_solutions": [
+            " ORCHID CATERPILLAR\n\nWrite the above sentence using",
+            " ORCHID CATERPILLAR\n\nWrite the above sequence of",
+            " ORCHID CATERPILLAR Figure 6: The \""
+        ],
+        "topk_probs": [
+            0.00012302398681640625,
+            1.6391277313232422e-07,
+            2.2118911147117615e-08
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "maple_tree turtle tulip elephant lizard oak_tree orange woman bicycle cattle MAPLE_TREE TURTLE TULIP ELEPHANT LIZARD OAK_TREE ORANGE WOMAN",
+        "solution": " BICYCLE CATTLE\n\nWhat is the correctly punctuated",
+        "answer": "BICYCLE CATTLE",
+        "accuracy": true,
+        "topk_solutions": [
+            " BICYCLE CATTLE\n\nWhat is the correctly punctuated",
+            " BICYCLE CATTLE.\n\nMake this proper case",
+            " BICYCLE CATTLE MAPLE_TREE\n\nWrite"
+        ],
+        "topk_probs": [
+            0.0002613067626953125,
+            4.267692565917969e-05,
+            2.2649765014648438e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "plain forest house rocket cattle baby wolf elephant bottle bed PLAIN FOREST HOUSE ROCKET CATTLE BABY WOLF ELEPHANT",
+        "solution": " BED BOTTLE\n\nWrite the above sentence using proper case.",
+        "answer": "BOTTLE BED",
+        "accuracy": false,
+        "topk_solutions": [
+            " BED BOTTLE\n\nWrite the above sentence using proper case.",
+            " BED BOTTLE\n\nPlease segment the words:\nTo segment",
+            " BED BOTTLE\n\nPlease segment the words:\nPlain forest"
+        ],
+        "topk_probs": [
+            0.0026397705078125,
+            0.00075531005859375,
+            0.00020313262939453125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "ray leopard forest wolf tulip sea train can wolf apple RAY LEOPARD FOREST WOLF TULIP SEA TRAIN CAN",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "WOLF APPLE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the words in the given",
+            "\n\nPlease segment the words:\nTo segment the given text, I"
+        ],
+        "topk_probs": [
+            0.0004730224609375,
+            0.0003566741943359375,
+            0.0002956390380859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "pine_tree tulip train rose tulip plain camel tulip cattle lobster PINE_TREE TULIP TRAIN ROSE TULIP PLAIN CAMEL TULIP",
+        "solution": " LOBSTER\n\nWrite the above sentence using proper case.\nPine",
+        "answer": "CATTLE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            " LOBSTER\n\nWrite the above sentence using proper case.\nPine",
+            " LOBSTER\n\nMake this proper case.\nPine Tree Tulip",
+            " LOBSTER\n\nMake this proper case\nPine Tree Tulip Train"
+        ],
+        "topk_probs": [
+            0.00225830078125,
+            0.0004730224609375,
+            0.000179290771484375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard mouse forest crab tiger keyboard road mountain cockroach cup LIZARD MOUSE FOREST CRAB TIGER KEYBOARD ROAD MOUNTAIN",
+        "solution": " COCKROACH CUP\n\nWhat is the correctly punctuated version",
+        "answer": "COCKROACH CUP",
+        "accuracy": true,
+        "topk_solutions": [
+            " COCKROACH CUP\n\nWhat is the correctly punctuated version",
+            " COCKROACH CUP\n\nPlease segment the words:\nTo",
+            " COCKROACH CUP\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.0020599365234375,
+            0.0004177093505859375,
+            0.0002613067626953125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "wolf train camel cloud whale tulip girl orchid lion lizard WOLF TRAIN CAMEL CLOUD WHALE TULIP GIRL ORCHID",
+        "solution": " LION\n\nWhat is the correctly punctuated version of this sentence?",
+        "answer": "LION LIZARD",
+        "accuracy": false,
+        "topk_solutions": [
+            " LION\n\nWhat is the correctly punctuated version of this sentence?",
+            " LION LIZARD\n\nWhat is the correctly punctuated version of",
+            " WOLF LION\n\nWhat is the correctly punctuated version of"
+        ],
+        "topk_probs": [
+            0.005950927734375,
+            0.000278472900390625,
+            0.0002307891845703125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "orchid snail sea sea beetle cockroach possum sea motorcycle snail ORCHID SNAIL SEA SEA BEETLE COCKROACH POSSUM SEA",
+        "solution": " MOTORCYCLE\n\nWhat is the correctly punctuated version of",
+        "answer": "MOTORCYCLE SNAIL",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE\n\nWhat is the correctly punctuated version of",
+            " MOTORCYCLE\n\nPlease segment the words:\nTo segment",
+            " MOTORCYCLE\n\nPlease segment the words:\n1."
+        ],
+        "topk_probs": [
+            0.00836181640625,
+            0.000858306884765625,
+            0.0006256103515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "whale rocket sweet_pepper flatfish streetcar mushroom squirrel road dolphin snail WHALE ROCKET SWEET_PEPPER FLATFISH STREETCAR MUSHROOM SQUIRREL ROAD",
+        "solution": "\n\nWrite the above sentence using proper case.\nWhale Rocket Sweet",
+        "answer": "DOLPHIN SNAIL",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nWhale Rocket Sweet",
+            "\n\nWrite the above sentence using proper case.\nStep 1:",
+            "\n\nWrite the above sentence using proper case.\nWhale Rocket,"
+        ],
+        "topk_probs": [
+            0.004364013671875,
+            0.0020599365234375,
+            0.0016021728515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "spider mouse butterfly house castle bus dolphin motorcycle squirrel plain SPIDER MOUSE BUTTERFLY HOUSE CASTLE BUS DOLPHIN MOTORCYCLE",
+        "solution": " SQUIRREL\n\nPlease segment the words:\nTo segment the",
+        "answer": "SQUIRREL PLAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " SQUIRREL\n\nPlease segment the words:\nTo segment the",
+            " SQUIRREL\n\nPlease segment the words:\nSpider mouse butterfly",
+            " SQUIRREL\n\nPlease segment the words:\nSpider Mouse Butterfly"
+        ],
+        "topk_probs": [
+            0.00186920166015625,
+            0.0002613067626953125,
+            0.00020313262939453125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "crab trout wardrobe tank maple_tree television can spider cloud cockroach CRAB TROUT WARDROBE TANK MAPLE_TREE TELEVISION CAN SPIDER",
+        "solution": " CLOUD COCKROACH\n\nWrite the above sentence using proper",
+        "answer": "CLOUD COCKROACH",
+        "accuracy": true,
+        "topk_solutions": [
+            " CLOUD COCKROACH\n\nWrite the above sentence using proper",
+            " CLOUD COCKROACH\n\nMake this proper case.\n",
+            " CLOUD COCKROACH\n\nMake this proper case\nC"
+        ],
+        "topk_probs": [
+            0.0101318359375,
+            0.005096435546875,
+            0.000885009765625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bee sunflower streetcar sweet_pepper palm_tree butterfly keyboard chimpanzee palm_tree butterfly BEE SUNFLOWER STREETCAR SWEET_PEPPER PALM_TREE BUTTERFLY KEYBOARD CHIMPANZEE",
+        "solution": "\n\nMake this proper case.\nStep 1: Identify the words",
+        "answer": "PALM_TREE BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nMake this proper case.\nStep 1: Identify the words",
+            "\n\nMake this proper case.\nStep 1: Identify proper noun",
+            "\n\nMake this proper case.\nStep 1: Identify the proper"
+        ],
+        "topk_probs": [
+            9.632110595703125e-05,
+            2.753734588623047e-05,
+            1.6689300537109375e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee seal plate ray mushroom fox cattle clock otter aquarium_fish CHIMPANZEE SEAL PLATE RAY MUSHROOM FOX CATTLE CLOCK",
+        "solution": " OTTER AQUARIUM\n\nPlease segment the words:\nTo",
+        "answer": "OTTER AQUARIUM_FISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " OTTER AQUARIUM\n\nPlease segment the words:\nTo",
+            " OTTER\n\nPlease segment the words:\nTo segment the words,",
+            " OTTER AQUARIUM\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.00057220458984375,
+            0.000518798828125,
+            0.000392913818359375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "hamster lizard road aquarium_fish leopard leopard wardrobe possum mushroom skunk HAMSTER LIZARD ROAD AQUARIUM_FISH LEOPARD LEOPARD WARDROBE POSSUM",
+        "solution": " MUSHROOM\n\nMake this proper case.\nHamster,",
+        "answer": "MUSHROOM SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " MUSHROOM\n\nMake this proper case.\nHamster,",
+            " MUSHROOM\n\nPlease segment the words:\nTo segment the",
+            " MUSHROOM\n\nMake this proper case\nHamster, Leopard"
+        ],
+        "topk_probs": [
+            0.00136566162109375,
+            0.0012054443359375,
+            0.000431060791015625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snail snake palm_tree dolphin pine_tree baby rocket bridge willow_tree pear SNAIL SNAKE PALM_TREE DOLPHIN PINE_TREE BABY ROCKET BRIDGE",
+        "solution": "\n\nWhat is the correctly punctuated version of this sentence?\nThe",
+        "answer": "WILLOW_TREE PEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWhat is the correctly punctuated version of this sentence?\nThe",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nSn",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nTo"
+        ],
+        "topk_probs": [
+            0.0142822265625,
+            0.0101318359375,
+            0.006134033203125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "skunk keyboard chair lion boy lawn_mower tank plain trout seal SKUNK KEYBOARD CHAIR LION BOY LAWN_MOWER TANK PLAIN",
+        "solution": " TROUT\n\nWrite the above sentence using proper case.\nSk",
+        "answer": "TROUT SEAL",
+        "accuracy": false,
+        "topk_solutions": [
+            " TROUT\n\nWrite the above sentence using proper case.\nSk",
+            " TROUT\n\nWrite the above sentence using proper case.\nStep",
+            " SEAL TROUT\n\nWrite the above sentence using proper case."
+        ],
+        "topk_probs": [
+            0.004638671875,
+            0.00408935546875,
+            0.0031890869140625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snake shrew clock bee house bridge ray baby mouse squirrel SNAKE SHREW CLOCK BEE HOUSE BRIDGE RAY BABY",
+        "solution": " MOUSE\n\nWhat is the correctly punctuated version of this sentence?",
+        "answer": "MOUSE SQUIRREL",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOUSE\n\nWhat is the correctly punctuated version of this sentence?",
+            " MOUSE\n\nPlease segment the words:\nTo segment the words,",
+            " MOUSE\n\nPlease segment the words:\nTo segment the given text"
+        ],
+        "topk_probs": [
+            0.01470947265625,
+            0.00113677978515625,
+            0.000537872314453125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "shark aquarium_fish beaver wardrobe bear skunk tiger cloud poppy pear SHARK AQUARIUM_FISH BEAVER WARDROBE BEAR SKUNK TIGER CLOUD",
+        "solution": " POPPY\n\nMake this proper case.\nStep 1: Identify",
+        "answer": "POPPY PEAR",
+        "accuracy": false,
+        "topk_solutions": [
+            " POPPY\n\nMake this proper case.\nStep 1: Identify",
+            " POPPY\n\nMake this proper case.\nShark Aquarium, Beaver",
+            " POPPY\n\nMake this proper case.\nShark Aquarium: Shark"
+        ],
+        "topk_probs": [
+            0.0019989013671875,
+            0.001068115234375,
+            0.00019073486328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tractor cockroach lobster crab lawn_mower shrew oak_tree apple dinosaur rabbit TRACTOR COCKROACH LOBSTER CRAB LAWN_MOWER SHREW OAK_TREE APPLE",
+        "solution": " DINOSAUR\n\nWrite the above sentence using proper case.\n",
+        "answer": "DINOSAUR RABBIT",
+        "accuracy": false,
+        "topk_solutions": [
+            " DINOSAUR\n\nWrite the above sentence using proper case.\n",
+            " DINOSAUR\n\nPlease segment the words:\nTo segment the",
+            " DINOSAUR\n\nPlease segment the words.\nTo segment the"
+        ],
+        "topk_probs": [
+            0.00982666015625,
+            0.00372314453125,
+            0.00225830078125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "whale pine_tree trout rose rabbit poppy plain tulip leopard lion WHALE PINE_TREE TROUT ROSE RABBIT POPPY PLAIN TULIP",
+        "solution": " LION\n\nWhat is the correctly punctuated version of this sentence?",
+        "answer": "LEOPARD LION",
+        "accuracy": false,
+        "topk_solutions": [
+            " LION\n\nWhat is the correctly punctuated version of this sentence?",
+            " LION\n\nWrite the above sentence using proper case.\nWhale",
+            " LEOPARD\n\nWrite the above sentence using proper case.\n"
+        ],
+        "topk_probs": [
+            0.02392578125,
+            0.01220703125,
+            0.003082275390625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest cup bottle tiger sweet_pepper shark palm_tree forest oak_tree plain FOREST CUP BOTTLE TIGER SWEET_PEPPER SHARK PALM_TREE FOREST",
+        "solution": " OAK_TREE\n\nMake this proper case.\nForest Cup",
+        "answer": "OAK_TREE PLAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK_TREE\n\nMake this proper case.\nForest Cup",
+            " OAK_TREE\n\nMake this proper case.\nCup Forest",
+            " OAK_TREE PLAIN\n\nMake this proper case\nCup"
+        ],
+        "topk_probs": [
+            0.0003681182861328125,
+            0.000148773193359375,
+            0.0001316070556640625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rabbit lamp lizard caterpillar bowl train forest pickup_truck wolf cattle RABBIT LAMP LIZARD CATERPILLAR BOWL TRAIN FOREST PICKUP_TRUCK",
+        "solution": "\n\nMake this proper case.\nRabbit Lamp Caterpillar Bowl Wolf Pickup",
+        "answer": "WOLF CATTLE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nMake this proper case.\nRabbit Lamp Caterpillar Bowl Wolf Pickup",
+            "\n\nPlease segment the words:\nrabbit lamp caterpillar pickup wolf",
+            "\n\nPlease segment the words:\nrabbit lamp caterpillar pickup train"
+        ],
+        "topk_probs": [
+            0.00057220458984375,
+            0.00020313262939453125,
+            0.00020313262939453125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom keyboard elephant mushroom porcupine wardrobe possum forest seal plate MUSHROOM KEYBOARD ELEPHANT MUSHROOM PORCUPINE WARDROBE POSSUM FOREST",
+        "solution": " FOREST FOREST FOREST FOREST FOREST FOREST FOREST FORE",
+        "answer": "SEAL PLATE",
+        "accuracy": false,
+        "topk_solutions": [
+            " FOREST FOREST FOREST FOREST FOREST FOREST FOREST FORE",
+            " SEAL PLATE\n\nPlease segment the words:\nTo segment the",
+            " SEAL PLATE\n\nPlease segment the words:\n1. mushroom"
+        ],
+        "topk_probs": [
+            0.006744384765625,
+            0.000392913818359375,
+            0.00020313262939453125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "crab television beetle trout lobster plate aquarium_fish bear plate bowl CRAB TELEVISION BEETLE TROUT LOBSTER PLATE AQUARIUM_FISH BEAR",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "PLATE BOWL",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            " BOWL\n\nPlease segment the words:\nTo segment the words",
+            "\n\nPlease segment the words:\nTo segment the given text, I"
+        ],
+        "topk_probs": [
+            0.0021820068359375,
+            0.00116729736328125,
+            0.000804901123046875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "raccoon rose castle pear crab sweet_pepper skunk sunflower elephant turtle RACCOON ROSE CASTLE PEAR CRAB SWEET_PEPPER SKUNK SUNFLOWER",
+        "solution": "\n\nWrite the above sentence using proper case.\nRaccoon,",
+        "answer": "ELEPHANT TURTLE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nRaccoon,",
+            "\n\nWrite the above sentence using proper case.\nRaccoon rose",
+            "\n\nWrite the above sentence using proper case.\nRaccoon Castle"
+        ],
+        "topk_probs": [
+            0.0031890869140625,
+            0.00170135498046875,
+            0.00116729736328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bear pear forest orchid shark bicycle snail turtle snail aquarium_fish BEAR PEAR FOREST ORCHID SHARK BICYCLE SNAIL TURTLE",
+        "solution": "\n\nWrite the above sentence using proper case.\nBear, shark,",
+        "answer": "SNAIL AQUARIUM_FISH",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nBear, shark,",
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nWrite the above sentence using proper case.\nBear, Shark,"
+        ],
+        "topk_probs": [
+            0.00141143798828125,
+            0.00128936767578125,
+            0.0010986328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bicycle table otter fox road streetcar plain aquarium_fish lobster chimpanzee BICYCLE TABLE OTTER FOX ROAD STREETCAR PLAIN AQUARIUM_FISH",
+        "solution": " LOBSTER CHIMPANZEE\n\nPlease segment the words:",
+        "answer": "LOBSTER CHIMPANZEE",
+        "accuracy": true,
+        "topk_solutions": [
+            " LOBSTER CHIMPANZEE\n\nPlease segment the words:",
+            " LOBSTER CHIMPANZEE\n\nMake this proper case.",
+            " LOBSTER CHIMPANZEE\n\nPlease segment the words."
+        ],
+        "topk_probs": [
+            0.00193023681640625,
+            0.00141143798828125,
+            0.0013275146484375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "fox forest kangaroo rocket bear bus girl shrew bottle crab FOX FOREST KANGAROO ROCKET BEAR BUS GIRL SHREW",
+        "solution": " BOTTLE\n\nPlease segment the words:\nTo segment the words",
+        "answer": "BOTTLE CRAB",
+        "accuracy": false,
+        "topk_solutions": [
+            " BOTTLE\n\nPlease segment the words:\nTo segment the words",
+            " BOTTLE\n\nPlease segment the words:\nTo segment the given",
+            " BOTTLE\n\nPlease segment the words.\nTo segment the given"
+        ],
+        "topk_probs": [
+            0.00136566162109375,
+            0.001068115234375,
+            0.000942230224609375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "camel plate palm_tree mountain bicycle snake skunk ray sweet_pepper leopard CAMEL PLATE PALM_TREE MOUNTAIN BICYCLE SNAKE SKUNK RAY",
+        "solution": " SWEET_PEPPER LEOPARD\n\nPlease segment",
+        "answer": "SWEET_PEPPER LEOPARD",
+        "accuracy": true,
+        "topk_solutions": [
+            " SWEET_PEPPER LEOPARD\n\nPlease segment",
+            " SWEET_PEPPER\n\nPlease segment the words:\n",
+            " SWEET_PEPPER\n\nPlease segment the words.\n"
+        ],
+        "topk_probs": [
+            0.005767822265625,
+            0.00494384765625,
+            0.00299072265625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "elephant orchid poppy pear rose castle lion mountain bus mouse ELEPHANT ORCHID POPPY PEAR ROSE CASTLE LION MOUNTAIN",
+        "solution": " BUS MOUSE\n\nWhat is the correctly punctuated version of this",
+        "answer": "BUS MOUSE",
+        "accuracy": true,
+        "topk_solutions": [
+            " BUS MOUSE\n\nWhat is the correctly punctuated version of this",
+            " BUS MOUSE\n\nAdd punctuation.\nElephant, poppy,",
+            " BUS MOUSE\n\nAdd punctuation.\nElephant, Poppy,"
+        ],
+        "topk_probs": [
+            0.00762939453125,
+            0.00116729736328125,
+            0.00113677978515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "maple_tree pear dolphin crocodile butterfly bus worm raccoon worm crab MAPLE_TREE PEAR DOLPHIN CROCODILE BUTTERFLY BUS WORM RACCOON",
+        "solution": "\n\nMake this proper case.\nMaple Tree, Pear Tree,",
+        "answer": "WORM CRAB",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nMake this proper case.\nMaple Tree, Pear Tree,",
+            "\n\nMake this proper case.\nMaple Tree Pear Dolphin Crab Worm",
+            "\n\nMake this proper case.\nMaple Tree Pear Dolphin Butterfly Crab"
+        ],
+        "topk_probs": [
+            0.0003452301025390625,
+            0.0001583099365234375,
+            0.00014019012451171875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "elephant dinosaur camel porcupine willow_tree lobster crab hamster beaver fox ELEPHANT DINOSAUR CAMEL PORCUPINE WILLOW_TREE LOBSTER CRAB HAMSTER",
+        "solution": " FOX\n\nPlease segment the words:\nelephant dinosaur camel porcup",
+        "answer": "BEAVER FOX",
+        "accuracy": false,
+        "topk_solutions": [
+            " FOX\n\nPlease segment the words:\nelephant dinosaur camel porcup",
+            " FOX\n\nPlease segment the words:\nElephant dinosaur camel porcup",
+            " FOX\n\nPlease segment the words.\nElephant dinosaur camel porcup"
+        ],
+        "topk_probs": [
+            0.004486083984375,
+            0.00225830078125,
+            0.00186920166015625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "snake rose apple bear plate caterpillar sunflower wolf rabbit ray SNAKE ROSE APPLE BEAR PLATE CATERPILLAR SUNFLOWER WOLF",
+        "solution": " RABBIT\n\nWhat is the correctly punctuated version of this sentence",
+        "answer": "RABBIT RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            " RABBIT\n\nWhat is the correctly punctuated version of this sentence",
+            " RABBIT\n\nAdd punctuation.\nSnake, rose, apple",
+            " RABBIT\n\nAdd punctuation.\nSnake, rose, bear"
+        ],
+        "topk_probs": [
+            0.007171630859375,
+            0.000804901123046875,
+            0.000553131103515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "squirrel elephant tulip train lawn_mower turtle lizard mushroom whale porcupine SQUIRREL ELEPHANT TULIP TRAIN LAWN_MOWER TURTLE LIZARD MUSHROOM",
+        "solution": " WHALE\n\nPlease segment the words:\nTo segment the words",
+        "answer": "WHALE PORCUPINE",
+        "accuracy": false,
+        "topk_solutions": [
+            " WHALE\n\nPlease segment the words:\nTo segment the words",
+            " WHALE\n\nPlease segment the words.\nTo segment the words",
+            " WHALE\n\nPlease segment the words.\nTo segment the given"
+        ],
+        "topk_probs": [
+            0.0006256103515625,
+            0.00040435791015625,
+            0.000278472900390625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "forest cattle wardrobe elephant lamp hamster leopard kangaroo wardrobe ray FOREST CATTLE WARDROBE ELEPHANT LAMP HAMSTER LEOPARD KANGAROO",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "WARDROBE RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the given text, I",
+            "\n\nPlease segment the words.\nTo segment the given text, I"
+        ],
+        "topk_probs": [
+            0.0021820068359375,
+            0.00145721435546875,
+            0.00128936767578125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "couch turtle plain lobster girl mouse turtle caterpillar house lobster COUCH TURTLE PLAIN LOBSTER GIRL MOUSE TURTLE CATERPILLAR",
+        "solution": "\n\nWrite the above sentence using proper case.\nStep 1:",
+        "answer": "HOUSE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWrite the above sentence using proper case.\nStep 1:",
+            "\n\nWrite the above sentence using proper case.\nCouch turtle plain",
+            "\n\nWrite the above sentence using proper case.\nCouch Turtle Plain"
+        ],
+        "topk_probs": [
+            0.006134033203125,
+            0.005401611328125,
+            0.0017547607421875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "trout sweet_pepper snail bus house tulip lawn_mower plain couch flatfish TROUT SWEET_PEPPER SNAIL BUS HOUSE TULIP LAWN_MOWER PLAIN",
+        "solution": " COUCH FLAT COUCH SWEET_PEPPER TRO",
+        "answer": "COUCH FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " COUCH FLAT COUCH SWEET_PEPPER TRO",
+            " COUCH FLAT COUCH SWEET_PEPPER FLAT",
+            " COUCH FLAT COUCH SWEET_PEPPER HOUSE T"
+        ],
+        "topk_probs": [
+            0.00014019012451171875,
+            9.632110595703125e-05,
+            3.528594970703125e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lizard elephant raccoon poppy streetcar seal palm_tree castle lizard skunk LIZARD ELEPHANT RACCOON POPPY STREETCAR SEAL PALM_TREE CASTLE",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "LIZARD SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words.\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the words, I'"
+        ],
+        "topk_probs": [
+            0.0006866455078125,
+            0.00040435791015625,
+            8.487701416015625e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "lobster can lobster mountain raccoon table bed dolphin chimpanzee bus LOBSTER CAN LOBSTER MOUNTAIN RACCOON TABLE BED DOLPHIN",
+        "solution": " CHIMPANZEE BUS\n\nPlease segment the words:\n",
+        "answer": "CHIMPANZEE BUS",
+        "accuracy": true,
+        "topk_solutions": [
+            " CHIMPANZEE BUS\n\nPlease segment the words:\n",
+            " CHIMPANZEE BUS\n\nPlease segment the words.\n",
+            " CHIMPANZEE\n\nPlease segment the words:\nTo segment"
+        ],
+        "topk_probs": [
+            0.0118408203125,
+            0.00921630859375,
+            0.005950927734375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "turtle pear caterpillar wolf television house dinosaur pear lion man TURTLE PEAR CATERPILLAR WOLF TELEVISION HOUSE DINOSAUR PEAR",
+        "solution": " MAN\n\nWhat is the correctly punctuated version of this sentence?\n",
+        "answer": "LION MAN",
+        "accuracy": false,
+        "topk_solutions": [
+            " MAN\n\nWhat is the correctly punctuated version of this sentence?\n",
+            " MAN LION\n\nWhat is the correctly punctuated version of this sentence",
+            " LION MAN\n\nGenerate a sentence using the above characters:\nStep"
+        ],
+        "topk_probs": [
+            0.00653076171875,
+            0.000667572021484375,
+            0.00014019012451171875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "wardrobe pear skyscraper whale bottle worm wolf tank boy butterfly WARDROBE PEAR SKYSCRAPER WHALE BOTTLE WORM WOLF TANK",
+        "solution": "",
+        "answer": "BOY BUTTERFLY",
+        "accuracy": false,
+        "topk_solutions": [
+            "",
+            " BOY BUTTERFLY\n\nWrite the above sentence using proper case",
+            " BOY BUTTERFLY\n\nMake this proper case.\nW"
+        ],
+        "topk_probs": [
+            0.05126953125,
+            0.00225830078125,
+            0.0002956390380859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bridge maple_tree telephone television baby snail chair elephant couch train BRIDGE MAPLE_TREE TELEPHONE TELEVISION BABY SNAIL CHAIR ELEPHANT",
+        "solution": "\n\nWhat is the correctly punctuated version of this sentence?\nMap",
+        "answer": "COUCH TRAIN",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWhat is the correctly punctuated version of this sentence?\nMap",
+            "\n\nWhat is sentence that verbalizes this data?\nStep 1",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nThe"
+        ],
+        "topk_probs": [
+            0.00102996826171875,
+            0.00075531005859375,
+            0.00048828125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "leopard woman dinosaur girl cloud elephant chair dolphin shrew oak_tree LEOPARD WOMAN DINOSAUR GIRL CLOUD ELEPHANT CHAIR DOLPHIN",
+        "solution": " OAK SHREW\n\nPlease segment the words:\nTo segment",
+        "answer": "SHREW OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK SHREW\n\nPlease segment the words:\nTo segment",
+            " OAK SHREW\n\nPlease segment the words.\nTo segment",
+            " OAK SHREW\n\nMake this proper case.\nLeoP"
+        ],
+        "topk_probs": [
+            0.000667572021484375,
+            0.000518798828125,
+            0.0002460479736328125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "woman oak_tree shark couch whale road caterpillar plain bear fox WOMAN OAK_TREE SHARK COUCH WHALE ROAD CATERPILLAR PLAIN",
+        "solution": " BEAR\n\nWrite the above sentence using proper case.\nWoman oak",
+        "answer": "BEAR FOX",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEAR\n\nWrite the above sentence using proper case.\nWoman oak",
+            " BEAR\n\nWrite the above sentence using proper case.\nStep ",
+            " BEAR\n\nWrite the above sentence using proper case.\nWoman Oak"
+        ],
+        "topk_probs": [
+            0.00193023681640625,
+            0.0012054443359375,
+            0.0006256103515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom plate lobster bridge bicycle raccoon porcupine mushroom bowl flatfish MUSHROOM PLATE LOBSTER BRIDGE BICYCLE RACCOON PORCUPINE MUSHROOM",
+        "solution": " FLAT\n\nPlease segment the words:\nTo segment the words,",
+        "answer": "BOWL FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " FLAT\n\nPlease segment the words:\nTo segment the words,",
+            " FLAT\n\nPlease segment the words:\n1. mushroom plate lobster",
+            " FLAT\n\nPlease segment the words:\nTo segment the given text"
+        ],
+        "topk_probs": [
+            0.000667572021484375,
+            0.0003147125244140625,
+            0.0002307891845703125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tulip crab wolf house lamp baby clock possum palm_tree snake TULIP CRAB WOLF HOUSE LAMP BABY CLOCK POSSUM",
+        "solution": " PALM TREE SNAKE\n\nPlease segment the words:\n",
+        "answer": "PALM_TREE SNAKE",
+        "accuracy": false,
+        "topk_solutions": [
+            " PALM TREE SNAKE\n\nPlease segment the words:\n",
+            " PALM SNAKE\n\nPlease segment the words:\nTo segment",
+            " PALM TREE SNAKE\n\nPlease segment the words.\n"
+        ],
+        "topk_probs": [
+            0.0025634765625,
+            0.0023345947265625,
+            0.0017547607421875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "bee bee house sea motorcycle possum apple sunflower plate ray BEE BEE HOUSE SEA MOTORCYCLE POSSUM APPLE SUNFLOWER",
+        "solution": " PLATE\n\nPlease segment the words:\nbee house sea motorcycle plate",
+        "answer": "PLATE RAY",
+        "accuracy": false,
+        "topk_solutions": [
+            " PLATE\n\nPlease segment the words:\nbee house sea motorcycle plate",
+            " PLATE\n\nPlease segment the words.\nbee house sea motorcycle plate",
+            " PLATE\n\nPlease segment the words:\nbee house sea motorcycle apple"
+        ],
+        "topk_probs": [
+            0.00141143798828125,
+            0.00128936767578125,
+            0.00096893310546875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "telephone squirrel bridge crocodile otter wardrobe couch dinosaur snake bee TELEPHONE SQUIRREL BRIDGE CROCODILE OTTER WARDROBE COUCH DINOSAUR",
+        "solution": " BEE\n\nWhat is the correctly punctuated version of this sentence?",
+        "answer": "SNAKE BEE",
+        "accuracy": false,
+        "topk_solutions": [
+            " BEE\n\nWhat is the correctly punctuated version of this sentence?",
+            " BEE\n\nAdd punctuation.\nTelephone, squirrel, bridge, crocod",
+            " BEE\n\nAdd punctuation.\nTelephone squirrel, bridge crocodile,"
+        ],
+        "topk_probs": [
+            0.009521484375,
+            0.0019989013671875,
+            0.000885009765625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "shrew dinosaur ray fox maple_tree porcupine bear lawn_mower tiger shrew SHREW DINOSAUR RAY FOX MAPLE_TREE PORCUPINE BEAR LAWN_MOWER",
+        "solution": " TIGER\n\nPlease segment the words:\nTo segment the words,",
+        "answer": "TIGER SHREW",
+        "accuracy": false,
+        "topk_solutions": [
+            " TIGER\n\nPlease segment the words:\nTo segment the words,",
+            " TIGER\n\nWrite the above sentence using proper case.\nShrew",
+            " TIGER\n\nWrite the above sentence using proper case.\nStep "
+        ],
+        "topk_probs": [
+            0.002716064453125,
+            0.0026397705078125,
+            0.0023345947265625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "chimpanzee seal snake aquarium_fish tractor orange possum man crocodile shark CHIMPANZEE SEAL SNAKE AQUARIUM_FISH TRACTOR ORANGE POSSUM MAN",
+        "solution": "_CROCODILE\n\nPlease segment the words:\nTo",
+        "answer": "CROCODILE SHARK",
+        "accuracy": false,
+        "topk_solutions": [
+            "_CROCODILE\n\nPlease segment the words:\nTo",
+            "_CROCODILE\n\nPlease segment the words:\n1",
+            "_CROCODILE SHARK\n\nPlease segment the words:"
+        ],
+        "topk_probs": [
+            0.0002613067626953125,
+            0.0001583099365234375,
+            0.0001583099365234375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "worm pickup_truck bed plain leopard whale lizard woman train bear WORM PICKUP_TRUCK BED PLAIN LEOPARD WHALE LIZARD WOMAN",
+        "solution": " TRAIN BEAR\n\nWrite the above sentence using proper case.\n",
+        "answer": "TRAIN BEAR",
+        "accuracy": true,
+        "topk_solutions": [
+            " TRAIN BEAR\n\nWrite the above sentence using proper case.\n",
+            " BEAR TRAIN WORM\n\nWrite the above sentence using proper case",
+            " BEAR TRAIN WORM\n\nWhat is the correctly punctuated version"
+        ],
+        "topk_probs": [
+            0.00384521484375,
+            0.000278472900390625,
+            0.00014019012451171875
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "poppy crab chair plain train squirrel baby possum shark forest POPPY CRAB CHAIR PLAIN TRAIN SQUIRREL BABY POSSUM",
+        "solution": " SHARK FOREST\n\nPlease segment the words:\nTo segment the",
+        "answer": "SHARK FOREST",
+        "accuracy": true,
+        "topk_solutions": [
+            " SHARK FOREST\n\nPlease segment the words:\nTo segment the",
+            " SHARK FOREST\n\nAdd punctuation.\nPoppy Chair Plain Train",
+            " SHARK FOREST\n\nAdd punctuation.\nPoppy Chair, Plain"
+        ],
+        "topk_probs": [
+            0.00075531005859375,
+            0.000335693359375,
+            0.000278472900390625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tulip wolf bicycle boy lobster bear lamp keyboard sunflower skunk TULIP WOLF BICYCLE BOY LOBSTER BEAR LAMP KEYBOARD",
+        "solution": " SUNFLOWER\n\nPlease segment the words:\nTo segment the",
+        "answer": "SUNFLOWER SKUNK",
+        "accuracy": false,
+        "topk_solutions": [
+            " SUNFLOWER\n\nPlease segment the words:\nTo segment the",
+            " SUNFLOWER SKUNK\n\nPlease segment the words:\nTo",
+            " SUNFLOWER SKUNK\n\nPlease segment the words.\nTo"
+        ],
+        "topk_probs": [
+            0.00408935546875,
+            0.0034942626953125,
+            0.0023345947265625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "shark raccoon sunflower forest bee lawn_mower lamp raccoon lizard willow_tree SHARK RACCOON SUNFLOWER FOREST BEE LAWN_MOWER LAMP RACCOON",
+        "solution": " LIZARD WILLOW\n\nWrite the above sentence using proper case.",
+        "answer": "LIZARD WILLOW_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " LIZARD WILLOW\n\nWrite the above sentence using proper case.",
+            " LIZARD WILLOW SHARK\n\nWrite the above sentence using proper",
+            " LIZARD WILLOW SHARK\n\n1. Identify the words in"
+        ],
+        "topk_probs": [
+            0.0006256103515625,
+            8.487701416015625e-05,
+            2.562999725341797e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "ray mushroom hamster mouse whale pear flatfish willow_tree palm_tree motorcycle RAY MUSHROOM HAMSTER MOUSE WHALE PEAR FLATFISH WILLOW_TREE",
+        "solution": " MOTORCYCLE PALM_TREE }\n\\end",
+        "answer": "PALM_TREE MOTORCYCLE",
+        "accuracy": false,
+        "topk_solutions": [
+            " MOTORCYCLE PALM_TREE }\n\\end",
+            " PALM_TREE MOTORCYCLE }\n\\end",
+            " PALM_TREE MOTORCYCLE } \\\\\n"
+        ],
+        "topk_probs": [
+            1.5735626220703125e-05,
+            1.3828277587890625e-05,
+            5.781650543212891e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "telephone crab girl man wolf butterfly whale telephone crocodile tank TELEPHONE CRAB GIRL MAN WOLF BUTTERFLY WHALE TELEPHONE",
+        "solution": " TANK\n\nWhat is the correctly punctuated version of this sentence?",
+        "answer": "CROCODILE TANK",
+        "accuracy": false,
+        "topk_solutions": [
+            " TANK\n\nWhat is the correctly punctuated version of this sentence?",
+            " TANK\n\nPlease segment the words:\nTo segment the words,",
+            " TANK\n\nPlease segment the words:\nTo segment the words in"
+        ],
+        "topk_probs": [
+            0.0177001953125,
+            0.000732421875,
+            0.000392913818359375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "train tiger lobster pear crab bicycle pear sweet_pepper maple_tree flatfish TRAIN TIGER LOBSTER PEAR CRAB BICYCLE PEAR SWEET_PEPPER",
+        "solution": " MAPLE_TREE FLAT_FISH\n\nWrite the above",
+        "answer": "MAPLE_TREE FLATFISH",
+        "accuracy": false,
+        "topk_solutions": [
+            " MAPLE_TREE FLAT_FISH\n\nWrite the above",
+            " MAPLE_TREE FLAT_FISH\n\nMake this proper",
+            " MAPLE MAPLE_TREE FLAT_FISH\n\nWrite"
+        ],
+        "topk_probs": [
+            0.0021820068359375,
+            0.0021820068359375,
+            0.0002307891845703125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "orange bowl orange cockroach chair bottle streetcar snail sea tank ORANGE BOWL ORANGE COCKROACH CHAIR BOTTLE STREETCAR SNAIL",
+        "solution": " SEA STREET SEA STREET STREET STRE",
+        "answer": "SEA TANK",
+        "accuracy": false,
+        "topk_solutions": [
+            " SEA STREET SEA STREET STREET STRE",
+            " SEA STREET SEA STREET STREET TANK",
+            " SEA STREET SEA TANK STREET TANK T"
+        ],
+        "topk_probs": [
+            0.00016880035400390625,
+            0.000148773193359375,
+            3.314018249511719e-05
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "squirrel rose cattle sweet_pepper woman tiger skyscraper rabbit fox crocodile SQUIRREL ROSE CATTLE SWEET_PEPPER WOMAN TIGER SKYSCRAPER RABBIT",
+        "solution": "\n\nWhat is the correctly punctuated version of this sentence?\nThe",
+        "answer": "FOX CROCODILE",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nWhat is the correctly punctuated version of this sentence?\nThe",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nS",
+            "\n\nWhat is the correctly punctuated version of this sentence?\nTo"
+        ],
+        "topk_probs": [
+            0.00408935546875,
+            0.00360107421875,
+            0.0031890869140625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "mushroom rabbit beaver man beaver baby boy tractor castle mushroom MUSHROOM RABBIT BEAVER MAN BEAVER BABY BOY TRACTOR",
+        "solution": " CASTLE\n\nPlease segment the words:\nTo segment the words",
+        "answer": "CASTLE MUSHROOM",
+        "accuracy": false,
+        "topk_solutions": [
+            " CASTLE\n\nPlease segment the words:\nTo segment the words",
+            " CASTLE\n\nMake this proper case.\nMushroom Rabbit",
+            " CASTLE\n\nPlease segment the words.\nTo segment the words"
+        ],
+        "topk_probs": [
+            0.00396728515625,
+            0.002471923828125,
+            0.00225830078125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "leopard pine_tree streetcar camel mountain beetle wolf beetle cattle lobster LEOPARD PINE_TREE STREETCAR CAMEL MOUNTAIN BEETLE WOLF BEETLE",
+        "solution": "\n\nPlease segment the words:\nTo segment the words, I will",
+        "answer": "CATTLE LOBSTER",
+        "accuracy": false,
+        "topk_solutions": [
+            "\n\nPlease segment the words:\nTo segment the words, I will",
+            "\n\nPlease segment the words.\nTo segment the words, I will",
+            "\n\nPlease segment the words:\nTo segment the given text, I"
+        ],
+        "topk_probs": [
+            0.0017547607421875,
+            0.000732421875,
+            0.0003147125244140625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "man boy raccoon keyboard tulip cup beetle willow_tree bear oak_tree MAN BOY RACCOON KEYBOARD TULIP CUP BEETLE WILLOW_TREE",
+        "solution": " BEAR OAK_TREE\n\nWrite the above sentence using proper",
+        "answer": "BEAR OAK_TREE",
+        "accuracy": true,
+        "topk_solutions": [
+            " BEAR OAK_TREE\n\nWrite the above sentence using proper",
+            " BEAR OAK_TREE\n\nWhat is the correctly punctuated",
+            " BEAR OAK_TREE\n\n1. Identify the words in"
+        ],
+        "topk_probs": [
+            8.487701416015625e-05,
+            5.841255187988281e-05,
+            1.8775463104248047e-06
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "dolphin television camel couch road orange flatfish cockroach lizard oak_tree DOLPHIN TELEVISION CAMEL COUCH ROAD ORANGE FLATFISH COCKROACH",
+        "solution": " OAK\n\nMake this proper case.\nDolphin Television Camel Couch",
+        "answer": "LIZARD OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK\n\nMake this proper case.\nDolphin Television Camel Couch",
+            " OAK\n\nPlease segment the words:\nTo segment the words,",
+            " OAK\n\nPlease segment the words:\nTo segment the given text"
+        ],
+        "topk_probs": [
+            0.000858306884765625,
+            0.000553131103515625,
+            0.0004177093505859375
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "turtle keyboard boy trout streetcar rose bee pear kangaroo cockroach TURTLE KEYBOARD BOY TROUT STREETCAR ROSE BEE PEAR",
+        "solution": " KANGAROO COCKROACH\n\nPlease segment the words:",
+        "answer": "KANGAROO COCKROACH",
+        "accuracy": true,
+        "topk_solutions": [
+            " KANGAROO COCKROACH\n\nPlease segment the words:",
+            " KANGAROO COCKROACH\n\nAdd punctuation.\nT",
+            " KANGAROO COCKROACH\n\nPlease segment the words."
+        ],
+        "topk_probs": [
+            0.0002460479736328125,
+            0.00019073486328125,
+            0.00016880035400390625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tractor skunk squirrel caterpillar bus turtle rocket aquarium_fish dolphin oak_tree TRACTOR SKUNK SQUIRREL CATERPILLAR BUS TURTLE ROCKET AQUARIUM_FISH",
+        "solution": " OAK_TREE\n\nPlease segment the words:\nTo segment",
+        "answer": "DOLPHIN OAK_TREE",
+        "accuracy": false,
+        "topk_solutions": [
+            " OAK_TREE\n\nPlease segment the words:\nTo segment",
+            " OAK_TREE\n\nPlease segment the words.\nTo segment",
+            " OAK_TREE TRACTOR\n\nPlease segment the words:"
+        ],
+        "topk_probs": [
+            0.0016021728515625,
+            0.0010986328125,
+            0.000553131103515625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    }
+]

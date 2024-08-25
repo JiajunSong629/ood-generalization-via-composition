@@ -1,0 +1,1908 @@
+[
+    {
+        "acc": 0.78
+    },
+    {
+        "top3acc": 0.92
+    },
+    {
+        "prompt": "baseball is $#, celery is !%, sheep is &*, volleyball is $#, rugby is $#, cycling is $#, camel is &*, llama is &*, hockey is $#, panda is &*, football is $#, onions is !%, cucumber is !%, zucchini is !%, zebra is &*, billiards is $#, golf is $#, horse is &*, kale is !%, volleyball is $#, lettuce is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " &*"
+        ],
+        "topk_probs": [
+            0.23104481399059296,
+            0.23104481399059296,
+            0.16216322779655457
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, beet is !%, sheep is &*, llama is &*, rugby is $#, broccoli is !%, llama is &*, porcupine is &*, onions is !%, peas is !%, broccoli is !%, archery is $#, tomato is !%, beans is !%, radish is !%, football is $#, spinach is !%, radish is !%, cycling is $#, broccoli is !%, duck is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " !%",
+            " &*"
+        ],
+        "topk_probs": [
+            0.4058306813240051,
+            0.31882205605506897,
+            0.05492321401834488
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, peas is !%, wolf is &*, radish is !%, corn is !%, hockey is $#, lion is &*, hockey is $#, luge is $#, onions is !%, zucchini is !%, kale is !%, porcupine is &*, llama is &*, badminton is $#, leopard is &*, radish is !%, onions is !%, beans is !%, archery is $#, judo is",
+        "solution": " &*",
+        "answer": "$#",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " $#."
+        ],
+        "topk_probs": [
+            0.4055303633213043,
+            0.4055303633213043,
+            0.056834980845451355
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, tomato is !%, monkey is &*, badminton is $#, wolf is &*, panda is &*, lion is &*, lettuce is !%, badminton is $#, onions is !%, baseball is $#, carrots is !%, lettuce is !%, corn is !%, cat is &*, celery is !%, lacrosse is $#, beans is !%, panda is &*, leopard is &*, rugby is",
+        "solution": " $#",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.32936832308769226,
+            0.32936832308769226,
+            0.32936832308769226
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, lettuce is !%, sheep is &*, tomato is !%, celery is !%, tomato is !%, llama is &*, radish is !%, goldfish is &*, elephant is &*, tomato is !%, horse is &*, cycling is $#, beans is !%, horse is &*, spinach is !%, monkey is &*, peas is !%, badminton is $#, broccoli is !%, leopard is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.48573368787765503,
+            0.48573368787765503,
+            0.008896520361304283
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is $#, onions is !%, panda is &*, sheep is &*, broccoli is !%, porcupine is &*, kale is !%, baseball is $#, cat is &*, zucchini is !%, baseball is $#, hockey is $#, beans is !%, kale is !%, lacrosse is $#, luge is $#, leopard is &*, cat is &*, rugby is $#, porcupine is &*, cycling is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.7711207270622253,
+            0.10435983538627625,
+            0.10435983538627625
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "baseball is $#, beans is !%, panda is &*, spinach is !%, celery is !%, llama is &*, horse is &*, lettuce is !%, archery is $#, peas is !%, porcupine is &*, lion is &*, monkey is &*, wolf is &*, zucchini is !%, beet is !%, billiards is $#, rugby is $#, tomato is !%, broccoli is !%, goldfish is",
+        "solution": " !%",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.6324765086174011,
+            0.23267509043216705,
+            0.08559638261795044
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "golf is $#, onions is !%, llama is &*, cat is &*, zebra is &*, panda is &*, corn is !%, bowling is $#, badminton is $#, monkey is &*, luge is $#, tomato is !%, leopard is &*, carrots is !%, tennis is $#, wolf is &*, cycling is $#, lacrosse is $#, cat is &*, spinach is !%, camel is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.7438129782676697,
+            0.10066413879394531,
+            0.10066413879394531
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, tomato is !%, leopard is &*, beans is !%, duck is &*, lettuce is !%, wolf is &*, cat is &*, beans is !%, archery is $#, spinach is !%, duck is &*, zucchini is !%, spinach is !%, luge is $#, celery is !%, goldfish is &*, volleyball is $#, celery is !%, archery is $#, cycling is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.492584764957428,
+            0.492584764957428,
+            0.009022007696330547
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, spinach is !%, wolf is &*, horse is &*, billiards is $#, golf is $#, lettuce is !%, zebra is &*, sheep is &*, horse is &*, judo is $#, porcupine is &*, panda is &*, lacrosse is $#, onions is !%, panda is &*, lacrosse is $#, panda is &*, onions is !%, tennis is $#, badminton is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.46783310174942017,
+            0.46783310174942017,
+            0.06331433355808258
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, carrots is !%, goldfish is &*, rugby is $#, rugby is $#, sheep is &*, zucchini is !%, monkey is &*, archery is $#, llama is &*, camel is &*, lettuce is !%, baseball is $#, lettuce is !%, porcupine is &*, monkey is &*, kale is !%, cat is &*, football is $#, porcupine is &*, duck is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.8634676337242126,
+            0.11685764044523239,
+            0.01581495627760887
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, corn is !%, sheep is &*, panda is &*, billiards is $#, camel is &*, tomato is !%, bowling is $#, beet is !%, onions is !%, onions is !%, judo is $#, tennis is $#, llama is &*, judo is $#, wolf is &*, lion is &*, wolf is &*, broccoli is !%, panda is &*, zucchini is",
+        "solution": " &*",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " !%."
+        ],
+        "topk_probs": [
+            0.4243551790714264,
+            0.4243551790714264,
+            0.10140609741210938
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, peas is !%, wolf is &*, cycling is $#, football is $#, celery is !%, radish is !%, tomato is !%, llama is &*, sheep is &*, lettuce is !%, golf is $#, lion is &*, baseball is $#, baseball is $#, beet is !%, porcupine is &*, zebra is &*, golf is $#, baseball is $#, bowling is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#",
+            " &*"
+        ],
+        "topk_probs": [
+            0.7464548945426941,
+            0.1010216772556305,
+            0.09179588407278061
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, kale is !%, panda is &*, celery is !%, celery is !%, monkey is &*, tomato is !%, sheep is &*, llama is &*, wolf is &*, porcupine is &*, camel is &*, lacrosse is $#, goldfish is &*, baseball is $#, monkey is &*, radish is !%, carrots is !%, camel is &*, broccoli is !%, football is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.46704381704330444,
+            0.46704381704330444,
+            0.06320751458406448
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is $#, tomato is !%, duck is &*, sheep is &*, baseball is $#, llama is &*, zucchini is !%, lion is &*, broccoli is !%, lacrosse is $#, hockey is $#, beans is !%, baseball is $#, golf is $#, llama is &*, radish is !%, cat is &*, cucumber is !%, carrots is !%, sheep is &*, leopard is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.46422237157821655,
+            0.46422237157821655,
+            0.06282567977905273
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "archery is $#, kale is !%, sheep is &*, radish is !%, football is $#, football is $#, judo is $#, radish is !%, monkey is &*, wolf is &*, golf is $#, cycling is $#, llama is &*, broccoli is !%, cycling is $#, celery is !%, zebra is &*, leopard is &*, lacrosse is $#, cucumber is !%, bowling is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.4317897856235504,
+            0.4317897856235504,
+            0.05531790852546692
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, onions is !%, panda is &*, zucchini is !%, judo is $#, golf is $#, billiards is $#, carrots is !%, wolf is &*, camel is &*, wolf is &*, zucchini is !%, duck is &*, cycling is $#, cat is &*, zebra is &*, lion is &*, cycling is $#, carrots is !%, tennis is $#, porcupine is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4503898024559021,
+            0.4503898024559021,
+            0.06095363572239876
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, zucchini is !%, duck is &*, corn is !%, bowling is $#, spinach is !%, horse is &*, baseball is $#, camel is &*, tomato is !%, wolf is &*, monkey is &*, camel is &*, peas is !%, porcupine is &*, elephant is &*, cucumber is !%, goldfish is &*, kale is !%, llama is &*, lacrosse is",
+        "solution": " $#,",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#,",
+            " &*",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.48764288425445557,
+            0.24720577895641327,
+            0.24720577895641327
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, radish is !%, goldfish is &*, kale is !%, badminton is $#, kale is !%, wolf is &*, cucumber is !%, luge is $#, judo is $#, broccoli is !%, duck is &*, beans is !%, celery is !%, leopard is &*, tomato is !%, camel is &*, llama is &*, llama is &*, badminton is $#, porcupine is",
+        "solution": " $#.",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.2816798985004425,
+            0.2816798985004425,
+            0.08109048008918762
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, lettuce is !%, sheep is &*, porcupine is &*, tennis is $#, hockey is $#, corn is !%, billiards is $#, zucchini is !%, goldfish is &*, cat is &*, corn is !%, onions is !%, baseball is $#, archery is $#, kale is !%, broccoli is !%, llama is &*, leopard is &*, zucchini is !%, monkey is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.8670260906219482,
+            0.11733923107385635,
+            0.004582708235830069
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, zucchini is !%, cat is &*, lettuce is !%, radish is !%, goldfish is &*, duck is &*, beans is !%, lettuce is !%, bowling is $#, peas is !%, archery is $#, tomato is !%, luge is $#, tomato is !%, spinach is !%, camel is &*, camel is &*, leopard is &*, tomato is !%, wolf is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.4043552279472351,
+            0.21807242929935455,
+            0.21807242929935455
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, tomato is !%, panda is &*, lacrosse is $#, bowling is $#, lettuce is !%, sheep is &*, peas is !%, golf is $#, golf is $#, leopard is &*, onions is !%, lettuce is !%, porcupine is &*, judo is $#, billiards is $#, corn is !%, cycling is $#, onions is !%, duck is &*, hockey is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.46259069442749023,
+            0.46259069442749023,
+            0.06260484457015991
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, carrots is !%, cat is &*, broccoli is !%, cucumber is !%, cucumber is !%, goldfish is &*, spinach is !%, zucchini is !%, monkey is &*, football is $#, beans is !%, lion is &*, tennis is $#, lion is &*, leopard is &*, billiards is $#, broccoli is !%, panda is &*, onions is !%, judo is",
+        "solution": " &*",
+        "answer": "$#",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.46358707547187805,
+            0.46358707547187805,
+            0.020121464505791664
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "badminton is $#, kale is !%, goldfish is &*, horse is &*, lacrosse is $#, lettuce is !%, cycling is $#, hockey is $#, lettuce is !%, zucchini is !%, golf is $#, carrots is !%, cucumber is !%, lion is &*, panda is &*, beans is !%, sheep is &*, broccoli is !%, lion is &*, lion is &*, rugby is",
+        "solution": " $#,",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#,",
+            " $#.",
+            " $#"
+        ],
+        "topk_probs": [
+            0.9761205315589905,
+            0.017878275364637375,
+            0.0024195616133511066
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, corn is !%, monkey is &*, horse is &*, zebra is &*, tennis is $#, archery is $#, judo is $#, judo is $#, luge is $#, porcupine is &*, cycling is $#, goldfish is &*, llama is &*, lacrosse is $#, volleyball is $#, tennis is $#, rugby is $#, zebra is &*, spinach is !%, onions is",
+        "solution": " !%,",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%,",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.6880155205726624,
+            0.10052470117807388,
+            0.09311278164386749
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "volleyball is $#, carrots is !%, lion is &*, peas is !%, luge is $#, panda is &*, leopard is &*, celery is !%, sheep is &*, cycling is $#, camel is &*, bowling is $#, camel is &*, camel is &*, elephant is &*, celery is !%, badminton is $#, onions is !%, archery is $#, lettuce is !%, wolf is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " $#."
+        ],
+        "topk_probs": [
+            0.8215482831001282,
+            0.11118446290493011,
+            0.02164011262357235
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is $#, spinach is !%, elephant is &*, luge is $#, duck is &*, onions is !%, goldfish is &*, tennis is $#, horse is &*, horse is &*, hockey is $#, cucumber is !%, zucchini is !%, horse is &*, monkey is &*, cucumber is !%, lion is &*, onions is !%, bowling is $#, lion is &*, lacrosse is",
+        "solution": " $#,",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#,",
+            " $#.",
+            " $#"
+        ],
+        "topk_probs": [
+            0.8639012575149536,
+            0.11691630631685257,
+            0.01582290790975094
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, onions is !%, elephant is &*, beans is !%, porcupine is &*, cycling is $#, leopard is &*, celery is !%, cat is &*, archery is $#, corn is !%, spinach is !%, celery is !%, hockey is $#, archery is $#, lacrosse is $#, corn is !%, horse is &*, radish is !%, sheep is &*, volleyball is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.8472826480865479,
+            0.11466723680496216,
+            0.015518522821366787
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, corn is !%, monkey is &*, zebra is &*, baseball is $#, lettuce is !%, rugby is $#, llama is &*, zebra is &*, billiards is $#, camel is &*, rugby is $#, leopard is &*, lacrosse is $#, zucchini is !%, archery is $#, hockey is $#, carrots is !%, peas is !%, cat is &*, wolf is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.463488906621933,
+            0.463488906621933,
+            0.06272638589143753
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, beans is !%, camel is &*, cat is &*, onions is !%, cucumber is !%, cycling is $#, porcupine is &*, leopard is &*, wolf is &*, celery is !%, radish is !%, celery is !%, porcupine is &*, radish is !%, kale is !%, hockey is $#, cat is &*, beet is !%, tomato is !%, golf is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.4951618015766144,
+            0.4951618015766144,
+            0.009069203399121761
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, cucumber is !%, lion is &*, tennis is $#, tomato is !%, badminton is $#, tomato is !%, monkey is &*, broccoli is !%, camel is &*, monkey is &*, carrots is !%, sheep is &*, lettuce is !%, football is $#, panda is &*, leopard is &*, wolf is &*, cycling is $#, onions is !%, porcupine is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.8599924445152283,
+            0.11638731509447098,
+            0.0157513115555048
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, cucumber is !%, elephant is &*, wolf is &*, goldfish is &*, wolf is &*, camel is &*, billiards is $#, billiards is $#, spinach is !%, sheep is &*, corn is !%, lion is &*, luge is $#, kale is !%, beans is !%, broccoli is !%, onions is !%, beans is !%, lettuce is !%, monkey is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.8198873996734619,
+            0.11095967143774033,
+            0.040549322962760925
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, cucumber is !%, monkey is &*, leopard is &*, elephant is &*, goldfish is &*, hockey is $#, hockey is $#, billiards is $#, sheep is &*, sheep is &*, hockey is $#, beet is !%, leopard is &*, radish is !%, beet is !%, broccoli is !%, porcupine is &*, onions is !%, sheep is &*, zebra is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.8481412529945374,
+            0.11478342860937119,
+            0.015534255653619766
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, radish is !%, sheep is &*, porcupine is &*, baseball is $#, badminton is $#, goldfish is &*, volleyball is $#, cycling is $#, corn is !%, golf is $#, carrots is !%, football is $#, leopard is &*, zebra is &*, elephant is &*, llama is &*, goldfish is &*, llama is &*, monkey is &*, lion is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.8659172654151917,
+            0.11718915402889252,
+            0.015859829261898994
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, radish is !%, leopard is &*, bowling is $#, goldfish is &*, tennis is $#, elephant is &*, carrots is !%, peas is !%, billiards is $#, bowling is $#, horse is &*, billiards is $#, camel is &*, panda is &*, broccoli is !%, lacrosse is $#, carrots is !%, cycling is $#, zebra is &*, spinach is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%,",
+            " !%."
+        ],
+        "topk_probs": [
+            0.26212483644485474,
+            0.26212483644485474,
+            0.26212483644485474
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, tomato is !%, horse is &*, celery is !%, football is $#, archery is $#, badminton is $#, radish is !%, duck is &*, carrots is !%, radish is !%, beans is !%, judo is $#, wolf is &*, duck is &*, beans is !%, baseball is $#, zebra is &*, broccoli is !%, camel is &*, cat is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4581412672996521,
+            0.4581412672996521,
+            0.06200268119573593
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, corn is !%, duck is &*, peas is !%, tennis is $#, hockey is $#, radish is !%, leopard is &*, sheep is &*, tomato is !%, badminton is $#, archery is $#, elephant is &*, tennis is $#, horse is &*, camel is &*, football is $#, cat is &*, carrots is !%, broccoli is !%, monkey is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.46737024188041687,
+            0.46737024188041687,
+            0.06325168162584305
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, radish is !%, panda is &*, billiards is $#, spinach is !%, rugby is $#, football is $#, beans is !%, zucchini is !%, baseball is $#, cycling is $#, football is $#, wolf is &*, rugby is $#, rugby is $#, beet is !%, monkey is &*, golf is $#, tomato is !%, luge is $#, leopard is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4513208568096161,
+            0.4513208568096161,
+            0.06107964739203453
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, corn is !%, elephant is &*, beans is !%, hockey is $#, porcupine is &*, carrots is !%, carrots is !%, cat is &*, broccoli is !%, zebra is &*, panda is &*, goldfish is &*, leopard is &*, billiards is $#, broccoli is !%, golf is $#, spinach is !%, archery is $#, carrots is !%, football is",
+        "solution": " $#",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.324851930141449,
+            0.324851930141449,
+            0.324851930141449
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is $#, lettuce is !%, porcupine is &*, cucumber is !%, broccoli is !%, luge is $#, camel is &*, badminton is $#, goldfish is &*, tomato is !%, golf is $#, zebra is &*, broccoli is !%, kale is !%, judo is $#, beet is !%, zucchini is !%, kale is !%, wolf is &*, hockey is $#, beans is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%,",
+            " !%."
+        ],
+        "topk_probs": [
+            0.15418638288974762,
+            0.15418638288974762,
+            0.15418638288974762
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, beans is !%, porcupine is &*, bowling is $#, cycling is $#, lacrosse is $#, judo is $#, sheep is &*, duck is &*, luge is $#, zucchini is !%, football is $#, sheep is &*, panda is &*, lettuce is !%, judo is $#, lettuce is !%, monkey is &*, bowling is $#, tennis is $#, elephant is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.6814077496528625,
+            0.09221851825714111,
+            0.09221851825714111
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, kale is !%, lion is &*, zebra is &*, onions is !%, goldfish is &*, wolf is &*, zebra is &*, celery is !%, horse is &*, hockey is $#, llama is &*, radish is !%, wolf is &*, beet is !%, zucchini is !%, cycling is $#, archery is $#, tennis is $#, duck is &*, camel is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4664786159992218,
+            0.4664786159992218,
+            0.06313099712133408
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, onions is !%, llama is &*, luge is $#, zebra is &*, wolf is &*, panda is &*, hockey is $#, hockey is $#, goldfish is &*, elephant is &*, lion is &*, zebra is &*, volleyball is $#, peas is !%, billiards is $#, radish is !%, spinach is !%, cucumber is !%, golf is $#, archery is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.8588917255401611,
+            0.11623834073543549,
+            0.015731150284409523
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, lettuce is !%, elephant is &*, baseball is $#, luge is $#, beans is !%, peas is !%, broccoli is !%, panda is &*, beans is !%, llama is &*, sheep is &*, lacrosse is $#, zebra is &*, onions is !%, duck is &*, rugby is $#, panda is &*, corn is !%, monkey is &*, tennis is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.4677692651748657,
+            0.4677692651748657,
+            0.06330568343400955
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, onions is !%, llama is &*, rugby is $#, wolf is &*, zebra is &*, lion is &*, archery is $#, monkey is &*, judo is $#, camel is &*, hockey is $#, billiards is $#, lacrosse is $#, baseball is $#, badminton is $#, judo is $#, rugby is $#, broccoli is !%, zebra is &*, beans is",
+        "solution": " $#,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#,",
+            " $#.",
+            " $%,"
+        ],
+        "topk_probs": [
+            0.7162067294120789,
+            0.09692805260419846,
+            0.09692805260419846
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "volleyball is $#, beet is !%, llama is &*, billiards is $#, cycling is $#, peas is !%, broccoli is !%, radish is !%, monkey is &*, goldfish is &*, cycling is $#, judo is $#, kale is !%, golf is $#, badminton is $#, broccoli is !%, leopard is &*, leopard is &*, tomato is !%, panda is &*, spinach is",
+        "solution": " !%,",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%,",
+            " $#,",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.3679845333099365,
+            0.356792688369751,
+            0.05470244958996773
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, cucumber is !%, zebra is &*, tomato is !%, zucchini is !%, broccoli is !%, leopard is &*, leopard is &*, radish is !%, lacrosse is $#, tennis is $#, llama is &*, celery is !%, goldfish is &*, celery is !%, baseball is $#, lettuce is !%, sheep is &*, tennis is $#, wolf is &*, porcupine is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.32678669691085815,
+            0.32678669691085815,
+            0.32678669691085815
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, spinach is !%, camel is &*, beans is !%, goldfish is &*, badminton is $#, tennis is $#, horse is &*, tennis is $#, carrots is !%, beans is !%, tomato is !%, cycling is $#, rugby is $#, badminton is $#, lettuce is !%, beans is !%, kale is !%, lettuce is !%, tomato is !%, lion is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.8715568780899048,
+            0.1179523766040802,
+            0.004903807770460844
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, beans is !%, wolf is &*, porcupine is &*, kale is !%, porcupine is &*, luge is $#, corn is !%, kale is !%, peas is !%, panda is &*, elephant is &*, tomato is !%, cucumber is !%, cat is &*, corn is !%, tomato is !%, judo is $#, spinach is !%, panda is &*, camel is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4590853452682495,
+            0.4590853452682495,
+            0.06213044375181198
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, beans is !%, leopard is &*, rugby is $#, rugby is $#, porcupine is &*, lettuce is !%, baseball is $#, badminton is $#, corn is !%, llama is &*, sheep is &*, archery is $#, monkey is &*, peas is !%, tennis is $#, tomato is !%, sheep is &*, cucumber is !%, wolf is &*, broccoli is",
+        "solution": " $#,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#,",
+            " &*",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.27785494923591614,
+            0.15566667914390564,
+            0.15566667914390564
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is $#, beet is !%, lion is &*, badminton is $#, badminton is $#, kale is !%, llama is &*, duck is &*, rugby is $#, beans is !%, hockey is $#, baseball is $#, onions is !%, porcupine is &*, archery is $#, spinach is !%, horse is &*, bowling is $#, llama is &*, wolf is &*, lacrosse is",
+        "solution": " $#",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.4562729001045227,
+            0.4562729001045227,
+            0.06174980849027634
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is $#, beet is !%, wolf is &*, judo is $#, lettuce is !%, kale is !%, tomato is !%, hockey is $#, cucumber is !%, cycling is $#, luge is $#, llama is &*, elephant is &*, sheep is &*, leopard is &*, cucumber is !%, corn is !%, monkey is &*, luge is $#, beans is !%, golf is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.747696042060852,
+            0.10118965059518814,
+            0.05801139771938324
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, spinach is !%, horse is &*, elephant is &*, beans is !%, football is $#, broccoli is !%, billiards is $#, duck is &*, cat is &*, billiards is $#, corn is !%, golf is $#, carrots is !%, lion is &*, billiards is $#, corn is !%, lion is &*, lacrosse is $#, zucchini is !%, archery is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.46314483880996704,
+            0.46314483880996704,
+            0.06267983466386795
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is $#, broccoli is !%, leopard is &*, lettuce is !%, cat is &*, porcupine is &*, carrots is !%, luge is $#, zebra is &*, lacrosse is $#, duck is &*, llama is &*, lacrosse is $#, luge is $#, tennis is $#, spinach is !%, horse is &*, billiards is $#, lion is &*, beans is !%, elephant is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4511614441871643,
+            0.4511614441871643,
+            0.061058055609464645
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, corn is !%, porcupine is &*, bowling is $#, tennis is $#, hockey is $#, sheep is &*, monkey is &*, llama is &*, tennis is $#, hockey is $#, volleyball is $#, celery is !%, bowling is $#, bowling is $#, kale is !%, radish is !%, kale is !%, panda is &*, zucchini is !%, onions is",
+        "solution": " !%,",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%,",
+            " !%.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.40552085638046265,
+            0.40552085638046265,
+            0.0921492874622345
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, corn is !%, goldfish is &*, celery is !%, camel is &*, tennis is $#, badminton is $#, kale is !%, golf is $#, panda is &*, elephant is &*, duck is &*, camel is &*, volleyball is $#, baseball is $#, rugby is $#, elephant is &*, cucumber is !%, zebra is &*, onions is !%, lacrosse is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.7620351910591125,
+            0.10313024371862411,
+            0.0557279996573925
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, kale is !%, horse is &*, judo is $#, beans is !%, tennis is $#, llama is &*, carrots is !%, elephant is &*, carrots is !%, cucumber is !%, hockey is $#, spinach is !%, monkey is &*, tomato is !%, leopard is &*, archery is $#, cat is &*, carrots is !%, leopard is &*, rugby is",
+        "solution": " $#,",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#,",
+            " &*",
+            " $#."
+        ],
+        "topk_probs": [
+            0.7596696615219116,
+            0.10312563925981522,
+            0.1028100922703743
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, broccoli is !%, horse is &*, archery is $#, archery is $#, cycling is $#, zebra is &*, beet is !%, cucumber is !%, celery is !%, elephant is &*, duck is &*, duck is &*, camel is &*, lacrosse is $#, hockey is $#, tennis is $#, judo is $#, cat is &*, tennis is $#, peas is",
+        "solution": " !%,",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%,",
+            " $%,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.617027997970581,
+            0.10001769661903381,
+            0.08350566774606705
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, radish is !%, goldfish is &*, hockey is $#, elephant is &*, camel is &*, hockey is $#, spinach is !%, bowling is $#, spinach is !%, leopard is &*, rugby is $#, porcupine is &*, llama is &*, monkey is &*, cucumber is !%, tennis is $#, duck is &*, badminton is $#, peas is !%, football is",
+        "solution": " $#",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.3235901892185211,
+            0.3235901892185211,
+            0.3235901892185211
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, broccoli is !%, leopard is &*, tomato is !%, baseball is $#, duck is &*, beet is !%, rugby is $#, duck is &*, sheep is &*, monkey is &*, lion is &*, beet is !%, sheep is &*, radish is !%, radish is !%, porcupine is &*, panda is &*, baseball is $#, baseball is $#, carrots is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.4043099284172058,
+            0.4043099284172058,
+            0.05471741035580635
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, onions is !%, porcupine is &*, elephant is &*, spinach is !%, baseball is $#, broccoli is !%, spinach is !%, monkey is &*, radish is !%, spinach is !%, luge is $#, rugby is $#, elephant is &*, peas is !%, celery is !%, rugby is $#, billiards is $#, golf is $#, football is $#, goldfish is",
+        "solution": " $#.",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#.",
+            " &*,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.6169769763946533,
+            0.08956699818372726,
+            0.0834987610578537
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, zucchini is !%, duck is &*, onions is !%, lettuce is !%, panda is &*, cucumber is !%, goldfish is &*, leopard is &*, spinach is !%, archery is $#, horse is &*, lacrosse is $#, volleyball is $#, porcupine is &*, wolf is &*, billiards is $#, sheep is &*, baseball is $#, llama is &*, monkey is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.4668020009994507,
+            0.4668020009994507,
+            0.0631747916340828
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, beans is !%, camel is &*, elephant is &*, horse is &*, panda is &*, cycling is $#, llama is &*, golf is $#, cat is &*, baseball is $#, carrots is !%, cycling is $#, peas is !%, zucchini is !%, lettuce is !%, porcupine is &*, kale is !%, rugby is $#, lion is &*, radish is",
+        "solution": " &*,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*,",
+            " !%,",
+            " !%."
+        ],
+        "topk_probs": [
+            0.4889794886112213,
+            0.42132461071014404,
+            0.05702008306980133
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, spinach is !%, wolf is &*, leopard is &*, cucumber is !%, broccoli is !%, leopard is &*, judo is $#, tennis is $#, tomato is !%, leopard is &*, cat is &*, baseball is $#, radish is !%, billiards is $#, sheep is &*, porcupine is &*, kale is !%, horse is &*, cucumber is !%, archery is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.4334770441055298,
+            0.4334770441055298,
+            0.05502985045313835
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "archery is $#, tomato is !%, horse is &*, spinach is !%, cat is &*, cucumber is !%, elephant is &*, carrots is !%, hockey is $#, beans is !%, baseball is $#, corn is !%, celery is !%, carrots is !%, zebra is &*, corn is !%, broccoli is !%, judo is $#, radish is !%, leopard is &*, llama is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.9464052319526672,
+            0.017334019765257835,
+            0.017334019765257835
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "baseball is $#, onions is !%, horse is &*, zebra is &*, tomato is !%, zucchini is !%, sheep is &*, goldfish is &*, beet is !%, camel is &*, zebra is &*, camel is &*, zebra is &*, lacrosse is $#, celery is !%, broccoli is !%, lion is &*, camel is &*, broccoli is !%, peas is !%, kale is",
+        "solution": " &*,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.8507019877433777,
+            0.1151299700140953,
+            0.015581156127154827
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "cycling is $#, celery is !%, goldfish is &*, hockey is $#, luge is $#, radish is !%, carrots is !%, spinach is !%, lacrosse is $#, onions is !%, wolf is &*, panda is &*, corn is !%, tomato is !%, beans is !%, peas is !%, radish is !%, luge is $#, zebra is &*, wolf is &*, horse is",
+        "solution": " $#.",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $%."
+        ],
+        "topk_probs": [
+            0.6522541046142578,
+            0.08827298134565353,
+            0.08827298134565353
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "rugby is $#, corn is !%, horse is &*, lettuce is !%, zucchini is !%, archery is $#, radish is !%, beet is !%, onions is !%, goldfish is &*, beet is !%, volleyball is $#, tomato is !%, celery is !%, radish is !%, golf is $#, celery is !%, llama is &*, beans is !%, wolf is &*, zebra is",
+        "solution": " !%",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " &*"
+        ],
+        "topk_probs": [
+            0.4282577931880951,
+            0.4282577931880951,
+            0.1015520840883255
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "cycling is $#, cucumber is !%, elephant is &*, bowling is $#, rugby is $#, billiards is $#, judo is $#, football is $#, tennis is $#, judo is $#, bowling is $#, broccoli is !%, beans is !%, bowling is $#, camel is &*, badminton is $#, zucchini is !%, panda is &*, porcupine is &*, onions is !%, baseball is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.7852464318275452,
+            0.10627152770757675,
+            0.10627152770757675
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, tomato is !%, goldfish is &*, billiards is $#, monkey is &*, kale is !%, archery is $#, wolf is &*, elephant is &*, camel is &*, cat is &*, bowling is $#, zebra is &*, judo is $#, baseball is $#, wolf is &*, lettuce is !%, duck is &*, spinach is !%, broccoli is !%, zucchini is",
+        "solution": " &*",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.7720655798912048,
+            0.10448770970106125,
+            0.10448770970106125
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "badminton is $#, cucumber is !%, camel is &*, porcupine is &*, golf is $#, cat is &*, archery is $#, peas is !%, beet is !%, wolf is &*, zebra is &*, hockey is $#, billiards is $#, wolf is &*, leopard is &*, lion is &*, beet is !%, porcupine is &*, volleyball is $#, rugby is $#, beans is",
+        "solution": " $#",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " !%"
+        ],
+        "topk_probs": [
+            0.3417263329029083,
+            0.3417263329029083,
+            0.05098380148410797
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is $#, kale is !%, goldfish is &*, golf is $#, wolf is &*, broccoli is !%, monkey is &*, porcupine is &*, lion is &*, beans is !%, horse is &*, beans is !%, badminton is $#, wolf is &*, duck is &*, wolf is &*, archery is $#, lettuce is !%, leopard is &*, broccoli is !%, cycling is",
+        "solution": " $#",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#",
+            " $#.",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.33263713121414185,
+            0.33263713121414185,
+            0.33263713121414185
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, spinach is !%, camel is &*, porcupine is &*, hockey is $#, onions is !%, judo is $#, cucumber is !%, llama is &*, corn is !%, goldfish is &*, beet is !%, peas is !%, lacrosse is $#, judo is $#, lion is &*, leopard is &*, beans is !%, panda is &*, zebra is &*, tennis is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.7856792211532593,
+            0.10633010417222977,
+            0.10633010417222977
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, broccoli is !%, llama is &*, horse is &*, porcupine is &*, wolf is &*, leopard is &*, goldfish is &*, luge is $#, onions is !%, tomato is !%, zebra is &*, kale is !%, carrots is !%, badminton is $#, lacrosse is $#, archery is $#, camel is &*, football is $#, sheep is &*, zucchini is",
+        "solution": " !%.",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%.",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.2881999611854553,
+            0.1556573510169983,
+            0.1556573510169983
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, lettuce is !%, panda is &*, cucumber is !%, luge is $#, sheep is &*, kale is !%, luge is $#, carrots is !%, goldfish is &*, duck is &*, broccoli is !%, sheep is &*, elephant is &*, bowling is $#, radish is !%, cucumber is !%, cat is &*, broccoli is !%, camel is &*, volleyball is",
+        "solution": " $#,",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#,",
+            " $#.",
+            " $#"
+        ],
+        "topk_probs": [
+            0.8499298691749573,
+            0.11502549052238464,
+            0.015567008405923843
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, corn is !%, lion is &*, celery is !%, bowling is $#, goldfish is &*, rugby is $#, kale is !%, onions is !%, peas is !%, carrots is !%, rugby is $#, radish is !%, sheep is &*, lacrosse is $#, elephant is &*, spinach is !%, spinach is !%, panda is &*, llama is &*, golf is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.33559951186180115,
+            0.33559951186180115,
+            0.20846238732337952
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, lettuce is !%, monkey is &*, lacrosse is $#, volleyball is $#, camel is &*, baseball is $#, football is $#, radish is !%, zucchini is !%, zebra is &*, spinach is !%, carrots is !%, zebra is &*, leopard is &*, badminton is $#, cucumber is !%, broccoli is !%, zebra is &*, zebra is &*, beet is",
+        "solution": " &*",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " !%",
+            " !%."
+        ],
+        "topk_probs": [
+            0.428628146648407,
+            0.23158718645572662,
+            0.23158718645572662
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, peas is !%, camel is &*, beans is !%, rugby is $#, spinach is !%, badminton is $#, elephant is &*, porcupine is &*, radish is !%, radish is !%, llama is &*, carrots is !%, baseball is $#, judo is $#, celery is !%, onions is !%, goldfish is &*, onions is !%, badminton is $#, lion is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.33228012919425964,
+            0.33228012919425964,
+            0.33228012919425964
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, onions is !%, elephant is &*, broccoli is !%, panda is &*, duck is &*, football is $#, baseball is $#, zucchini is !%, horse is &*, hockey is $#, kale is !%, bowling is $#, archery is $#, judo is $#, corn is !%, archery is $#, volleyball is $#, rugby is $#, spinach is !%, goldfish is",
+        "solution": " !%",
+        "answer": "&*",
+        "accuracy": false,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " &*"
+        ],
+        "topk_probs": [
+            0.8174808621406555,
+            0.11063399165868759,
+            0.040797922760248184
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "football is $#, peas is !%, sheep is &*, celery is !%, spinach is !%, cucumber is !%, baseball is $#, lion is &*, zucchini is !%, lettuce is !%, radish is !%, corn is !%, zucchini is !%, zebra is &*, golf is $#, cat is &*, lion is &*, porcupine is &*, archery is $#, leopard is &*, kale is",
+        "solution": " &*",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.4713077247142792,
+            0.4713077247142792,
+            0.015786711126565933
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "luge is $#, radish is !%, zebra is &*, baseball is $#, beans is !%, lettuce is !%, leopard is &*, llama is &*, monkey is &*, leopard is &*, lettuce is !%, beans is !%, zucchini is !%, cat is &*, football is $#, zucchini is !%, corn is !%, corn is !%, wolf is &*, broccoli is !%, judo is",
+        "solution": " &*",
+        "answer": "$#",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.3681778907775879,
+            0.3681778907775879,
+            0.09283114224672318
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, spinach is !%, monkey is &*, tomato is !%, porcupine is &*, cucumber is !%, hockey is $#, cycling is $#, luge is $#, volleyball is $#, rugby is $#, archery is $#, cycling is $#, carrots is !%, tomato is !%, panda is &*, wolf is &*, kale is !%, zebra is &*, beans is !%, tennis is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.4672594368457794,
+            0.4672594368457794,
+            0.06323668360710144
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, onions is !%, goldfish is &*, billiards is $#, zucchini is !%, baseball is $#, luge is $#, beans is !%, celery is !%, cycling is $#, cucumber is !%, luge is $#, monkey is &*, lacrosse is $#, billiards is $#, baseball is $#, rugby is $#, zebra is &*, cucumber is !%, golf is $#, porcupine is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.7572847008705139,
+            0.10248735547065735,
+            0.10248735547065735
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, onions is !%, camel is &*, badminton is $#, elephant is &*, archery is $#, archery is $#, radish is !%, monkey is &*, cycling is $#, luge is $#, duck is &*, tomato is !%, spinach is !%, tomato is !%, elephant is &*, leopard is &*, baseball is $#, beans is !%, porcupine is &*, volleyball is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.84280925989151,
+            0.11406183242797852,
+            0.015436594374477863
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "judo is $#, beet is !%, zebra is &*, duck is &*, leopard is &*, hockey is $#, baseball is $#, monkey is &*, cucumber is !%, spinach is !%, sheep is &*, wolf is &*, tennis is $#, porcupine is &*, porcupine is &*, leopard is &*, panda is &*, golf is $#, goldfish is &*, sheep is &*, horse is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.7609820365905762,
+            0.10298770666122437,
+            0.08982595801353455
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, lettuce is !%, leopard is &*, horse is &*, elephant is &*, rugby is $#, camel is &*, judo is $#, beet is !%, radish is !%, lion is &*, cucumber is !%, camel is &*, lion is &*, archery is $#, cucumber is !%, peas is !%, billiards is $#, baseball is $#, spinach is !%, sheep is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.9595707654953003,
+            0.017575150355696678,
+            0.01679398864507675
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is $#, tomato is !%, horse is &*, hockey is $#, zebra is &*, carrots is !%, lacrosse is $#, beans is !%, zebra is &*, bowling is $#, carrots is !%, carrots is !%, monkey is &*, peas is !%, lacrosse is $#, celery is !%, cycling is $#, peas is !%, sheep is &*, archery is $#, tennis is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " $#"
+        ],
+        "topk_probs": [
+            0.46567848324775696,
+            0.46567848324775696,
+            0.06302273273468018
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "bowling is $#, kale is !%, duck is &*, cucumber is !%, football is $#, elephant is &*, broccoli is !%, cucumber is !%, lacrosse is $#, tennis is $#, zebra is &*, judo is $#, radish is !%, elephant is &*, cucumber is !%, zucchini is !%, celery is !%, beans is !%, wolf is &*, volleyball is $#, badminton is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#",
+            " $#,"
+        ],
+        "topk_probs": [
+            0.8582611680030823,
+            0.11615301668643951,
+            0.01571960374712944
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "lacrosse is $#, carrots is !%, sheep is &*, elephant is &*, cycling is $#, tomato is !%, baseball is $#, wolf is &*, duck is &*, hockey is $#, corn is !%, llama is &*, peas is !%, tomato is !%, baseball is $#, zebra is &*, cat is &*, onions is !%, badminton is $#, cat is &*, celery is",
+        "solution": " &*",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.21773673593997955,
+            0.21773673593997955,
+            0.15500222146511078
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, beet is !%, llama is &*, hockey is $#, horse is &*, tomato is !%, goldfish is &*, monkey is &*, lettuce is !%, elephant is &*, baseball is $#, goldfish is &*, cycling is $#, kale is !%, cat is &*, radish is !%, archery is $#, zebra is &*, billiards is $#, lettuce is !%, camel is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.46816322207450867,
+            0.46816322207450867,
+            0.06335900723934174
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, onions is !%, elephant is &*, beet is !%, corn is !%, luge is $#, goldfish is &*, wolf is &*, panda is &*, kale is !%, wolf is &*, cycling is $#, celery is !%, radish is !%, peas is !%, hockey is $#, porcupine is &*, carrots is !%, lettuce is !%, goldfish is &*, spinach is",
+        "solution": " &*,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*,",
+            " $%,",
+            " $%."
+        ],
+        "topk_probs": [
+            0.2502424716949463,
+            0.16122445464134216,
+            0.16122445464134216
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": false
+    },
+    {
+        "prompt": "tennis is $#, tomato is !%, monkey is &*, volleyball is $#, luge is $#, elephant is &*, onions is !%, wolf is &*, rugby is $#, elephant is &*, porcupine is &*, wolf is &*, lacrosse is $#, volleyball is $#, wolf is &*, kale is !%, cat is &*, rugby is $#, spinach is !%, carrots is !%, beans is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%,",
+            " !%."
+        ],
+        "topk_probs": [
+            0.6168308854103088,
+            0.08347899466753006,
+            0.08347899466753006
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, cucumber is !%, llama is &*, kale is !%, corn is !%, beet is !%, leopard is &*, zebra is &*, onions is !%, corn is !%, spinach is !%, hockey is $#, hockey is $#, onions is !%, goldfish is &*, duck is &*, peas is !%, tennis is $#, monkey is &*, leopard is &*, billiards is",
+        "solution": " &*",
+        "answer": "$#",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " $#."
+        ],
+        "topk_probs": [
+            0.405333936214447,
+            0.405333936214447,
+            0.07902607321739197
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "golf is $#, kale is !%, duck is &*, peas is !%, sheep is &*, hockey is $#, onions is !%, onions is !%, peas is !%, baseball is $#, corn is !%, elephant is &*, baseball is $#, broccoli is !%, cat is &*, carrots is !%, luge is $#, cat is &*, monkey is &*, beet is !%, goldfish is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " !%"
+        ],
+        "topk_probs": [
+            0.4054887890815735,
+            0.4054887890815735,
+            0.08893662691116333
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "hockey is $#, cucumber is !%, horse is &*, badminton is $#, baseball is $#, panda is &*, carrots is !%, baseball is $#, camel is &*, football is $#, zucchini is !%, leopard is &*, billiards is $#, luge is $#, cycling is $#, carrots is !%, rugby is $#, billiards is $#, rugby is $#, radish is !%, lacrosse is",
+        "solution": " $#.",
+        "answer": "$#",
+        "accuracy": true,
+        "topk_solutions": [
+            " $#.",
+            " $#,",
+            " &*"
+        ],
+        "topk_probs": [
+            0.8439618349075317,
+            0.11421779543161392,
+            0.015464347787201405
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, beet is !%, lion is &*, spinach is !%, onions is !%, cycling is $#, cucumber is !%, camel is &*, celery is !%, llama is &*, goldfish is &*, bowling is $#, goldfish is &*, bowling is $#, lacrosse is $#, cat is &*, hockey is $#, lacrosse is $#, leopard is &*, archery is $#, zebra is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*.",
+            " &*,"
+        ],
+        "topk_probs": [
+            0.7715805768966675,
+            0.10442208498716354,
+            0.10442208498716354
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "tennis is $#, celery is !%, porcupine is &*, monkey is &*, cycling is $#, rugby is $#, duck is &*, zucchini is !%, lion is &*, duck is &*, goldfish is &*, bowling is $#, radish is !%, golf is $#, wolf is &*, panda is &*, bowling is $#, football is $#, broccoli is !%, hockey is $#, camel is",
+        "solution": " &*",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*",
+            " &*,",
+            " &*."
+        ],
+        "topk_probs": [
+            0.46674248576164246,
+            0.46674248576164246,
+            0.06316672265529633
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "rugby is $#, beet is !%, horse is &*, zebra is &*, spinach is !%, cat is &*, badminton is $#, wolf is &*, carrots is !%, kale is !%, radish is !%, tomato is !%, zebra is &*, panda is &*, leopard is &*, porcupine is &*, beans is !%, cycling is $#, football is $#, celery is !%, sheep is",
+        "solution": " &*,",
+        "answer": "&*",
+        "accuracy": true,
+        "topk_solutions": [
+            " &*,",
+            " &*",
+            " &*."
+        ],
+        "topk_probs": [
+            0.9783426523208618,
+            0.017918968573212624,
+            0.0024250687565654516
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "badminton is $#, tomato is !%, leopard is &*, peas is !%, zucchini is !%, monkey is &*, cycling is $#, llama is &*, tennis is $#, bowling is $#, monkey is &*, lacrosse is $#, zucchini is !%, lacrosse is $#, lacrosse is $#, volleyball is $#, cucumber is !%, lion is &*, onions is !%, golf is $#, carrots is",
+        "solution": " !%",
+        "answer": "!%",
+        "accuracy": true,
+        "topk_solutions": [
+            " !%",
+            " !%.",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.46644648909568787,
+            0.46644648909568787,
+            0.06312667578458786
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    },
+    {
+        "prompt": "billiards is $#, kale is !%, leopard is &*, peas is !%, rugby is $#, sheep is &*, beet is !%, wolf is &*, peas is !%, lettuce is !%, carrots is !%, monkey is &*, badminton is $#, broccoli is !%, zucchini is !%, celery is !%, broccoli is !%, horse is &*, rugby is $#, horse is &*, spinach is",
+        "solution": " &*,",
+        "answer": "!%",
+        "accuracy": false,
+        "topk_solutions": [
+            " &*,",
+            " !%",
+            " !%,"
+        ],
+        "topk_probs": [
+            0.4273706078529358,
+            0.1647941619157791,
+            0.1647941619157791
+        ],
+        "topk_loss": [],
+        "loss_diff": 0.0,
+        "topk_accuracy": true
+    }
+]
