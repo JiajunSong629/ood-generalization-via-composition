@@ -3,12 +3,23 @@ import json
 import re
 import copy
 import random
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Dict
 from tqdm import tqdm
+import dataclasses
 
 import src.api.task as task
 import src.api.model as model
 import src.api.result as result_api
+
+
+@dataclasses.dataclass
+class GenerationExampleResult:
+    prompt: str
+    expected_answer: str
+    model_solution: str
+    model_answer: str
+    correct: bool
+
 
 ANS_RE = re.compile(r"#### (\-?[0-9\.\,]+)")
 INVALID_ANS = "[invalid]"
@@ -67,7 +78,7 @@ class GSMTask(task.Task):
                 ex.update(answer=ex["answer"] + "<|endoftext|>")
 
         prompts, answers = [], []
-        for _ in tqdm(range(num_samples)):
+        for _ in range(num_samples):
             test_doc = random.choices(test_examples, k=1)[0]
             fewshotex = random.sample(train_examples, self._num_shots)
 
@@ -91,7 +102,6 @@ class GSMTask(task.Task):
         model: model.Model,
         num_samples: Optional[int] = None,
         task_random_seed: Optional[int] = 0,
-        batch_size: Optional[int] = 8,
     ) -> Union[task.ScoreData, List[task.ScoreData]]:
         if task_random_seed is not None:
             random.seed(task_random_seed)
@@ -107,8 +117,9 @@ class GSMTask(task.Task):
                 max_new_tokens=self._max_new_tokens,
                 num_beams=self._num_beams,
                 num_outputs=self._num_outputs,
-                batch_size=batch_size,
+                batch_size=1,
             )
+
             answer = self._extract_answer(answer)
             if isinstance(response, list):
                 model_answer = [self._extract_answer(r) for r in response]
@@ -118,7 +129,7 @@ class GSMTask(task.Task):
                 cur_result = model_answer == answer
 
             examples.append(
-                result_api.GSMGenerationExampleResult(
+                GenerationExampleResult(
                     prompt=prompt,
                     expected_answer=answer,
                     model_solution=response,
@@ -138,12 +149,3 @@ class GSMTask(task.Task):
         )
 
         return result
-
-
-if __name__ == "__main__":
-    from src.models.huggingface_models import HFModel
-
-    model = HFModel(model_name="llama2-7b", device="cuda", quantize=True)
-    task = GSMTask(max_new_tokens=128, num_shots=10)
-    results = task.evaluate_model(model, num_samples=3, batch_size=1)
-    results.save("results.json")

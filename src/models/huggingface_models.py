@@ -6,6 +6,7 @@ import scipy
 from typing import Optional, List, Union, Tuple, Dict, Any
 import torch
 import time
+import gc
 
 from src.config import (
     MODEL_CLASSES,
@@ -21,10 +22,6 @@ logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR
 
 
 torch.set_grad_enabled(False)
-torch.manual_seed(42)  # CPU seed
-torch.cuda.manual_seed_all(42)  # GPU seed
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
 
 
 def _recursive_to_float(data):
@@ -198,7 +195,7 @@ class HFModel:
         local_dir = os.path.dirname(os.path.abspath(__file__))
         os.makedirs(os.path.join(local_dir, "heads_list"), exist_ok=True)
         file_path = os.path.join(
-            local_dir, "heads_list", f"ih_pth_{self._model_name}.json"
+            local_dir, "ih_pth_heads_list", f"ih_pth_{self._model_name}.json"
         )
 
         if os.path.exists(file_path):
@@ -222,7 +219,7 @@ class HFModel:
         local_dir = os.path.dirname(os.path.abspath(__file__))
         os.makedirs(os.path.join(local_dir, "heads_list"), exist_ok=True)
         file_path = os.path.join(
-            local_dir, "heads_list", f"ih_pth_{self._model_name}.json"
+            local_dir, "ih_pth_heads_list", f"ih_pth_{self._model_name}.json"
         )
 
         if os.path.exists(file_path):
@@ -239,6 +236,22 @@ class HFModel:
             json.dump(heads_list, f)
 
         return heads_list["induction_heads"]
+
+    @property
+    def diagonal_induction_heads(self):
+        local_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(
+            local_dir, "diagonal_heads_list", f"ih_pth_{self._model_name}.json"
+        )
+        return json.load(open(file_path, "r"))["induction_heads"]
+
+    @property
+    def diagonal_previous_token_heads(self):
+        local_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(
+            local_dir, "diagonal_heads_list", f"ih_pth_{self._model_name}.json"
+        )
+        return json.load(open(file_path, "r"))["previous_token_heads"]
 
     def score(self, input: str, target: str) -> float:
         """Calculates log probability of target given input: log p(target|input)
@@ -284,6 +297,11 @@ class HFModel:
         num_outputs: int = 1,
         batch_size: int = 8,
     ) -> Union[str, List[str], List[List[str]]]:
+        torch.manual_seed(42)
+        torch.cuda.manual_seed_all(42)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
         if isinstance(inputs, str):
             input_list = [inputs]
         else:
@@ -296,42 +314,48 @@ class HFModel:
             end = min(i + batch_size, len(input_list))
             batch_inputs = input_list[i:end]
 
-            input_ids = self._tokenizer(
-                batch_inputs, return_tensors="pt", padding=True
-            ).to(self._device)
+            with torch.no_grad():  # Prevent gradient computation
+                input_ids = self._tokenizer(
+                    batch_inputs, return_tensors="pt", padding=True
+                ).to(self._device)
 
-            # Generate using the model's generate method
-            outputs = self._model.generate(
-                **input_ids,
-                max_new_tokens=max_new_tokens,
-                num_beams=num_beams,
-                num_return_sequences=num_outputs,
-                pad_token_id=self._tokenizer.pad_token_id,
-                eos_token_id=self._tokenizer.eos_token_id,
-            )
+                # Generate using the model's generate method
+                outputs = self._model.generate(
+                    **input_ids,
+                    max_new_tokens=max_new_tokens,
+                    num_beams=num_beams,
+                    num_return_sequences=num_outputs,
+                    pad_token_id=self._tokenizer.pad_token_id,
+                    eos_token_id=self._tokenizer.eos_token_id,
+                )
 
-            # Reshape outputs if multiple sequences per input
-            if num_outputs > 1:
-                outputs = outputs.reshape(len(batch_inputs), num_outputs, -1)
-                # Decode multiple sequences for each input in batch
-                batch_generated_texts = [
-                    [
+                # Process outputs and clear memory
+                if num_outputs > 1:
+                    outputs = outputs.reshape(len(batch_inputs), num_outputs, -1)
+                    batch_generated_texts = [
+                        [
+                            self._tokenizer.decode(
+                                seq[input_ids["input_ids"].shape[1] :],
+                                skip_special_tokens=True,
+                            )
+                            for seq in input_outputs
+                        ]
+                        for input_outputs in outputs
+                    ]
+                else:
+                    batch_generated_texts = [
                         self._tokenizer.decode(
                             seq[input_ids["input_ids"].shape[1] :],
                             skip_special_tokens=True,
                         )
-                        for seq in input_outputs
+                        for seq in outputs
                     ]
-                    for input_outputs in outputs
-                ]
-            else:
-                # Decode single sequence per input
-                batch_generated_texts = [
-                    self._tokenizer.decode(
-                        seq[input_ids["input_ids"].shape[1] :], skip_special_tokens=True
-                    )
-                    for seq in outputs
-                ]
+
+                # Clear GPU memory after processing each batch
+                del input_ids
+                del outputs
+                torch.cuda.empty_cache()
+                gc.collect()
 
             generated_texts.extend(batch_generated_texts)
 

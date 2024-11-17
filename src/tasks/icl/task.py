@@ -3,10 +3,20 @@ import torch.nn.functional as F
 import numpy as np
 import copy
 import random
+import dataclasses
 
 import src.api.task as task_api
 import src.api.result as result_api
 import src.api.model as model_api
+
+
+@dataclasses.dataclass
+class GenerationExampleResult:
+    prompt: str
+    expected_answer: str
+    model_solution: str
+    correct: bool
+    multiple_choice_logprob: Dict[str, float]
 
 
 MAPPING = {
@@ -92,11 +102,16 @@ class ICLTask(task_api.Task):
         elif self._setting == "original":
             return ["sport", "plant", "animal"]
         elif self._setting == "symbol":
-            return ["$#", "!%", "&*"]
+            return [" $#,", " !%,", " &*,"]
         else:
             raise ValueError(f"Invalid setting: {self._setting}")
 
-    def get_prompts_and_answers(self, num_samples: int, balanced_sample: bool = True):
+    def get_prompts_and_answers(
+        self, num_samples: int, balanced_sample: bool = True, seed: int = None
+    ):
+        if seed is not None:
+            random.seed(seed)
+
         # Organize items by category, for banlanced sampling
         categories = {"animal": [], "sport": [], "plant/vegetable": []}
         for item, label in MAPPING.items():
@@ -163,11 +178,10 @@ class ICLTask(task_api.Task):
         num_samples: int,
         task_random_seed: Optional[int] = None,
     ) -> float:
-        if task_random_seed is not None:
-            random.seed(task_random_seed)
-
         prompts, answers = self.get_prompts_and_answers(
-            num_samples, self._balanced_sample
+            num_samples,
+            self._balanced_sample,
+            task_random_seed,
         )
         solutions = model.generate_text(prompts, max_new_tokens=3)
 
@@ -181,7 +195,7 @@ class ICLTask(task_api.Task):
             prompts, answers, solutions, acc, logprob
         ):
             eval_results.append(
-                result_api.GenerationExampleResult(
+                GenerationExampleResult(
                     prompt=prompt,
                     expected_answer=answer,
                     model_solution=solution,
@@ -203,12 +217,3 @@ class ICLTask(task_api.Task):
         )
 
         return result
-
-
-if __name__ == "__main__":
-    from src.models.huggingface_models import HFModel
-
-    model = HFModel("olmo-7b", "cuda")
-    task = ICLTask("symbol", 20)
-    result = task.evaluate_model(model, 10, task_random_seed=42)
-    result.save("icl_result.json")

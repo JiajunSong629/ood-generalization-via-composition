@@ -14,49 +14,54 @@ from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
 
 
-def eval_copying(
-    model_name: str,
-    shuffle_n_heads: int = 10,
-    batch_size: int = 32,
-    seg_len: int = 25,
-    rep: int = 3,
-    ignore_segment: int = 1,
-    ignore_burning: int = 4,
-    component: str = "qk",
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    aggregated_results = []
-    base_model = HFModel(model_name, device=device)
-    induction_heads = base_model.induction_heads
-    previous_token_heads = base_model.previous_token_heads
+def save_results(base_model, task_name, component, results, additional_params=None):
+    """Utility function to save results"""
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    result_dir = os.path.join(cur_dir, "tasks", task_name, "results")
+    os.makedirs(result_dir, exist_ok=True)
 
-    if component == "qk":
-        layer_head_pairs = induction_heads[:shuffle_n_heads]
-    elif component == "ov":
-        layer_head_pairs = previous_token_heads[:shuffle_n_heads]
-
-    task = CopyingTask(
-        seg_len=seg_len,
-        rep=rep,
-        ignore_segment=ignore_segment,
-        ignore_burning=ignore_burning,
+    params_str = (
+        "_".join(str(v) for v in additional_params) if additional_params else ""
     )
+    fname = f"{base_model.model_name}_{params_str}_shuffle_{component}.json"
+    result_class = type(results[0])
+    result_class.save_multiple(results, os.path.join(result_dir, fname))
 
-    task_seed = 42
-    shuffle_seeds = range(0, 100, 20)
 
-    result: CopyingResult = task.evaluate_model(
+def evaluate_model_with_shuffling(
+    base_model,
+    task,
+    component: str,
+    shuffle_n_heads: int,
+    num_samples: int,
+    task_seed: int = 42,
+    shuffle_seeds=None,
+    **task_kwargs,
+):
+    """Common evaluation logic for all tasks"""
+    shuffle_seeds = shuffle_seeds or range(0, 100, 20)
+
+    # Select heads based on component
+    induction_heads = base_model.diagonal_induction_heads
+    previous_token_heads = base_model.diagonal_previous_token_heads
+    layer_head_pairs = (induction_heads if component == "qk" else previous_token_heads)[
+        :shuffle_n_heads
+    ]
+
+    aggregated_results = []
+
+    # Evaluate original model
+    result = task.evaluate_model(
         model=base_model,
         num_samples=num_samples,
         task_random_seed=task_seed,
-        batch_size=batch_size,
+        **task_kwargs,
     )
     aggregated_results.append(result)
-
     print("========= Original ==========")
-    print(f"{1 - result.err:.2f}, {result.prob:.2f}")
+    print_result(result)
 
+    # Evaluate shuffled models
     for shuffle_seed in shuffle_seeds:
         shuffle_model = ShuffleModel(
             base_model,
@@ -64,252 +69,109 @@ def eval_copying(
             seed=shuffle_seed,
         )
 
+        # Inside shuffle
         shuffle_model.shuffle_inside(component=component)
-        result: CopyingResult = task.evaluate_model(
+        result = task.evaluate_model(
             model=shuffle_model,
             num_samples=num_samples,
             task_random_seed=task_seed,
-            batch_size=batch_size,
+            **task_kwargs,
         )
 
         print(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
+        print_result(result)
+        aggregated_results.append(result)
+
+        shuffle_model.revert()
+
+        # Outside shuffle
+        shuffle_model.shuffle_outside(component=component)
+        result = task.evaluate_model(
+            model=shuffle_model,
+            num_samples=num_samples,
+            task_random_seed=task_seed,
+            **task_kwargs,
+        )
+        print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
+        print_result(result)
+        aggregated_results.append(result)
+
+        shuffle_model.revert()
+
+    return aggregated_results
+
+
+def print_result(result):
+    """Print task-specific results"""
+    if isinstance(result, CopyingResult):
         print(f"{1 - result.err:.2f}, {result.prob:.2f}")
-        aggregated_results.append(result)
-
-        shuffle_model.revert()
-
-        result: CopyingResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            batch_size=batch_size,
-            task_random_seed=task_seed,
-        )
-
-        shuffle_model.shuffle_outside(component=component)
-        result: CopyingResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-            batch_size=batch_size,
-        )
-        aggregated_results.append(result)
-
-        print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
-        print(f"{1 - result.err:.2f}, {result.prob:.2f}")
-
-        shuffle_model.revert()
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "copying", "results")
-    os.makedirs(result_dir, exist_ok=True)
-
-    fname = f"{base_model.model_name}_shuffle_{component}.json"
-    CopyingResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
-
-
-def eval_icl(
-    model_name: str,
-    shuffle_n_heads: int = 10,
-    component: str = "qk",
-    setting: str = "symbol",
-    num_shots: int = 20,
-    balanced_sample: bool = True,
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    aggregated_results = []
-    base_model = HFModel(model_name, device=device)
-    induction_heads = base_model.induction_heads
-    previous_token_heads = base_model.previous_token_heads
-    if component == "qk":
-        layer_head_pairs = induction_heads[:shuffle_n_heads]
-    elif component == "ov":
-        layer_head_pairs = previous_token_heads[:shuffle_n_heads]
-
-    task = ICLTask(
-        setting=setting,
-        num_shots=num_shots,
-        balanced_sample=balanced_sample,
-    )
-
-    task_seed = 42
-    shuffle_seeds = range(0, 100, 20)
-
-    result: ICLResult = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-    )
-    aggregated_results.append(result)
-
-    print("========= Original ==========")
-    print(f"{result.accuracy:.2f}")
-
-    for shuffle_seed in shuffle_seeds:
-        shuffle_model = ShuffleModel(
-            base_model,
-            layer_head_pairs=layer_head_pairs,
-            seed=shuffle_seed,
-        )
-
-        shuffle_model.shuffle_inside(component=component)
-        result: ICLResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        print(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
+    elif isinstance(result, (ICLResult, GSMResult)):
         print(f"{result.accuracy:.2f}")
-        aggregated_results.append(result)
-
-        shuffle_model.revert()
-        result: ICLResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        print("=========== Reverted ==========")
-        print(f"{result.accuracy:.2f}")
-
-        shuffle_model.shuffle_outside(component=component)
-        result: ICLResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        aggregated_results.append(result)
-        print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
-        print(f"{result.accuracy:.2f}")
-
-        shuffle_model.revert()
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "icl", "results")
-    os.makedirs(result_dir, exist_ok=True)
-
-    fname = f"{model_name}_{setting}_{num_shots}_shuffle_{component}.json"
-    ICLResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
-
-
-def eval_gsm(
-    model_name: str,
-    shuffle_n_heads: int = 10,
-    component: str = "qk",
-    num_shots: int = 10,
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    aggregated_results = []
-    base_model = HFModel(model_name, device=device, quantize=True)
-    induction_heads = base_model.induction_heads
-    previous_token_heads = base_model.previous_token_heads
-    if component == "qk":
-        layer_head_pairs = induction_heads[:shuffle_n_heads]
-    elif component == "ov":
-        layer_head_pairs = previous_token_heads[:shuffle_n_heads]
-
-    task = GSMTask(num_shots=num_shots, max_new_tokens=128)
-
-    task_seed = 42
-    shuffle_seeds = range(0, 100, 20)
-
-    result: GSMResult = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-        batch_size=1,
-    )
-    aggregated_results.append(result)
-
-    print("========= Original ==========")
-    print(f"{result.accuracy:.2f}")
-
-    for shuffle_seed in shuffle_seeds:
-        shuffle_model = ShuffleModel(
-            base_model,
-            layer_head_pairs=layer_head_pairs,
-            seed=shuffle_seed,
-        )
-
-        shuffle_model.shuffle_inside(component=component)
-        result: GSMResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        print(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
-        print(f"{result.accuracy:.2f}")
-        aggregated_results.append(result)
-
-        shuffle_model.revert()
-        result: GSMResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        shuffle_model.shuffle_outside(component=component)
-        result: GSMResult = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-        )
-
-        aggregated_results.append(result)
-        print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
-        print(f"{result.accuracy:.2f}")
-
-        shuffle_model.revert()
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "gsm", "results")
-    os.makedirs(result_dir, exist_ok=True)
-
-    fname = f"{model_name}_{num_shots}_shuffle_{component}.json"
-    GSMResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
 
 
 def main(model_names: str, task_name: str):
-    batch_size_dict = {
-        "gemma2-9b": 1,
-        "gpt2": 100,
-        "gpt2-xl": 100,
+    task_configs = {
+        "copying": {
+            "task_class": CopyingTask,
+            "task_kwargs": {
+                "seg_len": 25,
+                "rep": 3,
+                "ignore_segment": 2,
+                "ignore_burning": 4,
+            },
+            "model_kwargs": {"quantize": False},
+        },
+        "icl": {
+            "task_class": ICLTask,
+            "task_kwargs": {
+                "setting": "symbol",
+                "num_shots": 20,
+                "balanced_sample": True,
+            },
+            "model_kwargs": {"quantize": False},
+            "additional_params": ["symbol", 20],
+        },
+        "gsm": {
+            "task_class": GSMTask,
+            "task_kwargs": {
+                "num_shots": 10,
+                "max_new_tokens": 128,
+            },
+            "model_kwargs": {"quantize": True},
+            "additional_params": [10],
+        },
     }
 
-    def run(model_name, component):
-        if task_name == "copying":
-            eval_copying(
-                model_name=model_name,
-                shuffle_n_heads=10,
-                component=component,
-                num_samples=100,
-                batch_size=batch_size_dict.get(model_name, 8),
-            )
-        elif task_name == "icl":
-            eval_icl(
-                model_name=model_name,
-                shuffle_n_heads=10,
-                component=component,
-                setting="symbol",
-                num_shots=20,
-                num_samples=100,
-            )
-        elif task_name == "gsm":
-            eval_gsm(
-                model_name=model_name,
-                shuffle_n_heads=10,
-                component=component,
-                num_shots=10,
-                num_samples=100,
-            )
+    config = task_configs[task_name]
 
     for model_name in model_names.split(","):
+        base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
+
+        task = config["task_class"](**config["task_kwargs"])
+
+        batch_size = {"gemma2-9b": 1, "gpt2": 100, "gpt2-xl": 100}.get(model_name, 8)
+        if task_name == "copying":
+            more_kwargs = {"batch_size": batch_size}
+        else:
+            more_kwargs = {}
+
         for component in ["qk", "ov"]:
-            run(model_name=model_name, component=component)
+            results = evaluate_model_with_shuffling(
+                base_model=base_model,
+                task=task,
+                component=component,
+                shuffle_n_heads=10,
+                num_samples=100,
+                **more_kwargs,
+            )
+
+            save_results(
+                base_model,
+                task_name,
+                component,
+                results,
+                config.get("additional_params"),
+            )
 
 
 if __name__ == "__main__":

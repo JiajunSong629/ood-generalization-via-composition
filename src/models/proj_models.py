@@ -14,8 +14,12 @@ class ProjectModel(HFModel):
         self,
         base_model: HFModel,
         layer_head_pairs: List[Tuple[int, int]],
+        projected_layer_head_pairs: List[Tuple[int, int]],
     ):
-        # Store reference to base model instead of creating new one
+        """
+        layer_head_pairs: the layer and head pairs to calculate the projection matrix
+        projected_layer_head_pairs: the layer and head pairs to be projected
+        """
         self._model = base_model._model
         self._device = base_model._device
         self._model_meta = base_model.model_meta
@@ -23,53 +27,77 @@ class ProjectModel(HFModel):
         self._tokenizer = base_model._tokenizer
 
         self._project_layer_head_pairs = layer_head_pairs
+        self._projected_layer_head_pairs = projected_layer_head_pairs
         self._projected = False
         self._project_component = None
-        self._project_vt_common = 10
+        self._rank = 0
 
-        self._save_weights(self.induction_heads[: self._project_vt_common])
+        # Create directory for weight storage if it doesn't exist
+        self._weights_dir = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "projection_weights_cache",
+            self._model_name,
+        )
+        os.makedirs(self._weights_dir, exist_ok=True)
+
+        self._save_weights(self._project_layer_head_pairs)
+        self._save_weights(self._projected_layer_head_pairs)
 
     @property
     def model_meta(self):
-        meta = self._model_meta
+        meta = copy.deepcopy(self._model_meta)
         meta["project_meta"] = {
             "project_component": self._project_component,
             "project_layer_head_pairs": self._project_layer_head_pairs,
+            "projected_layer_head_pairs": self._projected_layer_head_pairs,
+            "rank": self._rank,
         }
         return meta
 
-    def _save_weights(self, layer_head_pairs: List[Tuple[int, int]]):
-        # if _weights not in self, initialize it
-        if not hasattr(self, "_weights"):
-            self._weights = {}
+    def _get_weight_path(self, component_name: str) -> str:
+        return os.path.join(
+            self._weights_dir, f"{self._model_name}_{component_name}.pt"
+        )
 
+    def _save_weights(self, layer_head_pairs: List[Tuple[int, int]]):
         for ilayer, ihead in layer_head_pairs:
             for name in ["q", "k", "v", "o"]:
                 component_name = f"L_{ilayer}_H_{ihead}_{name}"
-                self._weights[component_name] = copy.deepcopy(
-                    self._get_qkov_weight(ilayer, ihead, name).data
-                )
+                weight_path = self._get_weight_path(component_name)
+
+                # Only save if the file doesn't exist
+                if not os.path.exists(weight_path):
+                    weight = self._get_qkov_weight(ilayer, ihead, name).data.cpu()
+                    torch.save(weight, weight_path)
+
+    def _load_cached_weight(self, component_name: str) -> torch.Tensor:
+        return torch.load(self._get_weight_path(component_name)).to(
+            device=self._device, dtype=torch.bfloat16
+        )
 
     def _get_Vt_common(self):
         cur_dir = os.path.dirname(os.path.abspath(__file__))
         pth = f"{cur_dir}/projection_artifacts/{self.model_meta['model_name']}_Vt_common.npy"
         os.makedirs(f"{cur_dir}/projection_artifacts", exist_ok=True)
 
+        if os.path.exists(pth):
+            return np.load(pth)
+
         use_R = not self.model_meta["model_name"].startswith("gpt")
         d_model = self.model_meta["hidden_size"]
 
-        K = self._project_vt_common
+        K = len(self._project_layer_head_pairs)
         W_qk_all = np.zeros((K, d_model, d_model))
-        for i, (layer, head) in enumerate(self.induction_heads[:K]):
-            Wq = self._weights[f"L_{layer}_H_{head}_q"]
-            Wk = self._weights[f"L_{layer}_H_{head}_k"]
+        for i, (layer, head) in enumerate(self._project_layer_head_pairs):
+            Wq = self._load_cached_weight(f"L_{layer}_H_{head}_q")
+            Wk = self._load_cached_weight(f"L_{layer}_H_{head}_k")
 
             if use_R:
                 R = calc_rotary_R_mat(
                     d_head=self.model_meta["head_dim"],
                     max_seq_len=100,
                     max_rel_dist=100,
-                )[-1]
+                )[-1].to(device=self._device, dtype=torch.bfloat16)
                 W_qk = Wq @ R @ Wk.T
             else:
                 W_qk = Wq @ Wk.T
@@ -98,25 +126,27 @@ class ProjectModel(HFModel):
             project_matrix, dtype=torch.bfloat16, device=self._device
         )
 
-        for ilayer, ihead in self._project_layer_head_pairs:
+        for ilayer, ihead in self._projected_layer_head_pairs:
             if component == "qk":
                 key = f"L_{ilayer}_H_{ihead}_k"
+                print(ilayer, ihead)
                 w = self._get_qkov_weight(ilayer, ihead, "k")
-                w.copy_(project_matrix @ self._weights[key])
+                print(
+                    w.shape, project_matrix.shape, self._load_cached_weight(key).shape
+                )
+                w.copy_(project_matrix @ self._load_cached_weight(key))
 
             elif component == "ov":
                 key = f"L_{ilayer}_H_{ihead}_o"
                 w = self._get_qkov_weight(ilayer, ihead, "o")
-                w.copy_(project_matrix @ self._weights[key])
+                w.copy_(project_matrix @ self._load_cached_weight(key))
 
     def project(self, component: str, rank: int, project_out: bool):
         assert not self._projected, "Already projected model cannot be projected again!"
 
-        self._save_weights(self._project_layer_head_pairs)
-
+        self._rank = rank
         project_matrix = self._get_project_matrix(rank, project_out)
         self._project(project_matrix, component)
-
         self._project_component = component
         self._projected = True
 
@@ -124,10 +154,10 @@ class ProjectModel(HFModel):
         assert self._projected, "Not projected model cannot be reverted!"
 
         name = "k" if self._project_component == "qk" else "o"
-        for ilayer, ihead in self._project_layer_head_pairs:
+        for ilayer, ihead in self._projected_layer_head_pairs:
             key = f"L_{ilayer}_H_{ihead}_{name}"
             w = self._get_qkov_weight(ilayer, ihead, name)
-            w.copy_(self._weights[key])
+            w.copy_(self._load_cached_weight(key))
 
         self._projected = False
         self._project_component = None
@@ -222,26 +252,3 @@ class ProjectModel(HFModel):
                 "v": v[:, ihead],
                 "o": attn.dense.weight.T[ihead * d_head : ihead * d_head + d_head, :].T,
             }[component].data
-
-
-if __name__ == "__main__":
-    from src.models.huggingface_models import HFModel
-    from src.tasks.copying.task import CopyingTask
-
-    model = HFModel("gpt2", "cuda")
-    task = CopyingTask(seg_len=25, rep=3, ignore_segment=1, ignore_burning=10)
-
-    result = task.evaluate_model(model, num_samples=100, task_random_seed=42)
-    print(1 - np.mean(result.errs))
-
-    proj_model = ProjectModel(
-        model,
-        layer_head_pairs=model.induction_heads[:36],
-    )
-
-    for rank in range(0, 100, 10):
-        proj_model.project("qk", rank, True)
-        result = task.evaluate_model(proj_model, num_samples=10, task_random_seed=42)
-        print("======= Rank: ", rank)
-        print(1 - np.mean(result.errs))
-        proj_model.revert()

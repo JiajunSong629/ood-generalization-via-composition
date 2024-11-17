@@ -95,9 +95,9 @@ MODEL_META = {
         "model_name": "gemma-7b",
         "vocab_size": 256000,
         "num_layers": 28,
-        "num_heads": 32,
-        "hidden_size": 4096,
-        "head_dim": 128,
+        "num_heads": 16,
+        "hidden_size": 3072,
+        "head_dim": 256,
         "bos_token_id": 2,
     },
     "gemma2-9b": {

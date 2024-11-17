@@ -24,9 +24,6 @@ class ShuffleModel(hf_models.HFModel):
         self._weights = {}
 
         self._seed = seed
-        if seed is not None:
-            random.seed(seed)
-            torch.manual_seed(seed)
 
     @property
     def model_meta(self):
@@ -64,18 +61,16 @@ class ShuffleModel(hf_models.HFModel):
             for name in list(self._shuffled_component):
                 key = f"L_{ilayer_perm}_H_{ihead_perm}_{name}"
                 w = self._get_qkov_weight(ilayer, ihead, name)
-                try:
-                    w.copy_(self._weights[key])
-                except Exception as e:
-                    print(key)
-                    print(ilayer, ihead, ilayer_perm, ihead_perm)
-                    print(w.shape)
-                    raise e
+                w.copy_(self._weights[key])
 
         self._shuffled = True
 
     def shuffle_inside(self, component: str):
         assert not self._shuffled, "Already shuffled model cannot be shuffled again!"
+
+        if self._seed is not None:
+            random.seed(self._seed)
+            torch.manual_seed(self._seed)
 
         self._shuffled_component = component
         self._shuffled_type = "inside"
@@ -95,6 +90,10 @@ class ShuffleModel(hf_models.HFModel):
 
     def shuffle_outside(self, component: str):
         assert not self._shuffled, "Already shuffled model cannot be shuffled again!"
+
+        if self._seed is not None:
+            random.seed(self._seed)
+            torch.manual_seed(self._seed)
 
         num_layer = self.model_meta["num_layers"]
         num_head = self.model_meta["num_heads"]
@@ -200,6 +199,7 @@ class ShuffleModel(hf_models.HFModel):
                 "v": v,
                 "o": attn.dense.weight.T[ihead * d_head : ihead * d_head + d_head, :].T,
             }[component].data
+
         elif self._model_meta["model_name"] in ["pythia-7b"]:
             attn = self._model.gpt_neox.layers[ilayer].attention
             splited = attn.query_key_value.weight.T.view(
