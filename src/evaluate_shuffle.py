@@ -21,9 +21,9 @@ def save_results(base_model, task_name, component, results, additional_params=No
     os.makedirs(result_dir, exist_ok=True)
 
     params_str = (
-        "_".join(str(v) for v in additional_params) if additional_params else ""
+        "_" + "_".join(str(v) for v in additional_params) if additional_params else ""
     )
-    fname = f"{base_model.model_name}_{params_str}_shuffle_{component}.json"
+    fname = f"{base_model.model_name}{params_str}_shuffle_{component}.json"
     result_class = type(results[0])
     result_class.save_multiple(results, os.path.join(result_dir, fname))
 

@@ -129,11 +129,7 @@ class ProjectModel(HFModel):
         for ilayer, ihead in self._projected_layer_head_pairs:
             if component == "qk":
                 key = f"L_{ilayer}_H_{ihead}_k"
-                print(ilayer, ihead)
                 w = self._get_qkov_weight(ilayer, ihead, "k")
-                print(
-                    w.shape, project_matrix.shape, self._load_cached_weight(key).shape
-                )
                 w.copy_(project_matrix @ self._load_cached_weight(key))
 
             elif component == "ov":

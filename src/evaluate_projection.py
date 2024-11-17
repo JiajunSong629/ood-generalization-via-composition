@@ -7,7 +7,6 @@ import dataclasses
 from src.models.huggingface_models import HFModel
 from src.models.proj_models import ProjectModel
 from src.api.result import ICLResult, CopyingResult, GSMResult
-
 from src.tasks.icl.task import ICLTask
 from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
@@ -17,6 +16,7 @@ from src.tasks.gsm.task import GSMTask
 class ProjectionResult:
     model_details: Dict[str, Any]
     task_details: Dict[str, Any]
+    num_samples: int
     result: Dict[int, Dict[str, float]]
 
     def save(self, path: str):
@@ -30,108 +30,29 @@ class ProjectionResult:
             json.dump(results_dict, f, indent=4)
 
 
-def eval_copying(
-    model_name: str,
-    project_n_heads: int = 10,
-    batch_size: int = 32,
-    seg_len: int = 25,
-    rep: int = 3,
-    ignore_segment: int = 2,
-    ignore_burning: int = 4,
-    component: str = "qk",
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    base_model = HFModel(model_name, device=device)
-    diagonal_induction_heads = base_model.diagonal_induction_heads
-    diagonal_previous_token_heads = base_model.diagonal_previous_token_heads
-    induction_heads = base_model.induction_heads
-    previous_token_heads = base_model.previous_token_heads
-
-    if component == "qk":
-        layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = induction_heads[: int(0.25 * len(induction_heads))]
-    elif component == "ov":
-        layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = previous_token_heads[
-            : int(0.25 * len(previous_token_heads))
-        ]
-
-    task = CopyingTask(
-        seg_len=seg_len,
-        rep=rep,
-        ignore_segment=ignore_segment,
-        ignore_burning=ignore_burning,
-    )
-
-    task_seed = 42
-    result: CopyingResult = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-        batch_size=batch_size,
-    )
-
-    print("========= Original ==========")
-    print(f"Acc: {1 - result.err:.2f}, Prob: {result.prob:.2f}")
-
-    proj_model = ProjectModel(
-        base_model,
-        layer_head_pairs=layer_head_pairs,
-        projected_layer_head_pairs=projected_layer_head_pairs,
-    )
-
-    aggregated_results = []
-    for project_out in [True, False]:
-        acc_prob = {}
-        for rank in range(0, 200, 5):
-            proj_model.project(component, rank, project_out=project_out)
-            result: CopyingResult = task.evaluate_model(
-                model=proj_model,
-                num_samples=num_samples,
-                task_random_seed=task_seed,
-                batch_size=batch_size,
-            )
-            acc_prob[rank] = {"acc": 1 - result.err, "prob": result.prob}
-
-            print(f"========= Rank {rank} ==========")
-            print(f"Acc: {1 - result.err:.2f}, Prob: {result.prob:.2f}")
-            proj_model.revert()
-
-        model_details = copy.deepcopy(base_model.model_meta)
-        model_details["projection"] = {
-            "component": component,
-            "project_out": project_out,
-            "layer_head_pairs": layer_head_pairs,
-            "projected_layer_head_pairs": projected_layer_head_pairs,
-        }
-
-        result = ProjectionResult(
-            model_details=model_details,
-            task_details=task.get_task_details(),
-            result=acc_prob,
-        )
-        aggregated_results.append(result)
-
+def save_results(base_model, task_name, component, results, additional_params=None):
+    """Utility function to save results"""
     cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "copying", "results")
+    result_dir = os.path.join(cur_dir, "tasks", task_name, "results")
     os.makedirs(result_dir, exist_ok=True)
 
-    fname = f"{base_model.model_name}_projection_{component}.json"
-    ProjectionResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
+    params_str = (
+        "_" + "_".join(str(v) for v in additional_params) if additional_params else ""
+    )
+    fname = f"{base_model.model_name}{params_str}_projection_{component}.json"
+    ProjectionResult.save_multiple(results, os.path.join(result_dir, fname))
 
 
-def eval_icl(
-    model_name: str,
-    project_n_heads: int = 10,
-    component: str = "qk",
-    setting: str = "symbol",
-    num_shots: int = 20,
-    balanced_sample: bool = True,
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    base_model = HFModel(model_name, device=device)
+def print_result(result):
+    """Print task-specific results"""
+    if isinstance(result, CopyingResult):
+        print(f"Acc: {1 - result.err:.2f}, Prob: {result.prob:.2f}")
+    elif isinstance(result, (ICLResult, GSMResult)):
+        print(f"Acc: {result.accuracy:.4f}")
+
+
+def get_projection_heads(base_model, component: str, project_n_heads: int):
+    """Get the appropriate heads for projection based on component"""
     diagonal_induction_heads = base_model.diagonal_induction_heads
     induction_heads = base_model.induction_heads
     previous_token_heads = base_model.previous_token_heads
@@ -145,27 +66,36 @@ def eval_icl(
             : int(0.25 * len(previous_token_heads))
         ]
 
-    task = ICLTask(
-        setting=setting,
-        num_shots=num_shots,
-        balanced_sample=balanced_sample,
-    )
+    return layer_head_pairs, projected_layer_head_pairs
 
-    task_seed = 42
-    result: ICLResult = task.evaluate_model(
+
+def evaluate_model_with_projection(
+    base_model,
+    task,
+    component: str,
+    project_n_heads: int,
+    num_samples: int,
+    task_seed: int = 42,
+    **task_kwargs,
+):
+    print("========= MODEL ==========")
+    print(base_model.model_meta)
+
+    """Common evaluation logic for all tasks"""
+    # Get initial result
+    result = task.evaluate_model(
         model=base_model,
         num_samples=num_samples,
         task_random_seed=task_seed,
+        **task_kwargs,
     )
-
-    print("========= MODEL ==========")
-    print(base_model.model_name)
     print("========= Original ==========")
-    print(f"Acc: {result.accuracy:.2f}")
-    for example in result.examples[:3]:
-        print(example.prompt[:30])
-        print(example.model_solution)
-        print(example.multiple_choice_logprob)
+    print_result(result)
+
+    # Setup projection model
+    layer_head_pairs, projected_layer_head_pairs = get_projection_heads(
+        base_model, component, project_n_heads
+    )
 
     proj_model = ProjectModel(
         base_model,
@@ -173,28 +103,36 @@ def eval_icl(
         projected_layer_head_pairs=projected_layer_head_pairs,
     )
 
+    # Evaluate with different ranks and projection settings
     aggregated_results = []
     for project_out in [True, False]:
         acc_prob = {}
         K = max(50, int(0.05 * base_model.model_meta["hidden_size"] / 10) * 10)
-        for rank in set([0, 50, K]):
+        ranks = range(0, max(K, 300), 10)
+
+        for rank in ranks:
             proj_model.project(component, rank, project_out=project_out)
-            result: ICLResult = task.evaluate_model(
+            result = task.evaluate_model(
                 model=proj_model,
                 num_samples=num_samples,
                 task_random_seed=task_seed,
+                **task_kwargs,
             )
-            acc_prob[rank] = {"acc": result.accuracy}
+
+            # Store results
+            if isinstance(result, CopyingResult):
+                acc_prob["rank"] = acc_prob.get("rank", []) + [rank]
+                acc_prob["acc"] = acc_prob.get("acc", []) + [1 - result.err]
+                acc_prob["prob"] = acc_prob.get("prob", []) + [result.prob]
+            elif isinstance(result, (ICLResult, GSMResult)):
+                acc_prob["rank"] = acc_prob.get("rank", []) + [rank]
+                acc_prob["acc"] = acc_prob.get("acc", []) + [result.accuracy]
 
             print(f"========= Rank {rank} ==========")
-            print(f"Acc: {result.accuracy:.4f}")
-            for example in result.examples[:3]:
-                print(example.prompt[:30])
-                print(example.model_solution)
-                print(example.multiple_choice_logprob)
-
+            print_result(result)
             proj_model.revert()
 
+        # Create projection result
         model_details = copy.deepcopy(base_model.model_meta)
         model_details["projection"] = {
             "component": component,
@@ -206,99 +144,12 @@ def eval_icl(
         result = ProjectionResult(
             model_details=model_details,
             task_details=task.get_task_details(),
+            num_samples=num_samples,
             result=acc_prob,
         )
         aggregated_results.append(result)
 
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "icl", "results")
-    os.makedirs(result_dir, exist_ok=True)
-
-    fname = f"{base_model.model_name}_symbol_20_projection_{component}.json"
-    ProjectionResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
-
-
-def eval_gsm(
-    model_name: str,
-    project_n_heads: int = 10,
-    component: str = "qk",
-    num_shots: int = 10,
-    num_samples: int = 100,
-    device: str = "cuda",
-):
-    base_model = HFModel(model_name, device=device, quantize=True)
-    diagonal_induction_heads = base_model.diagonal_induction_heads
-    induction_heads = base_model.induction_heads
-    previous_token_heads = base_model.previous_token_heads
-
-    if component == "qk":
-        layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = induction_heads[: int(0.25 * len(induction_heads))]
-    elif component == "ov":
-        layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = previous_token_heads[
-            : int(0.25 * len(previous_token_heads))
-        ]
-
-    task = GSMTask(num_shots=num_shots, max_new_tokens=128)
-
-    task_seed = 42
-    result: GSMResult = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-        batch_size=1,
-    )
-
-    print("========= MODEL ==========")
-    print(base_model.model_name)
-    print("========= Original ==========")
-    print(f"Acc: {result.accuracy:.2f}")
-
-    proj_model = ProjectModel(
-        base_model,
-        layer_head_pairs=layer_head_pairs,
-        projected_layer_head_pairs=projected_layer_head_pairs,
-    )
-
-    aggregated_results = []
-    for project_out in [True, False]:
-        acc_prob = {}
-        K = max(50, int(0.05 * base_model.model_meta["hidden_size"] / 10) * 10)
-        for rank in set([0, 50, K]):
-            proj_model.project(component, rank, project_out=project_out)
-            result: GSMResult = task.evaluate_model(
-                model=proj_model,
-                num_samples=num_samples,
-                task_random_seed=task_seed,
-            )
-            acc_prob[rank] = {"acc": result.accuracy}
-
-            print(f"========= Rank {rank} ==========")
-            print(f"Acc: {result.accuracy:.4f}")
-            proj_model.revert()
-
-        model_details = copy.deepcopy(base_model.model_meta)
-        model_details["projection"] = {
-            "component": component,
-            "project_out": project_out,
-            "layer_head_pairs": layer_head_pairs,
-            "projected_layer_head_pairs": projected_layer_head_pairs,
-        }
-
-        result = ProjectionResult(
-            model_details=model_details,
-            task_details=task.get_task_details(),
-            result=acc_prob,
-        )
-        aggregated_results.append(result)
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", "gsm", "results")
-    os.makedirs(result_dir, exist_ok=True)
-
-    fname = f"{base_model.model_name}_projection_{component}.json"
-    ProjectionResult.save_multiple(aggregated_results, os.path.join(result_dir, fname))
+    return aggregated_results
 
 
 def main(model_names: str, task_name: str):
@@ -308,32 +159,64 @@ def main(model_names: str, task_name: str):
         "gpt2-xl": 100,
     }
 
-    def run(model_name, component):
+    task_configs = {
+        "copying": {
+            "task_class": CopyingTask,
+            "task_kwargs": {
+                "seg_len": 25,
+                "rep": 3,
+                "ignore_segment": 2,
+                "ignore_burning": 4,
+            },
+            "model_kwargs": {"quantize": False},
+        },
+        "icl": {
+            "task_class": ICLTask,
+            "task_kwargs": {
+                "setting": "symbol",
+                "num_shots": 20,
+                "balanced_sample": True,
+            },
+            "model_kwargs": {"quantize": False},
+            "additional_params": ["symbol", "20"],
+        },
+        "gsm": {
+            "task_class": GSMTask,
+            "task_kwargs": {
+                "num_shots": 10,
+                "max_new_tokens": 128,
+            },
+            "model_kwargs": {"quantize": True},
+        },
+    }
+
+    config = task_configs[task_name]
+    for model_name in model_names.split(","):
+        base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
+        task = config["task_class"](**config["task_kwargs"])
+
         if task_name == "copying":
-            eval_copying(
-                model_name=model_name,
-                project_n_heads=10,
+            more_kwargs = {"batch_size": batch_size_dict.get(model_name, 8)}
+        else:
+            more_kwargs = {}
+
+        for component in ["qk", "ov"]:
+            results = evaluate_model_with_projection(
+                base_model=base_model,
+                task=task,
                 component=component,
+                project_n_heads=10,
                 num_samples=100,
-                batch_size=batch_size_dict.get(model_name, 8),
-            )
-        elif task_name == "icl":
-            eval_icl(
-                model_name=model_name,
-                project_n_heads=10,
-                component=component,
-                num_samples=100,
-            )
-        elif task_name == "gsm":
-            eval_gsm(
-                model_name=model_name,
-                project_n_heads=10,
-                component=component,
-                num_samples=3,
+                **more_kwargs,
             )
 
-    for model_name in model_names.split(","):
-        run(model_name=model_name, component="qk")
+            save_results(
+                base_model,
+                task_name,
+                component,
+                results,
+                config.get("additional_params"),
+            )
 
 
 if __name__ == "__main__":
