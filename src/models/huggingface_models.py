@@ -79,6 +79,7 @@ class HFModel:
                     device_map="auto",  # Handles device placement automatically
                     quantization_config=quantization_config,
                     torch_dtype=torch.bfloat16,
+                    attn_implementation="eager",
                     output_attentions=True,
                 )
             else:
@@ -87,6 +88,7 @@ class HFModel:
                     local_files_only=True,
                     pad_token_id=self._tokenizer.eos_token_id,
                     torch_dtype=torch.bfloat16,
+                    attn_implementation="eager",
                     output_attentions=True,
                 ).to(device)
         else:
@@ -340,55 +342,3 @@ class HFModel:
         if isinstance(inputs, str):
             return generated_texts[0]
         return generated_texts
-
-
-class HFModelWithHeadMask(HFModel):
-    def __init__(self, base_model: HFModel, layer_head_pairs: List[Tuple[int, int]]):
-        """Creates a masked version of an existing model.
-
-        Args:
-            base_model: Existing HFModel instance to mask
-            head_mask: Optional tensor of shape (n_layers, n_heads) with values in [0,1]
-        """
-        # Store reference to base model instead of creating new one
-        self._model = base_model._model
-        self._device = base_model._device
-        self._show_progress = base_model._show_progress
-        self._model_meta = base_model.model_meta
-
-        # Save original forward function
-        self._original_forward = self._model._model.forward
-
-        # Initialize head mask
-        head_mask = torch.ones(
-            self.model_meta["num_layers"],
-            self.model_meta["num_heads"],
-        ).to(self._device)
-
-        if layer_head_pairs is None:
-            self._head_mask = head_mask
-        else:
-            for l, h in layer_head_pairs:
-                head_mask[l, h] = 0
-            self._head_mask = head_mask
-
-        # Apply mask
-        self.apply_mask()
-
-    def apply_mask(self):
-        """Apply the head mask to model"""
-
-        def masked_forward(*args, **kwargs):
-            kwargs["head_mask"] = self._head_mask
-            return self._original_forward(*args, **kwargs)
-
-        self._model.forward = masked_forward
-
-    def remove_mask(self):
-        """Restore original unmasked model"""
-        self._model.forward = self._original_forward
-
-    def set_head_mask(self, head_mask):
-        """Update head mask and reapply"""
-        self._head_mask = torch.tensor(head_mask).to(self._device)
-        self.apply_mask()
