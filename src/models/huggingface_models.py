@@ -105,26 +105,6 @@ class HFModel:
     def model_name(self):
         return self._model_name
 
-    # @property
-    # def attention_layers(self):
-    #     """Get list of attention layer modules for the model"""
-    #     if self._model_name not in ATTENTION_LAYER_PATHS:
-    #         raise ValueError(f"Model {self._model_name} attention path not defined")
-
-    #     # Get the transformer blocks/layers
-    #     transformer_blocks = ATTENTION_LAYER_PATHS[self._model_name](self._model)
-    #     attn_name = ATTENTION_MODULE_NAMES[self._model_name]
-
-    #     # Get attention modules using recursive attribute lookup
-    #     attention_layers = []
-    #     for block in transformer_blocks:
-    #         curr_module = block
-    #         for attr in attn_name.split("."):
-    #             curr_module = getattr(curr_module, attr)
-    #         attention_layers.append(curr_module)
-
-    #     return attention_layers
-
     @property
     def model_meta(self) -> Dict[str, Any]:
         return self._model_meta
@@ -193,7 +173,6 @@ class HFModel:
     def previous_token_heads(self):
         # if exists a json file, ends with the name of the model, load it
         local_dir = os.path.dirname(os.path.abspath(__file__))
-        os.makedirs(os.path.join(local_dir, "heads_list"), exist_ok=True)
         file_path = os.path.join(
             local_dir, "ih_pth_heads_list", f"ih_pth_{self._model_name}.json"
         )
@@ -217,7 +196,6 @@ class HFModel:
     def induction_heads(self) -> List[Tuple[int, int]]:
         # if exists a json file, ends with the name of the model, load it
         local_dir = os.path.dirname(os.path.abspath(__file__))
-        os.makedirs(os.path.join(local_dir, "heads_list"), exist_ok=True)
         file_path = os.path.join(
             local_dir, "ih_pth_heads_list", f"ih_pth_{self._model_name}.json"
         )
@@ -295,7 +273,7 @@ class HFModel:
         max_new_tokens: int,
         num_beams: int = 1,
         num_outputs: int = 1,
-        batch_size: int = 8,
+        batch_size: int = 1,
     ) -> Union[str, List[str], List[List[str]]]:
         torch.manual_seed(42)
         torch.cuda.manual_seed_all(42)

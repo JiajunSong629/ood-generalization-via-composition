@@ -8,7 +8,7 @@ from src.models.huggingface_models import HFModel
 from src.models.proj_models import ProjectModel
 from src.api.result import ICLResult, CopyingResult, GSMResult
 
-from src.config import TASK_CONFIGS
+from src.config import TASK_CONFIGS, MODEL_META
 
 
 @dataclasses.dataclass
@@ -56,14 +56,22 @@ def get_projection_heads(base_model, component: str, project_n_heads: int):
     induction_heads = base_model.induction_heads
     previous_token_heads = base_model.previous_token_heads
 
+    model_name = base_model.model_name
+    if base_model.model_name in ["mistral-7b", "llama3-8b"]:
+        num_key_value_heads = MODEL_META[model_name]["num_key_value_heads"]
+        num_hidden_layers = MODEL_META[model_name]["num_layers"]
+        num_all_heads = num_key_value_heads * num_hidden_layers
+    elif model_name in ["falcon-7b"]:
+        num_all_heads = 8 * MODEL_META[model_name]["num_layers"]
+    else:
+        num_all_heads = len(induction_heads)
+
     if component == "qk":
         layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = induction_heads[: int(0.25 * len(induction_heads))]
+        projected_layer_head_pairs = induction_heads[: int(0.25 * num_all_heads)]
     elif component == "ov":
         layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = previous_token_heads[
-            : int(0.25 * len(previous_token_heads))
-        ]
+        projected_layer_head_pairs = previous_token_heads[: int(0.25 * num_all_heads)]
 
     return layer_head_pairs, projected_layer_head_pairs
 
@@ -107,7 +115,7 @@ def evaluate_model_with_projection(
     for project_out in [True, False]:
         acc_prob = {}
         K = max(50, int(0.05 * base_model.model_meta["hidden_size"] / 10) * 10)
-        ranks = range(0, max(K, 300), 10)
+        ranks = [0, 50, 100, 150, 200, K]
 
         for rank in ranks:
             proj_model.project(component, rank, project_out=project_out)
