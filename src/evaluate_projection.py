@@ -186,7 +186,7 @@ def main(model_names: str, task_name: str):
                 "num_shots": 10,
                 "max_new_tokens": 128,
             },
-            "model_kwargs": {"quantize": True},
+            "model_kwargs": {"quantize": False},
         },
     }
 
