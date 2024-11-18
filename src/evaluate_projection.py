@@ -7,9 +7,8 @@ import dataclasses
 from src.models.huggingface_models import HFModel
 from src.models.proj_models import ProjectModel
 from src.api.result import ICLResult, CopyingResult, GSMResult
-from src.tasks.icl.task import ICLTask
-from src.tasks.copying.task import CopyingTask
-from src.tasks.gsm.task import GSMTask
+
+from src.config import TASK_CONFIGS
 
 
 @dataclasses.dataclass
@@ -153,50 +152,16 @@ def evaluate_model_with_projection(
 
 
 def main(model_names: str, task_name: str):
-    batch_size_dict = {
-        "gemma2-9b": 1,
-        "gpt2": 100,
-        "gpt2-xl": 100,
-    }
-
-    task_configs = {
-        "copying": {
-            "task_class": CopyingTask,
-            "task_kwargs": {
-                "seg_len": 25,
-                "rep": 3,
-                "ignore_segment": 2,
-                "ignore_burning": 4,
-            },
-            "model_kwargs": {"quantize": False},
-        },
-        "icl": {
-            "task_class": ICLTask,
-            "task_kwargs": {
-                "setting": "symbol",
-                "num_shots": 20,
-                "balanced_sample": True,
-            },
-            "model_kwargs": {"quantize": False},
-            "additional_params": ["symbol", "20"],
-        },
-        "gsm": {
-            "task_class": GSMTask,
-            "task_kwargs": {
-                "num_shots": 10,
-                "max_new_tokens": 128,
-            },
-            "model_kwargs": {"quantize": False},
-        },
-    }
-
-    config = task_configs[task_name]
+    config = TASK_CONFIGS[task_name]
     for model_name in model_names.split(","):
         base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
         task = config["task_class"](**config["task_kwargs"])
 
         if task_name == "copying":
-            more_kwargs = {"batch_size": batch_size_dict.get(model_name, 8)}
+            batch_size = {"gemma2-9b": 1, "gpt2": 100, "gpt2-xl": 100}.get(
+                model_name, 8
+            )
+            more_kwargs = {"batch_size": batch_size}
         else:
             more_kwargs = {}
 

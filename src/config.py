@@ -1,4 +1,7 @@
 import transformers
+from src.tasks.icl.task import ICLTask
+from src.tasks.copying.task import CopyingTask
+from src.tasks.gsm.task import GSMTask
 
 MAX_LENGTH = 2048
 
@@ -149,28 +152,33 @@ MODEL_META = {
 }
 
 
-# ATTENTION_LAYER_PATHS = {
-#     "gpt2": lambda model: model.transformer.h,  # Returns list of transformer blocks
-#     "gpt2-xl": lambda model: model.transformer.h,
-#     "llama2-7b": lambda model: model.model.layers,
-#     "gemma-7b": lambda model: model.model.layers,
-#     "falcon-7b": lambda model: model.transformer.h,
-#     "mistral-7b": lambda model: model.model.layers,
-#     "olmo-7b": lambda model: model.model.layers,
-#     "pythia-7b": lambda model: model.gpt_neox.layers,
-#     "llama2-70b": lambda model: model.model.layers,
-#     "gemma-9b": lambda model: model.model.layers,
-# }
-
-# ATTENTION_MODULE_NAMES = {
-#     "gpt2": "attn",
-#     "gpt2-xl": "attn",
-#     "llama2-7b": "self_attn",
-#     "gemma-7b": "self_attn",
-#     "falcon-7b": "self_attention",
-#     "mistral-7b": "self_attn",
-#     "olmo-7b": "self_attn",
-#     "pythia-7b": "attention",
-#     "llama2-70b": "self_attn",
-#     "gemma-9b": "self_attn",
-# }
+TASK_CONFIGS = {
+    "copying": {
+        "task_class": CopyingTask,
+        "task_kwargs": {
+            "seg_len": 25,
+            "rep": 3,
+            "ignore_segment": 2,
+            "ignore_burning": 4,
+        },
+        "model_kwargs": {"quantize": False},
+    },
+    "icl": {
+        "task_class": ICLTask,
+        "task_kwargs": {
+            "setting": "symbol",
+            "num_shots": 20,
+            "balanced_sample": True,
+        },
+        "model_kwargs": {"quantize": False},
+        "additional_params": ["symbol", "20"],
+    },
+    "gsm": {
+        "task_class": GSMTask,
+        "task_kwargs": {
+            "num_shots": 10,
+            "max_new_tokens": 128,
+        },
+        "model_kwargs": {"quantize": False},
+    },
+}

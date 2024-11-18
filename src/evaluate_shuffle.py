@@ -9,9 +9,7 @@ from src.models.huggingface_models import HFModel
 from src.models.shuffle_models import ShuffleModel
 from src.api.result import ICLResult, CopyingResult, GSMResult
 
-from src.tasks.icl.task import ICLTask
-from src.tasks.copying.task import CopyingTask
-from src.tasks.gsm.task import GSMTask
+from src.config import TASK_CONFIGS
 
 
 def save_results(base_model, task_name, component, results, additional_params=None):
@@ -110,46 +108,13 @@ def print_result(result):
 
 
 def main(model_names: str, task_name: str):
-    task_configs = {
-        "copying": {
-            "task_class": CopyingTask,
-            "task_kwargs": {
-                "seg_len": 25,
-                "rep": 3,
-                "ignore_segment": 2,
-                "ignore_burning": 4,
-            },
-            "model_kwargs": {"quantize": False},
-        },
-        "icl": {
-            "task_class": ICLTask,
-            "task_kwargs": {
-                "setting": "symbol",
-                "num_shots": 20,
-                "balanced_sample": True,
-            },
-            "model_kwargs": {"quantize": False},
-            "additional_params": ["symbol", 20],
-        },
-        "gsm": {
-            "task_class": GSMTask,
-            "task_kwargs": {
-                "num_shots": 10,
-                "max_new_tokens": 128,
-            },
-            "model_kwargs": {"quantize": False},
-            "additional_params": [10],
-        },
-    }
-
-    config = task_configs[task_name]
+    config = TASK_CONFIGS[task_name]
 
     for model_name in model_names.split(","):
         base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
-
         task = config["task_class"](**config["task_kwargs"])
-
         batch_size = {"gemma2-9b": 1, "gpt2": 100, "gpt2-xl": 100}.get(model_name, 8)
+
         if task_name == "copying":
             more_kwargs = {"batch_size": batch_size}
         else:
