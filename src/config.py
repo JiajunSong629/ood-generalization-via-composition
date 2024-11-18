@@ -278,7 +278,7 @@ TASK_CONFIGS = {
     "gsm": {
         "task_class": GSMTask,
         "task_kwargs": {
-            "num_shots": 3,
+            "num_shots": 10,
             "max_new_tokens": 128,
         },
         "model_kwargs": {"quantize": False},
