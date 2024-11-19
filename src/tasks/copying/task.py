@@ -54,16 +54,6 @@ class CopyingTask(task_api.Task):
         batch_size: Optional[int] = 64,
         task_random_seed: Optional[int] = None,
     ):
-        """
-        for a sequence of [a,b,c,a,b,c,a,b,c]
-        inputs = [ [a,b,c,a,b] ]
-        targets = [ [[c,a,b,c]] ]
-
-        for multiple sequences of [[a,b,c,a,b,c,a,b,c], [d,e,f,d,e,f,d,e,f]]
-        inputs = [ [a,b,c,a,b], [d,e,f,d,e]  ]
-        targets = [ [[c,a,b,c]], [[f,d,e,f]] ]
-
-        """
         if task_random_seed is not None:
             np.random.seed(task_random_seed)
             torch.manual_seed(task_random_seed)

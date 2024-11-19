@@ -24,21 +24,6 @@ def load_results(model_name, component):
     return results
 
 
-def pretty_print_result(result: result_api.CopyingResult):
-    if "shuffle_meta" in result.model_details:
-        shuffle_meta = result.model_details["shuffle_meta"]
-        print(
-            "Shuffle",
-            shuffle_meta["shuffled_type"],
-            shuffle_meta["shuffled_component"],
-            shuffle_meta["seed"],
-        )
-    else:
-        print("Original")
-
-    print(f"{result.prob:.2f}, {1 - result.err:.2f}")
-
-
 def summarise_results(results, type="prob"):
     d = {}
 
@@ -134,23 +119,37 @@ def aggregate_shuffle_results(d_qk, d_ov, type="prob"):
 
 
 if __name__ == "__main__":
-    d_qk, d_ov = collect_all_models(type="acc")
-    aggregate_shuffle_results(d_qk, d_ov, type="acc")
-    for model_name in MODEL_CLASSES:
-        try:
-            print(model_name, end=" ")
-            print(f"{d_qk[model_name]['original']['mean']:.2f}", end=" ")
-            print(f"{d_qk[model_name]['inside']['mean']:.2f}", end=" ")
-            print(f"{d_qk[model_name]['outside']['mean']:.2f}")
-        except KeyError:
-            print(f"Model {model_name} not found")
+    for type in ["prob", "acc"]:
+        d_qk, d_ov = collect_all_models(type=type)
+        aggregate_shuffle_results(d_qk, d_ov, type=type)
 
-    print("\n\n")
-    for model_name in MODEL_CLASSES:
-        try:
-            print(model_name, end=" ")
-            print(f"{d_ov[model_name]['original']['mean']:.2f}", end=" ")
-            print(f"{d_ov[model_name]['inside']['mean']:.2f}", end=" ")
-            print(f"{d_ov[model_name]['outside']['mean']:.2f}")
-        except KeyError:
-            print(f"Model {model_name} not found")
+        with open(
+            os.path.join(RESULTS_DIR, f"shuffle_summary_{type}.log"), "a"
+        ) as log_file:
+            log_file.write(f"Shuffle type: {type}\n")
+            log_file.write("QK\n")
+            for model_name in MODEL_CLASSES:
+                try:
+                    log_file.write(
+                        f"""{model_name} 
+                            {d_qk[model_name]['original']['mean']:.2f}, {d_qk[model_name]['original']['std']:.2f} 
+                            {d_qk[model_name]['inside']['mean']:.2f}, {d_qk[model_name]['inside']['std']:.2f} 
+                            {d_qk[model_name]['outside']['mean']:.2f}, {d_qk[model_name]['outside']['std']:.2f}
+                        """
+                    )
+                except KeyError:
+                    log_file.write(f"Model {model_name} not found\n")
+
+            log_file.write("\n\n")
+            log_file.write("OV\n")
+            for model_name in MODEL_CLASSES:
+                try:
+                    log_file.write(
+                        f"""{model_name} 
+                            {d_ov[model_name]['original']['mean']:.2f}, {d_ov[model_name]['original']['std']:.2f} 
+                            {d_ov[model_name]['inside']['mean']:.2f}, {d_ov[model_name]['inside']['std']:.2f} 
+                            {d_ov[model_name]['outside']['mean']:.2f}, {d_ov[model_name]['outside']['std']:.2f}
+                        """
+                    )
+                except KeyError:
+                    log_file.write(f"Model {model_name} not found\n")

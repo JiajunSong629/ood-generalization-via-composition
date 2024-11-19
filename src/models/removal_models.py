@@ -87,6 +87,8 @@ class HeadRemovalModel:
         if "layers." in module_name:
             parts = module_name.split("layers.")[1].split(".")
             return int(parts[0])
+        if "h." in module_name:
+            return int(module_name.split("h.")[1].split(".")[0])
         return None
 
     def revert(self):
