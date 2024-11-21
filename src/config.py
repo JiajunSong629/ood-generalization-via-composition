@@ -2,6 +2,8 @@ import transformers
 from src.tasks.icl.task import ICLTask
 from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
+from src.tasks.fuzzycopy.task import FuzzyCopyTask
+from src.tasks.ioi.task import IOITask
 
 MAX_LENGTH = 2048
 
@@ -51,11 +53,6 @@ MODEL_CLASSES = {
         "tokenizer": transformers.AutoTokenizer,
         "hf_name": "allenai/OLMo-1.7-7B-hf",
     },
-    "pythia-7b": {
-        "lm": transformers.AutoModelForCausalLM,
-        "tokenizer": transformers.AutoTokenizer,
-        "hf_name": "EleutherAI/pythia-6.9b",
-    },
     "pythia-14m": {
         "lm": transformers.AutoModelForCausalLM,
         "tokenizer": transformers.AutoTokenizer,
@@ -95,6 +92,11 @@ MODEL_CLASSES = {
         "lm": transformers.AutoModelForCausalLM,
         "tokenizer": transformers.AutoTokenizer,
         "hf_name": "EleutherAI/pythia-2.8b",
+    },
+    "pythia-7b": {
+        "lm": transformers.AutoModelForCausalLM,
+        "tokenizer": transformers.AutoTokenizer,
+        "hf_name": "EleutherAI/pythia-6.9b",
     },
 }
 
@@ -199,7 +201,7 @@ MODEL_META = {
         "bos_token_id": 0,
     },
     "pythia-36m": {
-        "model_name": "pythia-14m",
+        "model_name": "pythia-36m",
         "vocab_size": 50304,
         "num_layers": 6,
         "num_heads": 8,
@@ -273,6 +275,10 @@ TASK_CONFIGS = {
             "ignore_burning": 4,
         },
         "model_kwargs": {"quantize": False},
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,
+        },
     },
     "icl": {
         "task_class": ICLTask,
@@ -282,6 +288,10 @@ TASK_CONFIGS = {
             "balanced_sample": True,
         },
         "model_kwargs": {"quantize": False},
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,
+        },
         "additional_params": ["symbol", "20"],
     },
     "gsm": {
@@ -290,6 +300,72 @@ TASK_CONFIGS = {
             "num_shots": 10,
             "max_new_tokens": 128,
         },
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,
+        },
         "model_kwargs": {"quantize": False},
+        "additional_params": ["10"],
     },
+    "fuzzycopy": {
+        "task_class": FuzzyCopyTask,
+        "task_kwargs": {
+            "setting": "upper",
+            "num_shots": 8,
+        },
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,
+        },
+        "model_kwargs": {"quantize": False},
+        "additional_params": ["upper", "8"],
+    },
+    "ioi": {
+        "task_class": IOITask,
+        "task_kwargs": {
+            "setting": "symbol",
+            "num_beams": 5,
+            "num_outputs": 3,
+        },
+        "eval_kwargs": {
+            "num_samples": 3,
+            "task_random_seed": 42,
+        },
+        "model_kwargs": {"quantize": False},
+        "additional_params": ["symbol"],
+    },
+}
+
+
+PROJECT_CONFIGS = {
+    "project_n_heads": 10,
+    "projected_n_heads": 0.25,
+    # "additional_params": ["50"],
+}
+
+SHUFFLE_CONFIGS = {
+    "shuffle_seeds": range(0, 100, 20),
+    "shuffle_n_heads": 10,
+}
+
+REMOVAL_CONFIGS = {
+    "gpt2": {"n_heads": range(0, 60, 10)},
+    "gpt2-xl": {"n_heads": range(0, 60, 10)},
+    "llama2-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "llama3-8b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "gemma-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "gemma2-9b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "falcon-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "mistral-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    "olmo-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
+    # pythia models
+    "pythia-14m": {"n_heads": range(0, 60, 10)},
+    "pythia-36m": {"n_heads": range(0, 60, 10)},
+    "pythia-70m": {"n_heads": range(0, 60, 10)},
+    "pythia-160m": {"n_heads": range(0, 60, 10)},
+    "pythia-410m": {"n_heads": range(0, 60, 10)},
+    "pythia-1b": {"n_heads": range(0, 60, 10)},
+    "pythia-1_4b": {"n_heads": range(0, 60, 10)},
+    "pythia-2_8b": {"n_heads": range(0, 60, 10)},
+    "pythia-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
 }

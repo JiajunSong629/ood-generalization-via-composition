@@ -7,9 +7,8 @@ from typing import List
 
 from src.models.huggingface_models import HFModel
 from src.models.shuffle_models import ShuffleModel
-from src.api.result import ICLResult, CopyingResult, GSMResult
 
-from src.config import TASK_CONFIGS
+from src.config import TASK_CONFIGS, SHUFFLE_CONFIGS
 
 
 def save_results(base_model, task_name, component, results, additional_params=None):
@@ -31,14 +30,10 @@ def evaluate_model_with_shuffling(
     task,
     component: str,
     shuffle_n_heads: int,
-    num_samples: int,
-    task_seed: int = 42,
-    shuffle_seeds=None,
+    shuffle_seeds: List[int],
     **task_kwargs,
 ):
     """Common evaluation logic for all tasks"""
-    shuffle_seeds = shuffle_seeds or range(0, 100, 20)
-
     # Select heads based on component
     induction_heads = base_model.diagonal_induction_heads
     previous_token_heads = base_model.diagonal_previous_token_heads
@@ -49,15 +44,10 @@ def evaluate_model_with_shuffling(
     aggregated_results = []
 
     # Evaluate original model
-    result = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-        **task_kwargs,
-    )
+    result = task.evaluate_model(model=base_model, **task_kwargs)
     aggregated_results.append(result)
     print("========= Original ==========")
-    print_result(result)
+    print(result)
 
     # Evaluate shuffled models
     for shuffle_seed in shuffle_seeds:
@@ -69,29 +59,19 @@ def evaluate_model_with_shuffling(
 
         # Inside shuffle
         shuffle_model.shuffle_inside(component=component)
-        result = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-            **task_kwargs,
-        )
+        result = task.evaluate_model(model=shuffle_model, **task_kwargs)
 
         print(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
-        print_result(result)
+        print(result)
         aggregated_results.append(result)
 
         shuffle_model.revert()
 
         # Outside shuffle
         shuffle_model.shuffle_outside(component=component)
-        result = task.evaluate_model(
-            model=shuffle_model,
-            num_samples=num_samples,
-            task_random_seed=task_seed,
-            **task_kwargs,
-        )
+        result = task.evaluate_model(model=shuffle_model, **task_kwargs)
         print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
-        print_result(result)
+        print(result)
         aggregated_results.append(result)
 
         shuffle_model.revert()
@@ -99,35 +79,20 @@ def evaluate_model_with_shuffling(
     return aggregated_results
 
 
-def print_result(result):
-    """Print task-specific results"""
-    if isinstance(result, CopyingResult):
-        print(f"{1 - result.err:.2f}, {result.prob:.2f}")
-    elif isinstance(result, (ICLResult, GSMResult)):
-        print(f"{result.accuracy:.2f}")
-
-
 def main(model_names: str, task_name: str):
-    config = TASK_CONFIGS[task_name]
+    task_config = TASK_CONFIGS[task_name]
 
     for model_name in model_names.split(","):
-        base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
-        task = config["task_class"](**config["task_kwargs"])
-        batch_size = {"gemma2-9b": 1, "gpt2": 100, "gpt2-xl": 100}.get(model_name, 8)
-
-        if task_name == "copying":
-            more_kwargs = {"batch_size": batch_size}
-        else:
-            more_kwargs = {}
-
+        base_model = HFModel(model_name, device="cuda", **task_config["model_kwargs"])
+        task = task_config["task_class"](**task_config["task_kwargs"])
         for component in ["qk", "ov"]:
             results = evaluate_model_with_shuffling(
                 base_model=base_model,
                 task=task,
                 component=component,
-                shuffle_n_heads=10,
-                num_samples=100,
-                **more_kwargs,
+                shuffle_n_heads=SHUFFLE_CONFIGS["shuffle_n_heads"],
+                shuffle_seeds=SHUFFLE_CONFIGS["shuffle_seeds"],
+                **task_config["eval_kwargs"],
             )
 
             save_results(
@@ -135,7 +100,7 @@ def main(model_names: str, task_name: str):
                 task_name,
                 component,
                 results,
-                config.get("additional_params"),
+                task_config.get("additional_params"),
             )
 
 

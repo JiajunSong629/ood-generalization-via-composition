@@ -234,29 +234,26 @@ class HFModel:
         return json.load(open(file_path, "r"))["previous_token_heads"]
 
     def score(self, input: str, target: str) -> float:
-        """Calculates log probability of target given input: log p(target|input)
-
-        Args:
-            input: Input context string
-            target: Target string to score
-
-        Returns:
-            float: Log probability score of target given input
-        """
-        # Encode full sequence (input + target)
+        """Calculates log probability of target given input: log p(target|input)"""
         full_ids = self._tokenizer.encode(input + target, return_tensors="pt").to(
             self._device
-        )
-        target_ids = self._tokenizer.encode(target, add_special_tokens=False)
-        target_len = len(target_ids)
+        )[0]
+        prompt_ids = self._tokenizer.encode(input, return_tensors="pt").to(
+            self._device
+        )[0]
 
-        # Get model outputs
-        logits = self._model(full_ids).logits
-        logprobs = torch.nn.functional.log_softmax(logits[0], dim=-1)
+        prompt_len = len(prompt_ids)
+        target_ids = full_ids[prompt_len:]
+
+        outputs = self._model(full_ids[None, :-1])
+        logits = outputs.logits[0]
 
         score = 0.0
         for i, target_id in enumerate(target_ids):
-            score += logprobs[-target_len - 1 + i, target_id].item()
+            idx = prompt_len - 1 + i
+            token_logits = logits[idx]
+            token_logprob = torch.log_softmax(token_logits, dim=-1)[target_id]
+            score += token_logprob.item()
 
         return score
 
@@ -309,6 +306,10 @@ class HFModel:
                     eos_token_id=self._tokenizer.eos_token_id,
                 )
 
+                # Pythia-7b's generate seems to be different than other models
+                if isinstance(outputs, dict):
+                    outputs = outputs["sequences"]
+
                 # Process outputs and clear memory
                 if num_outputs > 1:
                     outputs = outputs.reshape(len(batch_inputs), num_outputs, -1)
@@ -323,13 +324,13 @@ class HFModel:
                         for input_outputs in outputs
                     ]
                 else:
-                    batch_generated_texts = [
-                        self._tokenizer.decode(
+                    batch_generated_texts = []
+                    for seq in outputs:
+                        text = self._tokenizer.decode(
                             seq[input_ids["input_ids"].shape[1] :],
                             skip_special_tokens=True,
                         )
-                        for seq in outputs
-                    ]
+                        batch_generated_texts.append(text)
 
                 # Clear GPU memory after processing each batch
                 del input_ids

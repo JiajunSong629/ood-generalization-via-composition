@@ -111,7 +111,7 @@ class GSMTask(task.Task):
         acc = 0
         examples = []
 
-        for prompt, answer in tqdm(zip(prompts, answers)):
+        for prompt, answer in zip(prompts, answers):
             response = model.generate_text(
                 prompt,
                 max_new_tokens=self._max_new_tokens,
@@ -142,7 +142,7 @@ class GSMTask(task.Task):
         result = result_api.GSMResult(
             model_details=copy.deepcopy(model.model_meta),
             task_details=self.get_task_details(),
-            accuracy=acc / num_samples,
+            acc=acc / num_samples,
             num_samples=num_samples,
             random_seed=task_random_seed,
             examples=examples,

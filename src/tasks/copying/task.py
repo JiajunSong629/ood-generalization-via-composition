@@ -51,12 +51,18 @@ class CopyingTask(task_api.Task):
         self,
         model: model_api.Model,
         num_samples: Optional[int] = None,
-        batch_size: Optional[int] = 64,
+        batch_size: Optional[int] = None,
         task_random_seed: Optional[int] = None,
     ):
         if task_random_seed is not None:
             np.random.seed(task_random_seed)
             torch.manual_seed(task_random_seed)
+
+        if batch_size is None:
+            if model.model_meta["model_name"].startswith("gpt2"):
+                batch_size = 100
+            else:
+                batch_size = 8
 
         offset = self._seg_len * self._ignore_segment + self._ignore_burning
 

@@ -6,9 +6,15 @@ import dataclasses
 
 from src.models.huggingface_models import HFModel
 from src.models.proj_models import ProjectModel
-from src.api.result import ICLResult, CopyingResult, GSMResult
+from src.api.result import (
+    ICLResult,
+    CopyingResult,
+    GSMResult,
+    FuzzyCopyResult,
+    IOIResult,
+)
 
-from src.config import TASK_CONFIGS, MODEL_META
+from src.config import PROJECT_CONFIGS, TASK_CONFIGS, MODEL_META
 
 
 @dataclasses.dataclass
@@ -29,28 +35,35 @@ class ProjectionResult:
             json.dump(results_dict, f, indent=4)
 
 
-def save_results(base_model, task_name, component, results, additional_params=None):
+def save_results(
+    base_model,
+    task_name,
+    component,
+    results,
+    proj_additional_params=None,
+    task_additional_params=None,
+):
     """Utility function to save results"""
     cur_dir = os.path.dirname(os.path.abspath(__file__))
     result_dir = os.path.join(cur_dir, "tasks", task_name, "results")
     os.makedirs(result_dir, exist_ok=True)
 
-    params_str = (
-        "_" + "_".join(str(v) for v in additional_params) if additional_params else ""
+    task_params_str = (
+        "_" + "_".join(str(v) for v in task_additional_params)
+        if task_additional_params
+        else ""
     )
-    fname = f"{base_model.model_name}{params_str}_projection_{component}.json"
+    proj_params_str = (
+        "_" + "_".join(str(v) for v in proj_additional_params)
+        if proj_additional_params
+        else ""
+    )
+
+    fname = f"{base_model.model_name}{proj_params_str}{task_params_str}_projection_{component}.json"
     ProjectionResult.save_multiple(results, os.path.join(result_dir, fname))
 
 
-def print_result(result):
-    """Print task-specific results"""
-    if isinstance(result, CopyingResult):
-        print(f"Acc: {1 - result.err:.2f}, Prob: {result.prob:.2f}")
-    elif isinstance(result, (ICLResult, GSMResult)):
-        print(f"Acc: {result.accuracy:.4f}")
-
-
-def get_projection_heads(base_model, component: str, project_n_heads: int):
+def get_projection_heads(base_model, component: str):
     """Get the appropriate heads for projection based on component"""
     diagonal_induction_heads = base_model.diagonal_induction_heads
     induction_heads = base_model.induction_heads
@@ -66,12 +79,17 @@ def get_projection_heads(base_model, component: str, project_n_heads: int):
     else:
         num_all_heads = len(induction_heads)
 
+    project_n_heads = PROJECT_CONFIGS["project_n_heads"]
+    projected_n_heads = PROJECT_CONFIGS["projected_n_heads"]
+    if projected_n_heads < 1:
+        projected_n_heads = int(projected_n_heads * num_all_heads)
+
     if component == "qk":
         layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = induction_heads[: int(0.25 * num_all_heads)]
+        projected_layer_head_pairs = induction_heads[:projected_n_heads]
     elif component == "ov":
         layer_head_pairs = diagonal_induction_heads[:project_n_heads]
-        projected_layer_head_pairs = previous_token_heads[: int(0.25 * num_all_heads)]
+        projected_layer_head_pairs = previous_token_heads[:projected_n_heads]
 
     return layer_head_pairs, projected_layer_head_pairs
 
@@ -80,9 +98,6 @@ def evaluate_model_with_projection(
     base_model,
     task,
     component: str,
-    project_n_heads: int,
-    num_samples: int,
-    task_seed: int = 42,
     **task_kwargs,
 ):
     print("========= MODEL ==========")
@@ -90,18 +105,13 @@ def evaluate_model_with_projection(
 
     """Common evaluation logic for all tasks"""
     # Get initial result
-    result = task.evaluate_model(
-        model=base_model,
-        num_samples=num_samples,
-        task_random_seed=task_seed,
-        **task_kwargs,
-    )
+    result = task.evaluate_model(model=base_model, **task_kwargs)
     print("========= Original ==========")
-    print_result(result)
+    print(result)
 
     # Setup projection model
     layer_head_pairs, projected_layer_head_pairs = get_projection_heads(
-        base_model, component, project_n_heads
+        base_model, component
     )
 
     proj_model = ProjectModel(
@@ -119,24 +129,21 @@ def evaluate_model_with_projection(
 
         for rank in ranks:
             proj_model.project(component, rank, project_out=project_out)
-            result = task.evaluate_model(
-                model=proj_model,
-                num_samples=num_samples,
-                task_random_seed=task_seed,
-                **task_kwargs,
-            )
+            result = task.evaluate_model(model=proj_model, **task_kwargs)
 
+            acc_prob["rank"] = acc_prob.get("rank", []) + [rank]
             # Store results
-            if isinstance(result, CopyingResult):
-                acc_prob["rank"] = acc_prob.get("rank", []) + [rank]
+            if isinstance(result, (CopyingResult)):
                 acc_prob["acc"] = acc_prob.get("acc", []) + [1 - result.err]
                 acc_prob["prob"] = acc_prob.get("prob", []) + [result.prob]
-            elif isinstance(result, (ICLResult, GSMResult)):
-                acc_prob["rank"] = acc_prob.get("rank", []) + [rank]
-                acc_prob["acc"] = acc_prob.get("acc", []) + [result.accuracy]
+            elif isinstance(result, (FuzzyCopyResult, ICLResult, IOIResult)):
+                acc_prob["acc"] = acc_prob.get("acc", []) + [result.acc]
+                acc_prob["prob"] = acc_prob.get("prob", []) + [result.prob]
+            elif isinstance(result, (GSMResult)):
+                acc_prob["acc"] = acc_prob.get("acc", []) + [result.acc]
 
             print(f"========= Rank {rank} ==========")
-            print_result(result)
+            print(result)
             proj_model.revert()
 
         # Create projection result
@@ -151,7 +158,7 @@ def evaluate_model_with_projection(
         result = ProjectionResult(
             model_details=model_details,
             task_details=task.get_task_details(),
-            num_samples=num_samples,
+            num_samples=task_kwargs["num_samples"],
             result=acc_prob,
         )
         aggregated_results.append(result)
@@ -160,27 +167,17 @@ def evaluate_model_with_projection(
 
 
 def main(model_names: str, task_name: str):
-    config = TASK_CONFIGS[task_name]
+    task_config = TASK_CONFIGS[task_name]
     for model_name in model_names.split(","):
-        base_model = HFModel(model_name, device="cuda", **config["model_kwargs"])
-        task = config["task_class"](**config["task_kwargs"])
-
-        if task_name == "copying":
-            batch_size = {"gemma2-9b": 1, "gpt2": 100, "gpt2-xl": 100}.get(
-                model_name, 8
-            )
-            more_kwargs = {"batch_size": batch_size}
-        else:
-            more_kwargs = {}
+        base_model = HFModel(model_name, device="cuda", **task_config["model_kwargs"])
+        task = task_config["task_class"](**task_config["task_kwargs"])
 
         for component in ["qk", "ov"]:
             results = evaluate_model_with_projection(
                 base_model=base_model,
                 task=task,
                 component=component,
-                project_n_heads=10,
-                num_samples=100,
-                **more_kwargs,
+                **task_config["eval_kwargs"],
             )
 
             save_results(
@@ -188,7 +185,8 @@ def main(model_names: str, task_name: str):
                 task_name,
                 component,
                 results,
-                config.get("additional_params"),
+                proj_additional_params=PROJECT_CONFIGS.get("additional_params"),
+                task_additional_params=task_config.get("additional_params"),
             )
 
 

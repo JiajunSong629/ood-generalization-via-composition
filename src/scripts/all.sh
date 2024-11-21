@@ -9,8 +9,9 @@ logfile="logs/run_${timestamp}.log"
 
 # Define arrays for models and evaluation scripts
 models=("gpt2" "gpt2-xl" "llama2-7b" "llama3-8b" "gemma-7b" "gemma2-9b" "falcon-7b" "mistral-7b" "olmo-7b" "pythia-7b")
-tasks=("gsm")
-scripts=("evaluate_removal.py")
+tasks=("ioi")
+# scripts=("evaluate_projection.py" "evaluate_shuffle.py")
+scripts=("evaluate_projection.py" "evaluate_shuffle.py")
 
 # Export PYTHONWARNINGS to ignore warnings
 export PYTHONWARNINGS="ignore"

@@ -16,6 +16,7 @@ class GenerationExampleResult:
     expected_answer: str
     model_solution: str
     correct: bool
+    prob: float
     multiple_choice_logprob: Dict[str, float]
 
 
@@ -183,7 +184,15 @@ class ICLTask(task_api.Task):
             self._balanced_sample,
             task_random_seed,
         )
-        solutions = model.generate_text(prompts, max_new_tokens=3)
+
+        if model.model_meta["model_name"].startswith("gpt"):
+            batch_size = 100
+        else:
+            batch_size = 1
+
+        solutions = model.generate_text(
+            prompts, max_new_tokens=3, batch_size=batch_size
+        )
 
         acc = [answer in solution for answer, solution in zip(answers, solutions)]
         logprob = model.cond_log_prob(
@@ -194,12 +203,15 @@ class ICLTask(task_api.Task):
         for prompt, answer, solution, is_correct, pred_logprob in zip(
             prompts, answers, solutions, acc, logprob
         ):
+            logprob_on_correct = pred_logprob[self.choices.index(f" {answer},")]
+
             eval_results.append(
                 GenerationExampleResult(
                     prompt=prompt,
                     expected_answer=answer,
                     model_solution=solution,
                     correct=bool(is_correct),
+                    prob=np.exp(logprob_on_correct),
                     multiple_choice_logprob={
                         c: lp for c, lp in zip(self.choices, pred_logprob)
                     },
@@ -210,7 +222,8 @@ class ICLTask(task_api.Task):
         result = result_api.ICLResult(
             task_details=self.get_task_details(),
             model_details=copy.deepcopy(model.model_meta),
-            accuracy=float(np.mean(acc)),
+            acc=float(np.mean(acc)),
+            prob=float(np.mean([r.prob for r in eval_results])),
             num_samples=num_samples,
             random_seed=task_random_seed,
             examples=eval_results,
