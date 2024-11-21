@@ -111,13 +111,18 @@ class GSMTask(task.Task):
         acc = 0
         examples = []
 
+        if model.model_meta["model_name"].startswith("gpt2"):
+            batch_size = 8
+        else:
+            batch_size = 1
+
         for prompt, answer in zip(prompts, answers):
             response = model.generate_text(
                 prompt,
                 max_new_tokens=self._max_new_tokens,
                 num_beams=self._num_beams,
                 num_outputs=self._num_outputs,
-                batch_size=1,
+                batch_size=batch_size,
             )
 
             answer = self._extract_answer(answer)

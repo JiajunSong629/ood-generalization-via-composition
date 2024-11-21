@@ -1,5 +1,7 @@
 import torch
 import importlib
+import copy
+import numpy as np
 from typing import List, Tuple, Optional, Dict, Type
 from src.models.huggingface_models import HFModel
 
@@ -12,6 +14,7 @@ class HeadRemovalModel:
         self._model = base_model._model
         self._device = base_model.model_meta["device"]
         self._model_meta = base_model.model_meta
+        self._induction_heads = base_model.induction_heads
 
         # Set attention implementation to eager
         for module in self._model.modules():
@@ -21,8 +24,21 @@ class HeadRemovalModel:
 
         self._is_masked = False
         self._original_modules = {}
+        self._masked_method = None
         self.head_mask = None
         self.head_indices = None
+
+    @property
+    def model_meta(self):
+        meta = copy.deepcopy(self._model_meta)
+        if self._is_masked and len(self.head_indices) > 0:
+            meta["mask_meta"] = {
+                "is_masked": self._is_masked,
+                "masked_method": self._masked_method,
+                "masked_n_heads": len(self.head_indices),
+                "masked_heads": self.head_indices,
+            }
+        return meta
 
     def mask(self, layer_head_pairs: List[Tuple[int, int]]):
         """Apply masking to specified heads"""
@@ -43,6 +59,23 @@ class HeadRemovalModel:
         # Replace attention modules with masked versions
         self._replace_attention_modules()
         self._is_masked = True
+
+    def mask_top_ih(self, n_heads: int):
+        self.mask(layer_head_pairs=self._induction_heads[:n_heads])
+        self._masked_method = "top_ih"
+
+    def mask_random(self, n_heads: int, seed: int = None):
+        if seed is not None:
+            np.random.seed(seed)
+
+        masked_heads = [
+            self._induction_heads[i]
+            for i in np.random.choice(
+                len(self._induction_heads), n_heads, replace=False
+            )
+        ]
+        self.mask(layer_head_pairs=masked_heads)
+        self._masked_method = "random"
 
     def _replace_attention_modules(self):
         """Replace attention modules with masked versions"""
@@ -100,6 +133,7 @@ class HeadRemovalModel:
         self.head_mask = None
         self.head_indices = None
         self._is_masked = False
+        self._masked_method = None
 
     def __getattr__(self, name):
         return getattr(self._base_model, name)

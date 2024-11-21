@@ -45,19 +45,32 @@ def evaluate_model_with_masking(
 ):
     """Common evaluation logic for masking experiments"""
     removal_config = REMOVAL_CONFIGS[base_model.model_name]
-    induction_heads = base_model.induction_heads
 
     aggregated_results = []
 
     # Evaluate masked models
     removal_model = HeadRemovalModel(base_model=base_model)
     for n_head in removal_config["n_heads"]:
-        removal_model.mask(induction_heads[:n_head])
+        # remove top induction heads
+        removal_model.mask_top_ih(n_head)
         result = task.evaluate_model(removal_model, **task_kwargs)
-        print("======== N_MASKED_HEADS", n_head)
+        print("======== MASK", n_head, "TOP IH HEADS")
         print(result)
         aggregated_results.append(result)
         removal_model.revert()
+
+        if n_head == 0:
+            continue
+
+        # remove random heads
+        for seed in REMOVAL_CONFIGS["random_seeds"]:
+            removal_model.mask_random(n_head, seed)
+            result = task.evaluate_model(removal_model, **task_kwargs)
+            print("======== MASK", n_head, "RANDOM HEADS")
+            print(result)
+
+            aggregated_results.append(result)
+            removal_model.revert()
 
     return aggregated_results
 

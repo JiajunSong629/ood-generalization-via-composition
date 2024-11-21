@@ -299,6 +299,8 @@ TASK_CONFIGS = {
         "task_kwargs": {
             "num_shots": 10,
             "max_new_tokens": 128,
+            "num_beams": 5,
+            "num_outputs": 3,
         },
         "eval_kwargs": {
             "num_samples": 100,
@@ -328,7 +330,7 @@ TASK_CONFIGS = {
             "num_outputs": 3,
         },
         "eval_kwargs": {
-            "num_samples": 3,
+            "num_samples": 100,
             "task_random_seed": 42,
         },
         "model_kwargs": {"quantize": False},
@@ -349,6 +351,7 @@ SHUFFLE_CONFIGS = {
 }
 
 REMOVAL_CONFIGS = {
+    "random_seeds": range(0, 100, 20),
     "gpt2": {"n_heads": range(0, 60, 10)},
     "gpt2-xl": {"n_heads": range(0, 60, 10)},
     "llama2-7b": {"n_heads": list(range(0, 60, 10)) + [100, 200]},
