@@ -1,5 +1,5 @@
 import torch.nn.functional as F
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 import torch
 import math
 from transformers.cache_utils import Cache
@@ -14,6 +14,98 @@ from transformers.models.gpt_neox.modeling_gpt_neox import GPTNeoXAttention
 from transformers.models.mistral.modeling_mistral import MistralAttention
 from transformers.models.olmo.modeling_olmo import OlmoAttention
 from transformers.models.falcon.modeling_falcon import FalconAttention
+from transformers.models.gpt2.modeling_gpt2 import GPT2Attention
+
+
+class AdaGPT2Attention(GPT2Attention):
+    """GPT2 attention with head masking capability"""
+
+    def __init__(
+        self,
+        original_attention: GPT2Attention,
+        mask_layer_idx: int,
+        head_mask: torch.Tensor,
+    ):
+        super().__init__(
+            original_attention.config, layer_idx=original_attention.layer_idx
+        )
+        for name, value in vars(original_attention).items():
+            setattr(self, name, value)
+
+        self.mask_layer_idx = mask_layer_idx
+        self.head_mask = head_mask
+
+    def forward(
+        self,
+        hidden_states: Optional[Tuple[torch.FloatTensor]],
+        layer_past: Optional[Tuple[torch.Tensor]] = None,
+        attention_mask: Optional[torch.FloatTensor] = None,
+        head_mask: Optional[torch.FloatTensor] = None,
+        encoder_hidden_states: Optional[torch.Tensor] = None,
+        encoder_attention_mask: Optional[torch.FloatTensor] = None,
+        use_cache: Optional[bool] = False,
+        output_attentions: Optional[bool] = False,
+    ) -> Tuple[Union[torch.Tensor, Tuple[torch.Tensor]], ...]:
+        if encoder_hidden_states is not None:
+            if not hasattr(self, "q_attn"):
+                raise ValueError(
+                    "If class is used as cross attention, the weights `q_attn` have to be defined. "
+                    "Please make sure to instantiate class with `GPT2Attention(..., is_cross_attention=True)`."
+                )
+
+            query = self.q_attn(hidden_states)
+            key, value = self.c_attn(encoder_hidden_states).split(
+                self.split_size, dim=2
+            )
+            attention_mask = encoder_attention_mask
+        else:
+            query, key, value = self.c_attn(hidden_states).split(self.split_size, dim=2)
+
+        query = self._split_heads(query, self.num_heads, self.head_dim)
+        key = self._split_heads(key, self.num_heads, self.head_dim)
+        value = self._split_heads(value, self.num_heads, self.head_dim)
+
+        if layer_past is not None:
+            past_key, past_value = layer_past
+            key = torch.cat((past_key, key), dim=-2)
+            value = torch.cat((past_value, value), dim=-2)
+
+        if use_cache is True:
+            present = (key, value)
+        else:
+            present = None
+
+        if self.reorder_and_upcast_attn:
+            attn_output, attn_weights = self._upcast_and_reordered_attn(
+                query, key, value, attention_mask, head_mask
+            )
+        else:
+            attn_output, attn_weights = self._attn(
+                query, key, value, attention_mask, head_mask
+            )
+
+        # attn_output = self._merge_heads(attn_output, self.num_heads, self.head_dim)
+        attn_output = attn_output.permute(0, 2, 1, 3).contiguous()
+
+        # added by zhuoyan
+        mask = torch.ones_like(attn_output, device=attn_output.device)
+        mask_heads_ids = self.head_mask[self.mask_layer_idx] == 0
+        mask[:, :, mask_heads_ids, :] = 0
+        attn_output_masked = attn_output * mask
+        attn_output = attn_output_masked
+        # end of added by zhuoyan
+
+        new_shape = attn_output.size()[:-2] + (self.num_heads * self.head_dim,)
+        attn_output = attn_output.view(new_shape)
+
+        attn_output = self.c_proj(attn_output)
+        attn_output = self.resid_dropout(attn_output)
+
+        outputs = (attn_output, present)
+        if output_attentions:
+            outputs += (attn_weights,)
+
+        return outputs  # a, present, (attentions)
 
 
 class AdaGemmaAttention(GemmaAttention):
