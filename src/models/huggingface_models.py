@@ -14,7 +14,7 @@ from src.config import (
 )
 
 from transformers import BitsAndBytesConfig
-
+from pdb import set_trace as pds
 
 # squelch some excessive logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
@@ -74,7 +74,7 @@ class HFModel:
 
                 self._model = model_class.from_pretrained(
                     self._hf_name,
-                    local_files_only=True,
+                    local_files_only=False,
                     pad_token_id=self._tokenizer.eos_token_id,
                     device_map="auto",  # Handles device placement automatically
                     quantization_config=quantization_config,
@@ -85,7 +85,7 @@ class HFModel:
             else:
                 self._model = model_class.from_pretrained(
                     self._hf_name,
-                    local_files_only=True,
+                    local_files_only=False,
                     pad_token_id=self._tokenizer.eos_token_id,
                     torch_dtype=torch.bfloat16,
                     attn_implementation="eager",
@@ -95,7 +95,7 @@ class HFModel:
             self._model = model_class.from_pretrained(
                 self._hf_name,
                 pad_token_id=self._tokenizer.eos_token_id,
-                output_attentions=True,
+                output_attentions=False,
             )
 
         self._model.eval()

@@ -26,7 +26,7 @@ MODEL_CLASSES = {
     "llama3-8b": {
         "lm": transformers.LlamaForCausalLM,
         "tokenizer": transformers.AutoTokenizer,
-        "hf_name": "/home/jiajun/.cache/huggingface/hub/models--meta-llama--Llama-3-8b-hf",
+        "hf_name": "meta-llama/Meta-Llama-3-8B-Instruct",
     },
     "gemma-7b": {
         "lm": transformers.GemmaForCausalLM,
@@ -35,7 +35,7 @@ MODEL_CLASSES = {
     },
     "gemma2-9b": {
         "lm": transformers.Gemma2ForCausalLM,
-        "tokenizer": transformers.GemmaTokenizer,
+        "tokenizer": transformers.AutoTokenizer,
         "hf_name": "google/gemma-2-9b",
     },
     "falcon-7b": {
