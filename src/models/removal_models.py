@@ -71,7 +71,9 @@ class HeadRemovalModel:
         masked_heads = [
             self._induction_heads[i]
             for i in np.random.choice(
-                len(self._induction_heads), n_heads, replace=False
+                len(self._induction_heads),
+                min(len(self._induction_heads), n_heads),
+                replace=False,
             )
         ]
         self.mask(layer_head_pairs=masked_heads)
