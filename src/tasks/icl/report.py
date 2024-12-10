@@ -250,6 +250,87 @@ def main_projection():
             plot_projection_results(d_all, component=component, type=type)
 
 
+#######################################################
+########### SCALING ###################################
+#######################################################
+
+
+def load_scaling_results(model_name, type):
+    fname = f"{model_name}_symbol_20_removal.json"
+    result_path = os.path.join(RESULTS_DIR, fname)
+    with open(result_path, "r") as f:
+        results = json.load(f)
+
+    results = [result_api.ICLResult(**r) for r in results]
+
+    d = {"top_ih": {}, "random": {}}
+    for result in results:
+        if "mask_meta" not in result.model_details:
+            d["top_ih"][0] = getattr(result, type)
+            continue
+
+        mask_meta = result.model_details["mask_meta"]
+        masked_method = mask_meta["masked_method"]
+        masked_n_heads = mask_meta["masked_n_heads"]
+        if masked_method == "random":
+            d["random"][masked_n_heads] = d["random"].get(masked_n_heads, []) + [
+                getattr(result, type)
+            ]
+        elif masked_method == "top_ih":
+            d["top_ih"][masked_n_heads] = getattr(result, type)
+
+    return d
+
+
+def plot_scaling_results(results, type):
+    fig, ax = plt.subplots(figsize=(10, 6))
+    colors = plt.cm.viridis(np.linspace(0, 1, len(results)))
+
+    for (model_name, model_result), color in zip(results.items(), colors):
+        # Extract model size from name for legend
+        size = (
+            model_name.split("-")[1]
+            .replace("b", "B")
+            .replace("m", "M")
+            .replace("_", ".")
+        )
+        x_values = list(model_result[type]["top_ih"].keys())
+        y_values = [model_result[type]["top_ih"][x] for x in x_values]
+        ax.plot(x_values, y_values, "-o", label=size, color=color)
+
+    ax.set_xlabel("Number of Heads Masked")
+    ax.set_ylabel(type.upper())
+    ax.set_title(f"Effect of Head Masking on Model {type.upper()}")
+    ax.set_xlim(-5, 60)
+    ax.legend(title="Model Size", bbox_to_anchor=(1.05, 1), loc="upper left")
+    ax.grid(True)
+
+    # Adjust layout to prevent label cutoff
+    fig.tight_layout()
+    fig.savefig(
+        f"{FIGURES_DIR}/scaling_removal_symbol_{type}.png",
+        bbox_inches="tight",
+        dpi=300,
+    )
+    plt.close()
+
+
+def main_scaling():
+    d_scaling_symbol = {}
+    for model_name in MODEL_CLASSES:
+        if not model_name.startswith("pythia") or model_name == "pythia-14m":
+            continue
+        d_scaling_symbol[model_name] = {}
+        for type in ["prob", "acc_generation", "acc_multiple_choice"]:
+            d_scaling_symbol[model_name][type] = load_scaling_results(model_name, type)
+
+    with open("scaling_results.json", "w") as f:
+        json.dump(d_scaling_symbol, f, indent=4)
+
+    for type in ["prob", "acc_generation", "acc_multiple_choice"]:
+        plot_scaling_results(d_scaling_symbol, type)
+
+
 if __name__ == "__main__":
     import argparse
 
@@ -261,3 +342,5 @@ if __name__ == "__main__":
         main_shuffle()
     if args.experiment == "projection":
         main_projection()
+    if args.experiment == "scaling":
+        main_scaling()
