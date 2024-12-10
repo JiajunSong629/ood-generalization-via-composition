@@ -11,7 +11,7 @@ from src.models.huggingface_models import HFModel
 
 
 def save_results(
-    base_model,
+    model_name,
     task_name,
     results,
     removal_additional_params=None,
@@ -19,7 +19,10 @@ def save_results(
 ):
     """Utility function to save results"""
     cur_dir = os.path.dirname(os.path.abspath(__file__))
-    result_dir = os.path.join(cur_dir, "tasks", task_name, "results")
+    task_type = task_name.split("-")[
+        0
+    ]  # for ioi-original like task name, we save it under ioi
+    result_dir = os.path.join(cur_dir, "tasks", task_type, "results")
     os.makedirs(result_dir, exist_ok=True)
 
     task_params_str = (
@@ -33,7 +36,7 @@ def save_results(
         else ""
     )
 
-    fname = f"{base_model.model_name}{removal_params_str}{task_params_str}_removal.json"
+    fname = f"{model_name}{removal_params_str}{task_params_str}_removal.json"
     result_class = type(results[0])
     result_class.save_multiple(results, os.path.join(result_dir, fname))
 
@@ -80,11 +83,7 @@ def main(model_names: str, task_name: str):
 
     for model_name in model_names.split(","):
         removal_config = REMOVAL_CONFIGS[model_name]
-        base_model = HFModel(
-            model_name=model_name,
-            device="cuda",
-            **task_config["model_kwargs"],
-        )
+        base_model = HFModel(model_name=model_name, **task_config["model_kwargs"])
         task = task_config["task_class"](**task_config["task_kwargs"])
         results = evaluate_model_with_masking(
             base_model=base_model,
@@ -93,7 +92,7 @@ def main(model_names: str, task_name: str):
         )
 
         save_results(
-            base_model=base_model,
+            model_name=model_name,
             task_name=task_name,
             results=results,
             task_additional_params=task_config.get("additional_params"),

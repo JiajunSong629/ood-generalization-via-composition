@@ -19,89 +19,56 @@ from pdb import set_trace as pds
 # squelch some excessive logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR)
-
-
 torch.set_grad_enabled(False)
 
-
-def _recursive_to_float(data):
-    """Recursively converts nested lists of np.array/torch.tensor to lists of floats.
-
-    Args:
-        data: Can be a number, np.array, torch.tensor, or nested lists of these types
-
-    Returns:
-        The same structure with all numbers converted to floats
-    """
-    if isinstance(data, (np.ndarray, torch.Tensor)):
-        # Convert tensor/array to list of floats
-        return (
-            data.detach().cpu().float().numpy().tolist()
-            if torch.is_tensor(data)
-            else data.tolist()
-        )
-    elif isinstance(data, (list, tuple)):
-        # Recursively convert each element
-        return [_recursive_to_float(item) for item in data]
-    elif isinstance(data, (int, float, np.number)):
-        # Convert numbers to float
-        return float(data)
-    else:
-        raise TypeError(f"Unsupported type: {type(data)}")
-
-
 class HFModel:
-    def __init__(self, model_name: str, device: str, quantize: bool = False):
+    def __init__(self, model_name: str, device: str = None, quantize: bool = False):
         self._model_name = model_name
         model_class = MODEL_CLASSES[self._model_name]["lm"]
         tokenizer_class = MODEL_CLASSES[self._model_name]["tokenizer"]
         self._hf_name = MODEL_CLASSES[self._model_name]["hf_name"]
-
-        self._device = device
+        self._torch_dtype = MODEL_CLASSES[self._model_name]["torch_dtype"]
+        if device is None:
+            self._device = MODEL_CLASSES[self._model_name]["device"]
+        else:
+            self._device = device
+        
         self._tokenizer = tokenizer_class.from_pretrained(self._hf_name)
         self._tokenizer.pad_token = self._tokenizer.eos_token
         self._tokenizer.padding_side = "left"
 
-        if device == "cuda":
-            if quantize:
-                # 4-bit quantization configuration
-                quantization_config = BitsAndBytesConfig(
-                    load_in_4bit=True,
-                    bnb_4bit_compute_dtype=torch.bfloat16,  # Match your original bf16
-                    bnb_4bit_use_double_quant=True,
-                    bnb_4bit_quant_type="nf4",
-                )
+        if quantize:
+            # 4-bit quantization configuration
+            quantization_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.bfloat16,  # Match your original bf16
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4",
+            )
 
-                self._model = model_class.from_pretrained(
-                    self._hf_name,
-                    local_files_only=False,
-                    pad_token_id=self._tokenizer.eos_token_id,
-                    device_map="auto",  # Handles device placement automatically
-                    quantization_config=quantization_config,
-                    torch_dtype=torch.bfloat16,
-                    attn_implementation="eager",
-                    output_attentions=True,
-                )
-            else:
-                self._model = model_class.from_pretrained(
-                    self._hf_name,
-                    local_files_only=False,
-                    pad_token_id=self._tokenizer.eos_token_id,
-                    torch_dtype=torch.bfloat16,
-                    attn_implementation="eager",
-                    output_attentions=True,
-                ).to(device)
+            self._model = model_class.from_pretrained(
+                self._hf_name,
+                local_files_only=True,
+                pad_token_id=self._tokenizer.eos_token_id,
+                device_map=self._device,  # Handles device placement automatically
+                quantization_config=quantization_config,
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                output_attentions=True,
+            )
         else:
             self._model = model_class.from_pretrained(
                 self._hf_name,
+                local_files_only=True,
                 pad_token_id=self._tokenizer.eos_token_id,
-                output_attentions=False,
-            )
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                output_attentions=True,
+            ).to(self._device)
 
         self._model.eval()
-        self._device = device
         self._model_meta = MODEL_META[self._model_name]
-        self._model_meta.update({"device": self._device})
+        self._model_meta.update({"device": self._device, "torch_dtype": str(self._torch_dtype)})
 
     @property
     def model_name(self):
@@ -256,9 +223,65 @@ class HFModel:
             score += token_logprob.item()
 
         return score
+        # prompt_tokens = self._tokenizer.encode(input, return_tensors="pt").to("cuda")
+        # answer_tokens = self._tokenizer.encode(target, return_tensors="pt").to("cuda")
+        # combine_tokens = self._tokenizer.encode(
+        #     f"{input} {target}", return_tensors="pt"
+        # ).to("cuda")
+
+        # # print("prompt tok: ", prompt_tokens.shape, prompt_tokens)
+        # # print("ans tok: ",answer_tokens.shape,  answer_tokens)
+        # # print("combine tok: ", combine_tokens.shape, combine_tokens)
+        # # print("decode combine_tok: ", tokenizer.decode(combine_tokens.tolist()[0]))
+
+        # # Concatenate prompt and answer tokens # TODO, should not concat tokens together, should do A then A+B
+        # # concat_tokens = torch.cat((prompt_tokens, answer_tokens), dim=1)
+
+        # # print("concat tok: ", concat_tokens.shape, concat_tokens)
+        # # print(concat_tokens.tolist()[0])
+        # # print("decode concat_tok: ", tokenizer.decode(concat_tokens.tolist()[0]))
+
+        # # Get the length of the prompt and answer
+        # prompt_len = prompt_tokens.size(1)
+        # # print("prompt_len: ", prompt_len)
+
+        # # Forward pass through the model
+        # outputs = self._model(input_ids=combine_tokens, return_dict=True)
+        # # print("output.logits: ", outputs.logits.shape)
+        # logits = outputs.logits[
+        #     :, prompt_len - 1 : -1, :
+        # ]  # tricky, depends on the tokenizer, sos and eos token, better to print out then trunctate
+        # ### logits = outputs.logits[:, :-1, :]  # tricky, depends on the tokenizer, sos and eos token, better to print out then trunctate
+        # logits = logits.view(-1, logits.size(-1))  ## format as [bs, num_cls]
+        # # print("logits.shape: ", logits.shape)
+
+        # # Prepare the target tokens (shift answer tokens by one position)
+        # target_tokens = combine_tokens[
+        #     :, prompt_len:
+        # ].squeeze()  # Remove batch dimension if necessary
+        # ### target_tokens = combine_tokens[:, 1:].squeeze() # Remove batch dimension if necessary
+        # target_tokens = target_tokens.view(-1)  ## format as [bs]
+        # # print("target_tokens: ", target_tokens.shape, target_tokens)
+
+        # # pdb.set_trace()
+
+        # # assert False
+
+        # # Compute the loss
+        # import torch.nn as nn
+
+        # loss_fct = nn.CrossEntropyLoss(reduction="sum")
+        # loss = loss_fct(logits, target_tokens)
+
+        # return loss.item()
 
     def cond_log_prob(self, inputs: List[str], targets: List[List[str]]) -> List[float]:
         """Calculates log probability of targets given input: log p(targets|input)"""
+        torch.manual_seed(1234)
+        torch.cuda.manual_seed_all(1234)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
         log_probs = []
 
         for input, choices in zip(inputs, targets):
@@ -274,8 +297,8 @@ class HFModel:
         num_outputs: int = 1,
         batch_size: int = 1,
     ) -> Union[str, List[str], List[List[str]]]:
-        torch.manual_seed(42)
-        torch.cuda.manual_seed_all(42)
+        torch.manual_seed(1234)
+        torch.cuda.manual_seed_all(1234)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 

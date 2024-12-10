@@ -14,8 +14,10 @@ import src.api.model as model_api
 class GenerationExampleResult:
     prompt: str
     expected_answer: str
-    model_solution: str
-    correct: bool
+    generation_solution: List[str]
+    multiple_choice_solution: str
+    is_correct_generation: bool
+    is_correct_multiple_choice: bool
     prob: float
     multiple_choice_logprob: Dict[str, float]
 
@@ -81,10 +83,19 @@ def template(item: str, label: str = None) -> str:
 
 
 class ICLTask(task_api.Task):
-    def __init__(self, setting: str, num_shots: int, balanced_sample):
+    def __init__(
+        self,
+        setting: str,
+        num_shots: int,
+        num_beams: int = 1,
+        num_outputs: int = 1,
+        balanced_sample: bool = True,
+    ):
         super().__init__()
         self._setting = setting
         self._num_shots = num_shots
+        self._num_beams = num_beams
+        self._num_outputs = num_outputs
         self._balanced_sample = balanced_sample
 
     def get_task_details(self) -> Dict[str, Any]:
@@ -99,17 +110,15 @@ class ICLTask(task_api.Task):
     @property
     def choices(self):
         if self._setting == "permute":
-            return ["animal", "sport", "plant/vegetable"]
+            return [" animal", " sport", " plant/vegetable"]
         elif self._setting == "original":
-            return ["sport", "plant", "animal"]
+            return [" sport", " plant", " animal"]
         elif self._setting == "symbol":
             return [" $#,", " !%,", " &*,"]
         else:
             raise ValueError(f"Invalid setting: {self._setting}")
 
-    def get_prompts_and_answers(
-        self, num_samples: int, balanced_sample: bool = True, seed: int = None
-    ):
+    def get_prompts_and_answers(self, num_samples: int, seed: int = None):
         if seed is not None:
             random.seed(seed)
 
@@ -134,7 +143,7 @@ class ICLTask(task_api.Task):
             prompt = ""
             selected = set()
 
-            if balanced_sample:
+            if self._balanced_sample:
                 # Ensure one item from each category
                 for category, items in categories.items():
                     item = random.choice(items)
@@ -179,38 +188,51 @@ class ICLTask(task_api.Task):
         num_samples: int,
         task_random_seed: Optional[int] = None,
     ) -> float:
-        prompts, answers = self.get_prompts_and_answers(
-            num_samples,
-            self._balanced_sample,
-            task_random_seed,
-        )
+        prompts, answers = self.get_prompts_and_answers(num_samples, task_random_seed)
 
         if model.model_meta["model_name"].startswith("gpt"):
-            batch_size = 100
+            batch_size = 8
         else:
             batch_size = 1
 
-        solutions = model.generate_text(
-            prompts, max_new_tokens=3, batch_size=batch_size
+        generation_solutions = model.generate_text(
+            prompts,
+            max_new_tokens=3,
+            batch_size=batch_size,
+            num_beams=self._num_beams,
+            num_outputs=self._num_outputs,
         )
-
-        acc = [answer in solution for answer, solution in zip(answers, solutions)]
         logprob = model.cond_log_prob(
             prompts, [self.choices for _ in range(num_samples)]
         )
 
         eval_results = []
-        for prompt, answer, solution, is_correct, pred_logprob in zip(
-            prompts, answers, solutions, acc, logprob
+        for prompt, answer, pred_logprob, generation_solution in zip(
+            prompts, answers, logprob, generation_solutions
         ):
-            logprob_on_correct = pred_logprob[self.choices.index(f" {answer},")]
+            answer_in_choices = (
+                f" {answer}," if self._setting == "symbol" else f" {answer}"
+            )
+            logprob_on_correct = pred_logprob[self.choices.index(answer_in_choices)]
+            multiple_choice_solution = self.choices[np.argmax(pred_logprob)]
+
+            if isinstance(generation_solution, list):
+                is_correct_generation = any(answer in s for s in generation_solution)
+            else:
+                is_correct_generation = answer in generation_solution
+
+            is_correct_multiple_choice = np.argmax(pred_logprob) == self.choices.index(
+                answer_in_choices
+            )
 
             eval_results.append(
                 GenerationExampleResult(
                     prompt=prompt,
                     expected_answer=answer,
-                    model_solution=solution,
-                    correct=bool(is_correct),
+                    generation_solution=generation_solution,
+                    multiple_choice_solution=multiple_choice_solution,
+                    is_correct_generation=float(is_correct_generation),
+                    is_correct_multiple_choice=float(is_correct_multiple_choice),
                     prob=np.exp(logprob_on_correct),
                     multiple_choice_logprob={
                         c: lp for c, lp in zip(self.choices, pred_logprob)
@@ -222,7 +244,12 @@ class ICLTask(task_api.Task):
         result = result_api.ICLResult(
             task_details=self.get_task_details(),
             model_details=copy.deepcopy(model.model_meta),
-            acc=float(np.mean(acc)),
+            acc_generation=float(
+                np.mean([r.is_correct_generation for r in eval_results])
+            ),
+            acc_multiple_choice=float(
+                np.mean([r.is_correct_multiple_choice for r in eval_results])
+            ),
             prob=float(np.mean([r.prob for r in eval_results])),
             num_samples=num_samples,
             random_seed=task_random_seed,

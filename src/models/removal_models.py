@@ -1,6 +1,7 @@
 import torch
 import importlib
 import copy
+import random
 import numpy as np
 from typing import List, Tuple, Optional, Dict, Type
 from src.models.huggingface_models import HFModel
@@ -27,6 +28,7 @@ class HeadRemovalModel:
         self._masked_method = None
         self.head_mask = None
         self.head_indices = None
+        self._masked_seed = None
 
     @property
     def model_meta(self):
@@ -34,6 +36,7 @@ class HeadRemovalModel:
         if self._is_masked and len(self.head_indices) > 0:
             meta["mask_meta"] = {
                 "is_masked": self._is_masked,
+                "masked_seed": self._masked_seed,
                 "masked_method": self._masked_method,
                 "masked_n_heads": len(self.head_indices),
                 "masked_heads": self.head_indices,
@@ -67,15 +70,26 @@ class HeadRemovalModel:
     def mask_random(self, n_heads: int, seed: int = None):
         if seed is not None:
             np.random.seed(seed)
+            rnd = random.Random()
+            rnd.seed(seed)
 
-        masked_heads = [
-            self._induction_heads[i]
-            for i in np.random.choice(
-                len(self._induction_heads), n_heads, replace=False
-            )
+        all_pairs = [
+            (x, y)
+            for x in range(self.model_meta["num_layers"])
+            for y in range(self.model_meta["num_heads"])
         ]
+        masked_heads = rnd.sample(all_pairs, min(n_heads, len(all_pairs)))
+        # masked_heads = [
+        #     self._induction_heads[i]
+        #     for i in np.random.choice(
+        #         len(self._induction_heads),
+        #         min(len(self._induction_heads), n_heads),
+        #         replace=False,
+        #     )
+        # ]
         self.mask(layer_head_pairs=masked_heads)
         self._masked_method = "random"
+        self._masked_seed = seed
 
     def _replace_attention_modules(self):
         """Replace attention modules with masked versions"""
@@ -134,6 +148,7 @@ class HeadRemovalModel:
         self.head_indices = None
         self._is_masked = False
         self._masked_method = None
+        self._masked_seed = None
 
     def __getattr__(self, name):
         return getattr(self._base_model, name)

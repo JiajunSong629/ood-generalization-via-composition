@@ -22,6 +22,7 @@ class ProjectModel(HFModel):
         """
         self._model = base_model._model
         self._device = base_model._device
+        self._torch_dtype = base_model._torch_dtype
         self._model_meta = base_model.model_meta
         self._model_name = base_model.model_name
         self._tokenizer = base_model._tokenizer
@@ -31,6 +32,7 @@ class ProjectModel(HFModel):
         self._projected = False
         self._project_component = None
         self._rank = 0
+        self._proj_out = None
 
         # Create directory for weight storage if it doesn't exist
         self._weights_dir = os.path.join(
@@ -51,6 +53,7 @@ class ProjectModel(HFModel):
             "project_layer_head_pairs": self._project_layer_head_pairs,
             "projected_layer_head_pairs": self._projected_layer_head_pairs,
             "rank": self._rank,
+            "proj_out": self._proj_out,
         }
         return meta
 
@@ -72,7 +75,7 @@ class ProjectModel(HFModel):
 
     def _load_cached_weight(self, component_name: str) -> torch.Tensor:
         return torch.load(self._get_weight_path(component_name)).to(
-            device=self._device, dtype=torch.bfloat16
+            device=self._device, dtype=self._torch_dtype
         )
 
     def _get_Vt_common(self):
@@ -89,15 +92,15 @@ class ProjectModel(HFModel):
         K = len(self._project_layer_head_pairs)
         W_qk_all = np.zeros((K, d_model, d_model))
         for i, (layer, head) in enumerate(self._project_layer_head_pairs):
-            Wq = self._load_cached_weight(f"L_{layer}_H_{head}_q")
-            Wk = self._load_cached_weight(f"L_{layer}_H_{head}_k")
+            Wq = self._load_cached_weight(f"L_{layer}_H_{head}_q").float().cpu()
+            Wk = self._load_cached_weight(f"L_{layer}_H_{head}_k").float().cpu()
 
             if use_R:
                 R = calc_rotary_R_mat(
                     d_head=self.model_meta["head_dim"],
-                    max_seq_len=100,
-                    max_rel_dist=100,
-                )[-1].to(device=self._device, dtype=torch.bfloat16)
+                    max_seq_len=60,
+                    max_rel_dist=25,
+                )[-1]
                 W_qk = Wq @ R @ Wk.T
             else:
                 W_qk = Wq @ Wk.T
@@ -123,14 +126,16 @@ class ProjectModel(HFModel):
 
     def _project(self, project_matrix: np.ndarray, component: str):
         project_matrix = torch.tensor(
-            project_matrix, dtype=torch.bfloat16, device=self._device
+            project_matrix, dtype=self._torch_dtype, device=self._device
         )
 
         for ilayer, ihead in self._projected_layer_head_pairs:
             if component == "qk":
                 key = f"L_{ilayer}_H_{ihead}_k"
                 w = self._get_qkov_weight(ilayer, ihead, "k")
+                # print(ilayer, ihead, w.sum().item(), w.max().item(), w.min().item(), end = " => ")
                 w.copy_(project_matrix @ self._load_cached_weight(key))
+                # print(w.sum().item(), w.max().item(), w.min().item())
 
             elif component == "ov":
                 key = f"L_{ilayer}_H_{ihead}_o"
@@ -141,7 +146,10 @@ class ProjectModel(HFModel):
         assert not self._projected, "Already projected model cannot be projected again!"
 
         self._rank = rank
+        self._proj_out = project_out
+
         project_matrix = self._get_project_matrix(rank, project_out)
+
         self._project(project_matrix, component)
         self._project_component = component
         self._projected = True
