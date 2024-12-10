@@ -427,7 +427,7 @@ TASK_CONFIGS = {
             "task_random_seed": 42,
         },
         "model_kwargs": {"quantize": False},
-        "additional_params": ["4"],
+        "additional_params": ["10"],
     },
 }
 
