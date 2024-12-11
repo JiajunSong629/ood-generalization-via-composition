@@ -57,14 +57,26 @@ class HFModel:
                 output_attentions=True,
             )
         else:
-            self._model = model_class.from_pretrained(
+            if "70b" in self._hf_name or "70B" in self._hf_name:
+                self._model = model_class.from_pretrained(
                 self._hf_name,
-                local_files_only=True,
+                local_files_only=False,
                 pad_token_id=self._tokenizer.eos_token_id,
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
-                output_attentions=True,
-            ).to(self._device)
+                output_attentions=False,
+                device_map = "auto"
+            )
+            else:
+
+                self._model = model_class.from_pretrained(
+                    self._hf_name,
+                    local_files_only=False,
+                    pad_token_id=self._tokenizer.eos_token_id,
+                    torch_dtype=self._torch_dtype,
+                    attn_implementation="eager",
+                    output_attentions=True,
+                ).to(self._device)
 
         self._model.eval()
         self._model_meta = MODEL_META[self._model_name]
