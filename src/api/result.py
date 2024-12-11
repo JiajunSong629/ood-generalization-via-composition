@@ -39,12 +39,13 @@ class ICLResult(BaseResult):
     num_samples: int
     random_seed: int
     examples: List[Dict[str, Any]]
-    acc: float
+    acc_generation: float
+    acc_multiple_choice: float
     prob: float
 
     def __repr__(self) -> str:
         time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] ICLResult(acc={self.acc:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']} | {time_str}] ICLResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -65,12 +66,13 @@ class IOIResult(BaseResult):
     num_samples: int
     random_seed: int
     examples: List[Dict[str, Any]]
-    acc: float
+    acc_generation: float
+    acc_multiple_choice: float
     prob: float
 
     def __repr__(self) -> str:
         time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] IOIResult(acc={self.acc:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']} | {time_str}] IOIResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -83,3 +85,27 @@ class GSMResult(BaseResult):
     def __repr__(self) -> str:
         time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
         return f"[{self.model_details['model_name']} | {time_str}] GSMResult(acc={self.acc:.2f})"
+
+
+@dataclasses.dataclass(kw_only=True)
+class SimpleMathResult(BaseResult):
+    num_samples: int
+    random_seed: int
+    examples: List[Dict[str, Any]]
+    acc: float
+
+    def __repr__(self) -> str:
+        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+        return f"[{self.model_details['model_name']} | {time_str}] SimpleMathResult(acc={self.acc:.2f})"
+
+
+@dataclasses.dataclass(kw_only=True)
+class GSMTinyResult(BaseResult):
+    num_samples: int
+    random_seed: int
+    examples: List[Dict[str, Any]]
+    acc: float
+
+    def __repr__(self) -> str:
+        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+        return f"[{self.model_details['model_name']} | {time_str}] GSMTinyResult(acc={self.acc:.2f})"
