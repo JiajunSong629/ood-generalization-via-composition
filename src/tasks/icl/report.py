@@ -11,7 +11,7 @@ import src.api.result as result_api
 
 RESULTS_DIR = os.path.join("results")
 FIGURES_DIR = os.path.join("figures")
-IGNORE_MODELS = ["gpt2", "gemma-7b"]
+IGNORE_MODELS = ["gpt2", "gpt2-xl", "gemma-7b"]
 
 
 os.makedirs(FIGURES_DIR, exist_ok=True)
@@ -343,4 +343,9 @@ if __name__ == "__main__":
     if args.experiment == "projection":
         main_projection()
     if args.experiment == "scaling":
+        main_scaling()
+
+    if args.experiment == "all":
+        main_shuffle()
+        main_projection()
         main_scaling()
