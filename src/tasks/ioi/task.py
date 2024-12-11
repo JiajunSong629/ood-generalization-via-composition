@@ -15,8 +15,10 @@ from src.tasks.ioi.names import NAMES, OBJECTS, BABA_TEMPLATES, PLACES, SYMBOLS
 class GenerationExampleResult:
     prompt: str
     expected_answer: str
-    model_solution: str
-    correct: bool
+    generation_solution: str
+    multiple_choice_solution: str
+    is_correct_generation: bool
+    is_correct_multiple_choice: bool
     prob: float
     multiple_choice_logprob: Dict[str, float]
 
@@ -39,13 +41,16 @@ class IOITask(task_api.Task):
         return {
             "name": "ioi",
             "description": "IOI tasks",
+            "num_beams": self._num_beams,
+            "num_outputs": self._num_outputs,
+            "max_new_tokens": self._max_new_tokens,
         }
 
     def get_examples(
         self, num_examples: int, task_random_seed: int = None
     ) -> List[List[str]]:
         if task_random_seed is not None:
-            random.seed(task_random_seed)
+            random.seed(1234)  # hard coding seed 1234 to reproduce zhuoyan's results
             np.random.seed(task_random_seed)
 
         prompts, answers, choices = [], [], []
@@ -81,7 +86,7 @@ class IOITask(task_api.Task):
     ):
         prompts, answers, choices = self.get_examples(num_samples, task_random_seed)
         if model.model_meta["model_name"].startswith("gpt"):
-            batch_size = 100
+            batch_size = 8
         else:
             batch_size = 1
 
@@ -94,26 +99,27 @@ class IOITask(task_api.Task):
         )
         scores = model.cond_log_prob(inputs=prompts, targets=choices)
 
-        acc = [
-            (
-                any([answer in s for s in solution])
-                if self._num_outputs > 1
-                else answer in solution
-            )
-            for answer, solution in zip(answers, solutions)
-        ]  # top 1 acc
-
         eval_results = []
-        for prompt, answer, solution, is_correct, score, choice in zip(
-            prompts, answers, solutions, acc, scores, choices
+        for prompt, answer, score, generation_solution, choice in zip(
+            prompts, answers, scores, solutions, choices
         ):
             logprob_on_correct = score[choice.index(f" {answer}")]
+            is_correct_multiple_choice = np.argmax(score) == choice.index(f" {answer}")
+            multiple_choice_solution = choice[np.argmax(score)]
+
+            if isinstance(generation_solution, list):
+                is_correct_generation = any(answer in s for s in generation_solution)
+            else:
+                is_correct_generation = answer in generation_solution
+
             eval_results.append(
                 GenerationExampleResult(
                     prompt=prompt,
                     expected_answer=answer,
-                    model_solution=solution,
-                    correct=is_correct,
+                    generation_solution=generation_solution,
+                    multiple_choice_solution=multiple_choice_solution,
+                    is_correct_generation=float(is_correct_generation),
+                    is_correct_multiple_choice=float(is_correct_multiple_choice),
                     prob=np.exp(logprob_on_correct),
                     multiple_choice_logprob={c: lp for c, lp in zip(choice, score)},
                 )
@@ -122,7 +128,12 @@ class IOITask(task_api.Task):
         result = result_api.IOIResult(
             task_details=self.get_task_details(),
             model_details=copy.deepcopy(model.model_meta),
-            acc=float(np.mean(acc)),
+            acc_generation=float(
+                np.mean([r.is_correct_generation for r in eval_results])
+            ),
+            acc_multiple_choice=float(
+                np.mean([r.is_correct_multiple_choice for r in eval_results])
+            ),
             prob=float(np.mean([r.prob for r in eval_results])),
             num_samples=num_samples,
             random_seed=task_random_seed,
