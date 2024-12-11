@@ -22,12 +22,12 @@ os.makedirs(FIGURES_DIR, exist_ok=True)
 
 
 def load_shuffle_results(model_name, component, type):
-    fname = f"{model_name}_symbol_20_shuffle_{component}.json"
+    fname = f"{model_name}_symbol_shuffle_{component}.json"
     result_path = os.path.join(RESULTS_DIR, fname)
     with open(result_path, "r") as f:
         results = json.load(f)
 
-    results = [result_api.ICLResult(**r) for r in results]
+    results = [result_api.IOIResult(**r) for r in results]
 
     d = {
         "original": [],
@@ -150,7 +150,7 @@ def main_shuffle():
 
 
 def load_projection_results(model_name, component, type):
-    fname = f"{model_name}_50_symbol_20_projection_{component}.json"
+    fname = f"{model_name}_50_symbol_projection_{component}.json"
     result_path = os.path.join(RESULTS_DIR, fname)
     with open(result_path, "r") as f:
         results = json.load(f)
@@ -256,7 +256,7 @@ def main_projection():
 
 
 def load_scaling_results(model_name, type):
-    fname = f"{model_name}_symbol_20_removal.json"
+    fname = f"{model_name}_symbol_removal.json"
     result_path = os.path.join(RESULTS_DIR, fname)
     with open(result_path, "r") as f:
         results = json.load(f)
