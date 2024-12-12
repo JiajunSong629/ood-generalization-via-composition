@@ -14,7 +14,7 @@ from src.config import (
 )
 
 from transformers import BitsAndBytesConfig
-
+from pdb import set_trace as pds
 
 # squelch some excessive logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
@@ -58,15 +58,16 @@ class HFModel:
                 output_attentions=True,
             )
         else:
-            self._model = model_class.from_pretrained(
-                self._hf_name,
-                local_files_only=True,
-                pad_token_id=self._tokenizer.eos_token_id,
-                torch_dtype=self._torch_dtype,
-                attn_implementation="eager",
-                output_attentions=True,
-                device_map=self._device,
-            )
+            if "70b" in self._hf_name or "70B" in self._hf_name:
+                self._model = model_class.from_pretrained(
+                    self._hf_name,
+                    local_files_only=False,
+                    pad_token_id=self._tokenizer.eos_token_id,
+                    torch_dtype=self._torch_dtype,
+                    attn_implementation="eager",
+                    output_attentions=True,
+                    device_map=self._device,
+                )
 
         self._model.eval()
         self._model_meta = MODEL_META[self._model_name]

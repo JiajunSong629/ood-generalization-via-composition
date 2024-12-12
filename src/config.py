@@ -38,6 +38,11 @@ MODEL_CLASSES = {
         "device": "cuda",
         "torch_dtype": torch.bfloat16,
     },
+    "llama3-70b": {
+        "lm": transformers.LlamaForCausalLM,
+        "tokenizer": transformers.AutoTokenizer,
+        "hf_name": "meta-llama/Meta-Llama-3-70B-Instruct",
+    },
     "gemma-7b": {
         "lm": transformers.GemmaForCausalLM,
         "tokenizer": transformers.GemmaTokenizer,
@@ -47,7 +52,7 @@ MODEL_CLASSES = {
     },
     "gemma2-9b": {
         "lm": transformers.Gemma2ForCausalLM,
-        "tokenizer": transformers.GemmaTokenizer,
+        "tokenizer": transformers.AutoTokenizer,
         "hf_name": "google/gemma-2-9b",
         "device": "cuda",
         "torch_dtype": torch.bfloat16,
@@ -172,6 +177,16 @@ MODEL_META = {
         "num_key_value_heads": 8,
         "hidden_size": 4096,
         "head_dim": 128,
+    },
+    "llama3-70b": {
+        "model_name": "llama3-70b",
+        "vocab_size": 128256,
+        "num_layers": 80,
+        "num_heads": 64,
+        "num_key_value_heads": 8,
+        "hidden_size": 8192,
+        "head_dim": 128,
+        "bos_token_id": 1,
     },
     "gemma-7b": {
         "model_name": "gemma-7b",
@@ -346,8 +361,8 @@ TASK_CONFIGS = {
         "task_kwargs": {
             "num_shots": 10,
             "max_new_tokens": 128,
-            "num_beams": 5,
-            "num_outputs": 3,
+            "num_beams": 1,
+            "num_outputs": 1,
         },
         "eval_kwargs": {
             "num_samples": 100,
@@ -469,6 +484,7 @@ REMOVAL_CONFIGS = {
     "gpt2-xl": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "llama2-7b": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "llama3-8b": {"n_heads": [0, 10, 20, 30, 40, 50]},
+    "llama3-70b": {"n_heads": [0, 50, 100, 150, 200, 250]},
     "gemma-7b": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "gemma2-9b": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "falcon-7b": {"n_heads": [0, 10, 20, 30, 40, 50]},

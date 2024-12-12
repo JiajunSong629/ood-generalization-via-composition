@@ -43,7 +43,7 @@ for model in "${models[@]}"; do
             } | tee -a "$logfile"
             
             # Execute command with unbuffered output
-            PYTHONWARNINGS="ignore" python -u -W ignore "$script" \
+            PYTHONWARNINGS="ignore" PYTHONPATH=$PYTHONPATH:.. python -u -W ignore "$script" \
                 --model_names "$model" \
                 --task_name "$task" 2>&1 \
                 | filter_warnings \
