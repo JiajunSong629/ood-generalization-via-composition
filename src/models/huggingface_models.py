@@ -21,6 +21,7 @@ logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR)
 torch.set_grad_enabled(False)
 
+
 class HFModel:
     def __init__(self, model_name: str, device: str = None, quantize: bool = False):
         self._model_name = model_name
@@ -32,7 +33,7 @@ class HFModel:
             self._device = MODEL_CLASSES[self._model_name]["device"]
         else:
             self._device = device
-        
+
         self._tokenizer = tokenizer_class.from_pretrained(self._hf_name)
         self._tokenizer.pad_token = self._tokenizer.eos_token
         self._tokenizer.padding_side = "left"
@@ -50,7 +51,7 @@ class HFModel:
                 self._hf_name,
                 local_files_only=True,
                 pad_token_id=self._tokenizer.eos_token_id,
-                device_map=self._device,  # Handles device placement automatically
+                device_map=self._device,
                 quantization_config=quantization_config,
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
@@ -64,11 +65,14 @@ class HFModel:
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
                 output_attentions=True,
-            ).to(self._device)
+                device_map=self._device,
+            )
 
         self._model.eval()
         self._model_meta = MODEL_META[self._model_name]
-        self._model_meta.update({"device": self._device, "torch_dtype": str(self._torch_dtype)})
+        self._model_meta.update(
+            {"device": self._device, "torch_dtype": str(self._torch_dtype)}
+        )
 
     @property
     def model_name(self):

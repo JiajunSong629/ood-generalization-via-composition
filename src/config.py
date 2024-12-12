@@ -5,7 +5,6 @@ from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
 from src.tasks.fuzzycopy.task import FuzzyCopyTask
 from src.tasks.ioi.task import IOITask
-from src.tasks.simple_math.task import SimpleMathTask
 from src.tasks.gsm_tiny.task import GSMTinyTask
 
 MAX_LENGTH = 2048
@@ -400,20 +399,6 @@ TASK_CONFIGS = {
         },
         "model_kwargs": {"quantize": False},
         "additional_params": ["original"],
-    },
-    "simple_math": {
-        "task_class": SimpleMathTask,
-        "task_kwargs": {
-            "num_shots": 4,
-            "setting": "symbol",
-            "max_new_tokens": 80,
-        },
-        "eval_kwargs": {
-            "num_samples": 100,
-            "task_random_seed": 42,
-        },
-        "model_kwargs": {"quantize": False},
-        "additional_params": ["symbol", "4"],
     },
     "gsm_tiny": {
         "task_class": GSMTinyTask,

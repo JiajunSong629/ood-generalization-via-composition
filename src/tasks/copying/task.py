@@ -11,27 +11,6 @@ import src.api.model as model_api
 torch.set_grad_enabled(False)
 
 
-def make_input_ids(
-    num_samples,
-    seg_len,
-    rep,
-    vocab_size,
-    prepend_bos=False,
-    bos=None,
-) -> np.ndarray:
-    sample_int = np.random.randint(
-        low=0, high=vocab_size, size=num_samples * seg_len
-    ).reshape(num_samples, seg_len)
-    sample_int = np.concatenate(tuple([sample_int] * rep), axis=1)
-
-    if prepend_bos:
-        sample_int = np.hstack([bos * np.ones((num_samples, 1), dtype=int), sample_int])
-
-    input_ids = np.array(sample_int, dtype=np.int32)
-
-    return input_ids
-
-
 class CopyingTask(task_api.Task):
     def __init__(self, seg_len, rep, ignore_segment, ignore_burning):
         self._seg_len = seg_len
@@ -47,68 +26,77 @@ class CopyingTask(task_api.Task):
             "ignore_burning": self._ignore_burning,
         }
 
+    def make_input_ids(
+        self,
+        num_samples,
+        vocab_size,
+        prepend_bos,
+        bos=None,
+        task_random_seed=None,
+    ) -> np.ndarray:
+        if task_random_seed is not None:
+            np.random.seed(task_random_seed)
+
+        sample_int = np.random.randint(
+            low=0,
+            high=vocab_size,
+            size=num_samples * self._seg_len,
+        ).reshape(num_samples, self._seg_len)
+        sample_int = np.concatenate(tuple([sample_int] * self._rep), axis=1)
+
+        if prepend_bos:
+            assert bos is not None
+            sample_int = np.hstack(
+                [bos * np.ones((num_samples, 1), dtype=int), sample_int]
+            )
+        input_ids = np.array(sample_int, dtype=np.int32)
+
+        return input_ids
+
     def evaluate_model(
         self,
         model: model_api.Model,
         num_samples: Optional[int] = None,
-        batch_size: Optional[int] = None,
         task_random_seed: Optional[int] = None,
     ):
-        if task_random_seed is not None:
-            np.random.seed(task_random_seed)
-            torch.manual_seed(task_random_seed)
-
-        if batch_size is None:
-            if model.model_meta["model_name"].startswith("gpt2"):
-                batch_size = 100
-            else:
-                batch_size = 8
-
-        offset = self._seg_len * self._ignore_segment + self._ignore_burning
-
-        input_ids = make_input_ids(
+        input_ids = self.make_input_ids(
             num_samples=num_samples,
-            seg_len=self._seg_len,
-            rep=self._rep,
             vocab_size=model.model_meta["vocab_size"],
             prepend_bos="bos_token_id" in model.model_meta,
             bos=model.model_meta.get("bos_token_id", None),
+            task_random_seed=task_random_seed,
         )
         input_ids_tensor = torch.Tensor(input_ids).long().to(model.model_meta["device"])
 
-        n_targets = len(input_ids[0]) - offset
-        probs_on_correct = np.zeros((num_samples, n_targets))
-        pred_next_token_ids = np.zeros((num_samples, n_targets), dtype=np.int64)
+        with torch.no_grad():
+            for i in range(input_ids_tensor.size(0)):
+                cur_batch_input_ids = input_ids_tensor[i : i + 1]
+                cur_logits = model._model(cur_batch_input_ids).logits.cpu()
+                if i == 0:
+                    logits = cur_logits
+                else:
+                    logits = torch.concat([logits, cur_logits])
 
-        for i, batch in enumerate(torch.split(input_ids_tensor, batch_size)):
-            batch_start = i * batch_size
-            batch_end = min((i + 1) * batch_size, num_samples)
+        probs = F.softmax(logits.float(), dim=-1)
+        _, pred_next_token_ids = torch.topk(probs, dim=-1, k=1)
 
-            batch_logits = model._model(batch).logits
-            batch_logits_unmasked = batch_logits[:, offset - 1 : -1]
-            batch_probs = torch.nn.functional.softmax(batch_logits_unmasked, dim=-1)
-            batch_probs = batch_probs.float().cpu().detach().numpy()
+        errs = (input_ids_tensor[:, 1:].cpu() != pred_next_token_ids[:, :-1, 0]).numpy(
+            force=True
+        )
 
-            # Get predictions
-            batch_preds = np.argmax(batch_probs, axis=-1)
-            pred_next_token_ids[batch_start:batch_end] = batch_preds
+        probs_on_correct = np.zeros_like(input_ids_tensor[:, 1:].numpy(force=True))
+        _, seq_len, n_vocab = probs.shape
+        probs_on_correct = np.zeros((num_samples, seq_len - 1))
+        for b in range(num_samples):
+            for s in range(seq_len - 1):
+                probs_on_correct[b, s] = probs[b, s, input_ids_tensor[b, s + 1]]
 
-            # Get probabilities of correct tokens
-            for b in range(len(batch)):
-                for s in range(n_targets):
-                    probs_on_correct[batch_start + b, s] = batch_probs[
-                        b,
-                        s,
-                        input_ids[
-                            batch_start + b,
-                            s + offset,
-                        ],
-                    ]
-
-        errs = np.not_equal(
-            input_ids[:, offset:],
-            pred_next_token_ids,
-        ).astype(float)
+        T_range = range(
+            self._seg_len * self._ignore_segment + self._ignore_burning - 1,
+            self._rep * self._seg_len - 1,
+        )
+        probs_on_correct = probs_on_correct[:, T_range]
+        errs = errs[:, T_range]
 
         result = result_api.CopyingResult(
             task_details=self.get_task_details(),

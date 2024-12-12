@@ -155,7 +155,7 @@ def load_projection_results(model_name, component, type):
     with open(result_path, "r") as f:
         results = json.load(f)
 
-    results = [result_api.ICLResult(**r) for r in results]
+    results = [result_api.IOIResult(**r) for r in results]
     d_model = results[0].model_details["hidden_size"]
     K = max(50, int(0.05 * d_model / 10) * 10)
 
@@ -261,7 +261,7 @@ def load_scaling_results(model_name, type):
     with open(result_path, "r") as f:
         results = json.load(f)
 
-    results = [result_api.ICLResult(**r) for r in results]
+    results = [result_api.IOIResult(**r) for r in results]
 
     d = {"top_ih": {}, "random": {}}
     for result in results:
