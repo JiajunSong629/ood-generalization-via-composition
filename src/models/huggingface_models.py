@@ -14,7 +14,6 @@ from src.config import (
 )
 
 from transformers import BitsAndBytesConfig
-from pdb import set_trace as pds
 
 # squelch some excessive logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
@@ -57,17 +56,33 @@ class HFModel:
                 attn_implementation="eager",
                 output_attentions=True,
             )
+        elif "70b" in self._hf_name or "70B" in self._hf_name:
+            # TODO: this is currently a hack that we reduce the outputs of attentions for 70B models
+            # inferencing 70B models with output_attentions=True on NVIDIA A100 GPUs gets OOM
+            # Since we only needs the att outputs for induction head and previous token head calculation
+            # This means for 70B modelswe need to do two steps:
+            # 1. manually gets the induction heads and previous token heads
+            # 2. run the model with output_attentions=False
+            self._model = model_class.from_pretrained(
+                self._hf_name,
+                local_files_only=False,
+                pad_token_id=self._tokenizer.eos_token_id,
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                output_attentions=False,
+                device_map="auto",  # let accelerate handle the device placement
+            )
         else:
-            if "70b" in self._hf_name or "70B" in self._hf_name:
-                self._model = model_class.from_pretrained(
-                    self._hf_name,
-                    local_files_only=False,
-                    pad_token_id=self._tokenizer.eos_token_id,
-                    torch_dtype=self._torch_dtype,
-                    attn_implementation="eager",
-                    output_attentions=True,
-                    device_map=self._device,
-                )
+            self._model = model_class.from_pretrained(
+                self._hf_name,
+                local_files_only=True,
+                pad_token_id=self._tokenizer.eos_token_id,
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                return_dict_in_generate=True,
+                output_attentions=True,
+                device_map=self._device,
+            )
 
         self._model.eval()
         self._model_meta = MODEL_META[self._model_name]
