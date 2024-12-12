@@ -21,10 +21,11 @@ class GenerationExampleResult:
 
 
 class FuzzyCopyTask(task_api.Task):
-    def __init__(self, setting: str, num_shots: int):
+    def __init__(self, setting: str, num_shots: int, num_tests: int = 2):
         super().__init__()
         self._setting = setting
         self._num_shots = num_shots
+        self._num_tests = num_tests
 
     def get_task_details(self) -> Dict[str, Any]:
         return {
@@ -32,6 +33,7 @@ class FuzzyCopyTask(task_api.Task):
             "description": "Upper/lower case or Past/Current tense copy task.",
             "setting": self._setting,
             "num_shots": self._num_shots,
+            "num_tests": self._num_tests,
         }
 
     def get_examples(
@@ -45,17 +47,19 @@ class FuzzyCopyTask(task_api.Task):
         prompts, answers = [], []
         for _ in range(num_samples):
             if self._setting == "upper":
-                seq_names = random.choices(CIFAR_NAMES, k=self._num_shots)
+                seq_names = random.choices(
+                    CIFAR_NAMES, k=self._num_shots + self._num_tests
+                )
                 test_names = [name.upper() for name in seq_names]
             elif self._setting == "past":
-                pairs = random.choices(VERB_PAIRS, k=self._num_shots)
+                pairs = random.choices(VERB_PAIRS, k=self._num_shots + self._num_tests)
                 seq_names = [pair[0] for pair in pairs]
                 test_names = [pair[1] for pair in pairs]
             else:
                 raise ValueError(f"Invalid setting: {self._setting}")
 
-            prompt = " ".join(seq_names + test_names[:-1])
-            answer = test_names[-1]
+            prompt = " ".join(seq_names + test_names[: -self._num_tests])
+            answer = " ".join(test_names[-self._num_tests :])
 
             prompts.append(prompt)
             answers.append(answer)
