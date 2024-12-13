@@ -99,9 +99,31 @@ class HFModel:
         return self._model_meta
 
     def _get_heads_list(self):
-        from src.tasks.copying.task import make_input_ids
+        def make_input_ids(
+            num_samples,
+            seg_len,
+            rep,
+            vocab_size,
+            prepend_bos=False,
+            bos=None,
+        ):
+            np.random.seed(2024)
+            # draw batch of random tokens and make repetitions
+            sample_int = np.random.randint(
+                low=0, high=vocab_size, size=num_samples * seg_len
+            ).reshape(num_samples, seg_len)
+            sample_int = np.concatenate(tuple([sample_int] * rep), axis=1)
 
-        seg_len, rep = 25, 3
+            if prepend_bos:
+                sample_int = np.hstack(
+                    [bos * np.ones((num_samples, 1), dtype=int), sample_int]
+                )
+
+            input_ids = torch.Tensor(sample_int).long()
+
+            return input_ids
+
+        seg_len, rep = 25, 2
         EPSILON = 1e-6
 
         input_ids = make_input_ids(
