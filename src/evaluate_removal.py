@@ -8,7 +8,7 @@ import dataclasses
 from src.config import TASK_CONFIGS, REMOVAL_CONFIGS
 from src.models.removal_models import HeadRemovalModel
 from src.models.huggingface_models import HFModel
-from pdb import set_trace as pds
+
 
 def save_results(
     model_name,

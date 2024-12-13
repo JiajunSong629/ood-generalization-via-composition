@@ -14,12 +14,12 @@ from src.config import (
 )
 
 from transformers import BitsAndBytesConfig
-from pdb import set_trace as pds
 
 # squelch some excessive logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR)
 torch.set_grad_enabled(False)
+
 
 class HFModel:
     def __init__(self, model_name: str, device: str = None, quantize: bool = False):
@@ -32,7 +32,7 @@ class HFModel:
             self._device = MODEL_CLASSES[self._model_name]["device"]
         else:
             self._device = device
-        
+
         self._tokenizer = tokenizer_class.from_pretrained(self._hf_name)
         self._tokenizer.pad_token = self._tokenizer.eos_token
         self._tokenizer.padding_side = "left"
@@ -50,15 +50,20 @@ class HFModel:
                 self._hf_name,
                 local_files_only=True,
                 pad_token_id=self._tokenizer.eos_token_id,
-                device_map=self._device,  # Handles device placement automatically
+                device_map=self._device,
                 quantization_config=quantization_config,
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
                 output_attentions=True,
             )
-        else:
-            if "70b" in self._hf_name or "70B" in self._hf_name:
-                self._model = model_class.from_pretrained(
+        elif "70b" in self._hf_name or "70B" in self._hf_name:
+            # TODO: this is currently a hack that we reduce the outputs of attentions for 70B models
+            # inferencing 70B models with output_attentions=True on NVIDIA A100 GPUs gets OOM
+            # Since we only needs the att outputs for induction head and previous token head calculation
+            # This means for 70B modelswe need to do two steps:
+            # 1. manually gets the induction heads and previous token heads
+            # 2. run the model with output_attentions=False
+            self._model = model_class.from_pretrained(
                 self._hf_name,
                 local_files_only=False,
                 cache_dir="/mnt/external/ckpt/hf_model",
@@ -69,20 +74,12 @@ class HFModel:
                 # low_cpu_mem_usage=True,
                 device_map = "auto"
             )
-            else:
-
-                self._model = model_class.from_pretrained(
-                    self._hf_name,
-                    local_files_only=False,
-                    pad_token_id=self._tokenizer.eos_token_id,
-                    torch_dtype=self._torch_dtype,
-                    attn_implementation="eager",
-                    output_attentions=True,
-                ).to(self._device)
 
         self._model.eval()
         self._model_meta = MODEL_META[self._model_name]
-        self._model_meta.update({"device": self._device, "torch_dtype": str(self._torch_dtype)})
+        self._model_meta.update(
+            {"device": self._device, "torch_dtype": str(self._torch_dtype)}
+        )
 
     @property
     def model_name(self):
@@ -93,9 +90,31 @@ class HFModel:
         return self._model_meta
 
     def _get_heads_list(self):
-        from src.tasks.copying.task import make_input_ids
+        def make_input_ids(
+            num_samples,
+            seg_len,
+            rep,
+            vocab_size,
+            prepend_bos=False,
+            bos=None,
+        ):
+            np.random.seed(2024)
+            # draw batch of random tokens and make repetitions
+            sample_int = np.random.randint(
+                low=0, high=vocab_size, size=num_samples * seg_len
+            ).reshape(num_samples, seg_len)
+            sample_int = np.concatenate(tuple([sample_int] * rep), axis=1)
 
-        seg_len, rep = 25, 3
+            if prepend_bos:
+                sample_int = np.hstack(
+                    [bos * np.ones((num_samples, 1), dtype=int), sample_int]
+                )
+
+            input_ids = torch.Tensor(sample_int).long()
+
+            return input_ids
+
+        seg_len, rep = 25, 2
         EPSILON = 1e-6
 
         input_ids = make_input_ids(

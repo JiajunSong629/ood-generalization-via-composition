@@ -3,9 +3,8 @@ import torch
 from src.tasks.icl.task import ICLTask
 from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
-# from src.tasks.fuzzycopy.task import FuzzyCopyTask
-# from src.tasks.ioi.task import IOITask
-from src.tasks.simple_math.task import SimpleMathTask
+from src.tasks.fuzzycopy.task import FuzzyCopyTask
+from src.tasks.ioi.task import IOITask
 from src.tasks.gsm_tiny.task import GSMTinyTask
 
 MAX_LENGTH = 2048
@@ -392,63 +391,49 @@ TASK_CONFIGS = {
         "model_kwargs": {"quantize": False},
         "additional_params": ["10"],
     },
-    # "fuzzycopy": {
-    #     "task_class": FuzzyCopyTask,
-    #     "task_kwargs": {
-    #         "setting": "upper",
-    #         "num_shots": 8,
-    #         "num_tests": 2,
-    #     },
-    #     "eval_kwargs": {
-    #         "num_samples": 100,
-    #         "task_random_seed": 1234,
-    #     },
-    #     "model_kwargs": {"quantize": False},
-    #     "additional_params": ["upper", "8"],
-    # },
-    # "ioi": {
-    #     "task_class": IOITask,
-    #     "task_kwargs": {
-    #         "setting": "symbol",
-    #         "num_beams": 5,
-    #         "num_outputs": 3,
-    #         "max_new_tokens": 5,
-    #     },
-    #     "eval_kwargs": {
-    #         "num_samples": 100,
-    #         "task_random_seed": 42,  # in zhuoyan's version, seed is 42
-    #     },
-    #     "model_kwargs": {"quantize": False},
-    #     "additional_params": ["symbol"],
-    # },
-    # "ioi-original": {
-    #     "task_class": IOITask,
-    #     "task_kwargs": {
-    #         "setting": "original",
-    #         "num_beams": 5,
-    #         "num_outputs": 3,
-    #         "max_new_tokens": 5,
-    #     },
-    #     "eval_kwargs": {
-    #         "num_samples": 100,
-    #         "task_random_seed": 42,  # in zhuoyan's version, seed is 42
-    #     },
-    #     "model_kwargs": {"quantize": False},
-    #     "additional_params": ["original"],
-    # },
-    "simple_math": {
-        "task_class": SimpleMathTask,
+    "fuzzycopy": {
+        "task_class": FuzzyCopyTask,
         "task_kwargs": {
-            "num_shots": 4,
-            "setting": "symbol",
-            "max_new_tokens": 80,
+            "setting": "upper",
+            "num_shots": 8,
+            "num_tests": 2,
         },
         "eval_kwargs": {
             "num_samples": 100,
-            "task_random_seed": 42,
+            "task_random_seed": 1234,
         },
         "model_kwargs": {"quantize": False},
-        "additional_params": ["symbol", "4"],
+        "additional_params": ["upper", "8"],
+    },
+    "ioi": {
+        "task_class": IOITask,
+        "task_kwargs": {
+            "setting": "symbol",
+            "num_beams": 5,
+            "num_outputs": 3,
+            "max_new_tokens": 5,
+        },
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,  # in zhuoyan's version, seed is 42
+        },
+        "model_kwargs": {"quantize": False},
+        "additional_params": ["symbol"],
+    },
+    "ioi-original": {
+        "task_class": IOITask,
+        "task_kwargs": {
+            "setting": "original",
+            "num_beams": 5,
+            "num_outputs": 3,
+            "max_new_tokens": 5,
+        },
+        "eval_kwargs": {
+            "num_samples": 100,
+            "task_random_seed": 42,  # in zhuoyan's version, seed is 42
+        },
+        "model_kwargs": {"quantize": False},
+        "additional_params": ["original"],
     },
     "gsm_tiny": {
         "task_class": GSMTinyTask,
