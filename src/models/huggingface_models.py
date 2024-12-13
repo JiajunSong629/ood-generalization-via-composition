@@ -61,10 +61,12 @@ class HFModel:
                 self._model = model_class.from_pretrained(
                 self._hf_name,
                 local_files_only=False,
+                cache_dir="/mnt/external/ckpt/hf_model",
                 pad_token_id=self._tokenizer.eos_token_id,
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
                 output_attentions=False,
+                # low_cpu_mem_usage=True,
                 device_map = "auto"
             )
             else:

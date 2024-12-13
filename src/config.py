@@ -32,6 +32,13 @@ MODEL_CLASSES = {
         "device": "cuda",
         "torch_dtype": torch.bfloat16,
     },
+    "llama2-70b": {
+        "lm": transformers.LlamaForCausalLM,
+        "tokenizer": transformers.AutoTokenizer,
+        "hf_name": "meta-llama/Llama-2-70b-hf",
+        "device": "cuda",
+        "torch_dtype": torch.bfloat16,
+    },
     "llama3-8b": {
         "lm": transformers.LlamaForCausalLM,
         "tokenizer": transformers.AutoTokenizer,
@@ -43,6 +50,8 @@ MODEL_CLASSES = {
         "lm": transformers.LlamaForCausalLM,
         "tokenizer": transformers.AutoTokenizer,
         "hf_name": "meta-llama/Meta-Llama-3-70B-Instruct",
+        "device": "cuda",
+        "torch_dtype": torch.bfloat16,
     },
     "gemma-7b": {
         "lm": transformers.GemmaForCausalLM,
@@ -170,6 +179,16 @@ MODEL_META = {
         "head_dim": 128,
         "bos_token_id": 1,
     },
+    "llama2-70b": {
+        "model_name": "llama2-70b",
+        "vocab_size": 32000,
+        "num_layers": 80,
+        "num_heads": 64,
+        "num_key_value_heads": 8,
+        "hidden_size": 8192,
+        "head_dim": 128,
+        "bos_token_id": 1,
+    },
     "llama3-8b": {
         "model_name": "llama3-8b",
         "vocab_size": 128256,
@@ -178,6 +197,7 @@ MODEL_META = {
         "num_key_value_heads": 8,
         "hidden_size": 4096,
         "head_dim": 128,
+        "bos_token_id": 128000,
     },
     "llama3-70b": {
         "model_name": "llama3-70b",
@@ -187,7 +207,7 @@ MODEL_META = {
         "num_key_value_heads": 8,
         "hidden_size": 8192,
         "head_dim": 128,
-        "bos_token_id": 1,
+        "bos_token_id": 128000,
     },
     "gemma-7b": {
         "model_name": "gemma-7b",
@@ -499,6 +519,7 @@ REMOVAL_CONFIGS = {
     "gpt2-xl": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "llama2-7b": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "llama3-8b": {"n_heads": [0, 10, 20, 30, 40, 50]},
+    "llama2-70b": {"n_heads": [0, 50, 100, 150, 200, 250]},
     "llama3-70b": {"n_heads": [0, 50, 100, 150, 200, 250]},
     "gemma-7b": {"n_heads": [0, 10, 20, 30, 40, 50]},
     "gemma2-9b": {"n_heads": [0, 10, 20, 30, 40, 50]},
