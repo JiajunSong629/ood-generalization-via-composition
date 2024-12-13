@@ -136,6 +136,13 @@ class HFModel:
         )
         input_ids = torch.Tensor(input_ids).long().to(self._device)
 
+        # manually set seed to align with the seed used
+        # to generate the heads list
+        torch.manual_seed(2024)
+        torch.cuda.manual_seed_all(2024)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
         for i in range(input_ids.size(0)):
             cur_batch_input_ids = input_ids[i : i + 1]
             cur_attentions = self._model(cur_batch_input_ids).attentions
