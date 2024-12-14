@@ -4,10 +4,39 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import dataclasses
+import logging
+import sys
+import datetime
 
 from src.config import TASK_CONFIGS, REMOVAL_CONFIGS
 from src.models.removal_models import HeadRemovalModel
 from src.models.huggingface_models import HFModel
+
+
+def configure_logging():
+    # Configure logging
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs("logs", exist_ok=True)
+    log_file = f"logs/run_{timestamp}.log"
+
+    # Create logger
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+
+    # Create handlers
+    console_handler = logging.StreamHandler(sys.stdout)
+    file_handler = logging.FileHandler(log_file)
+
+    # Create formatters
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    console_handler.setFormatter(formatter)
+    file_handler.setFormatter(formatter)
+
+    # Add handlers to logger
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
 
 
 def save_results(
@@ -44,9 +73,14 @@ def save_results(
 def evaluate_model_with_masking(
     base_model,
     task,
+    logger,
     **task_kwargs,
 ):
     """Common evaluation logic for masking experiments"""
+    logger.info("========= Evaluating Model with Masking ==========")
+    logger.info(f"Model: {base_model.model_name}")
+    logger.info(f"Task: {task.get_task_details()}")
+
     removal_config = REMOVAL_CONFIGS[base_model.model_name]
 
     aggregated_results = []
@@ -57,8 +91,8 @@ def evaluate_model_with_masking(
         # remove top induction heads
         removal_model.mask_top_ih(n_head)
         result = task.evaluate_model(removal_model, **task_kwargs)
-        print("======== MASK", n_head, "TOP IH HEADS")
-        print(result)
+        logger.info(f"======== MASK {n_head} TOP IH HEADS")
+        logger.info(result)
         aggregated_results.append(result)
         removal_model.revert()
 
@@ -69,8 +103,8 @@ def evaluate_model_with_masking(
         for seed in REMOVAL_CONFIGS["random_seeds"]:
             removal_model.mask_random(n_head, seed)
             result = task.evaluate_model(removal_model, **task_kwargs)
-            print("======== MASK", n_head, "RANDOM HEADS")
-            print(result)
+            logger.info(f"======== MASK {n_head} RANDOM HEADS")
+            logger.info(result)
 
             aggregated_results.append(result)
             removal_model.revert()
@@ -81,6 +115,8 @@ def evaluate_model_with_masking(
 def main(model_names: str, task_name: str):
     task_config = TASK_CONFIGS[task_name]
 
+    logger = configure_logging()
+
     for model_name in model_names.split(","):
         removal_config = REMOVAL_CONFIGS[model_name]
         base_model = HFModel(model_name=model_name, **task_config["model_kwargs"])
@@ -88,6 +124,7 @@ def main(model_names: str, task_name: str):
         results = evaluate_model_with_masking(
             base_model=base_model,
             task=task,
+            logger=logger,
             **task_config["eval_kwargs"],
         )
 

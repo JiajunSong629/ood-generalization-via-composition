@@ -3,10 +3,39 @@ import json
 import copy
 from typing import List, Dict, Any, Tuple
 import dataclasses
+import logging
+import sys
+import datetime
 
 from src.models.huggingface_models import HFModel
 from src.models.proj_models import ProjectModel
 from src.config import PROJECT_CONFIGS, TASK_CONFIGS, MODEL_META
+
+
+def configure_logging():
+    # Configure logging
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs("logs", exist_ok=True)
+    log_file = f"logs/run_{timestamp}.log"
+
+    # Create logger
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+
+    # Create handlers
+    console_handler = logging.StreamHandler(sys.stdout)
+    file_handler = logging.FileHandler(log_file)
+
+    # Create formatters
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    console_handler.setFormatter(formatter)
+    file_handler.setFormatter(formatter)
+
+    # Add handlers to logger
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
 
 
 def save_results(
@@ -77,10 +106,15 @@ def evaluate_model_with_projection(
     component: str,
     ranks: List[int],
     proj_config,
+    logger,
     **task_kwargs,
 ):
-    print("========= MODEL ==========")
-    print(base_model.model_meta)
+    logger.info("========= MODEL Projection ==========")
+    logger.info(base_model.model_meta)
+    logger.info(f"Task: {task.get_task_details()}")
+    logger.info(f"Component: {component}")
+    logger.info(f"Ranks: {ranks}")
+    logger.info(f"Project Config: {proj_config}")
 
     """Common evaluation logic for all tasks"""
     layer_head_pairs, projected_layer_head_pairs = get_projection_heads(
@@ -101,14 +135,16 @@ def evaluate_model_with_projection(
             result = task.evaluate_model(model=proj_model, **task_kwargs)
             aggregated_results.append(result)
 
-            print(f"========= Rank {rank} {project_out} ==========")
-            print(result)
+            logger.info(f"========= Rank {rank} {project_out} ==========")
+            logger.info(result)
             proj_model.revert()
 
     return aggregated_results
 
 
 def main(model_names: str, task_name: str):
+    logger = configure_logging()
+
     task_config = TASK_CONFIGS[task_name]
     proj_config = PROJECT_CONFIGS[task_name]
     for model_name in model_names.split(","):
@@ -123,6 +159,7 @@ def main(model_names: str, task_name: str):
                 component=component,
                 ranks=proj_ranks,
                 proj_config=proj_config,
+                logger=logger,
                 **task_config["eval_kwargs"],
             )
 

@@ -4,11 +4,39 @@ import gc
 import torch
 import numpy as np
 from typing import List
+import logging
+import sys
+import datetime
 
 from src.models.huggingface_models import HFModel
 from src.models.shuffle_models import ShuffleModel
-
 from src.config import TASK_CONFIGS, SHUFFLE_CONFIGS
+
+
+def configure_logging():
+    # Configure logging
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs("logs", exist_ok=True)
+    log_file = f"logs/run_{timestamp}.log"
+
+    # Create logger
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+
+    # Create handlers
+    console_handler = logging.StreamHandler(sys.stdout)
+    file_handler = logging.FileHandler(log_file)
+
+    # Create formatters
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    console_handler.setFormatter(formatter)
+    file_handler.setFormatter(formatter)
+
+    # Add handlers to logger
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
 
 
 def save_results(base_model, task_name, component, results, additional_params=None):
@@ -31,8 +59,16 @@ def evaluate_model_with_shuffling(
     component: str,
     shuffle_n_heads: int,
     shuffle_seeds: List[int],
+    logger: logging.Logger,
     **task_kwargs,
 ):
+    logger.info("========= Evaluating Model with Shuffling ==========")
+    logger.info(f"Model: {base_model.model_name}")
+    logger.info(f"Task: {task.get_task_details()}")
+    logger.info(f"Component: {component}")
+    logger.info(f"Shuffle n heads: {shuffle_n_heads}")
+    logger.info(f"Shuffle seeds: {shuffle_seeds}")
+
     """Common evaluation logic for all tasks"""
     # Select heads based on component
     induction_heads = base_model.diagonal_induction_heads
@@ -46,8 +82,8 @@ def evaluate_model_with_shuffling(
     # Evaluate original model
     result = task.evaluate_model(model=base_model, **task_kwargs)
     aggregated_results.append(result)
-    print("========= Original ==========")
-    print(result)
+    logger.info("========= Original ==========")
+    logger.info(result)
 
     # Evaluate shuffled models
     for shuffle_seed in shuffle_seeds:
@@ -61,8 +97,8 @@ def evaluate_model_with_shuffling(
         shuffle_model.shuffle_inside(component=component)
         result = task.evaluate_model(model=shuffle_model, **task_kwargs)
 
-        print(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
-        print(result)
+        logger.info(f"========= Shuffled Inside Seed {shuffle_seed} ==========")
+        logger.info(result)
         aggregated_results.append(result)
 
         shuffle_model.revert()
@@ -70,8 +106,8 @@ def evaluate_model_with_shuffling(
         # Outside shuffle
         shuffle_model.shuffle_outside(component=component)
         result = task.evaluate_model(model=shuffle_model, **task_kwargs)
-        print(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
-        print(result)
+        logger.info(f"========= Shuffled Outside Seed {shuffle_seed} ==========")
+        logger.info(result)
         aggregated_results.append(result)
 
         shuffle_model.revert()
@@ -81,6 +117,8 @@ def evaluate_model_with_shuffling(
 
 def main(model_names: str, task_name: str):
     task_config = TASK_CONFIGS[task_name]
+
+    logger = configure_logging()
 
     for model_name in model_names.split(","):
         base_model = HFModel(model_name, device="cuda", **task_config["model_kwargs"])
@@ -92,6 +130,7 @@ def main(model_names: str, task_name: str):
                 component=component,
                 shuffle_n_heads=SHUFFLE_CONFIGS["shuffle_n_heads"],
                 shuffle_seeds=SHUFFLE_CONFIGS["shuffle_seeds"],
+                logger=logger,
                 **task_config["eval_kwargs"],
             )
 
