@@ -30,8 +30,7 @@ class CopyingResult(BaseResult):
     errs: List[float]
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] CopyingResult(acc={1 - self.err:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']}] CopyingResult(acc={1 - self.err:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -44,8 +43,7 @@ class ICLResult(BaseResult):
     prob: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] ICLResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']}] ICLResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -57,8 +55,7 @@ class FuzzyCopyResult(BaseResult):
     prob: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] FuzzyCopyResult(acc={self.acc:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']}] FuzzyCopyResult(acc={self.acc:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -71,8 +68,7 @@ class IOIResult(BaseResult):
     prob: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] IOIResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
+        return f"[{self.model_details['model_name']}] IOIResult(acc_generation={self.acc_generation:.2f}, acc_multiple_choice={self.acc_multiple_choice:.2f}, prob={self.prob:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -83,8 +79,7 @@ class GSMResult(BaseResult):
     acc: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] GSMResult(acc={self.acc:.2f})"
+        return f"[{self.model_details['model_name']}] GSMResult(acc={self.acc:.2f})"
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -95,8 +90,9 @@ class SimpleMathResult(BaseResult):
     acc: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] SimpleMathResult(acc={self.acc:.2f})"
+        return (
+            f"[{self.model_details['model_name']}] SimpleMathResult(acc={self.acc:.2f})"
+        )
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -107,5 +103,4 @@ class GSMTinyResult(BaseResult):
     acc: float
 
     def __repr__(self) -> str:
-        time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        return f"[{self.model_details['model_name']} | {time_str}] GSMTinyResult(acc={self.acc:.2f})"
+        return f"[{self.model_details['model_name']}] GSMTinyResult(acc={self.acc:.2f})"
