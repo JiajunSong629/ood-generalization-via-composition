@@ -95,8 +95,11 @@ class HeadRemovalModel:
         """Replace attention modules with masked versions"""
         found_modules = 0
         for name, module in self._model.named_modules():
+            print(f"Running on NAME {name} MODULECLASSNAME {module.__class__.__name__}")
+            print("     attention in module", "Attention" in module.__class__.__name__)
             if "Attention" in module.__class__.__name__:
                 layer_idx = self._extract_layer_idx(name)
+                print("     extracting layer idx", layer_idx)
                 if layer_idx is not None and (1 - self.head_mask[layer_idx]).sum() > 0:
                     found_modules += 1
                     # Get the corresponding Ada class
@@ -114,6 +117,13 @@ class HeadRemovalModel:
                             f"Please implement it for {original_class.__name__}"
                         )
 
+                    print(
+                        "    found module to replace: at layer",
+                        layer_idx,
+                        ada_class_name,
+                        " ==>",
+                        original_class.__name__,
+                    )
                     # Replace the module
                     parent_name, child_name = name.rsplit(".", 1)
                     parent = self._model.get_submodule(parent_name)
@@ -124,6 +134,8 @@ class HeadRemovalModel:
                     # Create and set new module
                     new_module = ada_class(module, layer_idx, self.head_mask)
                     setattr(parent, child_name, new_module)
+
+        print("Total modules replaced:", found_modules)
 
     def _extract_layer_idx(self, module_name: str) -> Optional[int]:
         """Extract layer index from module name"""

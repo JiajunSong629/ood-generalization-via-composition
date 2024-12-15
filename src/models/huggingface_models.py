@@ -72,7 +72,17 @@ class HFModel:
                 attn_implementation="eager",
                 output_attentions=False,
                 # low_cpu_mem_usage=True,
-                device_map = "auto"
+                device_map="auto",
+            )
+        else:
+            self._model = model_class.from_pretrained(
+                self._hf_name,
+                local_files_only=False,
+                pad_token_id=self._tokenizer.eos_token_id,
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                output_attentions=True,
+                device_map="auto",
             )
 
         self._model.eval()
