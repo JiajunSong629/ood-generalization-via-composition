@@ -1,5 +1,6 @@
 import torch
 import importlib
+import functools
 import copy
 import random
 import numpy as np
@@ -51,7 +52,7 @@ class HeadRemovalModel:
         # Create head mask tensor
         num_layers = self._model_meta["num_layers"]
         num_heads = self._model_meta["num_heads"]
-        self.head_mask = torch.ones(num_layers, num_heads, device=self._device)
+        self.head_mask = torch.ones(num_layers, num_heads)
 
         # Mask out specified heads
         for layer_idx, head_idx in layer_head_pairs:
@@ -95,11 +96,8 @@ class HeadRemovalModel:
         """Replace attention modules with masked versions"""
         found_modules = 0
         for name, module in self._model.named_modules():
-            print(f"Running on NAME {name} MODULECLASSNAME {module.__class__.__name__}")
-            print("     attention in module", "Attention" in module.__class__.__name__)
             if "Attention" in module.__class__.__name__:
                 layer_idx = self._extract_layer_idx(name)
-                print("     extracting layer idx", layer_idx)
                 if layer_idx is not None and (1 - self.head_mask[layer_idx]).sum() > 0:
                     found_modules += 1
                     # Get the corresponding Ada class
@@ -117,13 +115,6 @@ class HeadRemovalModel:
                             f"Please implement it for {original_class.__name__}"
                         )
 
-                    print(
-                        "    found module to replace: at layer",
-                        layer_idx,
-                        ada_class_name,
-                        " ==>",
-                        original_class.__name__,
-                    )
                     # Replace the module
                     parent_name, child_name = name.rsplit(".", 1)
                     parent = self._model.get_submodule(parent_name)
@@ -133,6 +124,26 @@ class HeadRemovalModel:
 
                     # Create and set new module
                     new_module = ada_class(module, layer_idx, self.head_mask)
+
+                    # Handle Acclerate's hooks and wrapped forward
+                    if hasattr(module, "_forward_hooks"):
+                        new_module._forward_hooks = module._forward_hooks
+                    if hasattr(module, "_forward_pre_hooks"):
+                        new_module._forward_pre_hooks = module._forward_pre_hooks
+                    if hasattr(module, "_backward_hooks"):
+                        new_module._backward_hooks = module._backward_hooks
+
+                    # If the original module has a wrapped forward, we need to wrap our new forward
+                    if isinstance(module.forward, functools.partial):
+                        original_forward = module.forward
+                        # Get the hook function (first argument of partial)
+                        hook_fn = original_forward.func
+                        # Get the original module (second argument of partial)
+                        orig_module = original_forward.args[0]
+                        # Create new partial with our module
+                        new_module._old_forward = new_module.forward
+                        new_module.forward = functools.partial(hook_fn, new_module)
+
                     setattr(parent, child_name, new_module)
 
         print("Total modules replaced:", found_modules)
