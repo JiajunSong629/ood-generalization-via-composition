@@ -74,6 +74,23 @@ class HFModel:
                 # low_cpu_mem_usage=True,
                 device_map="auto",
             )
+
+        elif False:
+            # A nice way to test the parallel implementation with Accelerate
+            # when you don't have multiple GPUs
+            self._model = model_class.from_pretrained(
+                self._hf_name,
+                local_files_only=False,
+                pad_token_id=self._tokenizer.eos_token_id,
+                torch_dtype=self._torch_dtype,
+                attn_implementation="eager",
+                output_attentions=True,
+                device_map="auto",  # test out parallel
+                max_memory={
+                    0: "8GiB",  # First virtual partition
+                    "cpu": "8GiB",  # Second virtual partition
+                },
+            )
         else:
             self._model = model_class.from_pretrained(
                 self._hf_name,
@@ -82,7 +99,7 @@ class HFModel:
                 torch_dtype=self._torch_dtype,
                 attn_implementation="eager",
                 output_attentions=True,
-                device_map="auto",
+                device_map=self._device,
             )
 
         self._model.eval()

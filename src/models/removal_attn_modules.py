@@ -31,7 +31,8 @@ class AdaGPT2Attention(GPT2Attention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -122,7 +123,8 @@ class AdaGemmaAttention(GemmaAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -224,7 +226,8 @@ class AdaGemma2Attention(Gemma2Attention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -334,7 +337,8 @@ class AdaLlamaAttention(LlamaAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -491,7 +495,8 @@ class AdaGPTNeoXAttention(GPTNeoXAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -558,7 +563,8 @@ class AdaMistralAttention(MistralAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -659,7 +665,8 @@ class AdaFalconAttention(FalconAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
@@ -874,7 +881,8 @@ class AdaOlmoAttention(OlmoAttention):
             original_attention.config, layer_idx=original_attention.layer_idx
         )
         for name, value in vars(original_attention).items():
-            setattr(self, name, value)
+            if name != "forward":
+                setattr(self, name, value)
 
         self.mask_layer_idx = mask_layer_idx
         self.head_mask = head_mask
