@@ -11,7 +11,7 @@ import src.api.result as result_api
 
 RESULTS_DIR = os.path.join("results")
 FIGURES_DIR = os.path.join("figures")
-IGNORE_MODELS = ["gpt2", "gpt2-xl", "gemma-7b"]
+IGNORE_MODELS = ["gpt2", "gpt2-xl", "gemma-7b", "gemma2-9b", "pythia-7b"]
 
 
 os.makedirs(FIGURES_DIR, exist_ok=True)
@@ -194,7 +194,9 @@ def plot_projection_results(d, component, type):
 
         p1 = ax.scatter(
             (baseline - proj_true) / baseline,
-            (baseline - proj_false) / baseline,
+            max(
+                (baseline - proj_false) / baseline, 0.05
+            ),  # if proj_false is greater than baseline, set to 0.05
             marker="+",
             s=100,
             color=colors[i],

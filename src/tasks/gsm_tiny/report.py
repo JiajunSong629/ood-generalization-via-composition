@@ -51,7 +51,6 @@ def load_removal_results(model_name, type):
             d[f"seed{masked_seed}"][masked_n_heads] = getattr(result, type)
         elif masked_method == "top_ih":
             d["top_ih"][masked_n_heads] = getattr(result, type)
-
     return d
 
 
@@ -144,6 +143,22 @@ def main_removal():
         json.dump(d_removal, f, indent=4)
 
     print(not_found)
+
+    for model_name, model_data in d_removal.items():
+        print(model_name)
+        model_data = model_data["acc"]
+        masked_heads = list(model_data["top_ih"].keys())
+        for head in masked_heads:
+
+            print(f"Head {head}")
+            print(f"Top IH {model_data['top_ih'][head]:.2f}")
+            if head != 0:
+                accs = [
+                    model_data[seed][head] for seed in model_data if seed != "top_ih"
+                ]
+                print(f"Random {np.mean(accs):.2f}")
+
+        print("-" * 100)
 
     plot_removal(d_removal, "acc")
 
