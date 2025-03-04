@@ -34,7 +34,7 @@ def load_removal_results(model_name, type):
     with open(result_path, "r") as f:
         results = json.load(f)
 
-    results = [result_api.GSMTinyResult(**r) for r in results]
+    results = [result_api.GSMRandResult(**r) for r in results]
 
     d = defaultdict(dict)
     for result in results:

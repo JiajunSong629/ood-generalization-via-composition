@@ -8,7 +8,7 @@ import src.api.task as task
 import src.api.model as model
 import src.api.result as result_api
 
-from src.tasks.gsm_tiny.template import generate_task_with_context
+from src.tasks.gsm_rand.template import generate_task_with_context
 
 
 @dataclasses.dataclass
@@ -24,7 +24,7 @@ ANS_RE = re.compile(r"#### (\-?[0-9\.\,]+)")
 INVALID_ANS = "[invalid]"
 
 
-class GSMTinyTask(task.Task):
+class GSMRandTask(task.Task):
     def __init__(
         self,
         num_shots: Optional[int] = 3,
@@ -42,8 +42,8 @@ class GSMTinyTask(task.Task):
 
     def get_task_details(self) -> task.TaskMetadata:
         return {
-            "name": "gsm_tiny",
-            "description": "GSM Tiny word problems",
+            "name": "gsm_rand",
+            "description": "GSM word problems with randomizations on names or numbers",
             "num_shots": self._num_shots,
             "num_outputs": self._num_outputs,
             "max_new_tokens": self._max_new_tokens,
@@ -111,7 +111,7 @@ class GSMTinyTask(task.Task):
             )
             acc += cur_result
 
-        result = result_api.GSMTinyResult(
+        result = result_api.GSMRandResult(
             model_details=copy.deepcopy(model.model_meta),
             task_details=self.get_task_details(),
             acc=acc / num_samples,

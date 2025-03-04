@@ -96,11 +96,11 @@ class SimpleMathResult(BaseResult):
 
 
 @dataclasses.dataclass(kw_only=True)
-class GSMTinyResult(BaseResult):
+class GSMRandResult(BaseResult):
     num_samples: int
     random_seed: int
     examples: List[Dict[str, Any]]
     acc: float
 
     def __repr__(self) -> str:
-        return f"[{self.model_details['model_name']}] GSMTinyResult(acc={self.acc:.2f})"
+        return f"[{self.model_details['model_name']}] GSMRandResult(acc={self.acc:.2f})"

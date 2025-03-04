@@ -5,7 +5,7 @@ from src.tasks.copying.task import CopyingTask
 from src.tasks.gsm.task import GSMTask
 from src.tasks.fuzzycopy.task import FuzzyCopyTask
 from src.tasks.ioi.task import IOITask
-from src.tasks.gsm_tiny.task import GSMTinyTask
+from src.tasks.gsm_rand.task import GSMRandTask
 
 MAX_LENGTH = 2048
 
@@ -435,8 +435,8 @@ TASK_CONFIGS = {
         "model_kwargs": {"quantize": False},
         "additional_params": ["original"],
     },
-    "gsm_tiny": {
-        "task_class": GSMTinyTask,
+    "gsm_rand": {
+        "task_class": GSMRandTask,
         "task_kwargs": {
             "num_shots": 10,
             "setting": "symbol",
