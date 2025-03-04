@@ -1,6 +1,6 @@
 # OOD Generalization via Composition
 
-This repository contains code necessary to reproduce the experiments and figures in the paper **"Out-of-Distribution Generalization via Composition: a lens through induction heads in Transformers".**
+This repository contains code necessary to reproduce the experiments and figures in the paper [**"Out-of-Distribution Generalization via Composition: a lens through induction heads in Transformers"**](https://www.pnas.org/doi/10.1073/pnas.2417182122).
 
 ## Usage
 
@@ -19,7 +19,7 @@ bash src/scripts/run.sh
 The results will be saved by default under `src/{task}/results/` for each task. You may run `report.py` inside each task directory to generate the figures and summary statistics for the results.
 
 
-## Structure of the import files
+## Structure of the important files
 
 ```
 ├── src/                           # Main source code
@@ -57,11 +57,15 @@ The results will be saved by default under `src/{task}/results/` for each task. 
 ## Citing this work
 
 ```
-@article{song2024out,
+@article{song2025out,
   title={Out-of-distribution generalization via composition: a lens through induction heads in transformers},
   author={Song, Jiajun and Xu, Zhuoyan and Zhong, Yiqiao},
-  journal={arXiv preprint arXiv:2408.09503},
-  year={2024}
+  journal={Proceedings of the National Academy of Sciences},
+  volume={122},
+  number={6},
+  pages={e2417182122},
+  year={2025},
+  publisher={National Academy of Sciences}
 }
 ```
 
